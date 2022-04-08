@@ -1,0 +1,19 @@
+﻿14th Anniversary Gift Ticket, ugly green got to find hue on uo.stratics
+
+The 14th Anniversary ticket allows the choice of one of the following:
+
+    A White Leather Dye Tub
+    A Mannequin Deed                 Old Version before 2019 update.
+    A Virtue Tapestry Deed                      Think the reused these as well.
+    One of 3 types of Grandfather Clock          The reused these clocks
+        Small Grandfather Clock
+        Large Grandfather Clock
+        White Grandfather Clock
+    A Display Case facing South or East
+    One of 4 types of Planter (click Next to see 2nd page)
+        Ancient Stone Planter
+        Grecian Planter
+        Modern Stone Planter
+        Oak Barrel Planter
+
+Upon selecting a gift item, a colored backpack named "14th Anniversary Gift Bag" is placed in the character's main backpack. Inside is the selected gift. 

@@ -1,0 +1,25 @@
+﻿Publish 27 Paragon Creatures
+
+    There will roughly be a 5% chance that any creature in Ilshenar will spawn as a Paragon of its kind. Paragon creatures are intended to enhance play for the Ilshenar facet. They are to provide a challenge to player characters who wish to partake in high end PvM. These creatures will test the mettle of player characters, and the more powerful creature templates are intended to require an adventuring group to battle. For comparison purposes, consider paragon creatures to be mini-champions of evil. In any case, an Ilshenar Champion of Evil will not spawn as a Paragon.
+    Rather than greatly increasing damage output for paragons, they have been given buffs in their speed, regenerative capabilities, and hit points.
+    Whenever a creature in Ilshenar spawns as a paragon, it is granted the following enhancements:
+        Adds (Paragon) as the creature’s job title
+        Hues the creature gold
+        Removes the ability to tame the creature
+        Adds daemon target switching AI to creature
+        Increases poison hit strength by one if it has a poison attack (no greater than 5)
+        Multiplies creature’s maximum hit points by 5
+        Increases strength by 5%, intelligence and dexterity by 20%
+        Increases all skills by 20%
+        Modifies hit point, mana, and stamina base regeneration scaled based on the difficulty of the creature
+        Modifies speed of creature
+        Slightly increases the creature’s natural weapon class
+        Bumps up – or decreases if negative – fame and karma of creature by 40% (doesn’t bump up karma if karma is 0)
+        Will possess extra loot scaled based on its fame level
+        10% chance that a paragon will spawn with a treasure chest equal to the treasure map level that it can possibly possess
+            If it doesn’t have a chance to possess a treasure map, then it doesn’t spawn a treasure chest
+            There are no guardians with these paragon treasure chests
+            Each chest will come in four different chest types, 11 different hues including the default hue, 8 colored ingot hues, Luna bank chest hue, and Umbra bank chest hue, and will possess the description of ‘recovered from (paragon)’. For example: recovered from a dragon (paragon)
+            These chests will contain about 20% of the loot normally found in current treasure chests of the appropriate difficulty level and will always possess a treasure map one level higher than the difficulty level of the chest
+            Unless otherwise stated, these treasure chests will function as current treasure chests (i.e., they’ll be appropriately locked and trapped)
+        Level 6 treasure chests spawn ancient wyrms, balrons, blood elementals, poison elementals, and titans. Level 6 treasure chests will always possess one minor artifact

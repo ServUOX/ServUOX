@@ -1,0 +1,12 @@
+﻿    Publish 27 info
+    
+    Related to Minor Artifacts (Ancient SOS and Fabled Fishing Nets)
+    There is a 1 in 40 chance that any message in a bottle becomes ‘an ancient SOS’ instead of ‘a waterstained sos’ when opened. 
+    Essentially, ‘an ancient SOS’ is a level 4 treasure chest that will always contain a new type of special fishing net called ‘a fabled fishing net’. 
+    When ‘a fabled fishing net’ is used deep in the sea, it will spawn a new sea creature called a leviathan. 
+    Like other special fishing nets, various 
+    sea creatures will also spawn, but in greater number. For comparative purposes, leviathans are equivalent to a 
+    paragon blood elemental in difficulty. Like with paragon creatures, possible minor artifact items may be rewarded 
+    to player characters who battle and defeat these legendary creatures. Along with typical loot, a leviathan always 
+    carries two kinds of ropes and a message in a bottle. It also has a 25% chance to carry a level 5 treasure map.
+
