@@ -1651,7 +1651,6 @@
     <Compile Include="Mechanics\XmlSpawner\XMLSpawner Support\XmlSockets\XmlSocketItems\MagicBasket.cs" />
     <Compile Include="Mechanics\XmlSpawner\XMLSpawner Support\XmlSockets\XmlSocketItems\SocketHammer.cs" />
     <Compile Include="Mechanics\XmlSpawner\XMLSpawner Support\XmlSockets\XmlSocketItems\TestSocketedWeapon.cs" />
-    <Compile Include="Utilities\Replacer.cs" />
     <Compile Include="Utilities\TaskPollingTimer.cs" />
     <Compile Include="Expansion\EJ\Mobiles\Mounts\CoconutCrab.cs" />
     <Compile Include="Expansion\EJ\Mobiles\Mounts\HungryCoconutCrab.cs" />
@@ -9350,7 +9349,7 @@
     <Compile Include="Administration\HardwareInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Utilities\IDynamicEnum.cs">
+    <Compile Include="Administration\Commands\IDynamicEnum.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mechanics\InhumanSpeech.cs">
@@ -10410,17 +10409,6 @@
     <Compile Include="Expansion\HS\Mechanics\PVP Arena System\PVPArena.cs" />
     <Compile Include="Expansion\HS\Mechanics\PVP Arena System\PVPArenaSystem.cs" />
     <Compile Include="Expansion\HS\Mechanics\PVP Arena System\Region.cs" />
-    <Compile Include="Administration\Reports\Persistence\PersistableObject.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Persistence\PersistableObjectCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Persistence\PersistableType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Persistence\PersistenceReader.cs" />
-    <Compile Include="Administration\Reports\Persistence\PersistenceWriter.cs" />
     <Compile Include="Expansion\HS\Mechanics\BlackthornDungeon\BlackthornRewards.cs" />
     <Compile Include="Expansion\HS\Mobiles\BlackthornDungeon\AgentoftheCrown.cs" />
     <Compile Include="Expansion\HS\Mechanics\BlackthornDungeon\Generate.cs" />
@@ -11518,93 +11506,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\RemoteAdmin\RemoteAdminLogging.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Charts\BarGraph.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Charts\Chart.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Charts\ChartItem.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Charts\ChartItemCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Charts\PieChart.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Reports\ItemValue.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Reports\ItemValueCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Reports\Report.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Reports\ReportColumn.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Reports\ReportColumnCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Reports\ReportItem.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Reports\ReportItemCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Snapshots\Snapshot.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Snapshots\SnapshotCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Snapshots\SnapshotHistory.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Staffing\Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Staffing\PageInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Staffing\PageInfoCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Staffing\QueueStatus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Staffing\QueueStatusCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Staffing\ResponseInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Staffing\ResponseInfoCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Objects\Staffing\StaffHistory.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Rendering\BarGraphRenderer.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Rendering\ChartRenderer.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Rendering\DataItem.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Rendering\HtmlRenderer.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Rendering\PieChartRenderer.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\Reports\Reports.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mechanics\Spawner\ProximitySpawner.cs">

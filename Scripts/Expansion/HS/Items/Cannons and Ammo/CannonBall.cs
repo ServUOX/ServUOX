@@ -170,11 +170,6 @@ namespace Server.Items
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-
-            if (Core.EJ)
-            {
-                Replacer.Replace(this, new Cannonball());
-            }
         }
     }
 
@@ -216,11 +211,6 @@ namespace Server.Items
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-
-            if (Core.EJ)
-            {
-                Replacer.Replace(this, new Cannonball());
-            }
         }
     }
 
@@ -255,11 +245,6 @@ namespace Server.Items
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-
-            if (Core.EJ)
-            {
-                Replacer.Replace(this, new FlameCannonball());
-            }
         }
     }
 
@@ -337,11 +322,6 @@ namespace Server.Items
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-
-            if (Core.EJ)
-            {
-                Replacer.Replace(this, new FrostCannonball());
-            }
         }
     }
 
@@ -378,11 +358,6 @@ namespace Server.Items
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-
-            if (Core.EJ)
-            {
-                Replacer.Replace(this, new FrostCannonball());
-            }
         }
     }
 }
