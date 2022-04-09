@@ -809,31 +809,10 @@
     </Compile>
     <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Mobiles\Deprecated\DarkSteed.cs" />
     <Compile Include="Expansion\UOR\Mechanics\Khaldun\Mobiles\AncientLich.cs" />
-    <Compile Include="Mechanics\Deprecated\CreateWorld.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Mechanics\Deprecated\Decorate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Mechanics\Deprecated\DecorateDelete.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Mechanics\Deprecated\DecorateMag.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Mechanics\Deprecated\DecorateSA.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Administration\Commands\Docs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Deprecated\DoorGenDelete.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Administration\Commands\Dupe.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Mechanics\Deprecated\ExportWSC.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\Commands\GenBounds.cs">
@@ -924,9 +903,6 @@
     <Compile Include="Administration\Commands\Generic\Implementors\SingleCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Deprecated\GMbody.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Administration\Commands\Handlers.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -945,12 +921,6 @@
     <Compile Include="Administration\Commands\ShardTime.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Deprecated\SHTelGenDelete.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Mechanics\Deprecated\SignGenDelete.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Administration\Commands\SignParser.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -964,9 +934,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\Commands\TimeStamp.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Mechanics\Deprecated\UnloadMaps.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\Commands\VisibilityList.cs">
@@ -994,8 +961,6 @@
     <Compile Include="Mechanics\Context Menus\TeachEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Deprecated\GamblingStone.cs" />
-    <Compile Include="Mechanics\Deprecated\GMStone.cs" />
     <Compile Include="Mechanics\Gumps\AddCustomizableMessageGump.cs" />
     <Compile Include="Mechanics\Gumps\AddDoorGump.cs">
       <SubType>Code</SubType>
@@ -2899,7 +2864,6 @@
     <Compile Include="Expansion\ML\Items\Aquarium\Rewards\WaterloggedBoots.cs" />
     <Compile Include="Administration\World\Siege.cs" />
     <Compile Include="Mechanics\SpawnerPersistence.cs" />
-    <Compile Include="Administration\UntamedPetsCleaning.cs" />
     <Compile Include="Mechanics\Waypoints.cs" />
     <Compile Include="Utilities\WorldLocationInfo.cs" />
     <Compile Include="Mechanics\AI\Magical AI\MageAI.cs" />
@@ -5847,9 +5811,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UO\Items\Provision\Food and Drink\CookableFood.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Mechanics\Deprecated\UtilityItem Delete me I think.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Items\Food and Drinks\EnchantedApple.cs">
@@ -9302,9 +9263,6 @@
     <Compile Include="Mechanics\DispellableAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Deprecated\DoorGenerator.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Administration\Email.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -9416,9 +9374,6 @@
     <Compile Include="Administration\ServerList.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Deprecated\ShardPoller.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Mechanics\ShrinkTable.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -9442,9 +9397,6 @@
     </Compile>
     <Compile Include="Utilities\WeakEntityCollection.cs" />
     <Compile Include="Administration\World\Weather.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\WebStatus.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mechanics\WeightOverloading.cs">
