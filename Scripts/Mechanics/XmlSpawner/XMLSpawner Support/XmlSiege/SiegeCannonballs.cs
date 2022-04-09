@@ -40,16 +40,16 @@ namespace Server.Items
 		}
 	}
 
-	public class LightCannonball : SiegeCannonball
+	public class SiegeLightCannonball : SiegeCannonball
 	{
-		[Constructable]
-		public LightCannonball()
+		[Constructible]
+		public SiegeLightCannonball()
 			: this(1)
 		{
 		}
 
-		[Constructable]
-		public LightCannonball(int amount)
+		[Constructible]
+		public SiegeLightCannonball(int amount)
 			: base(amount)
 		{
 			Range = 17;
@@ -61,7 +61,7 @@ namespace Server.Items
 			Name = "Light Cannonball";
 		}
 
-		public LightCannonball(Serial serial)
+		public SiegeLightCannonball(Serial serial)
 			: base(serial)
 		{
 		}
@@ -91,13 +91,13 @@ namespace Server.Items
 
 	public class IronCannonball : SiegeCannonball
 	{
-		[Constructable]
+		[Constructible]
 		public IronCannonball()
 			: this(1)
 		{
 		}
 
-		[Constructable]
+		[Constructible]
 		public IronCannonball(int amount)
 			: base(amount)
 		{
@@ -140,13 +140,13 @@ namespace Server.Items
 
 	public class ExplodingCannonball : SiegeCannonball
 	{
-		[Constructable]
+		[Constructible]
 		public ExplodingCannonball()
 			: this(1)
 		{
 		}
 
-		[Constructable]
+		[Constructible]
 		public ExplodingCannonball(int amount)
 			: base(amount)
 		{
@@ -194,13 +194,13 @@ namespace Server.Items
 		public override int AnimationID { get { return 0x36D4; } }
 		public override int AnimationHue { get { return 0; } }
 
-		[Constructable]
+		[Constructible]
 		public FieryCannonball()
 			: this(1)
 		{
 		}
 
-		[Constructable]
+		[Constructible]
 		public FieryCannonball(int amount)
 			: base(amount)
 		{
@@ -247,13 +247,13 @@ namespace Server.Items
 		// only does damage to mobiles
 		public override double StructureDamageMultiplier { get { return 0.0; } } //  damage multiplier for structures
 
-		[Constructable]
+		[Constructible]
 		public GrapeShot()
 			: this(1)
 		{
 		}
 
-		[Constructable]
+		[Constructible]
 		public GrapeShot(int amount)
 			: base(amount)
 		{

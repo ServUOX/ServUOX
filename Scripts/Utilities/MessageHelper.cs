@@ -1,5 +1,5 @@
 using Server.Network;
-
+// I think this needs added to core with rest of system msgs
 namespace Server
 {
     public class MessageHelper
