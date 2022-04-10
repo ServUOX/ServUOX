@@ -116,11 +116,6 @@ namespace Server.Items
                 book.Movable = false;
                 book.MoveToWorld(new Point3D(994, 3991, -33), Map.TerMur);
             }
-
-            if (version == 1)
-            {
-                Timer.DelayCall(() => SpawnerPersistence.Delete("shrineofsingularity"));
-            }
         }
 
         public static ShrineOfSingularity Instance { get; set; }
