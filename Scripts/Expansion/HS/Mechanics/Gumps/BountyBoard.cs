@@ -1,9 +1,6 @@
-﻿using Server;
-using System;
 using Server.Mobiles;
 using Server.Gumps;
 using System.Collections.Generic;
-using Server.Network;
 using Server.Engines.Quests;
 using Server.Engines.VendorSearching;
 
@@ -34,7 +31,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -42,8 +39,8 @@ namespace Server.Items
     {
         public int Index { get; set; }
 
-        private int darkHue = 19686;
-        private int lightHue = 19884;
+        private readonly int darkHue = 19686;
+        private readonly int lightHue = 19884;
 
         public BountyBoardGump(Mobile from, int index = 0)
             : base(from as PlayerMobile, 20, 20)
@@ -83,12 +80,10 @@ namespace Server.Items
                     break;
 
                 Mobile mob = mobs[i];
-                int toReward = 1000;
 
-                BountyQuestSpawner.Bounties.TryGetValue(mob, out toReward);
-                PirateCaptain capt = mob as PirateCaptain;
+                BountyQuestSpawner.Bounties.TryGetValue(mob, out int toReward);
 
-                if (capt == null)
+                if (!(mob is PirateCaptain capt))
                     continue;
 
                 string args;

@@ -889,9 +889,8 @@ namespace Server
     {
         public static void BuildChunkIDs(ref Dictionary<ulong, int> chunkIds, ref Dictionary<ulong, int> chunkIds2)
         {
-            int maxId;
 
-            string[] formats = GetHashFormat(0, out maxId);
+            string[] formats = GetHashFormat(0, out int maxId);
 
             for (int i = 0; i < maxId; ++i)
             {
@@ -915,7 +914,7 @@ namespace Server
             return new string[] { "build/multicollection/{0:000000}.bin", "" };
         }
 
-        private static ulong HashLittle2(string s)
+        public static ulong HashLittle2(string s)
         {
             int length = s.Length;
 
