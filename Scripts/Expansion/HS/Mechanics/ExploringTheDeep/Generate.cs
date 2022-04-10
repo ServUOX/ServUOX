@@ -30,8 +30,6 @@ namespace Server.Engines.ExploringTheDeep
             WeakEntityCollection.Delete(EntityName);
             WeakEntityCollection.Delete(WinchAssembly.EntityName);
             WeakEntityCollection.Delete(SorcerersPlateController.EntityName);
-
-            SpawnerPersistence.RemoveSpawnsFromXmlFile("Spawns", "GravewaterLake");
         }
 
         public static void Generate(Mobile m)
