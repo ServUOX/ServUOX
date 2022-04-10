@@ -14,7 +14,7 @@ namespace Server.Items
     public class RadiantRhoCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantRhoCrystal() : base(0xF8E)
         {
             Name = "Radiant Rho Crystal";
@@ -125,7 +125,7 @@ namespace Server.Items
     public class RadiantRysCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantRysCrystal() : base(0xF8E)
         {
             Name = "Radiant Rys Crystal";
@@ -235,7 +235,7 @@ namespace Server.Items
     public class RadiantWyrCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantWyrCrystal() : base(0xF8E)
         {
             Name = "Radiant Wyr Crystal";
@@ -344,7 +344,7 @@ namespace Server.Items
     public class RadiantFreCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantFreCrystal() : base(0xF8E)
         {
             Name = "Radiant Fre Crystal";
@@ -454,7 +454,7 @@ namespace Server.Items
     public class RadiantTorCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantTorCrystal() : base(0xF8E)
         {
             Name = "Radiant Tor Crystal";
@@ -556,7 +556,7 @@ namespace Server.Items
     public class RadiantVelCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantVelCrystal() : base(0xF8E)
         {
             Name = "Radiant Vel Crystal";
@@ -666,7 +666,7 @@ namespace Server.Items
     public class RadiantXenCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantXenCrystal() : base(0xF8E)
         {
             Name = "Radiant Xen Crystal";
@@ -776,7 +776,7 @@ namespace Server.Items
     public class RadiantPolCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantPolCrystal() : base(0xF8E)
         {
             Name = "Radiant Pol Crystal";
@@ -887,7 +887,7 @@ namespace Server.Items
     public class RadiantWolCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantWolCrystal() : base(0xF8E)
         {
             Name = "Radiant Wol Crystal";
@@ -998,7 +998,7 @@ namespace Server.Items
     public class RadiantBalCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantBalCrystal() : base(0xF8E)
         {
             Name = "Radiant Bal Crystal";
@@ -1109,7 +1109,7 @@ namespace Server.Items
     public class RadiantTalCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantTalCrystal() : base(0xF8E)
         {
             Name = "Radiant Tal Crystal";
@@ -1219,7 +1219,7 @@ namespace Server.Items
     public class RadiantJalCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantJalCrystal() : base(0xF8E)
         {
             Name = "Radiant Jal Crystal";
@@ -1329,7 +1329,7 @@ namespace Server.Items
     public class RadiantRalCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantRalCrystal() : base(0xF8E)
         {
             Name = "Radiant Ral Crystal";
@@ -1439,7 +1439,7 @@ namespace Server.Items
     public class RadiantKalCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public RadiantKalCrystal() : base(0xF8E)
         {
             Name = "Kal Crystal";

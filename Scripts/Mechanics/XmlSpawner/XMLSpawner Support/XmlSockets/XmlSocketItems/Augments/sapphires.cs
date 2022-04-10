@@ -12,7 +12,7 @@ namespace Server.Items
     public class MythicSapphire : BaseSocketAugmentation, IMythicAugment
     {
 
-        [Constructable]
+        [Constructible]
         public MythicSapphire() : base(0xF19)
         {
             Name = "Mythic Sapphire";
@@ -130,7 +130,7 @@ namespace Server.Items
     public class LegendarySapphire : BaseSocketAugmentation, ILegendaryAugment
     {
 
-        [Constructable]
+        [Constructible]
         public LegendarySapphire() : base(0xF19)
         {
             Name = "Legendary Sapphire";
@@ -249,7 +249,7 @@ namespace Server.Items
     public class AncientSapphire : BaseSocketAugmentation, IAncientAugment
     {
 
-        [Constructable]
+        [Constructible]
         public AncientSapphire() : base(0xF19)
         {
             Name = "Ancient Sapphire";

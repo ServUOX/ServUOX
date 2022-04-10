@@ -1,22 +1,11 @@
 using System;
-using System.Data;
-using Server;
-using Server.Items;
 using Server.Network;
 using Server.Mobiles;
-using Server.Spells;
 using System.Collections.Generic;
-using Server.Commands.Generic;
 using Server.Commands;
 using Server.Gumps;
 using System.Text;
-using Server.FeaturesConfiguration;
-
 /*
-** XmlMobFactions
-** 10/27/04
-** ArteGordon
-**
 ** This attachment will allow you to create a system for creating mob factions that can be maintained on a player or a piece of equipment
 ** Mob factions can be set up to add/subtract faction based upon mobs that are killed within the specified group or in opponent groups
 ** Mob factions can also be created to be used in quests or other systems that can modify faction through means other than killing mobs
@@ -190,19 +179,10 @@ namespace Server.Engines.XmlSpawner2
 		{
 			// stress testing
 			//Timer.DelayCall( TimeSpan.FromSeconds(15),TimeSpan.FromSeconds(15), new TimerCallback( XmlSpawner.XmlTrace_OnCommand ) );
-            if (FeaturesConfig.FeatXMLVerboseMobFactionsEnabled)
-            {
-                CommandSystem.Register("VerboseMobFactions", AccessLevel.Player, new CommandEventHandler(VerboseMobFactions_OnCommand));
-            }
-
+            CommandSystem.Register("VerboseMobFactions", AccessLevel.Player, new CommandEventHandler(VerboseMobFactions_OnCommand));
 			CommandSystem.Register("AddAllMobFactions", AccessLevel.Administrator, new CommandEventHandler(AddAllMobFactions_OnCommand));
 			CommandSystem.Register("RemoveAllMobFactions", AccessLevel.Administrator, new CommandEventHandler(RemoveAllMobFactions_OnCommand));
-
-            if (FeaturesConfig.FeatXMLCheckMobFactionsEnabled)
-            {
-                CommandSystem.Register("CheckMobFactions", AccessLevel.Player, new CommandEventHandler(CheckMobFactions_OnCommand));
-            }
-
+            CommandSystem.Register("CheckMobFactions", AccessLevel.Player, new CommandEventHandler(CheckMobFactions_OnCommand));
 			// set up all of the mob factions
 
 			Group PlayerGroup = new Group(GroupTypes.Player);

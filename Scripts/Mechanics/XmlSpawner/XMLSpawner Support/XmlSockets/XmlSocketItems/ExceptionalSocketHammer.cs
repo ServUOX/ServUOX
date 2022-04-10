@@ -6,7 +6,7 @@ using Server.Engines.XmlSpawner2;
 namespace Server.Items
 {
 
-    [FlipableAttribute( 0x13E4, 0x13E3 )]
+    [Flipable( 0x13E4, 0x13E3 )]
     public class ExceptionalSocketHammer : Item
     {
         private int m_UsesRemaining;                // if set to less than zero, becomes unlimited uses
@@ -26,12 +26,12 @@ namespace Server.Items
 			set { m_Level = value; InvalidateProperties(); }
 		}
 
-        [Constructable]
+        [Constructible]
         public ExceptionalSocketHammer() : this(50)
         {
         }
         
-        [Constructable]
+        [Constructible]
         public ExceptionalSocketHammer(int nuses) : base(0x13E4)
         {
             Name = "An Exceptional Socket Hammer";

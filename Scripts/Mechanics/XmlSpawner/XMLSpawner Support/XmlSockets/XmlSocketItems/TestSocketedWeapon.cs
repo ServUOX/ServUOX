@@ -7,7 +7,7 @@ namespace Server.Items
 	public class TestSocketedWeapon : Katana
 	{
 
-		[Constructable]
+		[Constructible]
 		public TestSocketedWeapon()
 		{
 			Name = "Test socketed weapon";

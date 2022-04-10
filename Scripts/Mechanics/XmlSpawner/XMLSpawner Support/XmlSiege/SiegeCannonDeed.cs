@@ -11,7 +11,7 @@ namespace Server.Items
 	public class SiegeCannonDeed : Item
 	{
 
-		[Constructable]
+		[Constructible]
 		public SiegeCannonDeed() : base( 0x14F0 )
 		{
 			Hue = 0x488;

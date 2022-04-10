@@ -20,13 +20,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Server.Engines.XmlSpawner2;
 
-/*
-** TalkingBaseCreature
-** A mobile that can be programmed with branching conversational sequences that are advanced by keywords at each sequence point.
-**
-** 2/10/05
-** modified to use the XmlDialog attachment
-*/
+
 namespace Server.Mobiles
 {
     public class TalkingBaseCreature : BaseCreature

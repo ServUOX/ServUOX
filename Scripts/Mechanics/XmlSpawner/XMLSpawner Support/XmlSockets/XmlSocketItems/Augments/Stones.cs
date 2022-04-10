@@ -9,7 +9,7 @@ namespace Server.Items
     public class GlimmeringGranite : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public GlimmeringGranite() : base(0x1779)
         {
             Name = "Glimmering Granite";
@@ -94,7 +94,7 @@ namespace Server.Items
     public class GlimmeringClay : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public GlimmeringClay() : base(0x1779)
         {
             Name = "Glimmering Clay";
@@ -179,7 +179,7 @@ namespace Server.Items
     public class GlimmeringHeartstone : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public GlimmeringHeartstone() : base(0x1779)
         {
             Name = "Glimmering Heartstone";
@@ -264,7 +264,7 @@ namespace Server.Items
     public class GlimmeringGypsum : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public GlimmeringGypsum() : base(0x1779)
         {
             Name = "Glimmering Gypsum";
@@ -349,7 +349,7 @@ namespace Server.Items
     public class GlimmeringIronOre : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public GlimmeringIronOre() : base(0x1779)
         {
             Name = "Glimmering Iron Ore";
@@ -434,7 +434,7 @@ namespace Server.Items
      public class GlimmeringOnyx : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public GlimmeringOnyx() : base(0x1779)
         {
             Name = "Glimmering Onyx";
@@ -519,7 +519,7 @@ namespace Server.Items
     public class GlimmeringMarble : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public GlimmeringMarble() : base(0x1779)
         {
             Name = "Glimmering Marble";
@@ -604,7 +604,7 @@ namespace Server.Items
     public class GlimmeringPetrifiedWood : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public GlimmeringPetrifiedWood() : base(0x1779)
         {
             Name = "Glimmering Petrified wood";
@@ -689,7 +689,7 @@ namespace Server.Items
     public class GlimmeringLimestone : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public GlimmeringLimestone() : base(0x1779)
         {
             Name = "Glimmering Limestone";
@@ -774,7 +774,7 @@ namespace Server.Items
     public class GlimmeringBloodrock : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public GlimmeringBloodrock() : base(0x1779)
         {
             Name = "Glimmering Bloodrock";

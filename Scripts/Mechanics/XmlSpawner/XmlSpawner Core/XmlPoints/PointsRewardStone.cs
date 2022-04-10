@@ -2,10 +2,6 @@ using System;
 using Server.Gumps;
 
 /*
-** PointsRewardStone
-** ArteGordon
-** updated 11/08/04
-**
 ** used to open the PointsRewardGump that allows players to purchase rewards with their XmlPoints pvp Credits.
 */
 

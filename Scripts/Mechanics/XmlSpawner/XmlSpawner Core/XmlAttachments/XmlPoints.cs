@@ -15,7 +15,6 @@ using Server.Regions;
 using Server.Spells;
 using Server.Commands;
 using Server.Commands.Generic;
-using Server.FeaturesConfiguration;
 
 namespace Server.Engines.XmlSpawner2
 {
@@ -656,69 +655,24 @@ namespace Server.Engines.XmlSpawner2
 		}
 
 		public static new void Initialize()
-		{
+        {
 			// Register our speech handler
 			EventSink.Speech += new SpeechEventHandler( EventSink_Speech );
-            if (FeaturesConfig.FeatXMLPointsLanguageEnabled)
-            {
                 CommandSystem.Register("PointsLanguage", AccessLevel.Player, new CommandEventHandler(Language_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLChallengeEnabled)
-            {
                 CommandSystem.Register("Challenge", AccessLevel.Player, new CommandEventHandler(Challenge_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLLMSChallengeEnabled)
-            {
                 CommandSystem.Register("LMSChallenge", AccessLevel.Player, new CommandEventHandler(LMSChallenge_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLTeamLMSChallengeEnabled)
-            {
                 CommandSystem.Register("TeamLMSChallenge", AccessLevel.Player, new CommandEventHandler(TeamLMSChallenge_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLDeathmatchEnabled)
-            {
                 CommandSystem.Register("Deathmatch", AccessLevel.Player, new CommandEventHandler(Deathmatch_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLTeamDeathmatchEnabled)
-            {
                 CommandSystem.Register("TeamDeathmatch", AccessLevel.Player, new CommandEventHandler(TeamDeathmatch_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLDeathBallEnabled)
-            {
                 CommandSystem.Register("DeathBall", AccessLevel.Player, new CommandEventHandler(DeathBall_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLKingOfTheHillEnabled)
-            {
                 CommandSystem.Register("KingOfTheHill", AccessLevel.Player, new CommandEventHandler(KingOfTheHill_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLTeamDeathBallEnabled)
-            {
                 CommandSystem.Register("TeamDeathBall", AccessLevel.Player, new CommandEventHandler(TeamDeathBall_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLTeamKotHEnabled)
-            {
                 CommandSystem.Register("TeamKotH", AccessLevel.Player, new CommandEventHandler(TeamKotH_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLCTFChallengeEnabled)
-            {
                 CommandSystem.Register("CTFChallenge", AccessLevel.Player, new CommandEventHandler(CTFChallenge_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLSeeKillsEnabled)
-            {
                 CommandSystem.Register("SeeKills", AccessLevel.Player, new CommandEventHandler(SeeKills_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLBroadcastKillsEnabled)
-            {
                 CommandSystem.Register("BroadcastKills", AccessLevel.Player, new CommandEventHandler(BroadcastKills_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLCheckPointsEnabled)
-            {
-                CommandSystem.Register("CheckPoints", AccessLevel.Player, new CommandEventHandler(CheckPoints_OnCommand));
-            }
-            if (FeaturesConfig.FeatXMLTopPlayersEnabled)
-            {
-                CommandSystem.Register("TopPlayers", AccessLevel.Player, new CommandEventHandler(TopPlayers_OnCommand));
-            }
+            CommandSystem.Register("CheckPoints", AccessLevel.Player, new CommandEventHandler(CheckPoints_OnCommand));
+            CommandSystem.Register("TopPlayers", AccessLevel.Player, new CommandEventHandler(TopPlayers_OnCommand));
             CommandSystem.Register("SystemBroadcastKills", AccessLevel.GameMaster, new CommandEventHandler(SystemBroadcastKills_OnCommand));
 			CommandSystem.Register( "AddAllPoints", AccessLevel.Administrator, new CommandEventHandler( AddAllPoints_OnCommand ) );
 			CommandSystem.Register( "RemoveAllPoints", AccessLevel.Administrator, new CommandEventHandler( RemoveAllPoints_OnCommand ) );
@@ -1229,12 +1183,12 @@ namespace Server.Engines.XmlSpawner2
 				e.Mobile.SendGump(new TopPlayersGump(attachment));
 		}
 
-		public static bool AreChallengers(Mobile from, Mobile target)
+		public static bool AreChallengers(Mobile from, IDamageable target)
 		{
 			if(from == null || target == null) return false;
 
 			// both must be players
-			if(!(from.Player && target.Player)) return false;
+			if(!(from.Player)) return false;
 
 			// check for points attachments on each
 			XmlPoints afrom = (XmlPoints)XmlAttach.FindAttachment(from, typeof(XmlPoints));

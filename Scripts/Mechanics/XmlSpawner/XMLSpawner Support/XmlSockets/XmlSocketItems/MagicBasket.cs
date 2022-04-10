@@ -64,12 +64,12 @@ namespace Server.Items
             base.DoTransmute(from, r);
         }
 
-        [Constructable]
+        [Constructible]
 		public MagicBasket() : this(-1)
 		{
 		}
 
-        [Constructable]
+        [Constructible]
 		public MagicBasket(int nuses) : base(0xE7A)
 		{
             Name = "Magical Basket";

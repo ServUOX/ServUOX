@@ -17,7 +17,6 @@ using Server.Accounting;
 using System.Diagnostics;
 
 
-
 namespace Server.Mobiles
 {
     public class XmlQuestNPC : TalkingBaseCreature

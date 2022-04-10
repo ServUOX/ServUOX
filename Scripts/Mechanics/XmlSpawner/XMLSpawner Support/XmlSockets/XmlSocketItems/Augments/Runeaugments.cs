@@ -13,7 +13,7 @@ namespace Server.Items
     public class TyrRune : BaseSocketAugmentation
     {
     
-        [Constructable]
+        [Constructible]
         public TyrRune() : base(0x1f14)
         {
             Name = "Tyr Rune";
@@ -91,7 +91,7 @@ namespace Server.Items
     public class AhmRune : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public AhmRune() : base(0x1f14)
         {
             Name = "Ahm Rune";
@@ -164,7 +164,7 @@ namespace Server.Items
     public class MorRune : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public MorRune() : base(0x1f14)
         {
             Name = "Mor Rune";
@@ -237,7 +237,7 @@ namespace Server.Items
     public class MefRune : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public MefRune() : base(0x1f14)
         {
             Name = "Mef Rune";
@@ -310,7 +310,7 @@ namespace Server.Items
     public class YlmRune : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public YlmRune() : base(0x1f14)
         {
             Name = "Ylm Rune";
@@ -383,7 +383,7 @@ namespace Server.Items
     public class KotRune : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public KotRune() : base(0x1f14)
         {
             Name = "Kot Rune";
@@ -456,7 +456,7 @@ namespace Server.Items
     public class JorRune : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public JorRune() : base(0x1f14)
         {
             Name = "Jor Rune";

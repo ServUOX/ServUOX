@@ -34,13 +34,13 @@ namespace Server.Items
 			set { m_HitPerRepair = value; InvalidateProperties(); }
 		}
 
-		[Constructable]
+		[Constructible]
 		public SiegeRepairTool()
 			: this(50)
 		{
 		}
 
-		[Constructable]
+		[Constructible]
 		public SiegeRepairTool(int nuses)
 			: base(0x13E4)
 		{

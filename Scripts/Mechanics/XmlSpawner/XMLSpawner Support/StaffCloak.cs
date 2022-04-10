@@ -1,6 +1,3 @@
-using System;
-using Server.Mobiles;
-
 /*
 ** Allows staff to quickly switch between player and their assigned staff levels by equipping or removing the cloak
 ** Also allows instant teleportation to a specified destination when double-clicked by the staff member.
@@ -53,9 +50,9 @@ namespace Server.Items
             base.OnAdded(parent);
 
             // delete this if someone without the necessary access level picks it up or tries to equip it
-            if (RootParent is Mobile)
+            if (RootParent is Mobile mobile)
             {
-                if (((Mobile)RootParent).AccessLevel != StaffLevel)
+                if (mobile.AccessLevel != StaffLevel)
                 {
                     Delete();
                     return;
@@ -63,10 +60,8 @@ namespace Server.Items
             }
 
             // when equipped, change access level to player
-            if (parent is Mobile)
+            if (parent is Mobile m)
             {
-                Mobile m = (Mobile)parent;
-
                 if (m.AccessLevel == StaffLevel)
                 {
                     m.AccessLevel = AccessLevel.Player;
@@ -85,9 +80,9 @@ namespace Server.Items
             base.OnRemoved(parent);
 
             // restore access level to the specified level
-            if (parent is Mobile && !Deleted)
+            if (parent is Mobile mobile && !Deleted)
             {
-                Mobile m = (Mobile)parent;
+                Mobile m = mobile;
 
                 // restore their assigned staff level
                 m.AccessLevel = StaffLevel;

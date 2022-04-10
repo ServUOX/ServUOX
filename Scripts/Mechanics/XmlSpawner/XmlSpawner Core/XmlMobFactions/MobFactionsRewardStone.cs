@@ -2,10 +2,6 @@ using System;
 using Server.Gumps;
 
 /*
-** MobFactionsRewardStone
-** ArteGordon
-** updated 11/08/04
-**
 ** used to open the MobFactionsRewardGump that allows players to purchase rewards with their MobFactions kill Credits.
 */
 
@@ -13,7 +9,7 @@ namespace Server.Items
 {
     public class MobFactionsRewardStone : Item
     {
-        [Constructable]
+        [Constructible]
         public MobFactionsRewardStone() : base( 0xED4 )
         {
             Movable = false;

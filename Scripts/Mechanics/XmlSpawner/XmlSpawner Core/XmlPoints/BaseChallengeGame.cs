@@ -46,7 +46,7 @@ namespace Server.Engines.XmlSpawner2
     {
         bool AreInGame(Mobile from);
         bool AreTeamMembers(Mobile from, Mobile target);
-        bool AreChallengers(Mobile from, Mobile target);
+        bool AreChallengers(Mobile from, IDamageable target);
         void OnPlayerKilled(Mobile killer, Mobile killed);
         void OnKillPlayer(Mobile killer, Mobile killed);
         bool InsuranceIsFree(Mobile from, Mobile awardto);
@@ -177,7 +177,7 @@ namespace Server.Engines.XmlSpawner2
         public abstract bool AreTeamMembers(Mobile from, Mobile target);
 
 
-        public abstract bool AreChallengers(Mobile from, Mobile target);
+        public abstract bool AreChallengers(Mobile from, IDamageable target);
 
 
         public abstract void OnPlayerKilled(Mobile killer, Mobile killed);

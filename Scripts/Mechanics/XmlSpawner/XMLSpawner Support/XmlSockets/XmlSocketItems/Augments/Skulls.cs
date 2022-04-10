@@ -13,7 +13,7 @@ namespace Server.Items
     public class MythicSkull : BaseSocketAugmentation, IMythicAugment
     {
 
-        [Constructable]
+        [Constructible]
         public MythicSkull() : base(0x1ae4)
         {
             Name = "Mythic skull";
@@ -131,7 +131,7 @@ namespace Server.Items
     public class AncientSkull : BaseSocketAugmentation, IAncientAugment
     {
 
-        [Constructable]
+        [Constructible]
         public AncientSkull() : base(0x1ae4)
         {
             Name = "Ancient skull";
@@ -249,7 +249,7 @@ namespace Server.Items
     public class LegendarySkull : BaseSocketAugmentation, ILegendaryAugment
     {
 
-        [Constructable]
+        [Constructible]
         public LegendarySkull() : base(0x1ae4)
         {
             Name = "Legendary skull";

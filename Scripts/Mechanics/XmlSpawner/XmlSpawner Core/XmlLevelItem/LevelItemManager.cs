@@ -54,7 +54,7 @@ namespace Server.Items
 			return ( bc != null && bc.AI == AIType.AI_Mage && bc.Skills[SkillName.Magery].Base > 5.0 );
 		}
 
-		private static bool IsFireBreathingCreature( BaseCreature bc )
+		/*private static bool IsFireBreathingCreature( BaseCreature bc )
 		{
 			if ( bc == null )
 				return false;
@@ -65,7 +65,7 @@ namespace Server.Items
 		private static bool IsPoisonImmune( BaseCreature bc )
 		{
 			return ( bc != null && bc.PoisonImmune != null );
-		}
+		}*/ //readd later after readding all breathfire and poison
 
 		private static int GetPoisonLevel( BaseCreature bc )
 		{
@@ -95,11 +95,11 @@ namespace Server.Items
 			if ( IsMageryCreature( bc ) )
 				val += 100;
 
-			if ( IsFireBreathingCreature( bc ) )
-				val += 100;
+			//if ( IsFireBreathingCreature( bc ) )
+			//	val += 100;
 
-			if ( IsPoisonImmune( bc ) )
-				val += 100;
+			//if ( IsPoisonImmune( bc ) )
+			//	val += 100;
 
 			if ( targ is VampireBat || targ is VampireBatFamiliar )
 				val += 100;
