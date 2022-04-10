@@ -9420,9 +9420,6 @@
     <Compile Include="Mechanics\ToggleItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Utilities\ValidationQueue.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Utilities\WeakEntityCollection.cs" />
     <Compile Include="Administration\World\Weather.cs">
       <SubType>Code</SubType>

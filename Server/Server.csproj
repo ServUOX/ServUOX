@@ -209,6 +209,7 @@
     <Compile Include="Utilities\Random.cs" />
     <Compile Include="Items\VirtualCheck.cs" />
     <Compile Include="Administration\World\SpawnArea.cs" />
+    <Compile Include="Utilities\ValidationQueue.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="servuox.ico" />
