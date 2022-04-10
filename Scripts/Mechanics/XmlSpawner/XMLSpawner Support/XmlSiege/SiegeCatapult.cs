@@ -160,12 +160,12 @@ namespace Server.Items
 		}
 
 
-		[Constructable]
+		[Constructible]
 		public SiegeCatapult() : this(0)
 		{
 		}
 
-		[Constructable]
+		[Constructible]
 		public SiegeCatapult(int facing)
 		{
 			// addon the components

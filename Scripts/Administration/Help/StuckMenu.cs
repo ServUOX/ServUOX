@@ -3,7 +3,6 @@ using Server.Gumps;
 using Server.Mobiles;
 using Server.Network;
 using System.Linq;
-using Server.Mobiles;
 using Server.Spells;
 
 namespace Server.Menus.Questions

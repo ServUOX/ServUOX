@@ -44,13 +44,13 @@ namespace Server.Items
 
 	public class LightSiegeLog : SiegeLog
 	{
-		[Constructable]
+		[Constructible]
 		public LightSiegeLog()
 			: this(1)
 		{
 		}
 
-		[Constructable]
+		[Constructible]
 		public LightSiegeLog(int amount)
 			: base(amount)
 		{
@@ -81,25 +81,17 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 		}
-		/*
-		public override Item Dupe(int amount)
-		{
-			LightSiegeLog s = new LightSiegeLog(amount);
-
-			return this.Dupe(s, amount);
-		}
-		 * */
 	}
 
 	public class HeavySiegeLog : SiegeLog
 	{
-		[Constructable]
+		[Constructible]
 		public HeavySiegeLog()
 			: this(1)
 		{
 		}
 
-		[Constructable]
+		[Constructible]
 		public HeavySiegeLog(int amount)
 			: base(amount)
 		{
@@ -130,26 +122,18 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 		}
-		/*
-		public override Item Dupe(int amount)
-		{
-			HeavySiegeLog s = new HeavySiegeLog(amount);
-
-			return this.Dupe(s, amount);
-		}
-		 * */
 	}
 
 
 	public class IronSiegeLog : SiegeLog
 	{
-		[Constructable]
+		[Constructible]
 		public IronSiegeLog()
 			: this(1)
 		{
 		}
 
-		[Constructable]
+		[Constructible]
 		public IronSiegeLog(int amount)
 			: base(amount)
 		{
@@ -180,13 +164,5 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 		}
-		/*
-		public override Item Dupe(int amount)
-		{
-			IronCannonball s = new IronCannonball(amount);
-
-			return this.Dupe(s, amount);
-		}
-		 * */
 	}
 }
