@@ -9,7 +9,7 @@ namespace Server.Items
 {
     public class PointsRewardStone : Item
     {
-        [Constructable]
+        [Constructible]
         public PointsRewardStone() : base( 0xED4 )
         {
             Movable = false;

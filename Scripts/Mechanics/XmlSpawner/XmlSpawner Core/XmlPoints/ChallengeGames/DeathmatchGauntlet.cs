@@ -8,14 +8,6 @@ using Server.Targeting;
 using Server.Regions;
 using Server.Engines.XmlSpawner2;
 
-/*
-** DeathmatchGauntlet
-** ArteGordon
-** updated 12/05/04
-**
-** used to set up a Deathmatch pvp challenge game through the XmlPoints system.
-*/
-
 namespace Server.Items
 {
     public class DeathmatchGauntlet : BaseChallengeGame
@@ -436,11 +428,11 @@ namespace Server.Items
             return false;
         }
 
-        public override bool AreChallengers(Mobile from, Mobile target)
+        public override bool AreChallengers(Mobile from, IDamageable target)
         {
             // everyone participant is a challenger to everyone other participant, so just being a participant
             // makes you a challenger
-            return(AreInGame(from) && AreInGame(target));
+            return AreInGame(from);
         }
 
         public DeathmatchGauntlet(Mobile challenger) : base( 0x1414 )

@@ -7,14 +7,6 @@ using System.Collections;
 using Server.Targeting;
 using Server.Engines.XmlSpawner2;
 
-/*
-** LastManStandingGauntlet
-** ArteGordon
-** updated 12/05/04
-**
-** used to set up a last man standing pvp challenge game through the XmlPoints system.
-*/
-
 namespace Server.Items
 {
     public class LastManStandingGauntlet : BaseChallengeGame
@@ -337,11 +329,11 @@ namespace Server.Items
             return false;
         }
 
-        public override bool AreChallengers(Mobile from, Mobile target)
+        public override bool AreChallengers(Mobile from, IDamageable target)
         {
             // everyone participant is a challenger to everyone other participant, so just being a participant
             // makes you a challenger
-            return(AreInGame(from) && AreInGame(target));
+            return AreInGame(from);
         }
 
         public LastManStandingGauntlet(Mobile challenger) : base( 0x1414 )

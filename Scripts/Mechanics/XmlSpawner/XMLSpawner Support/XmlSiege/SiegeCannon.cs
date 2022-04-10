@@ -45,13 +45,13 @@ namespace Server.Items
 
 		public override Type[] AllowedProjectiles { get { return m_allowedprojectiles; } }
 
-		[Constructable]
+		[Constructible]
 		public SiegeCannon()
 			: this(0)
 		{
 		}
 
-		[Constructable]
+		[Constructible]
 		public SiegeCannon(int facing)
 		{
 			// addon the components
