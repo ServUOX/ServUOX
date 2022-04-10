@@ -775,12 +775,12 @@ namespace Server.Items
             base.DoTransmute(from, r);
         }
 
-        [Constructable]
+        [Constructible]
 		public BoxOfTransmutation() : this(-1)
 		{
 		}
 		
-		[Constructable]
+		[Constructible]
 		public BoxOfTransmutation(int nuses) : base(0xE80)
 		{
             Name = "Box of Transmutation";

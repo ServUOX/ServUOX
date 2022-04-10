@@ -5,10 +5,6 @@ using Server.Mobiles;
 using System.Collections;
 
 /*
-** XmlPointsRewards
-** ArteGordon
-** updated 11/08/04
-**
 ** this class lets you specify rewards that can be purchased for XmlPoints kill Credits.
 ** The items will be displayed in the PointsRewardGump that is opened by the PointsRewardStone
 */

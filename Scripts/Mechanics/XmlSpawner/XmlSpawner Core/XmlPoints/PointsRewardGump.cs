@@ -8,10 +8,6 @@ using System.Collections;
 using Server.Engines.XmlSpawner2;
 
 /*
-** PointsRewardGump
-** ArteGordon
-** updated 11/08/04
-**
 ** Gives out rewards based on the XmlPointsReward reward list entries and the players Credits that are accumulated through pvp with the XmlPoints attachment.
 ** The Gump supports Item, Mobile, and Attachment type rewards.
 */

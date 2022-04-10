@@ -13,7 +13,7 @@ namespace Server.Items
     public class MythicTourmaline : BaseSocketAugmentation, IMythicAugment
     {
 
-        [Constructable]
+        [Constructible]
         public MythicTourmaline() : base(0xF2D)
         {
             Name = "Mythic Tourmaline";
@@ -129,7 +129,7 @@ namespace Server.Items
     public class LegendaryTourmaline : BaseSocketAugmentation, ILegendaryAugment
     {
 
-        [Constructable]
+        [Constructible]
         public LegendaryTourmaline() : base(0xf26)
         {
             Name = "Legendary Tourmaline";
@@ -248,7 +248,7 @@ namespace Server.Items
     public class AncientTourmaline : BaseSocketAugmentation, IAncientAugment
     {
 
-        [Constructable]
+        [Constructible]
         public AncientTourmaline() : base(0xf26)
         {
             Name = "Ancient Tourmaline";

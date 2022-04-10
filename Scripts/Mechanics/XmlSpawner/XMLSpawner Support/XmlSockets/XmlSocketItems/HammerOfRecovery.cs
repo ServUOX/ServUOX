@@ -6,7 +6,7 @@ using Server.Engines.XmlSpawner2;
 namespace Server.Items
 {
 
-    [FlipableAttribute( 0x13E4, 0x13E3 )]
+    [Flipable( 0x13E4, 0x13E3 )]
     public class HammerOfRecovery : Item
     {
         private int m_UsesRemaining;                // if set to less than zero, becomes unlimited uses
@@ -18,12 +18,12 @@ namespace Server.Items
 			set { m_UsesRemaining = value; InvalidateProperties(); }
 		}
 
-        [Constructable]
+        [Constructible]
         public HammerOfRecovery() : this(50)
         {
         }
         
-        [Constructable]
+        [Constructible]
         public HammerOfRecovery(int nuses) : base(0x13E4)
         {
             Name = "A Hammer of Augmentation Recovery";

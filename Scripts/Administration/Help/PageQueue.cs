@@ -1,11 +1,9 @@
-#region References
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Mail;
 using System.Linq;
-
 using Server.Accounting;
 using Server.Commands;
 using Server.Engines.Reports;
@@ -13,7 +11,6 @@ using Server.Gumps;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Network;
-#endregion
 
 namespace Server.Engines.Help
 {

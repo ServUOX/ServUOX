@@ -247,7 +247,7 @@ namespace Server.Items
 				foreach (Mobile m in mobdamage)
 				{
 					// AOS.Damage( Mobile m, Mobile from, int damage, int phys, int fire, int cold, int pois, int nrgy )
-					ItemAttributes.Damage(m, from, scaledmobdamage, phys, fire, 0, 0, 0);
+					AOS.Damage(m, from, scaledmobdamage, phys, fire, 0, 0, 0);
 				}
 			}
 

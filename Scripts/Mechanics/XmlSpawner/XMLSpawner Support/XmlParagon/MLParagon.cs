@@ -1,7 +1,5 @@
-using System;
-using Server;
 using Server.Items;
-using Server.Mobiles;
+using System;
 
 namespace Server.Engines.XmlSpawner2
 {
@@ -9,40 +7,36 @@ namespace Server.Engines.XmlSpawner2
     {
         // default artifact types
         private static Type[] m_MLArtifacts = new Type[]
-		{
-			typeof( AegisOfGrace ), typeof( BladeDance ), 
-			typeof( Bonesmasher ), typeof( FeyLeggings ),
-			typeof( FleshRipper ), typeof( MelisandesCorrodedHatchet ),
-			typeof( PadsOfTheCuSidhe ), typeof( RaedsGlory ),
-			typeof( RighteousAnger ), typeof( RobeOfTheEclipse ),
-			typeof( RobeOfTheEquinox ), typeof( SoulSeeker ),
-			typeof( TalonBite )
-		};
+        {
+            typeof( AegisOfGrace ), typeof( BladeDance ),
+            typeof( Bonesmasher ), typeof( FeyLeggings ),
+            typeof( FleshRipper ), typeof( MelisandesCorrodedHatchet ),
+            typeof( PadsOfTheCuSidhe ), typeof( RaedsGlory ),
+            typeof( RighteousAnger ), typeof( RobeOfTheEclipse ),
+            typeof( RobeOfTheEquinox ), typeof( SoulSeeker ),
+            typeof( TalonBite )
+        };
 
         public override Type[] Artifacts { get { return m_MLArtifacts; } set { m_MLArtifacts = value; } }
 
         public override string OnIdentify(Mobile from)
         {
-            return String.Format("ML {0}", base.OnIdentify(from));
+            return string.Format("ML {0}", base.OnIdentify(from));
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write((int)0);
-            // version 0
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-            // version 0
+            _ = reader.ReadInt();
         }
 
-        #region constructors
         public MLParagon(ASerial serial)
             : base(serial)
         {
@@ -53,6 +47,5 @@ namespace Server.Engines.XmlSpawner2
             : base()
         {
         }
-        #endregion
     }
 }

@@ -9,7 +9,7 @@ namespace Server.Items
 	public class MythicRuby : BaseSocketAugmentation, IMythicAugment
 	{
 
-		[Constructable]
+		[Constructible]
 		public MythicRuby() : base(0xF13)
 		{
 			Name = "Mythic Ruby";
@@ -211,7 +211,7 @@ namespace Server.Items
 	public class LegendaryRuby : BaseSocketAugmentation, ILegendaryAugment
 	{
 
-		[Constructable]
+		[Constructible]
 		public LegendaryRuby() : base(0xF13)
 		{
 			Name = "Legendary Ruby";
@@ -334,7 +334,7 @@ namespace Server.Items
 	public class AncientRuby : BaseSocketAugmentation, IAncientAugment
 	{
 
-		[Constructable]
+		[Constructible]
 		public AncientRuby() : base(0xF13)
 		{
 			Name = "Ancient Ruby";

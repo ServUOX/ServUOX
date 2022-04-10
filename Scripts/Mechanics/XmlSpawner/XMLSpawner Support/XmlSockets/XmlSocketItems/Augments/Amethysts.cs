@@ -13,7 +13,7 @@ namespace Server.Items
     public class MythicAmethyst : BaseSocketAugmentation, IMythicAugment
     {
 
-        [Constructable]
+        [Constructible]
         public MythicAmethyst() : base(0xf26)
         {
             Name = "Mythic Amethyst";
@@ -129,7 +129,7 @@ namespace Server.Items
     public class LegendaryAmethyst : BaseSocketAugmentation, ILegendaryAugment
     {
 
-        [Constructable]
+        [Constructible]
         public LegendaryAmethyst() : base(0xf26)
         {
             Name = "Legendary Amethyst";
@@ -245,7 +245,7 @@ namespace Server.Items
     public class AncientAmethyst : BaseSocketAugmentation, IAncientAugment
     {
 
-        [Constructable]
+        [Constructible]
         public AncientAmethyst() : base(0xf26)
         {
             Name = "Ancient Amethyst";

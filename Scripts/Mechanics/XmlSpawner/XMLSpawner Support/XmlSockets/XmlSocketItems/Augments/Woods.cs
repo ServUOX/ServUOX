@@ -13,7 +13,7 @@ namespace Server.Items
     public class MythicWood : BaseSocketAugmentation, IMythicAugment
     {
 
-        [Constructable]
+        [Constructible]
         public MythicWood() : base(0x1bdd)
         {
             Name = "Mythic wood";
@@ -90,7 +90,7 @@ namespace Server.Items
     public class LegendaryWood : BaseSocketAugmentation, ILegendaryAugment
     {
 
-        [Constructable]
+        [Constructible]
         public LegendaryWood() : base(0x1bdd)
         {
             Name = "Legendary wood";
@@ -168,7 +168,7 @@ namespace Server.Items
     public class AncientWood : BaseSocketAugmentation, IAncientAugment
     {
 
-        [Constructable]
+        [Constructible]
         public AncientWood() : base(0x1bdd)
         {
             Name = "Ancient wood";

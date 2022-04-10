@@ -12,7 +12,7 @@ namespace Server.Items
     public class FenCrystal : BaseSocketAugmentation
     {
 
-        [Constructable]
+        [Constructible]
         public FenCrystal() : base(0xF8E)
         {
             Name = "Fen Crystal";
@@ -114,7 +114,7 @@ namespace Server.Items
     public class RhoCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public RhoCrystal() : base(0xF8E)
         {
             Name = "Rho Crystal";
@@ -225,7 +225,7 @@ namespace Server.Items
     public class RysCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public RysCrystal() : base(0xF8E)
         {
             Name = "Rys Crystal";
@@ -336,7 +336,7 @@ namespace Server.Items
     public class WyrCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public WyrCrystal() : base(0xF8E)
         {
             Name = "Wyr Crystal";
@@ -446,7 +446,7 @@ namespace Server.Items
     public class FreCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public FreCrystal() : base(0xF8E)
         {
             Name = "Fre Crystal";
@@ -556,7 +556,7 @@ namespace Server.Items
     public class TorCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public TorCrystal() : base(0xF8E)
         {
             Name = "Tor Crystal";
@@ -666,7 +666,7 @@ namespace Server.Items
     public class VelCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public VelCrystal() : base(0xF8E)
         {
             Name = "Vel Crystal";
@@ -776,7 +776,7 @@ namespace Server.Items
     public class XenCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public XenCrystal() : base(0xF8E)
         {
             Name = "Xen Crystal";
@@ -886,7 +886,7 @@ namespace Server.Items
     public class PolCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public PolCrystal() : base(0xF8E)
         {
             Name = "Pol Crystal";
@@ -996,7 +996,7 @@ namespace Server.Items
     public class WolCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public WolCrystal() : base(0xF8E)
         {
             Name = "Wol Crystal";
@@ -1107,7 +1107,7 @@ namespace Server.Items
     public class BalCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public BalCrystal() : base(0xF8E)
         {
             Name = "Bal Crystal";
@@ -1215,7 +1215,7 @@ namespace Server.Items
     public class TalCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public TalCrystal() : base(0xF8E)
         {
             Name = "Tal Crystal";
@@ -1325,7 +1325,7 @@ namespace Server.Items
     public class JalCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public JalCrystal() : base(0xF8E)
         {
             Name = "Jal Crystal";
@@ -1436,7 +1436,7 @@ namespace Server.Items
     public class RalCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public RalCrystal() : base(0xF8E)
         {
             Name = "Ral Crystal";
@@ -1547,7 +1547,7 @@ namespace Server.Items
     public class KalCrystal : BaseSocketAugmentation, ICrystalAugment
     {
 
-        [Constructable]
+        [Constructible]
         public KalCrystal() : base(0xF8E)
         {
             Name = "Kal Crystal";

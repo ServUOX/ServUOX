@@ -1,15 +1,12 @@
-using System;
-using System.IO;
-using System.Xml;
-using System.Collections;
-using System.Collections.Generic;
-using Server;
 using Server.Commands;
 using Server.Commands.Generic;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Xml;
 
 /*
-** Sno's distro spawner importer/exporter
-**
 ** [exportspawner filename - Saves distro spawners to XML to 'Saves/Spawners/filename'
 **
 ** [importspawner filename - Restores distro spawners from 'Saves/Spawners/filename'.  Note, this command does not check for
@@ -49,9 +46,8 @@ namespace Server.Mobiles
 
                 for (int i = 0; i < list.Count; ++i)
                 {
-                    if (list[i] is Spawner)
+                    if (list[i] is Spawner spawner)
                     {
-                        Spawner spawner = (Spawner)list[i];
                         if (spawner != null && !spawner.Deleted && spawner.Map != Map.Internal && spawner.Parent == null)
                             spawners.Add(spawner);
                     }
@@ -83,11 +79,12 @@ namespace Server.Mobiles
 
                 using (StreamWriter op = new StreamWriter(filePath))
                 {
-                    XmlTextWriter xml = new XmlTextWriter(op);
-
-                    xml.Formatting = Formatting.Indented;
-                    xml.IndentChar = '\t';
-                    xml.Indentation = 1;
+                    XmlTextWriter xml = new XmlTextWriter(op)
+                    {
+                        Formatting = Formatting.Indented,
+                        IndentChar = '\t',
+                        Indentation = 1
+                    };
 
                     xml.WriteStartDocument(true);
 

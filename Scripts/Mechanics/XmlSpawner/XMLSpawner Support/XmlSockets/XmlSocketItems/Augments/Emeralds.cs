@@ -12,7 +12,7 @@ namespace Server.Items
     public class MythicEmerald : BaseSocketAugmentation, IMythicAugment
     {
 
-        [Constructable]
+        [Constructible]
         public MythicEmerald() : base(0xf26)
         {
             Name = "Mythic Emerald";
@@ -130,7 +130,7 @@ namespace Server.Items
     public class LegendaryEmerald : BaseSocketAugmentation, ILegendaryAugment
     {
 
-        [Constructable]
+        [Constructible]
         public LegendaryEmerald() : base(0xf26)
         {
             Name = "Legendary Emerald";
@@ -248,7 +248,7 @@ namespace Server.Items
     public class AncientEmerald : BaseSocketAugmentation, IAncientAugment
     {
 
-        [Constructable]
+        [Constructible]
         public AncientEmerald() : base(0xf26)
         {
             Name = "Ancient Emerald";

@@ -36,7 +36,7 @@ namespace Server.Items
         public int UsesRemaining { get{ return m_UsesRemaining; } set { m_UsesRemaining = value; InvalidateProperties(); } }
 
 
-        [Constructable]
+        [Constructible]
         public KeyAugment(string name, int keyvalue, string skillname, int minlevel) : base(0x1f14)
         {
             Hue = 20;
@@ -48,7 +48,7 @@ namespace Server.Items
             RequiredSkillLevel = minlevel;
         }
 
-        [Constructable]
+        [Constructible]
         public KeyAugment(string name, int keyvalue) : base(0x1f14)
         {
             Hue = 20;
@@ -56,14 +56,14 @@ namespace Server.Items
             KeyValue = keyvalue;
         }
 
-        [Constructable]
+        [Constructible]
         public KeyAugment(string name) : base(0x1f14)
         {
             Hue = 20;
             Name = name;
         }
         
-        [Constructable]
+        [Constructible]
         public KeyAugment() : base(0x1f14)
         {
             Hue = 20;

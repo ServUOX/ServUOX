@@ -151,7 +151,7 @@ namespace Server.Engines.XmlSpawner2
 			m_ChallengeRegion.Register();
         }
 
-		[Constructable]
+		[Constructible]
 		public ChallengeRegionStone() : base ( 0xED4 )
 		{
 			Visible = false;

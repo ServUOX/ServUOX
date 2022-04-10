@@ -50,6 +50,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administration\Commands\LocationCommand.cs.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Charts\BarGraph.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Charts\Chart.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Charts\ChartItem.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Charts\ChartItemCollection.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Charts\PieChart.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Reports\ItemValue.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Reports\ItemValueCollection.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Reports\Report.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Reports\ReportColumn.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Reports\ReportColumnCollection.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Reports\ReportItem.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Reports\ReportItemCollection.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Snapshots\Snapshot.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Snapshots\SnapshotCollection.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Snapshots\SnapshotHistory.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Staffing\Info.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Staffing\PageInfo.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Staffing\PageInfoCollection.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Staffing\QueueStatus.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Staffing\QueueStatusCollection.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Staffing\ResponseInfo.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Staffing\ResponseInfoCollection.cs" />
+    <Compile Include="Administration\Help\Reports\Objects\Staffing\StaffHistory.cs" />
+    <Compile Include="Administration\Help\Reports\Persistence\PersistableObject.cs" />
+    <Compile Include="Administration\Help\Reports\Persistence\PersistableObjectCollection.cs" />
+    <Compile Include="Administration\Help\Reports\Persistence\PersistableType.cs" />
+    <Compile Include="Administration\Help\Reports\Persistence\PersistenceReader.cs" />
+    <Compile Include="Administration\Help\Reports\Persistence\PersistenceWriter.cs" />
+    <Compile Include="Administration\Help\Reports\Rendering\BarGraphRenderer.cs" />
+    <Compile Include="Administration\Help\Reports\Rendering\ChartRenderer.cs" />
+    <Compile Include="Administration\Help\Reports\Rendering\DataItem.cs" />
+    <Compile Include="Administration\Help\Reports\Rendering\HtmlRenderer.cs" />
+    <Compile Include="Administration\Help\Reports\Rendering\PieChartRenderer.cs" />
+    <Compile Include="Administration\Help\Reports\Reports.cs" />
     <Compile Include="Administration\World\Regions\Spawning\SpawnDefinition.cs" />
     <Compile Include="Administration\World\Regions\Spawning\SpawnEntry.cs" />
     <Compile Include="Administration\World\Regions\Spawning\SpawnPersistence.cs" />
@@ -1519,6 +1553,7 @@
     <Compile Include="Holidays\Holiday Items\WhiteLeatherDyeTub.cs" />
     <Compile Include="Mechanics\Aggression.cs" />
     <Compile Include="Administration\ArchivedSaves.cs" />
+    <Compile Include="Mechanics\XmlSpawner\VirtueHelper.cs" />
     <Compile Include="Mechanics\XmlSpawner\XmlSpawner Core\XmlAttachments\XmlCustomAttacks.cs" />
     <Compile Include="Mechanics\XmlSpawner\XmlSpawner Core\XmlAttachments\XmlCustomDefenses.cs" />
     <Compile Include="Mechanics\XmlSpawner\XmlSpawner Core\XmlAttachments\XmlLevelItem.cs" />
@@ -1535,6 +1570,7 @@
     <Compile Include="Mechanics\XmlSpawner\XmlSpawner Core\XmlAttachments\XmlFactionEquip.cs" />
     <Compile Include="Mechanics\XmlSpawner\XmlSpawner Core\XmlAttachments\XmlFactionMastery.cs" />
     <Compile Include="Mechanics\XmlSpawner\XmlSpawner Core\XmlAttachments\XmlMobFactions.cs" />
+    <Compile Include="Mechanics\XmlSpawner\XmlSpawner Core\XmlLevelItem\LevelUpScroll.cs" />
     <Compile Include="Mechanics\XmlSpawner\XmlSpawner Core\XmlMobFactions\MobFactionRegion.cs" />
     <Compile Include="Mechanics\XmlSpawner\XmlSpawner Core\XmlMobFactions\MobFactionRegionStone.cs" />
     <Compile Include="Mechanics\XmlSpawner\XmlSpawner Core\XmlMobFactions\MobFactionsRewardGump.cs" />

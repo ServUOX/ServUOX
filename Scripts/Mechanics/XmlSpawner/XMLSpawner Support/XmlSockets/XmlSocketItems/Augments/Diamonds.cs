@@ -13,7 +13,7 @@ namespace Server.Items
     public class MythicDiamond : BaseSocketAugmentation, IMythicAugment
     {
 
-        [Constructable]
+        [Constructible]
         public MythicDiamond() : base(0xf26)
         {
             Name = "Mythic Diamond";
@@ -137,7 +137,7 @@ namespace Server.Items
     public class LegendaryDiamond : BaseSocketAugmentation, ILegendaryAugment
     {
 
-        [Constructable]
+        [Constructible]
         public LegendaryDiamond() : base(0xf26)
         {
             Name = "Legendary Diamond";
@@ -261,7 +261,7 @@ namespace Server.Items
     public class AncientDiamond : BaseSocketAugmentation, IAncientAugment
     {
 
-        [Constructable]
+        [Constructible]
         public AncientDiamond() : base(0xf26)
         {
             Name = "Ancient Diamond";

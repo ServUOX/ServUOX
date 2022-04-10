@@ -18,7 +18,7 @@ namespace Server.Engines.XmlSpawner2
 		{
 		}
 
-		public override bool AllowHarmful(Mobile from, Mobile target)
+		public override bool AllowHarmful(Mobile from, IDamageable target)
 		{
 			if (from == null || target == null) return false;
 

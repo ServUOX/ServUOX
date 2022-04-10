@@ -5,10 +5,6 @@ using Server.Mobiles;
 using System.Collections;
 
 /*
-** XmlMobFactionsRewards
-** ArteGordon
-** updated 11/09/04
-**
 ** this class lets you specify rewards that can be purchased for XmlMobFactions kill Credits.
 ** The items will be displayed in the MobFactionsRewardGump that is opened by the MobFactionsRewardStone
 */
