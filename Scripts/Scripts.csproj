@@ -2898,7 +2898,6 @@
     <Compile Include="Expansion\ML\Items\Aquarium\Rewards\ToyBoat.cs" />
     <Compile Include="Expansion\ML\Items\Aquarium\Rewards\WaterloggedBoots.cs" />
     <Compile Include="Administration\World\Siege.cs" />
-    <Compile Include="Mechanics\SpawnerPersistence.cs" />
     <Compile Include="Mechanics\Waypoints.cs" />
     <Compile Include="Utilities\WorldLocationInfo.cs" />
     <Compile Include="Mechanics\AI\Magical AI\MageAI.cs" />
@@ -10577,7 +10576,6 @@
     <Compile Include="Expansion\HS\Items\DespiseDungeon\DespiseController.cs" />
     <Compile Include="Expansion\HS\Mechanics\DespiseDungeon\Region.cs" />
     <Compile Include="Expansion\HS\Mechanics\DespiseDungeon\Setup.cs" />
-    <Compile Include="Expansion\HS\Mechanics\ShameDungeon\Generate.cs" />
     <Compile Include="Expansion\HS\Items\Shame\CorrosiveAsh.cs" />
     <Compile Include="Expansion\HS\Items\Shame\CursedOilstone.cs" />
     <Compile Include="Expansion\HS\Items\Shame\QuartzGrit.cs" />
@@ -10635,7 +10633,6 @@
     <Compile Include="Expansion\HS\Mobiles\Wrong\PrisonRat.cs" />
     <Compile Include="Expansion\HS\Mechanics\Regions\Region.cs" />
     <Compile Include="Expansion\HS\Items\Wrong\WrongBarredMetalDoor.cs" />
-    <Compile Include="Expansion\HS\Mechanics\WrongDungeon\Generate.cs" />
     <Compile Include="Expansion\HS\Mobiles\Wrong\Archmage.cs" />
     <Compile Include="Expansion\HS\Items\Wrong\Artifacts\BlanketOfDarknessArtifact.cs" />
     <Compile Include="Expansion\HS\Mobiles\Wrong\BrigandCannibal.cs" />

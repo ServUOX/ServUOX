@@ -360,13 +360,6 @@ namespace Server
         {
             e.Mobile.SendMessage("Generating Mondain's Legacy world decoration, please wait.");
 
-            Decorate.Generate("ml", "Data/Mondain's Legacy/Trammel", Map.Trammel);
-            Decorate.Generate("ml", "Data/Mondain's Legacy/Felucca", Map.Felucca);
-            Decorate.Generate("ml", "Data/Mondain's Legacy/Ilshenar", Map.Ilshenar);
-            Decorate.Generate("ml", "Data/Mondain's Legacy/Malas", Map.Malas);
-            Decorate.Generate("ml", "Data/Mondain's Legacy/Tokuno", Map.Tokuno);
-            Decorate.Generate("ml", "Data/Mondain's Legacy/TerMur", Map.TerMur);
-
             PeerlessAltar altar;
             PeerlessTeleporter tele;
             PrismOfLightPillar pillar;

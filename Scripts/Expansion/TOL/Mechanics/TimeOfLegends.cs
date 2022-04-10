@@ -53,8 +53,6 @@ namespace Server
         {
             e.Mobile.SendMessage("Generating Time Of Legends world decoration, please wait.");
 
-            Decorate.Generate("tol", "Data/Decoration/TimeOfLegends/TerMur", Map.TerMur);
-            Decorate.Generate("tol", "Data/Decoration/TimeOfLegends/Felucca", Map.Felucca);
 
             ChampionSpawn sp = new ChampionSpawn();
 
