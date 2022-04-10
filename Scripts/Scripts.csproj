@@ -1652,7 +1652,7 @@
     <Compile Include="Mechanics\XmlSpawner\XMLSpawner Support\XmlSockets\XmlSocketItems\MagicBasket.cs" />
     <Compile Include="Mechanics\XmlSpawner\XMLSpawner Support\XmlSockets\XmlSocketItems\SocketHammer.cs" />
     <Compile Include="Mechanics\XmlSpawner\XMLSpawner Support\XmlSockets\XmlSocketItems\TestSocketedWeapon.cs" />
-    <Compile Include="Utilities\TaskPollingTimer.cs" />
+    <Compile Include="Expansion\EJ\Mechanics\Vendor Searching\TaskPollingTimer.cs" />
     <Compile Include="Expansion\EJ\Mobiles\Mounts\CoconutCrab.cs" />
     <Compile Include="Expansion\EJ\Mobiles\Mounts\HungryCoconutCrab.cs" />
     <Compile Include="Expansion\EJ\Mobiles\Mounts\SkeletalCat.cs" />
@@ -8090,9 +8090,6 @@
     <Compile Include="Expansion\UOTD\XxUnsortedxX\BraceletOfBinding.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Utilities\MessageHelper.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Expansion\UOR\XxUnsortedxX\PowderOfTranslocation.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -9415,9 +9412,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utilities\SocketOptions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Utilities\TextDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\Titles.cs">
