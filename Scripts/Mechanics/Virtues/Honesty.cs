@@ -1,4 +1,3 @@
-#region References
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,14 +5,12 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-
 using Server.Engines.CannedEvil;
 using Server.Items;
 using Server.Mobiles;
 using Server.Multis;
 using Server.Network;
 using Server.Regions;
-#endregion
 
 namespace Server.Services.Virtues
 {
@@ -31,7 +28,7 @@ namespace Server.Services.Virtues
         public static bool TrammelGeneration { get; set; }
 
         private static readonly string[] _Regions =
-            {"Britain", "Minoc", "Magincia", "Trinsic", "Jhelom", "Moonglow", "Skara Brae", "Yew"};
+            { "Britain", "Minoc", "Magincia", "Trinsic", "Jhelom", "Moonglow", "Skara Brae", "Yew" };
 
         private const TileFlag _Filter = TileFlag.Wet | TileFlag.Roof | TileFlag.Impassable;
 
@@ -48,24 +45,6 @@ namespace Server.Services.Virtues
             _Items = new List<Item>(MaxGeneration);
         }
 
-        private static void GenerateImages()
-        {
-            if (!Directory.Exists("Honesty"))
-            {
-                Directory.CreateDirectory("Honesty");
-            }
-
-            if (_FeluccaArea != null)
-            {
-                _FeluccaArea.Image.Save("Honesty/Felucca.png", ImageFormat.Png);
-            }
-
-            if (_TrammelArea != null)
-            {
-                _TrammelArea.Image.Save("Honesty/Trammel.png", ImageFormat.Png);
-            }
-        }
-
         public static void Initialize()
         {
             EventSink.ItemDeleted += OnItemDeleted;
@@ -78,11 +57,6 @@ namespace Server.Services.Virtues
                 _Items.AddRange(World.Items.Values.Where(item => item.HonestyItem));
 
                 GenerateHonestyItems();
-
-                if (UseSpawnArea)
-                {
-                    Task.Factory.StartNew(GenerateImages);
-                }
             }
         }
 
@@ -137,9 +111,8 @@ namespace Server.Services.Virtues
 
             var fw = map.MapID <= 1 ? 5119 : map.Width;
             var fh = map.MapID <= 1 ? 4095 : map.Height;
-
-            int x, y, z = 0;
-
+            int x, y;
+            int z;
             do
             {
                 x = Utility.RandomMinMax(0, fw);

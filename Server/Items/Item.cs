@@ -640,14 +640,14 @@ namespace Server
         {
             try
             {
-                return Ultima.Art.GetStatic(itemID);
+                return ArtData.GetStatic(itemID);
             }
             catch
             {
                 if (Core.Debug)
                 {
                     Utility.PushColor(ConsoleColor.Red);
-                    Console.WriteLine("Ultima Art: Unable to read client files.");
+                    Console.WriteLine("Art Data: Unable to read client files.");
                     Utility.PopColor();
                 }
             }
@@ -657,20 +657,18 @@ namespace Server
 
         public static void Measure(Bitmap bmp, out int xMin, out int yMin, out int xMax, out int yMax)
         {
-            Ultima.Art.Measure(bmp, out xMin, out yMin, out xMax, out yMax);
+            ArtData.Measure(bmp, out xMin, out yMin, out xMax, out yMax);
         }
 
         public static Rectangle MeasureBound(Bitmap bmp)
         {
-            int xMin, yMin, xMax, yMax;
-            Measure(bmp, out xMin, out yMin, out xMax, out yMax);
+            Measure(bmp, out int xMin, out int yMin, out int xMax, out int yMax);
             return new Rectangle(xMin, yMin, xMax - xMin, yMax - yMin);
         }
 
         public static Size MeasureSize(Bitmap bmp)
         {
-            int xMin, yMin, xMax, yMax;
-            Measure(bmp, out xMin, out yMin, out xMax, out yMax);
+            Measure(bmp, out int xMin, out int yMin, out int xMax, out int yMax);
             return new Size(xMax - xMin, yMax - yMin);
         }
         #endregion
@@ -689,7 +687,7 @@ namespace Server
 
         private bool GetFlag(ImplFlag flag)
         {
-            return ((m_Flags & flag) != 0);
+            return (m_Flags & flag) != 0;
         }
 
         public BounceInfo GetBounce()

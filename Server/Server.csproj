@@ -69,6 +69,9 @@
   </Target>
   -->
   <ItemGroup>
+    <Compile Include="StringList.cs" />
+    <Compile Include="FileIndex.cs" />
+    <Compile Include="ArtData.cs" />
     <Compile Include="Mobiles\AggressorInfo.cs" />
     <Compile Include=".\AssemblyInfo.cs" />
     <Compile Include="Utilities\Attributes.cs" />
@@ -82,41 +85,6 @@
     <Compile Include="Mechanics\ContextMenus\PaperdollEntry.cs" />
     <Compile Include="Utilities\Config.cs" />
     <Compile Include="Utilities\Point4D.cs" />
-    <Compile Include="Ultima\AnimationEdit.cs" />
-    <Compile Include="Ultima\Animations.cs" />
-    <Compile Include="Ultima\Animdata.cs" />
-    <Compile Include="Ultima\Art.cs" />
-    <Compile Include="Ultima\ASCIIFont.cs" />
-    <Compile Include="Ultima\CalibrationInfo.cs" />
-    <Compile Include="Ultima\Client.cs" />
-    <Compile Include="Ultima\ClientHandles.cs" />
-    <Compile Include="Ultima\FileIndex.cs" />
-    <Compile Include="Ultima\Files.cs" />
-    <Compile Include="Ultima\Gumps.cs" />
-    <Compile Include="Ultima\Hues.cs" />
-    <Compile Include="Ultima\Light.cs" />
-    <Compile Include="Ultima\LocationPointer.cs" />
-    <Compile Include="Ultima\Map.cs" />
-    <Compile Include="Ultima\MultiMap.cs" />
-    <Compile Include="Ultima\Multis.cs" />
-    <Compile Include="Ultima\NativeMethods.cs" />
-    <Compile Include="Ultima\ProcessStream.cs" />
-    <Compile Include="Ultima\RadarCol.cs" />
-    <Compile Include="Ultima\Settings.cs" />
-    <Compile Include="Ultima\SkillGroups.cs" />
-    <Compile Include="Ultima\Skills.cs" />
-    <Compile Include="Ultima\Sound.cs" />
-    <Compile Include="Ultima\SpeechList.cs" />
-    <Compile Include="Ultima\StringEntry.cs" />
-    <Compile Include="Ultima\StringList.cs" />
-    <Compile Include="Ultima\Textures.cs" />
-    <Compile Include="Ultima\TileData.cs" />
-    <Compile Include="Ultima\TileList.cs" />
-    <Compile Include="Ultima\TileMatrix.cs" />
-    <Compile Include="Ultima\TileMatrixPatch.cs" />
-    <Compile Include="Ultima\UnicodeFont.cs" />
-    <Compile Include="Ultima\Verdata.cs" />
-    <Compile Include="Ultima\WindowProcessStream.cs" />
     <Compile Include="Utilities\Decompressor.cs" />
     <Compile Include="Utilities\ObjectDumper.cs" />
     <Compile Include="Network\OutgoingPacketOverride.cs" />
