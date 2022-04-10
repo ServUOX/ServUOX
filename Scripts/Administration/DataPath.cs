@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using Microsoft.Win32;
-using Ultima;
 
 namespace Server.Misc
 {
@@ -25,7 +24,7 @@ namespace Server.Misc
             }
             else if (!Core.Unix)
             {
-                path = Files.LoadDirectory();
+                path = GetPath(@"Electronic Arts\EA Games\Ultima Online Classic", "InstallDir");
             }
             else
             {
@@ -61,11 +60,6 @@ namespace Server.Misc
                 Console.Write("> ");
 
                 Core.DataDirectories.Add(Console.ReadLine());
-            }
-
-            foreach (var path in Core.DataDirectories)
-            {
-                Files.SetMulPath(path);
             }
 
             Utility.PushColor(ConsoleColor.DarkYellow);
