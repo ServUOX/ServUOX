@@ -57,7 +57,7 @@ namespace Server.Misc
 
         public static void Save(bool permitBackgroundWrite)
         {
-            if (AutoRestart.Restarting || CreateWorld.WorldCreating)
+            if (AutoRestart.Restarting)
                 return;
 
             World.WaitForWriteCompletion();
@@ -77,7 +77,7 @@ namespace Server.Misc
 
         private static void Tick()
         {
-            if (!SavesEnabled || AutoRestart.Restarting || CreateWorld.WorldCreating)
+            if (!SavesEnabled || AutoRestart.Restarting)
                 return;
 
             if (m_Warning == TimeSpan.Zero)

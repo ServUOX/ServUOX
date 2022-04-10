@@ -8,16 +8,6 @@ namespace Server.Items
 {
     public class ExodusNexus : NexusAddon
     {
-        public static void Initialize()
-        {
-            CommandSystem.Register("GenExodusNexus", AccessLevel.Administrator, Generate_ExodusNexus);
-        }
-
-        public static void Generate_ExodusNexus(CommandEventArgs e)
-        {
-            Decorate.Generate("exodus", "Data/Decoration/Exodus", Map.Ilshenar);
-        }
-
         private static readonly TimeSpan m_UseTimeout = TimeSpan.FromMinutes(2.0);
         private Dictionary<Mobile, DamageTimer> DamageTable = new Dictionary<Mobile, DamageTimer>();
         private int m_SideLength;
