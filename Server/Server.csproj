@@ -69,9 +69,10 @@
   </Target>
   -->
   <ItemGroup>
-    <Compile Include="StringList.cs" />
-    <Compile Include="FileIndex.cs" />
-    <Compile Include="ArtData.cs" />
+    <Compile Include="Utilities\MessageHelper.cs" />
+    <Compile Include="Utilities\StringList.cs" />
+    <Compile Include="Utilities\FileIndex.cs" />
+    <Compile Include="Utilities\ArtData.cs" />
     <Compile Include="Mobiles\AggressorInfo.cs" />
     <Compile Include=".\AssemblyInfo.cs" />
     <Compile Include="Utilities\Attributes.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Utilities\Decompressor.cs" />
     <Compile Include="Utilities\ObjectDumper.cs" />
     <Compile Include="Network\OutgoingPacketOverride.cs" />
+    <Compile Include="Utilities\TextDefinition.cs" />
     <Compile Include="Utilities\Utilities.cs" />
     <Compile Include=".\Diagnostics\BaseProfile.cs" />
     <Compile Include=".\Diagnostics\GumpProfile.cs" />

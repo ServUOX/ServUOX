@@ -1,7 +1,6 @@
-using System;
 using System.Globalization;
 using Server.Gumps;
-// I think this should be moved to core
+
 namespace Server
 {
     [Parsable]
