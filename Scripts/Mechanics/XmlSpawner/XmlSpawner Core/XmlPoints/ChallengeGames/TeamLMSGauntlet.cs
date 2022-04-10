@@ -7,14 +7,6 @@ using System.Collections;
 using Server.Targeting;
 using Server.Engines.XmlSpawner2;
 
-/*
-** TeamLMSGauntlet
-** ArteGordon
-** updated 12/05/04
-**
-** used to set up a team lms pvp challenge game through the XmlPoints system.
-*/
-
 namespace Server.Items
 {
     public class TeamLMSGauntlet : BaseChallengeGame
@@ -130,7 +122,7 @@ namespace Server.Items
 
         }
         
-        public override bool AreChallengers(Mobile from, Mobile target)
+        public override bool AreChallengers(Mobile from, IDamageable target)
         {
             if(from == null || target == null) return false;
 

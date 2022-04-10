@@ -19,7 +19,7 @@ namespace Server.Items
 {
     public class DeathBall : Item
     {
-		[Constructable]
+		[Constructible]
 		public DeathBall()
 			: base(0x2257)
 		{
@@ -468,7 +468,7 @@ namespace Server.Items
             return false;
         }
 
-        public override bool AreChallengers(Mobile from, Mobile target)
+        public override bool AreChallengers(Mobile from, IDamageable target)
         {
 			/*
 			// allow pets of challengers
@@ -480,7 +480,7 @@ namespace Server.Items
 
             // everyone participant is a challenger to everyone other participant, so just being a participant
             // makes you a challenger
-            return(AreInGame(from) && AreInGame(target));
+            return AreInGame(from);
         }
 
 		public Mobile BallOwner

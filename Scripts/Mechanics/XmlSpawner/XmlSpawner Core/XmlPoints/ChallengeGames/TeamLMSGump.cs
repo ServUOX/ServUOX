@@ -8,13 +8,6 @@ using System.Collections;
 using Server.Targeting;
 using Server.Engines.XmlSpawner2;
 
-/*
-** TeamLMSGump
-** ArteGordon
-** updated 12/06/04
-**
-*/
-
 namespace Server.Gumps
 {
 	public class TeamLMSGump : Gump

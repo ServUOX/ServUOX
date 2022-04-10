@@ -185,13 +185,13 @@ namespace Server.Items
 		}
 
 
-		[Constructable]
+		[Constructible]
 		public SiegeRam()
 			: this(0)
 		{
 		}
 
-		[Constructable]
+		[Constructible]
 		public SiegeRam(int facing)
 		{
 			// addon the components

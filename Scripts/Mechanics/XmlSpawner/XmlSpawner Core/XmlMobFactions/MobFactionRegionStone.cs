@@ -225,7 +225,7 @@ namespace Server.Engines.XmlSpawner2
 			m_MobFactionRegion.Register();
 		}
 
-		[Constructable]
+		[Constructible]
 		public MobFactionRegionStone()
 			: base(0x161D)
 		{

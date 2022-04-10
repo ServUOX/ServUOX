@@ -8,21 +8,10 @@ using Server.Targeting;
 using Server.Regions;
 using Server.Engines.XmlSpawner2;
 
-/*
-** TeamDeathballGauntlet
-** ArteGordon
-** updated 12/05/04
-**
-** used to set up a team Deathball pvp challenge game through the XmlPoints system.
-*/
-
 namespace Server.Items
 {
     public class TeamDeathballGauntlet : BaseChallengeGame
     {
-
-
-
 		public class ChallengeEntry : BaseChallengeEntry
 		{
 
@@ -465,7 +454,7 @@ namespace Server.Items
 
         }
 
-        public override bool AreChallengers(Mobile from, Mobile target)
+        public override bool AreChallengers(Mobile from, IDamageable target)
         {
             if(from == null || target == null) return false;
 
