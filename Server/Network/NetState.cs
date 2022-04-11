@@ -6,7 +6,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using Server.Accounting;
-using Server.Diagnostics;
 using Server.Gumps;
 using Server.HuePickers;
 using Server.Items;
@@ -631,8 +630,8 @@ namespace Server.Network
                     return;
                 }
 
+                /*
                 PacketSendProfile prof = null;
-
                 if (Core.Profiling)
                 {
                     prof = PacketSendProfile.Acquire(p.GetType());
@@ -642,6 +641,7 @@ namespace Server.Network
                 {
                     prof.Start();
                 }
+                */
 
                 var buffered = false;
 
@@ -723,10 +723,12 @@ namespace Server.Network
 
                 p.OnSend();
 
+                /*
                 if (prof != null)
                 {
                     prof.Finish(length);
                 }
+                */
             }
             else
             {

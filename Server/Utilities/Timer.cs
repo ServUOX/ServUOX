@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
-using Server.Diagnostics;
 
 namespace Server
 {
@@ -111,10 +110,12 @@ namespace Server
             }
         }
 
+        /*
         public TimerProfile GetProfile()
         {
             return Core.Profiling ? TimerProfile.Acquire(ToString()) : null;
         }
+        */
 
         public class TimerThread
         {
@@ -386,21 +387,27 @@ namespace Server
                 while (index < BreakCount && m_Queue.Count != 0)
                 {
                     var t = m_Queue.Dequeue();
-                    var prof = t.GetProfile();
 
+                    /*
+                    var prof = t.GetProfile();
                     if (prof != null)
                     {
                         prof.Start();
                     }
+                    */
 
                     t.OnTick();
+
                     t.m_Queued = false;
+
                     ++index;
 
+                    /*
                     if (prof != null)
                     {
                         prof.Finish();
                     }
+                    */
                 }
             }
         }
@@ -413,6 +420,7 @@ namespace Server
             : this(delay, interval, 0)
         { }
 
+        /*
         public virtual bool DefRegCreation => true;
 
         public void RegCreation()
@@ -424,6 +432,7 @@ namespace Server
                 prof.Created++;
             }
         }
+        */
 
         public Timer(TimeSpan delay, TimeSpan interval, int count)
         {
@@ -439,10 +448,12 @@ namespace Server
                 m_PrioritySet = true;
             }
 
+            /*
             if (DefRegCreation)
             {
                 RegCreation();
             }
+            */
         }
 
         private readonly string _ToString;
@@ -671,13 +682,13 @@ namespace Server
 
             public TimerCallback Callback => m_Callback;
 
-            public override bool DefRegCreation => false;
+            //public override bool DefRegCreation => false;
 
             public DelayCallTimer(TimeSpan delay, TimeSpan interval, int count, TimerCallback callback)
                 : base(delay, interval, count)
             {
                 m_Callback = callback;
-                RegCreation();
+                //RegCreation();
             }
 
             protected override void OnTick()
@@ -701,7 +712,7 @@ namespace Server
 
             public TimerStateCallback Callback => m_Callback;
 
-            public override bool DefRegCreation => false;
+            //public override bool DefRegCreation => false;
 
             public DelayStateCallTimer(TimeSpan delay, TimeSpan interval, int count, TimerStateCallback callback, object state)
                 : base(delay, interval, count)
@@ -709,7 +720,7 @@ namespace Server
                 m_Callback = callback;
                 m_State = state;
 
-                RegCreation();
+                //RegCreation();
             }
 
             protected override void OnTick()
@@ -733,7 +744,7 @@ namespace Server
 
             public TimerStateCallback<T> Callback => m_Callback;
 
-            public override bool DefRegCreation => false;
+            //public override bool DefRegCreation => false;
 
             public DelayStateCallTimer(TimeSpan delay, TimeSpan interval, int count, TimerStateCallback<T> callback, T state)
                 : base(delay, interval, count)
@@ -741,7 +752,7 @@ namespace Server
                 m_Callback = callback;
                 m_State = state;
 
-                RegCreation();
+                //RegCreation();
             }
 
             protected override void OnTick()
@@ -766,7 +777,7 @@ namespace Server
 
             public TimerStateCallback<T1, T2> Callback => m_Callback;
 
-            public override bool DefRegCreation => false;
+            //public override bool DefRegCreation => false;
 
             public DelayStateCallTimer(TimeSpan delay, TimeSpan interval, int count, TimerStateCallback<T1, T2> callback, T1 state1, T2 state2)
                 : base(delay, interval, count)
@@ -775,7 +786,7 @@ namespace Server
                 m_State1 = state1;
                 m_State2 = state2;
 
-                RegCreation();
+                //RegCreation();
             }
 
             protected override void OnTick()
@@ -801,7 +812,7 @@ namespace Server
 
             public TimerStateCallback<T1, T2, T3> Callback => m_Callback;
 
-            public override bool DefRegCreation => false;
+            //public override bool DefRegCreation => false;
 
             public DelayStateCallTimer(TimeSpan delay, TimeSpan interval, int count, TimerStateCallback<T1, T2, T3> callback, T1 state1, T2 state2, T3 state3)
                 : base(delay, interval, count)
@@ -811,7 +822,7 @@ namespace Server
                 m_State2 = state2;
                 m_State3 = state3;
 
-                RegCreation();
+                //RegCreation();
             }
 
             protected override void OnTick()
@@ -838,7 +849,7 @@ namespace Server
 
             public TimerStateCallback<T1, T2, T3, T4> Callback => m_Callback;
 
-            public override bool DefRegCreation => false;
+            //public override bool DefRegCreation => false;
 
             public DelayStateCallTimer(TimeSpan delay, TimeSpan interval, int count, TimerStateCallback<T1, T2, T3, T4> callback, T1 state1, T2 state2, T3 state3, T4 state4)
                 : base(delay, interval, count)
@@ -849,7 +860,7 @@ namespace Server
                 m_State3 = state3;
                 m_State4 = state4;
 
-                RegCreation();
+                //RegCreation();
             }
 
             protected override void OnTick()
@@ -878,12 +889,13 @@ namespace Server
 
             TimerThread.AddTimer(this);
 
+            /*
             var prof = GetProfile();
-
             if (prof != null)
             {
                 prof.Started++;
             }
+            */
         }
 
         public void Stop()
@@ -897,12 +909,13 @@ namespace Server
 
             TimerThread.RemoveTimer(this);
 
+            /*
             var prof = GetProfile();
-
             if (prof != null)
             {
                 prof.Stopped++;
             }
+            */
         }
 
         protected virtual void OnTick()

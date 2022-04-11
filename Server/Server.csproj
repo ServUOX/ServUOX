@@ -91,11 +91,6 @@
     <Compile Include="Network\OutgoingPacketOverride.cs" />
     <Compile Include="Utilities\TextDefinition.cs" />
     <Compile Include="Utilities\Utilities.cs" />
-    <Compile Include=".\Diagnostics\BaseProfile.cs" />
-    <Compile Include=".\Diagnostics\GumpProfile.cs" />
-    <Compile Include=".\Diagnostics\PacketProfile.cs" />
-    <Compile Include=".\Diagnostics\TargetProfile.cs" />
-    <Compile Include=".\Diagnostics\TimerProfile.cs" />
     <Compile Include="Utilities\Effects.cs" />
     <Compile Include="Utilities\EventLog.cs" />
     <Compile Include="EventSink\EventSink.cs" />

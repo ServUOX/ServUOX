@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Threading;
-using Server.Diagnostics;
 
 namespace Server.Network
 {
@@ -305,6 +304,7 @@ namespace Server.Network
                         }
                     }
 
+                    /*
                     PacketReceiveProfile prof = null;
 
                     if (Core.Profiling)
@@ -316,6 +316,7 @@ namespace Server.Network
                     {
                         prof.Start();
                     }
+                    */
 
                     byte[] packetBuffer;
 
@@ -342,10 +343,12 @@ namespace Server.Network
                         }
                     }
 
+                    /*
                     if (prof != null)
                     {
                         prof.Finish(packetLength);
                     }
+                    */
 
                     length = buffer.Length;
                 }

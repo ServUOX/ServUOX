@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading;
 using Server.Accounting;
 using Server.ContextMenus;
-using Server.Diagnostics;
 using Server.Gumps;
 using Server.HuePickers;
 using Server.Items;
@@ -5190,11 +5189,13 @@ m_Stream.Write( (int) renderMode );
         {
             m_PacketID = packetID;
 
+            /*
             if (Core.Profiling)
             {
                 PacketSendProfile prof = PacketSendProfile.Acquire(GetType());
                 prof.Increment();
             }
+            */
         }
 
         protected Packet(int packetID, int length)
@@ -5209,11 +5210,13 @@ m_Stream.Write( (int) renderMode );
             m_Stream = stream;
             m_Stream.Write((byte)packetID);
 
+            /*
             if (Core.Profiling)
             {
                 PacketSendProfile prof = PacketSendProfile.Acquire(GetType());
                 prof.Increment();
             }
+            */
         }
 
         public void EnsureCapacity(int length)

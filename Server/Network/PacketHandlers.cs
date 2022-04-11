@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using Server.Accounting;
 using Server.ContextMenus;
-using Server.Diagnostics;
 using Server.Gumps;
 using Server.HuePickers;
 using Server.Items;
@@ -1245,12 +1244,14 @@ namespace Server.Network
 
             if (t != null)
             {
+                /*
                 TargetProfile prof = TargetProfile.Acquire(t.GetType());
 
                 if (prof != null)
                 {
                     prof.Start();
                 }
+                */
 
                 try
                 {
@@ -1337,10 +1338,12 @@ namespace Server.Network
                 }
                 finally
                 {
+                    /*
                     if (prof != null)
                     {
                         prof.Finish();
                     }
+                    */
                 }
             }
         }
@@ -1435,19 +1438,23 @@ namespace Server.Network
 
                     state.RemoveGump(gump);
 
+                    /*
                     GumpProfile prof = GumpProfile.Acquire(gump.GetType());
 
                     if (prof != null)
                     {
                         prof.Start();
                     }
+                    */
 
                     gump.OnResponse(state, new RelayInfo(buttonID, switches, textEntries));
 
+                    /*
                     if (prof != null)
                     {
                         prof.Finish();
                     }
+                    */
 
                     return;
                 }

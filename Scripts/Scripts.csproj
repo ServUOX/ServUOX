@@ -946,9 +946,6 @@
     <Compile Include="Administration\Commands\Logging.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\Commands\Profiling.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Administration\Commands\Properties.cs">
       <SubType>Code</SubType>
     </Compile>
