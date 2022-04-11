@@ -279,9 +279,9 @@ namespace Server.Services.Virtues
 
             public ResistanceMod[] GetMod => new[]
                     {
-                        new ResistanceMod(ResistanceType.Physical, -70), new ResistanceMod(ResistanceType.Fire, -70),
-                        new ResistanceMod(ResistanceType.Poison, -70), new ResistanceMod(ResistanceType.Cold, -70),
-                        new ResistanceMod(ResistanceType.Energy, -70)
+                        new ResistanceMod(ResistType.Physical, -70), new ResistanceMod(ResistType.Fire, -70),
+                        new ResistanceMod(ResistType.Poison, -70), new ResistanceMod(ResistType.Cold, -70),
+                        new ResistanceMod(ResistType.Energy, -70)
                     };
 
             public bool Expiring

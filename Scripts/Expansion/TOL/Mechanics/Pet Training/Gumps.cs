@@ -880,9 +880,9 @@ namespace Server.Mobiles
         {
             int y = 90;
 
-            foreach (int i in Enum.GetValues(typeof(ResistanceType)))
+            foreach (int i in Enum.GetValues(typeof(ResistType)))
             {
-                var tp = PetTrainingHelper.GetTrainingPoint((ResistanceType)i);
+                var tp = PetTrainingHelper.GetTrainingPoint((ResistType)i);
 
                 AddButton(275, y, 4005, 4007, 100 + i, GumpButtonType.Reply, 0);
                 Record(tp, 320, y + 2);
@@ -1195,7 +1195,7 @@ namespace Server.Mobiles
                     tp = PetTrainingHelper.GetTrainingPoint(stat);
                     break;
                 case 1: // resists
-                    ResistanceType r = (ResistanceType)id - 100;
+                    ResistType r = (ResistType)id - 100;
                     tp = PetTrainingHelper.GetTrainingPoint(r);
                     break;
                 case 2: // mag skill
@@ -1344,9 +1344,9 @@ namespace Server.Mobiles
                         valueWeight -= (currentTotal + nonAdjustedWeight) - maxTotalCap;
                     }
                 }
-                else if (TrainingPoint.TrainPoint is ResistanceType)
+                else if (TrainingPoint.TrainPoint is ResistType)
                 {
-                    var resist = (ResistanceType)TrainingPoint.TrainPoint;
+                    var resist = (ResistType)TrainingPoint.TrainPoint;
                     double maxTotalCap = PetTrainingHelper.GetTrainingCapTotal(resist);
                     double currentTotal = PetTrainingHelper.GetTotalResistWeight(Creature);
 

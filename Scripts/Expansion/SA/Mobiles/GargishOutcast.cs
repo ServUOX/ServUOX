@@ -63,13 +63,13 @@ namespace Server.Mobiles
             if (Utility.RandomBool())
                 AddImmovableItem(new GargishRobe());
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
-            SetResist(ResistanceType.Physical, 10, 25);
-            SetResist(ResistanceType.Fire, 40, 65);
-            SetResist(ResistanceType.Cold, 40, 65);
-            SetResist(ResistanceType.Poison, 40, 65);
-            SetResist(ResistanceType.Energy, 40, 65);
+            SetResist(ResistType.Physical, 10, 25);
+            SetResist(ResistType.Fire, 40, 65);
+            SetResist(ResistType.Cold, 40, 65);
+            SetResist(ResistType.Poison, 40, 65);
+            SetResist(ResistType.Energy, 40, 65);
 
             SetSkill(SkillName.MagicResist, 120.0);
             SetSkill(SkillName.Tactics, 50.1, 60.0);

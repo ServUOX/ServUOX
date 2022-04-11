@@ -99,13 +99,13 @@ namespace Server.Gumps
             else if (info.ButtonID >= 100) // Choose Resist
             {
                 int i = info.ButtonID - 100;
-                ResistanceType oldType = m_Entry.Resists[i];
+                ResistType oldType = m_Entry.Resists[i];
                 int value = (int)oldType;
 
                 if (value == 4) value = 0;
                 else value++;
 
-                ResistanceType newType = (ResistanceType)value;
+                ResistType newType = (ResistType)value;
 
                 m_Entry.Resists[i] = newType;
                 m_Entry.Values[i] = m_Item.RefinementType == RefinementType.Reinforcing ? 1 : -1;
@@ -167,11 +167,11 @@ namespace Server.Gumps
 
                             switch (m_Entry.Resists[i])
                             {
-                                case ResistanceType.Physical: armor.RefinedPhysical += value; break;
-                                case ResistanceType.Fire: armor.RefinedFire += value; break;
-                                case ResistanceType.Cold: armor.RefinedCold += value; break;
-                                case ResistanceType.Poison: armor.RefinedPoison += value; break;
-                                case ResistanceType.Energy: armor.RefinedEnergy += value; break;
+                                case ResistType.Physical: armor.RefinedPhysical += value; break;
+                                case ResistType.Fire: armor.RefinedFire += value; break;
+                                case ResistType.Cold: armor.RefinedCold += value; break;
+                                case ResistType.Poison: armor.RefinedPoison += value; break;
+                                case ResistType.Energy: armor.RefinedEnergy += value; break;
                             }
                         }
 
@@ -187,7 +187,7 @@ namespace Server.Gumps
             }
         }
 
-        public int GetResistanceLabel(ResistanceType attr, int value)
+        public int GetResistanceLabel(ResistType attr, int value)
         {
             if (value == 0)
                 return 1062648; // None Selected
@@ -195,11 +195,11 @@ namespace Server.Gumps
             switch (attr)
             {
                 default:
-                case ResistanceType.Physical: return 1061158;
-                case ResistanceType.Fire: return 1061159;
-                case ResistanceType.Cold: return 1061160;
-                case ResistanceType.Poison: return 1061161;
-                case ResistanceType.Energy: return 1061162;
+                case ResistType.Physical: return 1061158;
+                case ResistType.Fire: return 1061159;
+                case ResistType.Cold: return 1061160;
+                case ResistType.Poison: return 1061161;
+                case ResistType.Energy: return 1061162;
             }
         }
 

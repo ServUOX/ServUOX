@@ -188,13 +188,13 @@ namespace Server.Engines.Despise
 
             SetDamage(18, 28);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
-            SetResist(ResistanceType.Physical, 40, 60);
-            SetResist(ResistanceType.Fire, 40, 60);
-            SetResist(ResistanceType.Cold, 40, 60);
-            SetResist(ResistanceType.Poison, 40, 60);
-            SetResist(ResistanceType.Energy, 40, 60);
+            SetResist(ResistType.Physical, 40, 60);
+            SetResist(ResistType.Fire, 40, 60);
+            SetResist(ResistType.Cold, 40, 60);
+            SetResist(ResistType.Poison, 40, 60);
+            SetResist(ResistType.Energy, 40, 60);
 
             SetSkill(SkillName.MagicResist, 120);
             SetSkill(SkillName.Tactics, 120);
@@ -272,13 +272,13 @@ namespace Server.Engines.Despise
 
             SetDamage(18, 28);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
-            SetResist(ResistanceType.Physical, 40, 60);
-            SetResist(ResistanceType.Fire, 40, 60);
-            SetResist(ResistanceType.Cold, 40, 60);
-            SetResist(ResistanceType.Poison, 40, 60);
-            SetResist(ResistanceType.Energy, 40, 60);
+            SetResist(ResistType.Physical, 40, 60);
+            SetResist(ResistType.Fire, 40, 60);
+            SetResist(ResistType.Cold, 40, 60);
+            SetResist(ResistType.Poison, 40, 60);
+            SetResist(ResistType.Energy, 40, 60);
 
             SetSkill(SkillName.MagicResist, 120);
             SetSkill(SkillName.Tactics, 120);
@@ -348,15 +348,15 @@ namespace Server.Engines.Despise
 
             SetDamage(12, 19);
 
-            SetDamageType(ResistanceType.Physical, 40);
-            SetDamageType(ResistanceType.Fire, 30);
-            SetDamageType(ResistanceType.Energy, 30);
+            SetDamageType(ResistType.Physical, 40);
+            SetDamageType(ResistType.Fire, 30);
+            SetDamageType(ResistType.Energy, 30);
 
-            SetResist(ResistanceType.Physical, 50);
-            SetResist(ResistanceType.Fire, 60, 70);
-            SetResist(ResistanceType.Cold, 60, 70);
-            SetResist(ResistanceType.Poison, 50, 60);
-            SetResist(ResistanceType.Energy, 60, 70);
+            SetResist(ResistType.Physical, 50);
+            SetResist(ResistType.Fire, 60, 70);
+            SetResist(ResistType.Cold, 60, 70);
+            SetResist(ResistType.Poison, 50, 60);
+            SetResist(ResistType.Energy, 60, 70);
 
             SetSkill(SkillName.MagicResist, 110, 125);
             SetSkill(SkillName.Tactics, 110, 125);
@@ -427,15 +427,15 @@ namespace Server.Engines.Despise
 
             SetDamage(12, 19);
 
-            SetDamageType(ResistanceType.Physical, 40);
-            SetDamageType(ResistanceType.Fire, 30);
-            SetDamageType(ResistanceType.Energy, 30);
+            SetDamageType(ResistType.Physical, 40);
+            SetDamageType(ResistType.Fire, 30);
+            SetDamageType(ResistType.Energy, 30);
 
-            SetResist(ResistanceType.Physical, 50);
-            SetResist(ResistanceType.Fire, 60, 70);
-            SetResist(ResistanceType.Cold, 60, 70);
-            SetResist(ResistanceType.Poison, 50, 60);
-            SetResist(ResistanceType.Energy, 60, 70);
+            SetResist(ResistType.Physical, 50);
+            SetResist(ResistType.Fire, 60, 70);
+            SetResist(ResistType.Cold, 60, 70);
+            SetResist(ResistType.Poison, 50, 60);
+            SetResist(ResistType.Energy, 60, 70);
 
             SetSkill(SkillName.MagicResist, 110, 125);
             SetSkill(SkillName.Tactics, 110, 125);

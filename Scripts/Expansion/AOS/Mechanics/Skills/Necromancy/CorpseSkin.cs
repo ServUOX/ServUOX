@@ -106,10 +106,10 @@ namespace Server.Spells.Necromancy
 
             ResistanceMod[] mods = new ResistanceMod[4]
                     {
-                        new ResistanceMod( ResistanceType.Fire, (int)(-malus * strength) ),
-                        new ResistanceMod( ResistanceType.Poison, (int)(-malus * strength) ),
-                        new ResistanceMod( ResistanceType.Cold, (int)(+10.0 * strength) ),
-                        new ResistanceMod( ResistanceType.Physical, (int)(+10.0 * strength) )
+                        new ResistanceMod( ResistType.Fire, (int)(-malus * strength) ),
+                        new ResistanceMod( ResistType.Poison, (int)(-malus * strength) ),
+                        new ResistanceMod( ResistType.Cold, (int)(+10.0 * strength) ),
+                        new ResistanceMod( ResistType.Physical, (int)(+10.0 * strength) )
                     };
 
             ExpireTimer timer = new ExpireTimer(m, mods, malus, duration);

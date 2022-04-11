@@ -552,17 +552,17 @@ namespace Server.Items
 
     public class ModEntry
     {
-        private ResistanceType[] m_Resists = new ResistanceType[5];
+        private ResistType[] m_Resists = new ResistType[5];
         private int[] m_Values = new int[5];
 
-        public ResistanceType[] Resists => m_Resists;
+        public ResistType[] Resists => m_Resists;
         public int[] Values => m_Values;
 
         public ModEntry(int count)
         {
             for (int i = 0; i < m_Resists.Length; i++)
             {
-                m_Resists[i] = (ResistanceType)i;
+                m_Resists[i] = (ResistType)i;
                 m_Values[i] = 0;
             }
         }
@@ -575,7 +575,7 @@ namespace Server.Items
 
             for (int i = 0; i < count; i++)
             {
-                m_Resists[i] = (ResistanceType)reader.ReadInt();
+                m_Resists[i] = (ResistType)reader.ReadInt();
                 m_Values[i] = reader.ReadInt();
             }
         }

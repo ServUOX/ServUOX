@@ -24,17 +24,17 @@ namespace Server.Mobiles
 
             SetDamage(10, 23);
 
-            SetDamageType(ResistanceType.Physical, 20);
-            SetDamageType(ResistanceType.Fire, 20);
-            SetDamageType(ResistanceType.Cold, 20);
-            SetDamageType(ResistanceType.Poison, 20);
-            SetDamageType(ResistanceType.Energy, 20);
+            SetDamageType(ResistType.Physical, 20);
+            SetDamageType(ResistType.Fire, 20);
+            SetDamageType(ResistType.Cold, 20);
+            SetDamageType(ResistType.Poison, 20);
+            SetDamageType(ResistType.Energy, 20);
 
-            SetResist(ResistanceType.Physical, 30, 50);
-            SetResist(ResistanceType.Fire, 20, 50);
-            SetResist(ResistanceType.Cold, 20, 40);
-            SetResist(ResistanceType.Poison, 100);
-            SetResist(ResistanceType.Energy, 20, 50);
+            SetResist(ResistType.Physical, 30, 50);
+            SetResist(ResistType.Fire, 20, 50);
+            SetResist(ResistType.Cold, 20, 40);
+            SetResist(ResistType.Poison, 100);
+            SetResist(ResistType.Energy, 20, 50);
 
             SetSkill(SkillName.MagicResist, 72.8, 77.7);
             SetSkill(SkillName.Tactics, 50.7, 110.0);

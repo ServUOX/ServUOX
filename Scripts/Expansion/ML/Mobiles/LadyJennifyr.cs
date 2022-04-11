@@ -22,14 +22,14 @@ namespace Server.Mobiles
 
             SetDamage(15, 25);
 
-            SetDamageType(ResistanceType.Physical, 40);
-            SetDamageType(ResistanceType.Cold, 60);
+            SetDamageType(ResistType.Physical, 40);
+            SetDamageType(ResistType.Cold, 60);
 
-            SetResist(ResistanceType.Physical, 56, 65);
-            SetResist(ResistanceType.Fire, 41, 49);
-            SetResist(ResistanceType.Cold, 71, 80);
-            SetResist(ResistanceType.Poison, 41, 50);
-            SetResist(ResistanceType.Energy, 50, 58);
+            SetResist(ResistType.Physical, 56, 65);
+            SetResist(ResistType.Fire, 41, 49);
+            SetResist(ResistType.Cold, 71, 80);
+            SetResist(ResistType.Poison, 41, 50);
+            SetResist(ResistType.Energy, 50, 58);
 
             SetSkill(SkillName.Wrestling, 127.9, 137.1);
             SetSkill(SkillName.Tactics, 128.4, 141.9);
@@ -91,7 +91,7 @@ namespace Server.Mobiles
                 defender.PlaySound(0x208);
                 defender.SendLocalizedMessage(1070833); // The creature fans you with fire, reducing your resistance to fire attacks.
 
-                ResistanceMod mod = new ResistanceMod(ResistanceType.Fire, -10);
+                ResistanceMod mod = new ResistanceMod(ResistType.Fire, -10);
                 defender.AddResistanceMod(mod);
 
                 m_Table[defender] = timer = new ExpireTimer(defender, mod);

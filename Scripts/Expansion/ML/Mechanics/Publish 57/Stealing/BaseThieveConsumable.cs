@@ -109,7 +109,7 @@ namespace Server.Items
                     for (int i = 0; i < list.Count; i++)
                     {
                         ResistanceMod curr = list[i];
-                        if ((curr.Type == ResistanceType.Cold && curr.Offset == -5) || (curr.Type == ResistanceType.Fire && curr.Offset == -5) || (curr.Type == ResistanceType.Physical && curr.Offset == 30))
+                        if ((curr.Type == ResistType.Cold && curr.Offset == -5) || (curr.Type == ResistType.Fire && curr.Offset == -5) || (curr.Type == ResistType.Physical && curr.Offset == 30))
                         {
                             list.RemoveAt(i);
                             i--;

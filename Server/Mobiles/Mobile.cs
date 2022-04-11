@@ -243,12 +243,12 @@ namespace Server
 
     public class ResistanceMod
     {
-        private ResistanceType m_Type;
+        private ResistType m_Type;
         private int m_Offset;
 
         public Mobile Owner { get; set; }
 
-        public ResistanceType Type
+        public ResistType Type
         {
             get => m_Type;
             set
@@ -282,7 +282,7 @@ namespace Server
             }
         }
 
-        public ResistanceMod(ResistanceType type, int offset)
+        public ResistanceMod(ResistType type, int offset)
         {
             m_Type = type;
             m_Offset = offset;
@@ -433,7 +433,7 @@ namespace Server
         Everyone
     }
 
-    public enum ResistanceType
+    public enum ResistType
     {
         Physical,
         Fire,
@@ -817,19 +817,19 @@ namespace Server
         { }
 
         [CommandProperty(AccessLevel.Counselor)]
-        public virtual int PhysicalResistance => GetResistance(ResistanceType.Physical);
+        public virtual int PhysicalResistance => GetResistance(ResistType.Physical);
 
         [CommandProperty(AccessLevel.Counselor)]
-        public virtual int FireResistance => GetResistance(ResistanceType.Fire);
+        public virtual int FireResistance => GetResistance(ResistType.Fire);
 
         [CommandProperty(AccessLevel.Counselor)]
-        public virtual int ColdResistance => GetResistance(ResistanceType.Cold);
+        public virtual int ColdResistance => GetResistance(ResistType.Cold);
 
         [CommandProperty(AccessLevel.Counselor)]
-        public virtual int PoisonResistance => GetResistance(ResistanceType.Poison);
+        public virtual int PoisonResistance => GetResistance(ResistType.Poison);
 
         [CommandProperty(AccessLevel.Counselor)]
-        public virtual int EnergyResistance => GetResistance(ResistanceType.Energy);
+        public virtual int EnergyResistance => GetResistance(ResistType.Energy);
 
         public virtual void UpdateResistances()
         {
@@ -856,7 +856,7 @@ namespace Server
             }
         }
 
-        public virtual int GetResistance(ResistanceType type)
+        public virtual int GetResistance(ResistType type)
         {
             if (Resistances == null)
             {
@@ -959,8 +959,8 @@ namespace Server
 
             for (int i = 0; i < Resistances.Length; ++i)
             {
-                int min = GetMinResistance((ResistanceType)i);
-                int max = GetMaxResistance((ResistanceType)i);
+                int min = GetMinResistance((ResistType)i);
+                int max = GetMaxResistance((ResistType)i);
 
                 if (max < min)
                 {
@@ -978,7 +978,7 @@ namespace Server
             }
         }
 
-        public virtual int GetMinResistance(ResistanceType type)
+        public virtual int GetMinResistance(ResistType type)
         {
             if (m_Player)
             {
@@ -988,7 +988,7 @@ namespace Server
             return -100;
         }
 
-        public virtual int GetMaxResistance(ResistanceType type)
+        public virtual int GetMaxResistance(ResistType type)
         {
             if (m_Player)
             {

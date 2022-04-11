@@ -85,7 +85,7 @@ namespace Server.Mobiles
                     case 3: Entries.Add(new PlanningEntry(AreaEffect.Effects[reader.ReadInt()], reader.ReadInt(), reader.ReadInt())); break;
                     case 4: Entries.Add(new PlanningEntry(WeaponAbility.Abilities[reader.ReadInt()], reader.ReadInt(), reader.ReadInt())); break;
                     case 5: Entries.Add(new PlanningEntry((PetStat)reader.ReadInt(), reader.ReadInt(), reader.ReadInt())); break;
-                    case 6: Entries.Add(new PlanningEntry((ResistanceType)reader.ReadInt(), reader.ReadInt(), reader.ReadInt())); break;
+                    case 6: Entries.Add(new PlanningEntry((ResistType)reader.ReadInt(), reader.ReadInt(), reader.ReadInt())); break;
                     case 7: Entries.Add(new PlanningEntry((SkillName)reader.ReadInt(), reader.ReadInt(), reader.ReadInt())); break;
                 }
             }
@@ -137,10 +137,10 @@ namespace Server.Mobiles
                     writer.Write(entry.Value);
                     writer.Write(entry.Cost);
                 }
-                else if (o is ResistanceType)
+                else if (o is ResistType)
                 {
                     writer.Write(6);
-                    writer.Write((int)(ResistanceType)o);
+                    writer.Write((int)(ResistType)o);
                     writer.Write(entry.Value);
                     writer.Write(entry.Cost);
                 }

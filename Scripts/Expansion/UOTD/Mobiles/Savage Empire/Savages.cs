@@ -25,7 +25,7 @@ namespace Server.Mobiles
 
             SetDamage(23, 27);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
             SetSkill(SkillName.Fencing, 60.0, 82.5);
             SetSkill(SkillName.Macing, 60.0, 82.5);
@@ -138,7 +138,7 @@ namespace Server.Mobiles
 
             SetDamage(29, 34);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
             SetSkill(SkillName.Fencing, 72.5, 95.0);
             SetSkill(SkillName.Healing, 60.3, 90.0);
@@ -261,13 +261,13 @@ namespace Server.Mobiles
 
             SetDamage(4, 10);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
-            SetResist(ResistanceType.Physical, 30, 40);
-            SetResist(ResistanceType.Fire, 20, 30);
-            SetResist(ResistanceType.Cold, 20, 30);
-            SetResist(ResistanceType.Poison, 20, 30);
-            SetResist(ResistanceType.Energy, 40, 50);
+            SetResist(ResistType.Physical, 30, 40);
+            SetResist(ResistType.Fire, 20, 30);
+            SetResist(ResistType.Cold, 20, 30);
+            SetResist(ResistType.Poison, 20, 30);
+            SetResist(ResistType.Energy, 40, 50);
 
             SetSkill(SkillName.EvalInt, 77.5, 100.0);
             SetSkill(SkillName.Fencing, 62.5, 85.0);

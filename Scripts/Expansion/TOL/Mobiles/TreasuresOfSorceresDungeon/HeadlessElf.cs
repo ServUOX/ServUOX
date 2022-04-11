@@ -27,15 +27,15 @@ namespace Server.Engines.SorcerersDungeon
 
             SetDamage(21, 27);
 
-            SetDamageType(ResistanceType.Physical, 60);
-            SetDamageType(ResistanceType.Fire, 20);
-            SetDamageType(ResistanceType.Energy, 20);
+            SetDamageType(ResistType.Physical, 60);
+            SetDamageType(ResistType.Fire, 20);
+            SetDamageType(ResistType.Energy, 20);
 
-            SetResist(ResistanceType.Physical, 70, 80);
-            SetResist(ResistanceType.Fire, 70, 80);
-            SetResist(ResistanceType.Cold, 60, 70);
-            SetResist(ResistanceType.Poison, 60, 70);
-            SetResist(ResistanceType.Energy, 60, 70);
+            SetResist(ResistType.Physical, 70, 80);
+            SetResist(ResistType.Fire, 70, 80);
+            SetResist(ResistType.Cold, 60, 70);
+            SetResist(ResistType.Poison, 60, 70);
+            SetResist(ResistType.Energy, 60, 70);
 
             SetSkill(SkillName.Anatomy, 130, 140);
             SetSkill(SkillName.Poisoning, 120);

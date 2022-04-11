@@ -25,16 +25,16 @@ namespace Server.Mobiles
 
             SetDamage(12, 17);
 
-            SetDamageType(ResistanceType.Physical, 70);
-            SetDamageType(ResistanceType.Fire, 10);
-            SetDamageType(ResistanceType.Cold, 10);
-            SetDamageType(ResistanceType.Poison, 10);
+            SetDamageType(ResistType.Physical, 70);
+            SetDamageType(ResistType.Fire, 10);
+            SetDamageType(ResistType.Cold, 10);
+            SetDamageType(ResistType.Poison, 10);
 
-            SetResist(ResistanceType.Physical, 40, 60);
-            SetResist(ResistanceType.Fire, 50, 70);
-            SetResist(ResistanceType.Cold, 50, 70);
-            SetResist(ResistanceType.Poison, 50, 70);
-            SetResist(ResistanceType.Energy, 40, 60);
+            SetResist(ResistType.Physical, 40, 60);
+            SetResist(ResistType.Fire, 50, 70);
+            SetResist(ResistType.Cold, 50, 70);
+            SetResist(ResistType.Poison, 50, 70);
+            SetResist(ResistType.Energy, 40, 60);
 
             SetSkill(SkillName.MagicResist, 100.1, 110.0);
             SetSkill(SkillName.Tactics, 85.1, 95.0);
@@ -124,7 +124,7 @@ namespace Server.Mobiles
 
                 int effect = -(defender.FireResistance / 10);
 
-                ResistanceMod mod = new ResistanceMod(ResistanceType.Fire, effect);
+                ResistanceMod mod = new ResistanceMod(ResistType.Fire, effect);
 
                 defender.FixedParticles(0x37B9, 10, 30, 0x34, EffectLayer.RightFoot);
                 defender.PlaySound(0x208);

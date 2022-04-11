@@ -232,11 +232,11 @@ namespace Server.SkillHandlers
 
                                     scalar = (double)effect / 100;
 
-                                    mods.Add(new ResistanceMod(ResistanceType.Physical, effect));
-                                    mods.Add(new ResistanceMod(ResistanceType.Fire, effect));
-                                    mods.Add(new ResistanceMod(ResistanceType.Cold, effect));
-                                    mods.Add(new ResistanceMod(ResistanceType.Poison, effect));
-                                    mods.Add(new ResistanceMod(ResistanceType.Energy, effect));
+                                    mods.Add(new ResistanceMod(ResistType.Physical, effect));
+                                    mods.Add(new ResistanceMod(ResistType.Fire, effect));
+                                    mods.Add(new ResistanceMod(ResistType.Cold, effect));
+                                    mods.Add(new ResistanceMod(ResistType.Poison, effect));
+                                    mods.Add(new ResistanceMod(ResistType.Energy, effect));
 
                                     for (int i = 0; i < targ.Skills.Length; ++i)
                                     {

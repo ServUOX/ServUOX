@@ -4998,7 +4998,7 @@ namespace Server.Mobiles
             m_DamageMax = max;
         }
 
-        public void SetDamage(ResistanceType type, int min, int max = 0, int dmgmin = 0, int dmgmax = 0)
+        public void SetDamage(ResistType type, int min, int max = 0, int dmgmin = 0, int dmgmax = 0)
         {
             if (dmgmin > 0 || dmgmax > 0)
             {
@@ -5011,31 +5011,31 @@ namespace Server.Mobiles
 
             switch (type)
             {
-                case ResistanceType.Physical:
+                case ResistType.Physical:
                     if (max > 0)
                         PhysicalDamage = Utility.RandomMinMax(min, max);
                     else
                         PhysicalDamage = min;
                     break;
-                case ResistanceType.Fire:
+                case ResistType.Fire:
                     if (max > 0)
                         FireDamage = Utility.RandomMinMax(min, max);
                     else
                         FireDamage = min;
                     break;
-                case ResistanceType.Cold:
+                case ResistType.Cold:
                     if (max > 0)
                         ColdDamage = Utility.RandomMinMax(min, max);
                     else
                         ColdDamage = min;
                     break;
-                case ResistanceType.Poison:
+                case ResistType.Poison:
                     if (max > 0)
                         PoisonDamage = Utility.RandomMinMax(min, max);
                     else
                         PoisonDamage = min;
                     break;
-                case ResistanceType.Energy:
+                case ResistType.Energy:
                     if (max > 0)
                         EnergyDamage = Utility.RandomMinMax(min, max);
                     else
@@ -5134,40 +5134,40 @@ namespace Server.Mobiles
             SetAverage(min, max, RawInt);
         }
 
-        public void SetDamageType(ResistanceType type, int min, int max)
+        public void SetDamageType(ResistType type, int min, int max)
         {
             SetDamageType(type, Utility.RandomMinMax(min, max));
         }
 
-        public void SetDamageType(ResistanceType type, int val)
+        public void SetDamageType(ResistType type, int val)
         {
             switch (type)
             {
-                case ResistanceType.Physical:
+                case ResistType.Physical:
                     PhysicalDamage = val;
                     break;
-                case ResistanceType.Fire:
+                case ResistType.Fire:
                     FireDamage = val;
                     break;
-                case ResistanceType.Cold:
+                case ResistType.Cold:
                     ColdDamage = val;
                     break;
-                case ResistanceType.Poison:
+                case ResistType.Poison:
                     PoisonDamage = val;
                     break;
-                case ResistanceType.Energy:
+                case ResistType.Energy:
                     EnergyDamage = val;
                     break;
             }
         }
 
         /*
-        public void SetResist(ResistanceType type, int value)
+        public void SetResist(ResistType type, int value)
         {
             SetResist(type, value, value);
         }
 
-        public void SetResist(ResistanceType type, int min, int max)
+        public void SetResist(ResistType type, int min, int max)
         {
             int val = min == max ? min : Utility.RandomMinMax(min, max);
 
@@ -5175,18 +5175,18 @@ namespace Server.Mobiles
 
             switch (type)
             {
-                case ResistanceType.Physical: m_PhysicalResistance = val; break;
-                case ResistanceType.Fire: m_FireResistance = val; break;
-                case ResistanceType.Cold: m_ColdResistance = val; break;
-                case ResistanceType.Poison: m_PoisonResistance = val; break;
-                case ResistanceType.Energy: m_EnergyResistance = val; break;
+                case ResistType.Physical: m_PhysicalResistance = val; break;
+                case ResistType.Fire: m_FireResistance = val; break;
+                case ResistType.Cold: m_ColdResistance = val; break;
+                case ResistType.Poison: m_PoisonResistance = val; break;
+                case ResistType.Energy: m_EnergyResistance = val; break;
             }
 
             UpdateResistances();
         }
         */
 
-        public void SetResist(ResistanceType type, int min, int max = 0)
+        public void SetResist(ResistType type, int min, int max = 0)
         {
             int val = (min == max || max == 0) ? min : Utility.RandomMinMax(min, max);
             if (max == 0) max = min;
@@ -5195,11 +5195,11 @@ namespace Server.Mobiles
 
             switch (type)
             {
-                case ResistanceType.Physical: m_PhysicalResistance = val; break;
-                case ResistanceType.Fire: m_FireResistance = val; break;
-                case ResistanceType.Cold: m_ColdResistance = val; break;
-                case ResistanceType.Poison: m_PoisonResistance = val; break;
-                case ResistanceType.Energy: m_EnergyResistance = val; break;
+                case ResistType.Physical: m_PhysicalResistance = val; break;
+                case ResistType.Fire: m_FireResistance = val; break;
+                case ResistType.Cold: m_ColdResistance = val; break;
+                case ResistType.Poison: m_PoisonResistance = val; break;
+                case ResistType.Energy: m_EnergyResistance = val; break;
             }
 
             UpdateResistances();

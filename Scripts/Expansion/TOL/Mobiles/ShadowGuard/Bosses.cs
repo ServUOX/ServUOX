@@ -388,7 +388,7 @@ namespace Server.Engines.Shadowguard
 
             SetDamage(14, 17);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
             SetSkill(SkillName.Wrestling, 220.0, 240.0);
             SetSkill(SkillName.Tactics, 110.0, 125.0);
@@ -397,11 +397,11 @@ namespace Server.Engines.Shadowguard
             SetSkill(SkillName.EvalInt, 150.0);
             SetSkill(SkillName.Meditation, 120.0);
 
-            SetResist(ResistanceType.Physical, 65, 70);
-            SetResist(ResistanceType.Fire, 65, 70);
-            SetResist(ResistanceType.Cold, 65, 70);
-            SetResist(ResistanceType.Poison, 65, 70);
-            SetResist(ResistanceType.Energy, 65, 70);
+            SetResist(ResistType.Physical, 65, 70);
+            SetResist(ResistType.Fire, 65, 70);
+            SetResist(ResistType.Cold, 65, 70);
+            SetResist(ResistType.Poison, 65, 70);
+            SetResist(ResistType.Energy, 65, 70);
 
             SetWearable(new Robe(), 1320);
             SetWearable(new WizardsHat(), 1320);
@@ -419,22 +419,22 @@ namespace Server.Engines.Shadowguard
                 Form = Form.Human;
         }
 
-        private void SetHighResistance(ResistanceType type)
+        private void SetHighResistance(ResistType type)
         {
-            SetResist(ResistanceType.Physical, type == ResistanceType.Physical ? 80 : 50, type == ResistanceType.Physical ? 90 : 60);
-            SetResist(ResistanceType.Fire, type == ResistanceType.Fire ? 80 : 50, type == ResistanceType.Fire ? 90 : 60);
-            SetResist(ResistanceType.Cold, type == ResistanceType.Cold ? 80 : 50, type == ResistanceType.Cold ? 90 : 60);
-            SetResist(ResistanceType.Poison, type == ResistanceType.Poison ? 80 : 50, type == ResistanceType.Poison ? 90 : 60);
-            SetResist(ResistanceType.Energy, type == ResistanceType.Energy ? 80 : 50, type == ResistanceType.Energy ? 90 : 60);
+            SetResist(ResistType.Physical, type == ResistType.Physical ? 80 : 50, type == ResistType.Physical ? 90 : 60);
+            SetResist(ResistType.Fire, type == ResistType.Fire ? 80 : 50, type == ResistType.Fire ? 90 : 60);
+            SetResist(ResistType.Cold, type == ResistType.Cold ? 80 : 50, type == ResistType.Cold ? 90 : 60);
+            SetResist(ResistType.Poison, type == ResistType.Poison ? 80 : 50, type == ResistType.Poison ? 90 : 60);
+            SetResist(ResistType.Energy, type == ResistType.Energy ? 80 : 50, type == ResistType.Energy ? 90 : 60);
         }
 
         private void SetBaseResistances()
         {
-            SetResist(ResistanceType.Physical, 50, 60);
-            SetResist(ResistanceType.Fire, 50, 60);
-            SetResist(ResistanceType.Cold, 50, 60);
-            SetResist(ResistanceType.Poison, 50, 60);
-            SetResist(ResistanceType.Energy, 50, 60);
+            SetResist(ResistType.Physical, 50, 60);
+            SetResist(ResistType.Fire, 50, 60);
+            SetResist(ResistType.Cold, 50, 60);
+            SetResist(ResistType.Poison, 50, 60);
+            SetResist(ResistType.Energy, 50, 60);
         }
 
 
@@ -455,7 +455,7 @@ namespace Server.Engines.Shadowguard
                     {
                         Body = (int)Form.Earth;
                         HueMod = 0;
-                        SetHighResistance(ResistanceType.Physical);
+                        SetHighResistance(ResistType.Physical);
                     }
                     break;
                 case Form.Fire:
@@ -463,7 +463,7 @@ namespace Server.Engines.Shadowguard
                     {
                         Body = (int)Form.Fire;
                         HueMod = 0;
-                        SetHighResistance(ResistanceType.Fire);
+                        SetHighResistance(ResistType.Fire);
                     }
                     break;
                 case Form.Cold:
@@ -471,7 +471,7 @@ namespace Server.Engines.Shadowguard
                     {
                         Body = (int)Form.Cold;
                         HueMod = 0;
-                        SetHighResistance(ResistanceType.Cold);
+                        SetHighResistance(ResistType.Cold);
                     }
                     break;
                 case Form.Poison:
@@ -479,7 +479,7 @@ namespace Server.Engines.Shadowguard
                     {
                         Body = (int)Form.Poison;
                         HueMod = 0;
-                        SetHighResistance(ResistanceType.Poison);
+                        SetHighResistance(ResistType.Poison);
                     }
                     break;
                 case Form.Energy:
@@ -487,7 +487,7 @@ namespace Server.Engines.Shadowguard
                     {
                         Body = (int)Form.Energy;
                         HueMod = 0x76;
-                        SetHighResistance(ResistanceType.Energy);
+                        SetHighResistance(ResistType.Energy);
                     }
                     break;
             }
@@ -659,11 +659,11 @@ namespace Server.Engines.Shadowguard
 
             SetDamage(17, 21);
 
-            SetDamageType(ResistanceType.Physical, 20);
-            SetDamageType(ResistanceType.Fire, 20);
-            SetDamageType(ResistanceType.Cold, 20);
-            SetDamageType(ResistanceType.Poison, 20);
-            SetDamageType(ResistanceType.Energy, 20);
+            SetDamageType(ResistType.Physical, 20);
+            SetDamageType(ResistType.Fire, 20);
+            SetDamageType(ResistType.Cold, 20);
+            SetDamageType(ResistType.Poison, 20);
+            SetDamageType(ResistType.Energy, 20);
 
             SetSkill(SkillName.Wrestling, 120.0);
             SetSkill(SkillName.Tactics, 100.0);
@@ -677,11 +677,11 @@ namespace Server.Engines.Shadowguard
             SetSkill(SkillName.Musicianship, 120.0);
             SetSkill(SkillName.Discordance, 80.0);
 
-            SetResist(ResistanceType.Physical, 30);
-            SetResist(ResistanceType.Fire, 30);
-            SetResist(ResistanceType.Cold, 30);
-            SetResist(ResistanceType.Poison, 30);
-            SetResist(ResistanceType.Energy, 30);
+            SetResist(ResistType.Physical, 30);
+            SetResist(ResistType.Fire, 30);
+            SetResist(ResistType.Cold, 30);
+            SetResist(ResistType.Poison, 30);
+            SetResist(ResistType.Energy, 30);
 
             _NextTeleport = DateTime.UtcNow;
         }
@@ -756,8 +756,8 @@ namespace Server.Engines.Shadowguard
 
             SetDamage(24, 33);
 
-            SetDamageType(ResistanceType.Physical, 50);
-            SetDamageType(ResistanceType.Energy, 50);
+            SetDamageType(ResistType.Physical, 50);
+            SetDamageType(ResistType.Energy, 50);
 
             SetSkill(SkillName.Wrestling, 120.0, 130.0);
             SetSkill(SkillName.Tactics, 115.0, 130.0);
@@ -766,11 +766,11 @@ namespace Server.Engines.Shadowguard
             SetSkill(SkillName.EvalInt, 130.0, 150.0);
             SetSkill(SkillName.Meditation, 0.0);
 
-            SetResist(ResistanceType.Physical, 60, 85);
-            SetResist(ResistanceType.Fire, 70, 90);
-            SetResist(ResistanceType.Cold, 40, 50);
-            SetResist(ResistanceType.Poison, 90, 95);
-            SetResist(ResistanceType.Energy, 50, 75);
+            SetResist(ResistType.Physical, 60, 85);
+            SetResist(ResistType.Fire, 70, 90);
+            SetResist(ResistType.Cold, 40, 50);
+            SetResist(ResistType.Poison, 90, 95);
+            SetResist(ResistType.Energy, 50, 75);
 
             _NextNuke = DateTime.UtcNow + TimeSpan.FromMinutes(1);
             _NextDismount = DateTime.UtcNow + TimeSpan.FromMinutes(1);
@@ -971,7 +971,7 @@ namespace Server.Engines.Shadowguard
 
             SetDamage(25, 32);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
             SetSkill(SkillName.Wrestling, 150.0);
             SetSkill(SkillName.Archery, 150.0);
@@ -979,11 +979,11 @@ namespace Server.Engines.Shadowguard
             SetSkill(SkillName.Tactics, 125.0);
             SetSkill(SkillName.MagicResist, 110.0);
 
-            SetResist(ResistanceType.Physical, 60, 70);
-            SetResist(ResistanceType.Fire, 20, 30);
-            SetResist(ResistanceType.Cold, 60, 70);
-            SetResist(ResistanceType.Poison, 60, 70);
-            SetResist(ResistanceType.Energy, 60, 70);
+            SetResist(ResistType.Physical, 60, 70);
+            SetResist(ResistType.Fire, 20, 30);
+            SetResist(ResistType.Cold, 60, 70);
+            SetResist(ResistType.Poison, 60, 70);
+            SetResist(ResistType.Energy, 60, 70);
 
             SetWearable(new LeatherDo());
             SetWearable(new LeatherSuneate());

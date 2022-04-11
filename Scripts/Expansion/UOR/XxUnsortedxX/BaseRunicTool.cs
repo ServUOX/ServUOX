@@ -584,19 +584,19 @@ namespace Server.Items
                         ApplyAttribute(primary, min, max, AosAttribute.ReflectPhysical, 1, 15);
                         break;
                     case 19:
-                        ApplyResistance(armor, min, max, ResistanceType.Physical, 1, 15);
+                        ApplyResistance(armor, min, max, ResistType.Physical, 1, 15);
                         break;
                     case 20:
-                        ApplyResistance(armor, min, max, ResistanceType.Fire, 1, 15);
+                        ApplyResistance(armor, min, max, ResistType.Fire, 1, 15);
                         break;
                     case 21:
-                        ApplyResistance(armor, min, max, ResistanceType.Cold, 1, 15);
+                        ApplyResistance(armor, min, max, ResistType.Cold, 1, 15);
                         break;
                     case 22:
-                        ApplyResistance(armor, min, max, ResistanceType.Poison, 1, 15);
+                        ApplyResistance(armor, min, max, ResistType.Poison, 1, 15);
                         break;
                     case 23:
-                        ApplyResistance(armor, min, max, ResistanceType.Energy, 1, 15);
+                        ApplyResistance(armor, min, max, ResistType.Energy, 1, 15);
                         break;
                         /* End Armor */
                 }
@@ -1092,23 +1092,23 @@ namespace Server.Items
             attrs.SetValues(index, sk, Scale(min, max, low, high));
         }
 
-        private static void ApplyResistance(BaseArmor ar, int min, int max, ResistanceType res, int low, int high)
+        private static void ApplyResistance(BaseArmor ar, int min, int max, ResistType res, int low, int high)
         {
             switch (res)
             {
-                case ResistanceType.Physical:
+                case ResistType.Physical:
                     ar.PhysicalBonus += Scale(min, max, low, high);
                     break;
-                case ResistanceType.Fire:
+                case ResistType.Fire:
                     ar.FireBonus += Scale(min, max, low, high);
                     break;
-                case ResistanceType.Cold:
+                case ResistType.Cold:
                     ar.ColdBonus += Scale(min, max, low, high);
                     break;
-                case ResistanceType.Poison:
+                case ResistType.Poison:
                     ar.PoisonBonus += Scale(min, max, low, high);
                     break;
-                case ResistanceType.Energy:
+                case ResistType.Energy:
                     ar.EnergyBonus += Scale(min, max, low, high);
                     break;
             }

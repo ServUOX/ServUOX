@@ -30,7 +30,7 @@ namespace Server.Engines.SphynxFortune
 
     public enum EnumType
     {
-        ResistanceType,
+        ResistType,
         AosAttribute
     }
 
@@ -54,61 +54,61 @@ namespace Server.Engines.SphynxFortune
             {
                 case 0:
                     {
-                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistanceType, TypeValue = EnumTypeValue.Physical, Value = Utility.RandomMinMax(1, 10) });
+                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistType, TypeValue = EnumTypeValue.Physical, Value = Utility.RandomMinMax(1, 10) });
                         cliloc = 1060886; // Your endurance shall protect you from your enemies blows.
                         break;
                     }
                 case 1:
                     {
-                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistanceType, TypeValue = EnumTypeValue.Physical, Value = Utility.RandomMinMax(-1, -15) });
+                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistType, TypeValue = EnumTypeValue.Physical, Value = Utility.RandomMinMax(-1, -15) });
                         cliloc = 1060901; // Your wounds in battle shall run deep.
                         break;
                     }
                 case 2:
                     {
-                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistanceType, TypeValue = EnumTypeValue.Fire, Value = Utility.RandomMinMax(1, 10) });
+                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistType, TypeValue = EnumTypeValue.Fire, Value = Utility.RandomMinMax(1, 10) });
                         cliloc = 1060887; // A smile will be upon your lips, as you gaze into the infernos.
                         break;
                     }
                 case 3:
                     {
-                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistanceType, TypeValue = EnumTypeValue.Fire, Value = Utility.RandomMinMax(-1, -15) });
+                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistType, TypeValue = EnumTypeValue.Fire, Value = Utility.RandomMinMax(-1, -15) });
                         cliloc = 1060902; // The fires of the abyss shall tear asunder your flesh!
                         break;
                     }
                 case 4:
                     {
-                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistanceType, TypeValue = EnumTypeValue.Cold, Value = Utility.RandomMinMax(1, 10) });
+                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistType, TypeValue = EnumTypeValue.Cold, Value = Utility.RandomMinMax(1, 10) });
                         cliloc = 1060888; // The ice of ages will embrace you, and you will embrace it alike.
                         break;
                     }
                 case 5:
                     {
-                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistanceType, TypeValue = EnumTypeValue.Cold, Value = Utility.RandomMinMax(-1, -15) });
+                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistType, TypeValue = EnumTypeValue.Cold, Value = Utility.RandomMinMax(-1, -15) });
                         cliloc = 1060903; // Winter’s touch shall be your undoing.
                         break;
                     }
                 case 6:
                     {
-                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistanceType, TypeValue = EnumTypeValue.Poison, Value = Utility.RandomMinMax(1, 10) });
+                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistType, TypeValue = EnumTypeValue.Poison, Value = Utility.RandomMinMax(1, 10) });
                         cliloc = 1060889; // Your blood runs pure and strong.
                         break;
                     }
                 case 7:
                     {
-                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistanceType, TypeValue = EnumTypeValue.Poison, Value = Utility.RandomMinMax(-1, -15) });
+                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistType, TypeValue = EnumTypeValue.Poison, Value = Utility.RandomMinMax(-1, -15) });
                         cliloc = 1060904; // Your veins will freeze with poison’s chill.
                         break;
                     }
                 case 8:
                     {
-                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistanceType, TypeValue = EnumTypeValue.Energy, Value = Utility.RandomMinMax(1, 10) });
+                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistType, TypeValue = EnumTypeValue.Energy, Value = Utility.RandomMinMax(1, 10) });
                         cliloc = 1060890; // Your flesh shall endure the power of storms.
                         break;
                     }
                 case 9:
                     {
-                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistanceType, TypeValue = EnumTypeValue.Energy, Value = Utility.RandomMinMax(-1, -15) });
+                        Fountains.Add(new SphynxFortuneArray { Mobile = from, Date = DateTime.UtcNow, Type = EnumType.ResistType, TypeValue = EnumTypeValue.Energy, Value = Utility.RandomMinMax(-1, -15) });
                         cliloc = 1060905; // The wise will seek to avoid the anger of storms.
                         break;
                     }
@@ -182,9 +182,9 @@ namespace Server.Engines.SphynxFortune
             return Fountains.Any(x => x.Mobile == from);
         }
 
-        public static int GetResistanceBonus(Mobile from, ResistanceType type)
+        public static int GetResistanceBonus(Mobile from, ResistType type)
         {
-            return Fountains.Where(x => x.Mobile == from && (x.Type == EnumType.ResistanceType) && Enum.GetName(typeof(ResistanceType), type) == x.TypeValue.ToString()).Sum(y => y.Value);
+            return Fountains.Where(x => x.Mobile == from && (x.Type == EnumType.ResistType) && Enum.GetName(typeof(ResistType), type) == x.TypeValue.ToString()).Sum(y => y.Value);
         }
 
         public static int GetAosAttributeBonus(Mobile from, AosAttribute type)

@@ -21,10 +21,10 @@ namespace Server.Mobiles
 
             SetDamage(24, 26);
 
-            SetDamageType(ResistanceType.Physical, 25);
-            SetDamageType(ResistanceType.Fire, 25);
-            SetDamageType(ResistanceType.Cold, 25);
-            SetDamageType(ResistanceType.Energy, 25);
+            SetDamageType(ResistType.Physical, 25);
+            SetDamageType(ResistType.Fire, 25);
+            SetDamageType(ResistType.Cold, 25);
+            SetDamageType(ResistType.Energy, 25);
 
             SetSkill(SkillName.Fencing, 77.6, 92.5);
             SetSkill(SkillName.Healing, 60.3, 90.0);

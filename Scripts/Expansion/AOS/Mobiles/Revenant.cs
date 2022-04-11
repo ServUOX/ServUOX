@@ -28,7 +28,7 @@ namespace Server.Mobiles
             SetDamage(16, 17);
 
             // Bestiary says 50 phys 50 cold, animal lore says differently
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
             SetSkill(SkillName.MagicResist, 100.0 * scalar); // magic resist is absolute value of spiritspeak
             SetSkill(SkillName.Tactics, 100.0); // always 100
@@ -37,11 +37,11 @@ namespace Server.Mobiles
 
             scalar /= 1.2;
 
-            SetResist(ResistanceType.Physical, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
-            SetResist(ResistanceType.Cold, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
-            SetResist(ResistanceType.Fire, (int)(20 * scalar));
-            SetResist(ResistanceType.Poison, 100);
-            SetResist(ResistanceType.Energy, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
+            SetResist(ResistType.Physical, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
+            SetResist(ResistType.Cold, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
+            SetResist(ResistType.Fire, (int)(20 * scalar));
+            SetResist(ResistType.Poison, 100);
+            SetResist(ResistType.Energy, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
 
             Fame = 0;
             Karma = 0;

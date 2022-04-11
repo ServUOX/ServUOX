@@ -55,13 +55,13 @@ namespace Server.Items
 
             SetDamage(15, 20);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
-            SetResist(ResistanceType.Physical, 45, 50);
-            SetResist(ResistanceType.Fire, 45, 50);
-            SetResist(ResistanceType.Cold, 45, 50);
-            SetResist(ResistanceType.Poison, 45, 50);
-            SetResist(ResistanceType.Energy, 45, 50);
+            SetResist(ResistType.Physical, 45, 50);
+            SetResist(ResistType.Fire, 45, 50);
+            SetResist(ResistType.Cold, 45, 50);
+            SetResist(ResistType.Poison, 45, 50);
+            SetResist(ResistType.Energy, 45, 50);
 
             SetSkill(SkillName.Anatomy, 90.3, 99.9);
             SetSkill(SkillName.MagicResist, 121.0, 126.7);
@@ -97,11 +97,11 @@ namespace Server.Items
             if (attrs == null)
                 return;
 
-            SetResist(ResistanceType.Physical, Utility.RandomMinMax(45, 50) + attrs.ArmorPhysicalResist);
-            SetResist(ResistanceType.Fire, Utility.RandomMinMax(45, 50) + attrs.ArmorFireResist);
-            SetResist(ResistanceType.Cold, Utility.RandomMinMax(45, 50) + attrs.ArmorColdResist);
-            SetResist(ResistanceType.Poison, Utility.RandomMinMax(45, 50) + attrs.ArmorPoisonResist);
-            SetResist(ResistanceType.Energy, Utility.RandomMinMax(45, 50) + attrs.ArmorEnergyResist);
+            SetResist(ResistType.Physical, Utility.RandomMinMax(45, 50) + attrs.ArmorPhysicalResist);
+            SetResist(ResistType.Fire, Utility.RandomMinMax(45, 50) + attrs.ArmorFireResist);
+            SetResist(ResistType.Cold, Utility.RandomMinMax(45, 50) + attrs.ArmorColdResist);
+            SetResist(ResistType.Poison, Utility.RandomMinMax(45, 50) + attrs.ArmorPoisonResist);
+            SetResist(ResistType.Energy, Utility.RandomMinMax(45, 50) + attrs.ArmorEnergyResist);
 
             int fire = attrs.WeaponFireDamage;
             int cold = attrs.WeaponColdDamage;
@@ -109,11 +109,11 @@ namespace Server.Items
             int energy = attrs.WeaponEnergyDamage;
             int physical = 100 - fire - cold - poison - energy;
 
-            SetDamageType(ResistanceType.Physical, physical);
-            SetDamageType(ResistanceType.Fire, fire);
-            SetDamageType(ResistanceType.Cold, cold);
-            SetDamageType(ResistanceType.Poison, poison);
-            SetDamageType(ResistanceType.Energy, energy);
+            SetDamageType(ResistType.Physical, physical);
+            SetDamageType(ResistType.Fire, fire);
+            SetDamageType(ResistType.Cold, cold);
+            SetDamageType(ResistType.Poison, poison);
+            SetDamageType(ResistType.Energy, energy);
         }
 
         public override double GetControlChance(Mobile m, bool useBaseSkill)

@@ -381,7 +381,7 @@ namespace Server.Items
         {
             base.DoEffects(m);
 
-            ResistanceMod mod = new ResistanceMod(ResistanceType.Fire, 10);
+            ResistanceMod mod = new ResistanceMod(ResistType.Fire, 10);
             m.AddResistanceMod(mod);
 
             Timer.DelayCall(TimeSpan.FromMinutes(10), () => m.RemoveResistanceMod(mod));
@@ -467,12 +467,12 @@ namespace Server.Items
         {
             base.DoEffects(m);
 
-            ResistanceMod mod1 = new ResistanceMod(ResistanceType.Physical, 10);
+            ResistanceMod mod1 = new ResistanceMod(ResistType.Physical, 10);
             m.AddResistanceMod(mod1);
 
             Timer.DelayCall(TimeSpan.FromMinutes(10), () => m.RemoveResistanceMod(mod1));
 
-            ResistanceMod mod2 = new ResistanceMod(ResistanceType.Cold, 5);
+            ResistanceMod mod2 = new ResistanceMod(ResistType.Cold, 5);
             m.AddResistanceMod(mod1);
 
             Timer.DelayCall(TimeSpan.FromMinutes(10), () => m.RemoveResistanceMod(mod2));
@@ -574,12 +574,12 @@ namespace Server.Items
         {
             base.DoEffects(m);
 
-            ResistanceMod mod1 = new ResistanceMod(ResistanceType.Poison, 10);
+            ResistanceMod mod1 = new ResistanceMod(ResistType.Poison, 10);
             m.AddResistanceMod(mod1);
 
             Timer.DelayCall(TimeSpan.FromMinutes(10), () => m.RemoveResistanceMod(mod1));
 
-            ResistanceMod mod2 = new ResistanceMod(ResistanceType.Energy, 5);
+            ResistanceMod mod2 = new ResistanceMod(ResistType.Energy, 5);
             m.AddResistanceMod(mod2);
 
             Timer.DelayCall(TimeSpan.FromMinutes(10), () => m.RemoveResistanceMod(mod2));

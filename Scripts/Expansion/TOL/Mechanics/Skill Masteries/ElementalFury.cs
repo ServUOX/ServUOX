@@ -22,7 +22,7 @@ namespace Server.Spells.SkillMasteries
         public override SkillName DamageSkill => SkillName.Tactics;
 
         private int _MaxAdd;
-        private ResistanceType _Type;
+        private ResistType _Type;
 
         private Dictionary<Mobile, int> _Table;
 
@@ -75,7 +75,7 @@ namespace Server.Spells.SkillMasteries
                 Expires = DateTime.UtcNow + duration;
                 BeginTimer();
 
-                _Type = GetResistanceType(GetWeapon());
+                _Type = GetResistType(GetWeapon());
 
                 BuffInfo.AddBuff(Caster, new BuffInfo(BuffIcon.ElementalFury, 1156018, 1156019, duration, Caster, string.Format("{0}\t69\t{1}", _Type.ToString(), _MaxAdd.ToString())));
                 //Each attack the caster deals with ~1_TYPE~ damage will add up to ~3_VAL~ damage to the Fury Pool. Once the Fury Pool 
@@ -111,19 +111,19 @@ namespace Server.Spells.SkillMasteries
 
                 switch (_Type)
                 {
-                    case ResistanceType.Physical:
+                    case ResistType.Physical:
                         AOS.Damage(defender, Caster, d, 100, 0, 0, 0, 0);
                         break;
-                    case ResistanceType.Fire:
+                    case ResistType.Fire:
                         AOS.Damage(defender, Caster, d, 0, 100, 0, 0, 0);
                         break;
-                    case ResistanceType.Cold:
+                    case ResistType.Cold:
                         AOS.Damage(defender, Caster, d, 0, 0, 100, 0, 0);
                         break;
-                    case ResistanceType.Poison:
+                    case ResistType.Poison:
                         AOS.Damage(defender, Caster, d, 0, 0, 0, 100, 0);
                         break;
-                    case ResistanceType.Energy:
+                    case ResistType.Energy:
                         AOS.Damage(defender, Caster, d, 0, 0, 0, 0, 100);
                         break;
                 }
@@ -146,10 +146,10 @@ namespace Server.Spells.SkillMasteries
             }
         }
 
-        private ResistanceType GetResistanceType(BaseWeapon weapon)
+        private ResistType GetResistType(BaseWeapon weapon)
         {
             if (weapon == null)
-                return ResistanceType.Physical;
+                return ResistType.Physical;
 
             int phys, fire, cold, pois, nrgy, chaos, direct;
             weapon.GetDamageTypes(null, out phys, out fire, out cold, out pois, out nrgy, out chaos, out direct);
@@ -181,7 +181,7 @@ namespace Server.Spells.SkillMasteries
                 highest = nrgy;
             }
 
-            return (ResistanceType)type;
+            return (ResistType)type;
         }
     }
 }

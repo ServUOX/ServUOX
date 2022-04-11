@@ -85,11 +85,11 @@ namespace Server.Spells.Fifth
 
                         mods = new ResistanceMod[5]
                         {
-                            new ResistanceMod(ResistanceType.Physical, physiMod),
-                            new ResistanceMod(ResistanceType.Fire, otherMod),
-                            new ResistanceMod(ResistanceType.Cold, otherMod),
-                            new ResistanceMod(ResistanceType.Poison,    otherMod),
-                            new ResistanceMod(ResistanceType.Energy,    otherMod)
+                            new ResistanceMod(ResistType.Physical, physiMod),
+                            new ResistanceMod(ResistType.Fire, otherMod),
+                            new ResistanceMod(ResistType.Cold, otherMod),
+                            new ResistanceMod(ResistType.Poison,    otherMod),
+                            new ResistanceMod(ResistType.Energy,    otherMod)
                         };
 
                         m_Table[targ] = mods;

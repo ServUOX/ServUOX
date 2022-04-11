@@ -22,10 +22,10 @@ namespace Server.Engines.Quests.Samurai
 
             SetDamage(3, 7);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
-            SetResist(ResistanceType.Physical, 15, 20);
-            SetResist(ResistanceType.Fire, 8, 12);
+            SetResist(ResistType.Physical, 15, 20);
+            SetResist(ResistType.Fire, 8, 12);
 
             SetSkill(SkillName.Wrestling, 35.0, 39.0);
             SetSkill(SkillName.Tactics, 5.0, 15.0);

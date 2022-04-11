@@ -32,14 +32,14 @@ namespace Server.Mobiles
 
             SetDamage(3, 4);
 
-            SetDamageType(ResistanceType.Physical, 75);
-            SetDamageType(ResistanceType.Poison, 25);
+            SetDamageType(ResistType.Physical, 75);
+            SetDamageType(ResistType.Poison, 25);
 
-            SetResist(ResistanceType.Physical, 35, 40);
-            SetResist(ResistanceType.Fire, 20, 30);
-            SetResist(ResistanceType.Cold, 20, 40);
-            SetResist(ResistanceType.Poison, 20, 30);
-            SetResist(ResistanceType.Energy, 30, 40);
+            SetResist(ResistType.Physical, 35, 40);
+            SetResist(ResistType.Fire, 20, 30);
+            SetResist(ResistType.Cold, 20, 40);
+            SetResist(ResistType.Poison, 20, 30);
+            SetResist(ResistType.Energy, 30, 40);
 
             SetSkill(SkillName.Anatomy, 45.1, 55.0);
             SetSkill(SkillName.MagicResist, 45.1, 55.0);
@@ -151,7 +151,7 @@ namespace Server.Mobiles
             }
         }
 
-        private int CalculateBardingResistance(ResistanceType type)
+        private int CalculateBardingResistance(ResistType type)
         {
             if (m_BardingResource == CraftResource.None || !m_HasBarding)
                 return 0;
@@ -171,17 +171,17 @@ namespace Server.Mobiles
             switch (type)
             {
                 default:
-                case ResistanceType.Physical: resBonus = Math.Max(5, attrs.ArmorPhysicalResist); break;
-                case ResistanceType.Fire: resBonus = Math.Max(3, attrs.ArmorFireResist); break;
-                case ResistanceType.Cold: resBonus = Math.Max(2, attrs.ArmorColdResist); break;
-                case ResistanceType.Poison: resBonus = Math.Max(3, attrs.ArmorPoisonResist); break;
-                case ResistanceType.Energy: resBonus = Math.Max(2, attrs.ArmorEnergyResist); break;
+                case ResistType.Physical: resBonus = Math.Max(5, attrs.ArmorPhysicalResist); break;
+                case ResistType.Fire: resBonus = Math.Max(3, attrs.ArmorFireResist); break;
+                case ResistType.Cold: resBonus = Math.Max(2, attrs.ArmorColdResist); break;
+                case ResistType.Poison: resBonus = Math.Max(3, attrs.ArmorPoisonResist); break;
+                case ResistType.Energy: resBonus = Math.Max(2, attrs.ArmorEnergyResist); break;
             }
 
             return (resBonus + expBonus) * 5;
         }
 
-        public override int GetResistance(ResistanceType type)
+        public override int GetResistance(ResistType type)
         {
             return base.GetResistance(type) + CalculateBardingResistance(type);
         }
@@ -325,14 +325,14 @@ namespace Server.Mobiles
 
             SetDamage(3, 4);
 
-            SetDamageType(ResistanceType.Physical, 75);
-            SetDamageType(ResistanceType.Poison, 25);
+            SetDamageType(ResistType.Physical, 75);
+            SetDamageType(ResistType.Poison, 25);
 
-            SetResist(ResistanceType.Physical, 35, 40);
-            SetResist(ResistanceType.Fire, 20, 30);
-            SetResist(ResistanceType.Cold, 20, 40);
-            SetResist(ResistanceType.Poison, 20, 30);
-            SetResist(ResistanceType.Energy, 30, 40);
+            SetResist(ResistType.Physical, 35, 40);
+            SetResist(ResistType.Fire, 20, 30);
+            SetResist(ResistType.Cold, 20, 40);
+            SetResist(ResistType.Poison, 20, 30);
+            SetResist(ResistType.Energy, 30, 40);
 
             SetSkill(SkillName.Anatomy, 45.1, 55.0);
             SetSkill(SkillName.MagicResist, 45.1, 55.0);

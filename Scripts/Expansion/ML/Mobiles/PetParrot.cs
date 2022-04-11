@@ -29,7 +29,7 @@ namespace Server.Mobiles
             SetStam(25, Dex);
             SetMana(0);
 
-            SetResist(ResistanceType.Physical, 2);
+            SetResist(ResistType.Physical, 2);
 
             SetSkill(SkillName.MagicResist, 4);
             SetSkill(SkillName.Tactics, 4);

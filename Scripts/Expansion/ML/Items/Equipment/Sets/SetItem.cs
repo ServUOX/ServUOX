@@ -50,7 +50,7 @@ namespace Server
         int SetPoisonBonus { get; }
         int SetEnergyBonus { get; }
 
-        int SetResistBonus(ResistanceType type);
+        int SetResistBonus(ResistType type);
     }
 
     public static class SetHelper
@@ -364,7 +364,7 @@ namespace Server
             }
         }
 
-        public static int GetSetTotalResist(Mobile m, ResistanceType resist)
+        public static int GetSetTotalResist(Mobile m, ResistType resist)
         {
             int total = 0;
 
@@ -374,11 +374,11 @@ namespace Server
 
                 switch (resist)
                 {
-                    case ResistanceType.Physical: total += item.PhysicalResistance + sItem.SetPhysicalBonus; break;
-                    case ResistanceType.Fire: total += item.FireResistance + sItem.SetFireBonus; break;
-                    case ResistanceType.Cold: total += item.ColdResistance + sItem.SetColdBonus; break;
-                    case ResistanceType.Poison: total += item.PoisonResistance + sItem.SetPoisonBonus; break;
-                    case ResistanceType.Energy: total += item.EnergyResistance + sItem.SetEnergyBonus; break;
+                    case ResistType.Physical: total += item.PhysicalResistance + sItem.SetPhysicalBonus; break;
+                    case ResistType.Fire: total += item.FireResistance + sItem.SetFireBonus; break;
+                    case ResistType.Cold: total += item.ColdResistance + sItem.SetColdBonus; break;
+                    case ResistType.Poison: total += item.PoisonResistance + sItem.SetPoisonBonus; break;
+                    case ResistType.Energy: total += item.EnergyResistance + sItem.SetEnergyBonus; break;
                 }
             }
 

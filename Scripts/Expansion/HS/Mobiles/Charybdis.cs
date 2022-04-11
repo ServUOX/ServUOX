@@ -61,14 +61,14 @@ namespace Server.Mobiles
             SetMana(8000);
             SetDamage(24, 33);
 
-            SetDamageType(ResistanceType.Physical, 50);
-            SetDamageType(ResistanceType.Energy, 50);
+            SetDamageType(ResistType.Physical, 50);
+            SetDamageType(ResistType.Energy, 50);
 
-            SetResist(ResistanceType.Physical, 70, 80);
-            SetResist(ResistanceType.Fire, 70, 80);
-            SetResist(ResistanceType.Cold, 45, 55);
-            SetResist(ResistanceType.Poison, 80, 90);
-            SetResist(ResistanceType.Energy, 60, 70);
+            SetResist(ResistType.Physical, 70, 80);
+            SetResist(ResistType.Fire, 70, 80);
+            SetResist(ResistType.Cold, 45, 55);
+            SetResist(ResistType.Poison, 80, 90);
+            SetResist(ResistType.Energy, 60, 70);
 
             SetSkill(SkillName.Wrestling, 120.1, 121.2);
             SetSkill(SkillName.Tactics, 120.15, 123.1);
@@ -374,11 +374,11 @@ namespace Server.Mobiles
 
                 SetHits(150000);
 
-                SetResist(ResistanceType.Physical, 100);
-                SetResist(ResistanceType.Fire, 100);
-                SetResist(ResistanceType.Cold, 100);
-                SetResist(ResistanceType.Poison, 100);
-                SetResist(ResistanceType.Energy, 100);
+                SetResist(ResistType.Physical, 100);
+                SetResist(ResistType.Fire, 100);
+                SetResist(ResistType.Cold, 100);
+                SetResist(ResistType.Poison, 100);
+                SetResist(ResistType.Energy, 100);
 
                 Timer.DelayCall(TimeSpan.FromSeconds(2), new TimerCallback(DoDelete));
             }
@@ -709,14 +709,14 @@ namespace Server.Mobiles
 
             SetDamage(10, 15);
 
-            SetDamageType(ResistanceType.Physical, 50);
-            SetDamageType(ResistanceType.Cold, 50);
+            SetDamageType(ResistType.Physical, 50);
+            SetDamageType(ResistType.Cold, 50);
 
-            SetResist(ResistanceType.Physical, 35, 45);
-            SetResist(ResistanceType.Fire, 10, 25);
-            SetResist(ResistanceType.Cold, 10, 25);
-            SetResist(ResistanceType.Poison, 60, 70);
-            SetResist(ResistanceType.Energy, 5, 10);
+            SetResist(ResistType.Physical, 35, 45);
+            SetResist(ResistType.Fire, 10, 25);
+            SetResist(ResistType.Cold, 10, 25);
+            SetResist(ResistType.Poison, 60, 70);
+            SetResist(ResistType.Energy, 5, 10);
 
             SetSkill(SkillName.Wrestling, 52.0, 70.0);
             SetSkill(SkillName.Tactics, 0.0);

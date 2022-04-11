@@ -332,13 +332,13 @@ namespace Server.Engines.VeteranRewards
             SetDex((int)(125 * scalar), (int)(150 * scalar));
             SetInt((int)(200 * scalar), (int)(225 * scalar));
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
-            SetResist(ResistanceType.Physical, 40, 60);
-            SetResist(ResistanceType.Fire, 50, 65);
-            SetResist(ResistanceType.Cold, 20, 30);
-            SetResist(ResistanceType.Poison, 75, 85);
-            SetResist(ResistanceType.Energy, 30, 45);
+            SetResist(ResistType.Physical, 40, 60);
+            SetResist(ResistType.Fire, 50, 65);
+            SetResist(ResistType.Cold, 20, 30);
+            SetResist(ResistType.Poison, 75, 85);
+            SetResist(ResistType.Energy, 30, 45);
 
             SetSkill(SkillName.MagicResist, 190.0);
             SetSkill(SkillName.Tactics, 100.0);

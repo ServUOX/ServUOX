@@ -9,10 +9,10 @@ namespace Server.Items
     {
         protected override void ApplyEffect(PlayerMobile pm)
         {
-            pm.AddResistanceMod(new ResistanceMod(ResistanceType.Cold, -5));
-            pm.AddResistanceMod(new ResistanceMod(ResistanceType.Fire, -5));
+            pm.AddResistanceMod(new ResistanceMod(ResistType.Cold, -5));
+            pm.AddResistanceMod(new ResistanceMod(ResistType.Fire, -5));
 
-            pm.AddResistanceMod(new ResistanceMod(ResistanceType.Physical, 30));
+            pm.AddResistanceMod(new ResistanceMod(ResistType.Physical, 30));
 
             base.ApplyEffect(pm);
         }

@@ -370,7 +370,7 @@ namespace Server.Mobiles
 
             int effect = -(defender.EnergyResistance / 2);
 
-            ResistanceMod mod = new ResistanceMod(ResistanceType.Energy, effect);
+            ResistanceMod mod = new ResistanceMod(ResistType.Energy, effect);
 
             defender.FixedEffect(0x37B9, 10, 5);
             defender.AddResistanceMod(mod);
@@ -448,7 +448,7 @@ namespace Server.Mobiles
 
             int effect = -(defender.PhysicalResistance * 15 / 100);
 
-            ResistanceMod mod = new ResistanceMod(ResistanceType.Physical, effect);
+            ResistanceMod mod = new ResistanceMod(ResistType.Physical, effect);
 
             defender.FixedEffect(0x37B9, 10, 5);
             defender.AddResistanceMod(mod);
@@ -1074,7 +1074,7 @@ namespace Server.Mobiles
 
             int effect = -(defender.PhysicalResistance * 15 / 100);
 
-            ResistanceMod mod = new ResistanceMod(ResistanceType.Physical, effect);
+            ResistanceMod mod = new ResistanceMod(ResistType.Physical, effect);
 
             defender.FixedParticles(0x373A, 10, 15, 5018, EffectLayer.Waist);
             defender.AddResistanceMod(mod);
@@ -1146,7 +1146,7 @@ namespace Server.Mobiles
 
             defender.SendLocalizedMessage(1070833); // The creature fans you with fire, reducing your resistance to fire attacks.
 
-            ResistanceMod mod = new ResistanceMod(ResistanceType.Fire, -25);
+            ResistanceMod mod = new ResistanceMod(ResistType.Fire, -25);
 
             Effects.SendLocationParticles(defender, 0x3709, 10, 30, 5052);
             Effects.PlaySound(defender.Location, defender.Map, 0x208);
@@ -1595,35 +1595,35 @@ namespace Server.Mobiles
             {
                 phy = defender.PhysicalResistance / 2;
 
-                mods.Add(new ResistanceMod(ResistanceType.Physical, -phy));
+                mods.Add(new ResistanceMod(ResistType.Physical, -phy));
             }
 
             if (defender.FireResistance > 0)
             {
                 fire = defender.FireResistance / 2;
 
-                mods.Add(new ResistanceMod(ResistanceType.Fire, -fire));
+                mods.Add(new ResistanceMod(ResistType.Fire, -fire));
             }
 
             if (defender.ColdResistance > 0)
             {
                 cold = defender.ColdResistance / 2;
 
-                mods.Add(new ResistanceMod(ResistanceType.Cold, -cold));
+                mods.Add(new ResistanceMod(ResistType.Cold, -cold));
             }
 
             if (defender.PoisonResistance > 0)
             {
                 poison = defender.PoisonResistance / 2;
 
-                mods.Add(new ResistanceMod(ResistanceType.Poison, -poison));
+                mods.Add(new ResistanceMod(ResistType.Poison, -poison));
             }
 
             if (defender.EnergyResistance > 0)
             {
                 energy = defender.EnergyResistance / 2;
 
-                mods.Add(new ResistanceMod(ResistanceType.Energy, -energy));
+                mods.Add(new ResistanceMod(ResistType.Energy, -energy));
             }
 
             for (int i = 0; i < mods.Count; ++i)

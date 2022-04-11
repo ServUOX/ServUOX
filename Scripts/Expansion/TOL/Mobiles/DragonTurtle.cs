@@ -32,14 +32,14 @@ namespace Server.Mobiles
 
             SetHits(60000);
 
-            SetResist(ResistanceType.Physical, 75, 85);
-            SetResist(ResistanceType.Fire, 65, 75);
-            SetResist(ResistanceType.Cold, 70, 75);
-            SetResist(ResistanceType.Poison, 100);
-            SetResist(ResistanceType.Energy, 65, 75);
+            SetResist(ResistType.Physical, 75, 85);
+            SetResist(ResistType.Fire, 65, 75);
+            SetResist(ResistType.Cold, 70, 75);
+            SetResist(ResistType.Poison, 100);
+            SetResist(ResistType.Energy, 65, 75);
 
-            SetDamageType(ResistanceType.Physical, 50);
-            SetDamageType(ResistanceType.Poison, 50);
+            SetDamageType(ResistType.Physical, 50);
+            SetDamageType(ResistType.Poison, 50);
 
             SetSkill(SkillName.MagicResist, 90, 120);
             SetSkill(SkillName.Tactics, 200, 110);
@@ -257,7 +257,7 @@ namespace Server.Mobiles
 
         private void ApplyMod(Mobile m, int hue)
         {
-            ResistanceType type = GetResistanceFromHue(hue);
+            ResistType type = GetResistanceFromHue(hue);
 
             if (_Affected == null)
                 _Affected = new Dictionary<Mobile, int>();
@@ -294,33 +294,33 @@ namespace Server.Mobiles
             Mobile mob = o[0] as Mobile;
             int hue = (int)o[1];
 
-            ResistanceType type = GetResistanceFromHue(hue);
+            ResistType type = GetResistanceFromHue(hue);
             int damage = Utility.RandomMinMax(60, 80);
 
             switch (type)
             {
-                case ResistanceType.Physical: AOS.Damage(mob, this, damage, 100, 0, 0, 0, 0); break;
-                case ResistanceType.Fire: AOS.Damage(mob, this, damage, 0, 100, 0, 0, 0); break;
-                case ResistanceType.Cold: AOS.Damage(mob, this, damage, 0, 0, 100, 0, 0); break;
-                case ResistanceType.Poison: AOS.Damage(mob, this, damage, 0, 0, 0, 100, 0); break;
-                case ResistanceType.Energy: AOS.Damage(mob, this, damage, 0, 0, 0, 0, 100); break;
+                case ResistType.Physical: AOS.Damage(mob, this, damage, 100, 0, 0, 0, 0); break;
+                case ResistType.Fire: AOS.Damage(mob, this, damage, 0, 100, 0, 0, 0); break;
+                case ResistType.Cold: AOS.Damage(mob, this, damage, 0, 0, 100, 0, 0); break;
+                case ResistType.Poison: AOS.Damage(mob, this, damage, 0, 0, 0, 100, 0); break;
+                case ResistType.Energy: AOS.Damage(mob, this, damage, 0, 0, 0, 0, 100); break;
             }
         }
 
-        private ResistanceType GetResistanceFromHue(int hue)
+        private ResistType GetResistanceFromHue(int hue)
         {
             switch (hue)
             {
-                case 0: return ResistanceType.Physical;
+                case 0: return ResistType.Physical;
                 case 33:
-                case 44: return ResistanceType.Fire;
-                case 9: return ResistanceType.Cold;
-                case 63: return ResistanceType.Poison;
+                case 44: return ResistType.Fire;
+                case 9: return ResistType.Cold;
+                case 63: return ResistType.Poison;
                 case 53:
-                case 126: return ResistanceType.Energy;
+                case 126: return ResistType.Energy;
             }
 
-            return ResistanceType.Physical;
+            return ResistType.Physical;
         }
 
         public DragonTurtle(Serial serial) : base(serial)

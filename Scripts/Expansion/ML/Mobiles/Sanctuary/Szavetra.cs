@@ -19,14 +19,14 @@ namespace Server.Mobiles
 
             SetDamage(20, 30);
 
-            SetDamageType(ResistanceType.Physical, 75);
-            SetDamageType(ResistanceType.Energy, 25);
+            SetDamageType(ResistType.Physical, 75);
+            SetDamageType(ResistType.Energy, 25);
 
-            SetResist(ResistanceType.Physical, 83, 90);
-            SetResist(ResistanceType.Fire, 72, 80);
-            SetResist(ResistanceType.Cold, 40, 49);
-            SetResist(ResistanceType.Poison, 51, 60);
-            SetResist(ResistanceType.Energy, 50, 60);
+            SetResist(ResistType.Physical, 83, 90);
+            SetResist(ResistType.Fire, 72, 80);
+            SetResist(ResistType.Cold, 40, 49);
+            SetResist(ResistType.Poison, 51, 60);
+            SetResist(ResistType.Energy, 50, 60);
 
             SetSkill(SkillName.EvalInt, 90.3, 99.8);
             SetSkill(SkillName.Magery, 100.1, 100.6); // 10.1-10.6 on OSI, bug?

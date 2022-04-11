@@ -95,46 +95,46 @@ namespace Server.Mobiles
             switch (type)
             {
                 case EodonTribe.Jukari:
-                    SetResist(ResistanceType.Physical, 20, 30);
-                    SetResist(ResistanceType.Fire, 100);
-                    SetResist(ResistanceType.Cold, 10, 20);
-                    SetResist(ResistanceType.Poison, 40, 50);
-                    SetResist(ResistanceType.Energy, 40, 50);
+                    SetResist(ResistType.Physical, 20, 30);
+                    SetResist(ResistType.Fire, 100);
+                    SetResist(ResistType.Cold, 10, 20);
+                    SetResist(ResistType.Poison, 40, 50);
+                    SetResist(ResistType.Energy, 40, 50);
                     break;
                 case EodonTribe.Kurak:
-                    SetResist(ResistanceType.Physical, 20, 30);
-                    SetResist(ResistanceType.Fire, 10, 20);
-                    SetResist(ResistanceType.Cold, 100);
-                    SetResist(ResistanceType.Poison, 40, 50);
-                    SetResist(ResistanceType.Energy, 40, 50);
+                    SetResist(ResistType.Physical, 20, 30);
+                    SetResist(ResistType.Fire, 10, 20);
+                    SetResist(ResistType.Cold, 100);
+                    SetResist(ResistType.Poison, 40, 50);
+                    SetResist(ResistType.Energy, 40, 50);
                     break;
                 case EodonTribe.Barrab:
-                    SetResist(ResistanceType.Physical, 20, 30);
-                    SetResist(ResistanceType.Fire, 40, 50);
-                    SetResist(ResistanceType.Cold, 40, 50);
-                    SetResist(ResistanceType.Poison, 100);
-                    SetResist(ResistanceType.Energy, 10, 20);
+                    SetResist(ResistType.Physical, 20, 30);
+                    SetResist(ResistType.Fire, 40, 50);
+                    SetResist(ResistType.Cold, 40, 50);
+                    SetResist(ResistType.Poison, 100);
+                    SetResist(ResistType.Energy, 10, 20);
                     break;
                 case EodonTribe.Barako:
-                    SetResist(ResistanceType.Physical, 20, 30);
-                    SetResist(ResistanceType.Fire, 40, 50);
-                    SetResist(ResistanceType.Cold, 40, 50);
-                    SetResist(ResistanceType.Poison, 10, 20);
-                    SetResist(ResistanceType.Energy, 40, 50);
+                    SetResist(ResistType.Physical, 20, 30);
+                    SetResist(ResistType.Fire, 40, 50);
+                    SetResist(ResistType.Cold, 40, 50);
+                    SetResist(ResistType.Poison, 10, 20);
+                    SetResist(ResistType.Energy, 40, 50);
                     break;
                 case EodonTribe.Urali:
-                    SetResist(ResistanceType.Physical, 20, 30);
-                    SetResist(ResistanceType.Fire, 40, 50);
-                    SetResist(ResistanceType.Cold, 40, 50);
-                    SetResist(ResistanceType.Poison, 10, 20);
-                    SetResist(ResistanceType.Energy, 100);
+                    SetResist(ResistType.Physical, 20, 30);
+                    SetResist(ResistType.Fire, 40, 50);
+                    SetResist(ResistType.Cold, 40, 50);
+                    SetResist(ResistType.Poison, 10, 20);
+                    SetResist(ResistType.Energy, 100);
                     break;
                 case EodonTribe.Sakkhra:
-                    SetResist(ResistanceType.Physical, 100);
-                    SetResist(ResistanceType.Fire, 40, 50);
-                    SetResist(ResistanceType.Cold, 40, 50);
-                    SetResist(ResistanceType.Poison, 60, 70);
-                    SetResist(ResistanceType.Energy, 40, 50);
+                    SetResist(ResistType.Physical, 100);
+                    SetResist(ResistType.Fire, 40, 50);
+                    SetResist(ResistType.Cold, 40, 50);
+                    SetResist(ResistType.Poison, 60, 70);
+                    SetResist(ResistType.Energy, 40, 50);
                     break;
             }
         }
@@ -250,7 +250,7 @@ namespace Server.Mobiles
 
             SetDamage(10, 23);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
             SetSkill(SkillName.Wrestling, 100, 120);
             SetSkill(SkillName.Fencing, 100, 120);
@@ -448,7 +448,7 @@ namespace Server.Mobiles
 
             SetDamage(10, 15);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
             SetSkill(SkillName.Wrestling, 100);
             SetSkill(SkillName.Fencing, 100);
@@ -605,7 +605,7 @@ namespace Server.Mobiles
 
             SetDamage(15, 28);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
             //Set resistances?
 

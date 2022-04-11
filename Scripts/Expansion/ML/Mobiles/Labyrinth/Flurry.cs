@@ -22,14 +22,14 @@ namespace Server.Mobiles
 
             SetDamage(10, 15);  // Erica's
 
-            SetDamageType(ResistanceType.Energy, 20);
-            SetDamageType(ResistanceType.Cold, 80);
+            SetDamageType(ResistType.Energy, 20);
+            SetDamageType(ResistType.Cold, 80);
 
-            SetResist(ResistanceType.Physical, 56, 57);
-            SetResist(ResistanceType.Fire, 38, 44);
-            SetResist(ResistanceType.Cold, 40, 45);
-            SetResist(ResistanceType.Poison, 31, 37);
-            SetResist(ResistanceType.Energy, 39, 41);
+            SetResist(ResistType.Physical, 56, 57);
+            SetResist(ResistType.Fire, 38, 44);
+            SetResist(ResistType.Cold, 40, 45);
+            SetResist(ResistType.Poison, 31, 37);
+            SetResist(ResistType.Energy, 39, 41);
 
             SetSkill(SkillName.EvalInt, 99.1, 100.2);
             SetSkill(SkillName.Magery, 105.1, 108.8);

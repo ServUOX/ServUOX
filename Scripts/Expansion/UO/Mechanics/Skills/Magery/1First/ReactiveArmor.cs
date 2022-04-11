@@ -83,11 +83,11 @@ namespace Server.Spells.First
 
                         mods = new ResistanceMod[5]
                         {
-                            new ResistanceMod(ResistanceType.Physical, 15 + (int)(targ.Skills[SkillName.Inscribe].Value / 20)),
-                            new ResistanceMod(ResistanceType.Fire, -5),
-                            new ResistanceMod(ResistanceType.Cold, -5),
-                            new ResistanceMod(ResistanceType.Poison, -5),
-                            new ResistanceMod(ResistanceType.Energy, -5)
+                            new ResistanceMod(ResistType.Physical, 15 + (int)(targ.Skills[SkillName.Inscribe].Value / 20)),
+                            new ResistanceMod(ResistType.Fire, -5),
+                            new ResistanceMod(ResistType.Cold, -5),
+                            new ResistanceMod(ResistType.Poison, -5),
+                            new ResistanceMod(ResistType.Energy, -5)
                         };
 
                         m_Table[targ] = mods;

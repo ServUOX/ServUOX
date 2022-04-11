@@ -22,14 +22,14 @@ namespace Server.Mobiles
 
             SetDamage(15, 22);
 
-            SetDamageType(ResistanceType.Physical, 70);
-            SetDamageType(ResistanceType.Energy, 30);
+            SetDamageType(ResistType.Physical, 70);
+            SetDamageType(ResistType.Energy, 30);
 
-            SetResist(ResistanceType.Physical, 40, 60);
-            SetResist(ResistanceType.Fire, 70, 90);
-            SetResist(ResistanceType.Cold, 40, 60);
-            SetResist(ResistanceType.Poison, 40, 60);
-            SetResist(ResistanceType.Energy, 40, 60);
+            SetResist(ResistType.Physical, 40, 60);
+            SetResist(ResistType.Fire, 70, 90);
+            SetResist(ResistType.Cold, 40, 60);
+            SetResist(ResistType.Poison, 40, 60);
+            SetResist(ResistType.Energy, 40, 60);
 
             SetSkill(SkillName.EvalInt, 80.1, 90.0);
             SetSkill(SkillName.Magery, 80.1, 90.0);
@@ -204,11 +204,11 @@ namespace Server.Mobiles
 
             if (version == 0 && PhysicalResistance > 60)
             {
-                SetResist(ResistanceType.Physical, 40, 60);
-                SetResist(ResistanceType.Fire, 70, 90);
-                SetResist(ResistanceType.Cold, 40, 60);
-                SetResist(ResistanceType.Poison, 40, 60);
-                SetResist(ResistanceType.Energy, 40, 60);
+                SetResist(ResistType.Physical, 40, 60);
+                SetResist(ResistType.Fire, 70, 90);
+                SetResist(ResistType.Cold, 40, 60);
+                SetResist(ResistType.Poison, 40, 60);
+                SetResist(ResistType.Energy, 40, 60);
             }
 
             Timer.DelayCall(TimeSpan.Zero, new TimerCallback(RemoveDisguise));

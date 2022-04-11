@@ -31,17 +31,17 @@ namespace Server.Mobiles
 
             SetDamage(17, 21);
 
-            SetDamageType(ResistanceType.Physical, 20);
-            SetDamageType(ResistanceType.Fire, 20);
-            SetDamageType(ResistanceType.Cold, 20);
-            SetDamageType(ResistanceType.Energy, 20);
-            SetDamageType(ResistanceType.Poison, 20);
+            SetDamageType(ResistType.Physical, 20);
+            SetDamageType(ResistType.Fire, 20);
+            SetDamageType(ResistType.Cold, 20);
+            SetDamageType(ResistType.Energy, 20);
+            SetDamageType(ResistType.Poison, 20);
 
-            SetResist(ResistanceType.Physical, 30);
-            SetResist(ResistanceType.Fire, 30);
-            SetResist(ResistanceType.Cold, 30);
-            SetResist(ResistanceType.Poison, 30);
-            SetResist(ResistanceType.Energy, 20);
+            SetResist(ResistType.Physical, 30);
+            SetResist(ResistType.Fire, 30);
+            SetResist(ResistType.Cold, 30);
+            SetResist(ResistType.Poison, 30);
+            SetResist(ResistType.Energy, 20);
 
             SetSkill(SkillName.EvalInt, 90, 120.0);
             SetSkill(SkillName.Magery, 90, 120.0);
@@ -364,27 +364,27 @@ namespace Server.Mobiles
 
                 if (target.PhysicalResistance > 0)
                 {
-                    mods.Add(new ResistanceMod(ResistanceType.Physical, (int)(target.PhysicalResistance * scalar)));
+                    mods.Add(new ResistanceMod(ResistType.Physical, (int)(target.PhysicalResistance * scalar)));
                 }
 
                 if (target.FireResistance > 0)
                 {
-                    mods.Add(new ResistanceMod(ResistanceType.Fire, (int)(target.FireResistance * scalar)));
+                    mods.Add(new ResistanceMod(ResistType.Fire, (int)(target.FireResistance * scalar)));
                 }
 
                 if (target.ColdResistance > 0)
                 {
-                    mods.Add(new ResistanceMod(ResistanceType.Cold, (int)(target.ColdResistance * scalar)));
+                    mods.Add(new ResistanceMod(ResistType.Cold, (int)(target.ColdResistance * scalar)));
                 }
 
                 if (target.PoisonResistance > 0)
                 {
-                    mods.Add(new ResistanceMod(ResistanceType.Poison, (int)(target.PoisonResistance * scalar)));
+                    mods.Add(new ResistanceMod(ResistType.Poison, (int)(target.PoisonResistance * scalar)));
                 }
 
                 if (target.EnergyResistance > 0)
                 {
-                    mods.Add(new ResistanceMod(ResistanceType.Energy, (int)(target.EnergyResistance * scalar)));
+                    mods.Add(new ResistanceMod(ResistType.Energy, (int)(target.EnergyResistance * scalar)));
                 }
 
                 for (int i = 0; i < target.Skills.Length; ++i)

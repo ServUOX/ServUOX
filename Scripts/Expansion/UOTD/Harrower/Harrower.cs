@@ -63,14 +63,14 @@ namespace Server.Mobiles
 
             VirtualArmor = 60;
 
-            SetDamageType(ResistanceType.Physical, 50);
-            SetDamageType(ResistanceType.Energy, 50);
+            SetDamageType(ResistType.Physical, 50);
+            SetDamageType(ResistType.Energy, 50);
 
-            SetResist(ResistanceType.Physical, 55, 65);
-            SetResist(ResistanceType.Fire, 60, 80);
-            SetResist(ResistanceType.Cold, 60, 80);
-            SetResist(ResistanceType.Poison, 60, 80);
-            SetResist(ResistanceType.Energy, 60, 80);
+            SetResist(ResistType.Physical, 55, 65);
+            SetResist(ResistType.Fire, 60, 80);
+            SetResist(ResistType.Cold, 60, 80);
+            SetResist(ResistType.Poison, 60, 80);
+            SetResist(ResistType.Energy, 60, 80);
 
             SetSkill(SkillName.Wrestling, 90.1, 100.0);
             SetSkill(SkillName.Tactics, 90.2, 110.0);

@@ -26,28 +26,28 @@ namespace Server.Mobiles
                 case SkelementalKnight.SkeletalType.Fire:
                     {
                         Hue = 2634;
-                        SetDamageType(ResistanceType.Fire, 100);
+                        SetDamageType(ResistType.Fire, 100);
                         cold = 5;
                         break;
                     }
                 case SkelementalKnight.SkeletalType.Cold:
                     {
                         Hue = 2581;
-                        SetDamageType(ResistanceType.Cold, 100);
+                        SetDamageType(ResistType.Cold, 100);
                         fire = 5;
                         break;
                     }
                 case SkelementalKnight.SkeletalType.Poison:
                     {
                         Hue = 2688;
-                        SetDamageType(ResistanceType.Poison, 100);
+                        SetDamageType(ResistType.Poison, 100);
                         energy = 5;
                         break;
                     }
                 case SkelementalKnight.SkeletalType.Energy:
                     {
                         Hue = 2717;
-                        SetDamageType(ResistanceType.Energy, 100);
+                        SetDamageType(ResistType.Energy, 100);
                         poison = 5;
                         break;
                     }
@@ -61,13 +61,13 @@ namespace Server.Mobiles
 
             SetDamage(8, 18);
 
-            SetDamageType(ResistanceType.Physical, 0);
+            SetDamageType(ResistType.Physical, 0);
 
-            SetResist(ResistanceType.Physical, 95);
-            SetResist(ResistanceType.Fire, fire);
-            SetResist(ResistanceType.Cold, cold);
-            SetResist(ResistanceType.Poison, poison);
-            SetResist(ResistanceType.Energy, energy);
+            SetResist(ResistType.Physical, 95);
+            SetResist(ResistType.Fire, fire);
+            SetResist(ResistType.Cold, cold);
+            SetResist(ResistType.Poison, poison);
+            SetResist(ResistType.Energy, energy);
 
             SetSkill(SkillName.MagicResist, 60.0, 80.0);
             SetSkill(SkillName.Tactics, 75.0, 100.0);

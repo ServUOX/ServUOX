@@ -6711,15 +6711,15 @@ namespace Server.Items
             SetHelper.GetSetProperties(list, this);
         }
 
-        public int SetResistBonus(ResistanceType resist)
+        public int SetResistBonus(ResistType resist)
         {
             switch (resist)
             {
-                case ResistanceType.Physical: return PhysicalResistance;
-                case ResistanceType.Fire: return FireResistance;
-                case ResistanceType.Cold: return ColdResistance;
-                case ResistanceType.Poison: return PoisonResistance;
-                case ResistanceType.Energy: return EnergyResistance;
+                case ResistType.Physical: return PhysicalResistance;
+                case ResistType.Fire: return FireResistance;
+                case ResistType.Cold: return ColdResistance;
+                case ResistType.Poison: return PoisonResistance;
+                case ResistType.Energy: return EnergyResistance;
             }
 
             return 0;

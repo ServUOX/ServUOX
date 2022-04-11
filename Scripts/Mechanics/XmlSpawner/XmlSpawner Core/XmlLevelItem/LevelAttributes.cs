@@ -85,13 +85,13 @@ namespace Server.Items
         };
 
         //Armor specific
-        public static ResistanceTypeInfo[] m_ResistanceTypes = new ResistanceTypeInfo[]
+        public static ResistTypeInfo[] m_ResistTypes = new ResistTypeInfo[]
 		{
-            new ResistanceTypeInfo( ResistanceType.Physical, "Physical Resistance", AttributeCategory.Resists, 2, 20 ),
-            new ResistanceTypeInfo( ResistanceType.Fire, "Fire Resistance", AttributeCategory.Resists, 2, 20 ),
-            new ResistanceTypeInfo( ResistanceType.Cold, "Cold Resistance", AttributeCategory.Resists, 2, 20 ),
-            new ResistanceTypeInfo( ResistanceType.Poison, "Poison Resistance", AttributeCategory.Resists, 2, 20 ),
-            new ResistanceTypeInfo( ResistanceType.Energy, "Energy Resistance", AttributeCategory.Resists, 2, 20 )
+            new ResistTypeInfo( ResistType.Physical, "Physical Resistance", AttributeCategory.Resists, 2, 20 ),
+            new ResistTypeInfo( ResistType.Fire, "Fire Resistance", AttributeCategory.Resists, 2, 20 ),
+            new ResistTypeInfo( ResistType.Cold, "Cold Resistance", AttributeCategory.Resists, 2, 20 ),
+            new ResistTypeInfo( ResistType.Poison, "Poison Resistance", AttributeCategory.Resists, 2, 20 ),
+            new ResistTypeInfo( ResistType.Energy, "Energy Resistance", AttributeCategory.Resists, 2, 20 )
         };
 
         //Jewel & Clothing Specific Resists
@@ -161,15 +161,15 @@ namespace Server.Items
         }
     }
 
-    public class ResistanceTypeInfo
+    public class ResistTypeInfo
     {
-        public ResistanceType m_Attribute;
+        public ResistType m_Attribute;
         public string m_Name;
         public AttributeCategory m_Category;
         public int m_XP;
         public int m_MaxValue;
 
-        public ResistanceTypeInfo(ResistanceType attribute, string name, AttributeCategory category, int xp, int maxvalue)
+        public ResistTypeInfo(ResistType attribute, string name, AttributeCategory category, int xp, int maxvalue)
         {
             m_Attribute = attribute;
             m_Name = name;

@@ -198,7 +198,7 @@ namespace Server.Gumps
             {
                 if (cat == AttributeCategory.Resists)
                 {
-                    for (int i = 0; i < LevelAttributes.m_ResistanceTypes.Length; ++i)
+                    for (int i = 0; i < LevelAttributes.m_ResistTypes.Length; ++i)
                     {
                         pageindex = index % 10;
 
@@ -219,22 +219,22 @@ namespace Server.Gumps
                             }
                         }
 
-                        if (LevelAttributes.m_ResistanceTypes[i].m_Attribute == ResistanceType.Physical)
+                        if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Physical)
                             attrvalue = ((BaseArmor)m_Item).PhysicalBonus;
-                        else if (LevelAttributes.m_ResistanceTypes[i].m_Attribute == ResistanceType.Fire)
+                        else if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Fire)
                             attrvalue = ((BaseArmor)m_Item).FireBonus;
-                        else if (LevelAttributes.m_ResistanceTypes[i].m_Attribute == ResistanceType.Cold)
+                        else if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Cold)
                             attrvalue = ((BaseArmor)m_Item).ColdBonus;
-                        else if (LevelAttributes.m_ResistanceTypes[i].m_Attribute == ResistanceType.Poison)
+                        else if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Poison)
                             attrvalue = ((BaseArmor)m_Item).PoisonBonus;
-                        else if (LevelAttributes.m_ResistanceTypes[i].m_Attribute == ResistanceType.Energy)
+                        else if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Energy)
                             attrvalue = ((BaseArmor)m_Item).EnergyBonus;
                         else
                             attrvalue = 0;
 
-                        if (attrvalue < LevelAttributes.m_ResistanceTypes[i].m_MaxValue)
+                        if (attrvalue < LevelAttributes.m_ResistTypes[i].m_MaxValue)
                             AddButton(301, 116 + (pageindex * 20), 4005, 4007, GetButtonID(5, i), GumpButtonType.Reply, 0);
-                        AddLabel(337, 117 + (pageindex * 20), LabelHue, LevelAttributes.m_ResistanceTypes[i].m_Name + " (" + GetPointCost(m_Item, LevelAttributes.m_ResistanceTypes[i].m_XP) + "sp)");
+                        AddLabel(337, 117 + (pageindex * 20), LabelHue, LevelAttributes.m_ResistTypes[i].m_Name + " (" + GetPointCost(m_Item, LevelAttributes.m_ResistTypes[i].m_XP) + "sp)");
                         AddLabel(540, 117 + (pageindex * 20), LabelHue, attrvalue.ToString());
 
                         ++index;
@@ -560,52 +560,52 @@ namespace Server.Gumps
                     }
                 case 5: // Armor Resists Selected
                     {
-                        cost = GetPointCost(m_Item, LevelAttributes.m_ResistanceTypes[index].m_XP);
+                        cost = GetPointCost(m_Item, LevelAttributes.m_ResistTypes[index].m_XP);
                         if ((levitem.Points - cost) >= 0)
                         {
                             //add point to selected weapon attribute
-                            if (index >= 0 && index < LevelAttributes.m_ResistanceTypes.Length)
+                            if (index >= 0 && index < LevelAttributes.m_ResistTypes.Length)
                             {
-                                if (LevelAttributes.m_ResistanceTypes[index].m_Attribute == ResistanceType.Physical)
+                                if (LevelAttributes.m_ResistTypes[index].m_Attribute == ResistType.Physical)
                                 {
                                     attrvalue = ((BaseArmor)m_Item).PhysicalBonus;
-                                    if (attrvalue < LevelAttributes.m_ResistanceTypes[index].m_MaxValue)
+                                    if (attrvalue < LevelAttributes.m_ResistTypes[index].m_MaxValue)
                                     {
                                         ((BaseArmor)m_Item).PhysicalBonus += 1;
                                         levitem.Points -= cost;
                                     }
                                 }
-                                else if (LevelAttributes.m_ResistanceTypes[index].m_Attribute == ResistanceType.Fire)
+                                else if (LevelAttributes.m_ResistTypes[index].m_Attribute == ResistType.Fire)
                                 {
                                     attrvalue = ((BaseArmor)m_Item).FireBonus;
-                                    if (attrvalue < LevelAttributes.m_ResistanceTypes[index].m_MaxValue)
+                                    if (attrvalue < LevelAttributes.m_ResistTypes[index].m_MaxValue)
                                     {
                                         ((BaseArmor)m_Item).FireBonus += 1;
                                         levitem.Points -= cost;
                                     }
                                 }
-                                else if (LevelAttributes.m_ResistanceTypes[index].m_Attribute == ResistanceType.Cold)
+                                else if (LevelAttributes.m_ResistTypes[index].m_Attribute == ResistType.Cold)
                                 {
                                     attrvalue = ((BaseArmor)m_Item).ColdBonus;
-                                    if (attrvalue < LevelAttributes.m_ResistanceTypes[index].m_MaxValue)
+                                    if (attrvalue < LevelAttributes.m_ResistTypes[index].m_MaxValue)
                                     {
                                         ((BaseArmor)m_Item).ColdBonus += 1;
                                         levitem.Points -= cost;
                                     }
                                 }
-                                else if (LevelAttributes.m_ResistanceTypes[index].m_Attribute == ResistanceType.Poison)
+                                else if (LevelAttributes.m_ResistTypes[index].m_Attribute == ResistType.Poison)
                                 {
                                     attrvalue = ((BaseArmor)m_Item).PoisonBonus;
-                                    if (attrvalue < LevelAttributes.m_ResistanceTypes[index].m_MaxValue)
+                                    if (attrvalue < LevelAttributes.m_ResistTypes[index].m_MaxValue)
                                     {
                                         ((BaseArmor)m_Item).PoisonBonus += 1;
                                         levitem.Points -= cost;
                                     }
                                 }
-                                else if (LevelAttributes.m_ResistanceTypes[index].m_Attribute == ResistanceType.Energy)
+                                else if (LevelAttributes.m_ResistTypes[index].m_Attribute == ResistType.Energy)
                                 {
                                     attrvalue = ((BaseArmor)m_Item).EnergyBonus;
-                                    if (attrvalue < LevelAttributes.m_ResistanceTypes[index].m_MaxValue)
+                                    if (attrvalue < LevelAttributes.m_ResistTypes[index].m_MaxValue)
                                     {
                                         ((BaseArmor)m_Item).EnergyBonus += 1;
                                         levitem.Points -= cost;
@@ -620,7 +620,7 @@ namespace Server.Gumps
                             m_From.SendMessage("You don't have enough points available!  This attribute costs " + cost + " points.");
                         }
 
-                        m_From.SendGump(new ItemExperienceGump(m_From, m_Item, LevelAttributes.m_ResistanceTypes[index].m_Category, GumpPage.AttributeList));
+                        m_From.SendGump(new ItemExperienceGump(m_From, m_Item, LevelAttributes.m_ResistTypes[index].m_Category, GumpPage.AttributeList));
 
                         break;
                     }

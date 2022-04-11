@@ -86,11 +86,11 @@ namespace Server.Spells.Bushido
             {
                 ArrayList mods = new ArrayList
                 {
-                    new ResistanceMod(ResistanceType.Physical, -40),
-                    new ResistanceMod(ResistanceType.Fire, -40),
-                    new ResistanceMod(ResistanceType.Cold, -40),
-                    new ResistanceMod(ResistanceType.Poison, -40),
-                    new ResistanceMod(ResistanceType.Energy, -40)
+                    new ResistanceMod(ResistType.Physical, -40),
+                    new ResistanceMod(ResistType.Fire, -40),
+                    new ResistanceMod(ResistType.Cold, -40),
+                    new ResistanceMod(ResistType.Poison, -40),
+                    new ResistanceMod(ResistType.Energy, -40)
                 };
 
                 double resSpells = attacker.Skills[SkillName.MagicResist].Value;

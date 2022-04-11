@@ -26,13 +26,13 @@ namespace Server.Mobiles
 
             SetDamage(25, 35);
 
-            SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistType.Physical, 100);
 
-            SetResist(ResistanceType.Physical, 25, 30);
-            SetResist(ResistanceType.Fire, 35, 45);
-            SetResist(ResistanceType.Cold, 50, 60);
-            SetResist(ResistanceType.Poison, 30, 40);
-            SetResist(ResistanceType.Energy, 20, 30);
+            SetResist(ResistType.Physical, 25, 30);
+            SetResist(ResistType.Fire, 35, 45);
+            SetResist(ResistType.Cold, 50, 60);
+            SetResist(ResistType.Poison, 30, 40);
+            SetResist(ResistType.Energy, 20, 30);
 
             SetSkill(SkillName.EvalInt, 120.0);
             SetSkill(SkillName.Magery, 120.0);

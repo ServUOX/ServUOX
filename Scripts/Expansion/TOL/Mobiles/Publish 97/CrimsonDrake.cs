@@ -26,31 +26,31 @@ namespace Server.Mobiles
                 case ElementType.Physical:
                     Body = 0x58B;
                     Hue = 0;
-                    SetDamageType(ResistanceType.Physical, 100);
+                    SetDamageType(ResistType.Physical, 100);
                     break;
                 case ElementType.Fire:
                     Body = 0x58C;
                     Hue = 33929;
-                    SetDamageType(ResistanceType.Physical, 0);
-                    SetDamageType(ResistanceType.Fire, 100);
+                    SetDamageType(ResistType.Physical, 0);
+                    SetDamageType(ResistType.Fire, 100);
                     break;
                 case ElementType.Cold:
                     Body = 0x58C;
                     Hue = 34134;
-                    SetDamageType(ResistanceType.Physical, 0);
-                    SetDamageType(ResistanceType.Cold, 100);
+                    SetDamageType(ResistType.Physical, 0);
+                    SetDamageType(ResistType.Cold, 100);
                     break;
                 case ElementType.Poison:
                     Body = 0x58C;
                     Hue = 34136;
-                    SetDamageType(ResistanceType.Physical, 0);
-                    SetDamageType(ResistanceType.Poison, 100);
+                    SetDamageType(ResistType.Physical, 0);
+                    SetDamageType(ResistType.Poison, 100);
                     break;
                 case ElementType.Energy:
                     Body = 0x58C;
                     Hue = 34141;
-                    SetDamageType(ResistanceType.Physical, 0);
-                    SetDamageType(ResistanceType.Energy, 100);
+                    SetDamageType(ResistType.Physical, 0);
+                    SetDamageType(ResistType.Energy, 100);
                     break;
             }
 
@@ -66,11 +66,11 @@ namespace Server.Mobiles
 
             SetDamage(11, 17);
 
-            SetResist(ResistanceType.Physical, 30, 50);
-            SetResist(ResistanceType.Fire, 30, 40);
-            SetResist(ResistanceType.Cold, 30, 40);
-            SetResist(ResistanceType.Poison, 40, 50);
-            SetResist(ResistanceType.Energy, 30, 50);
+            SetResist(ResistType.Physical, 30, 50);
+            SetResist(ResistType.Fire, 30, 40);
+            SetResist(ResistType.Cold, 30, 40);
+            SetResist(ResistType.Poison, 40, 50);
+            SetResist(ResistType.Energy, 30, 50);
 
             SetSkill(SkillName.MagicResist, 65.1, 80.0);
             SetSkill(SkillName.Tactics, 65.1, 90.0);

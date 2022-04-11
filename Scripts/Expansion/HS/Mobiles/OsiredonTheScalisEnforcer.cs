@@ -68,15 +68,15 @@ namespace Server.Mobiles
 
             SetDamage(19, 26);
 
-            SetDamageType(ResistanceType.Physical, 40);
-            SetDamageType(ResistanceType.Cold, 30);
-            SetDamageType(ResistanceType.Energy, 30);
+            SetDamageType(ResistType.Physical, 40);
+            SetDamageType(ResistType.Cold, 30);
+            SetDamageType(ResistType.Energy, 30);
 
-            SetResist(ResistanceType.Physical, 80, 90);
-            SetResist(ResistanceType.Fire, 80, 90);
-            SetResist(ResistanceType.Cold, 85, 95);
-            SetResist(ResistanceType.Poison, 80, 90);
-            SetResist(ResistanceType.Energy, 80, 90);
+            SetResist(ResistType.Physical, 80, 90);
+            SetResist(ResistType.Fire, 80, 90);
+            SetResist(ResistType.Cold, 85, 95);
+            SetResist(ResistType.Poison, 80, 90);
+            SetResist(ResistType.Energy, 80, 90);
 
             SetSkill(SkillName.Wrestling, 122.9, 128.0);
             SetSkill(SkillName.Tactics, 127.7, 132.9);
@@ -314,15 +314,15 @@ namespace Server.Mobiles
 
             SetDamage(4, 12);
 
-            SetDamageType(ResistanceType.Physical, 25);
-            SetDamageType(ResistanceType.Cold, 25);
-            SetDamageType(ResistanceType.Poison, 50);
+            SetDamageType(ResistType.Physical, 25);
+            SetDamageType(ResistType.Cold, 25);
+            SetDamageType(ResistType.Poison, 50);
 
-            SetResist(ResistanceType.Physical, 20);
-            SetResist(ResistanceType.Fire, 10, 25);
-            SetResist(ResistanceType.Cold, 10, 25);
-            SetResist(ResistanceType.Poison, 99);
-            SetResist(ResistanceType.Energy, 5, 10);
+            SetResist(ResistType.Physical, 20);
+            SetResist(ResistType.Fire, 10, 25);
+            SetResist(ResistType.Cold, 10, 25);
+            SetResist(ResistType.Poison, 99);
+            SetResist(ResistType.Energy, 5, 10);
 
             SetSkill(SkillName.Wrestling, 52.0, 70.0);
             SetSkill(SkillName.Tactics, 0.0);
