@@ -334,11 +334,11 @@ namespace Server.Engines.VeteranRewards
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 40, 60);
-            SetResistance(ResistanceType.Fire, 50, 65);
-            SetResistance(ResistanceType.Cold, 20, 30);
-            SetResistance(ResistanceType.Poison, 75, 85);
-            SetResistance(ResistanceType.Energy, 30, 45);
+            SetResist(ResistanceType.Physical, 40, 60);
+            SetResist(ResistanceType.Fire, 50, 65);
+            SetResist(ResistanceType.Cold, 20, 30);
+            SetResist(ResistanceType.Poison, 75, 85);
+            SetResist(ResistanceType.Energy, 30, 45);
 
             SetSkill(SkillName.MagicResist, 190.0);
             SetSkill(SkillName.Tactics, 100.0);

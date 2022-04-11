@@ -104,11 +104,11 @@ namespace Server.Mobiles
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 45, 55);
-            SetResistance(ResistanceType.Fire, 45, 55);
-            SetResistance(ResistanceType.Cold, 45, 55);
-            SetResistance(ResistanceType.Poison, 45, 55);
-            SetResistance(ResistanceType.Energy, 45, 55);
+            SetResist(ResistanceType.Physical, 45, 55);
+            SetResist(ResistanceType.Fire, 45, 55);
+            SetResist(ResistanceType.Cold, 45, 55);
+            SetResist(ResistanceType.Poison, 45, 55);
+            SetResist(ResistanceType.Energy, 45, 55);
 
             if (galleon == null)
                 Timer.DelayCall(TimeSpan.FromSeconds(.5), new TimerCallback(SpawnShip));

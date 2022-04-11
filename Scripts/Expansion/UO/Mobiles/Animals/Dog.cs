@@ -23,7 +23,7 @@ namespace Server.Mobiles
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 10, 15);
+            SetResist(ResistanceType.Physical, 10, 15);
 
             SetSkill(SkillName.MagicResist, 22.1, 47.0);
             SetSkill(SkillName.Tactics, 19.2, 31.0);

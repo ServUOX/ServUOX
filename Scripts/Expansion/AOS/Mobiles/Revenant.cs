@@ -37,11 +37,11 @@ namespace Server.Mobiles
 
             scalar /= 1.2;
 
-            SetResistance(ResistanceType.Physical, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
-            SetResistance(ResistanceType.Cold, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
-            SetResistance(ResistanceType.Fire, (int)(20 * scalar));
-            SetResistance(ResistanceType.Poison, 100);
-            SetResistance(ResistanceType.Energy, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
+            SetResist(ResistanceType.Physical, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
+            SetResist(ResistanceType.Cold, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
+            SetResist(ResistanceType.Fire, (int)(20 * scalar));
+            SetResist(ResistanceType.Poison, 100);
+            SetResist(ResistanceType.Energy, 40 + (int)(20 * scalar), 50 + (int)(20 * scalar));
 
             Fame = 0;
             Karma = 0;

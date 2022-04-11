@@ -171,11 +171,11 @@ namespace Server.Engines.Despise
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 5, 50);
-            SetResistance(ResistanceType.Fire, 5, 50);
-            SetResistance(ResistanceType.Cold, 5, 50);
-            SetResistance(ResistanceType.Poison, 5, 50);
-            SetResistance(ResistanceType.Energy, 5, 50);
+            SetResist(ResistanceType.Physical, 5, 50);
+            SetResist(ResistanceType.Fire, 5, 50);
+            SetResist(ResistanceType.Cold, 5, 50);
+            SetResist(ResistanceType.Poison, 5, 50);
+            SetResist(ResistanceType.Energy, 5, 50);
 
             SetSkill(SkillName.Wrestling, SkillStart);
             SetSkill(SkillName.Tactics, SkillStart);
@@ -371,11 +371,11 @@ namespace Server.Engines.Despise
 
         private void IncreaseResists()
         {
-            SetResistance(ResistanceType.Physical, Math.Min(80, PhysicalResistanceSeed + Utility.RandomMinMax(5, 15)));
-            SetResistance(ResistanceType.Fire, Math.Min(80, FireResistSeed + Utility.RandomMinMax(5, 15)));
-            SetResistance(ResistanceType.Cold, Math.Min(80, ColdResistSeed + Utility.RandomMinMax(5, 15)));
-            SetResistance(ResistanceType.Poison, Math.Min(80, PoisonResistSeed + Utility.RandomMinMax(5, 15)));
-            SetResistance(ResistanceType.Energy, Math.Min(80, EnergyResistSeed + Utility.RandomMinMax(5, 15)));
+            SetResist(ResistanceType.Physical, Math.Min(80, PhysicalResistanceSeed + Utility.RandomMinMax(5, 15)));
+            SetResist(ResistanceType.Fire, Math.Min(80, FireResistSeed + Utility.RandomMinMax(5, 15)));
+            SetResist(ResistanceType.Cold, Math.Min(80, ColdResistSeed + Utility.RandomMinMax(5, 15)));
+            SetResist(ResistanceType.Poison, Math.Min(80, PoisonResistSeed + Utility.RandomMinMax(5, 15)));
+            SetResist(ResistanceType.Energy, Math.Min(80, EnergyResistSeed + Utility.RandomMinMax(5, 15)));
         }
 
         public static int GetPowerLabel(int power)

@@ -45,11 +45,11 @@ namespace Server.Mobiles
 
             SetDamage(13, 16);
 
-            SetResistance(ResistanceType.Physical, 35, 45);
-            SetResistance(ResistanceType.Fire, 25, 30);
-            SetResistance(ResistanceType.Cold, 45, 55);
-            SetResistance(ResistanceType.Poison, 30, 40);
-            SetResistance(ResistanceType.Energy, 20, 25);
+            SetResist(ResistanceType.Physical, 35, 45);
+            SetResist(ResistanceType.Fire, 25, 30);
+            SetResist(ResistanceType.Cold, 45, 55);
+            SetResist(ResistanceType.Poison, 30, 40);
+            SetResist(ResistanceType.Energy, 20, 25);
 
             SetSkill(SkillName.Archery, 90.1, 110.0);
             SetSkill(SkillName.Swords, 60.1, 70.0);

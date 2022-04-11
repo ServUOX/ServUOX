@@ -26,10 +26,10 @@ namespace Server.Mobiles
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 35, 45);
-            SetResistance(ResistanceType.Fire, 30, 45);
-            SetResistance(ResistanceType.Poison, 25, 35);
-            SetResistance(ResistanceType.Energy, 25, 35);
+            SetResist(ResistanceType.Physical, 35, 45);
+            SetResist(ResistanceType.Fire, 30, 45);
+            SetResist(ResistanceType.Poison, 25, 35);
+            SetResist(ResistanceType.Energy, 25, 35);
 
             SetSkill(SkillName.MagicResist, 55.1, 70.0);
             SetSkill(SkillName.Tactics, 60.1, 80.0);
@@ -99,10 +99,10 @@ namespace Server.Mobiles
             SetDamageType(ResistanceType.Physical, 20);
             SetDamageType(ResistanceType.Fire, 80);
 
-            SetResistance(ResistanceType.Physical, 35, 45);
-            SetResistance(ResistanceType.Fire, 70, 80);
-            SetResistance(ResistanceType.Poison, 30, 40);
-            SetResistance(ResistanceType.Energy, 10, 20);
+            SetResist(ResistanceType.Physical, 35, 45);
+            SetResist(ResistanceType.Fire, 70, 80);
+            SetResist(ResistanceType.Poison, 30, 40);
+            SetResist(ResistanceType.Energy, 10, 20);
 
             SetSkill(SkillName.MagicResist, 25.3, 70.0);
             SetSkill(SkillName.Tactics, 65.1, 70.0);
@@ -182,10 +182,10 @@ namespace Server.Mobiles
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 20, 25);
-            SetResistance(ResistanceType.Fire, 30, 40);
-            SetResistance(ResistanceType.Poison, 20, 30);
-            SetResistance(ResistanceType.Energy, 10, 20);
+            SetResist(ResistanceType.Physical, 20, 25);
+            SetResist(ResistanceType.Fire, 30, 40);
+            SetResist(ResistanceType.Poison, 20, 30);
+            SetResist(ResistanceType.Energy, 10, 20);
 
             SetSkill(SkillName.MagicResist, 15.1, 20.0);
             SetSkill(SkillName.Tactics, 19.3, 34.0);

@@ -24,11 +24,11 @@ namespace Server.Mobiles
             SetHits(18000);
             SetMana(48, 70);
 
-            SetResistance(ResistanceType.Physical, 65, 75);
-            SetResistance(ResistanceType.Fire, 55, 65);
-            SetResistance(ResistanceType.Cold, 60, 70);
-            SetResistance(ResistanceType.Poison, 90, 100);
-            SetResistance(ResistanceType.Energy, 60, 70);
+            SetResist(ResistanceType.Physical, 65, 75);
+            SetResist(ResistanceType.Fire, 55, 65);
+            SetResist(ResistanceType.Cold, 60, 70);
+            SetResist(ResistanceType.Poison, 90, 100);
+            SetResist(ResistanceType.Energy, 60, 70);
 
             SetDamageType(ResistanceType.Physical, 50);
             SetDamageType(ResistanceType.Fire, 50);

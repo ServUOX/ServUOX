@@ -57,11 +57,11 @@ namespace Server.Items
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 45, 50);
-            SetResistance(ResistanceType.Fire, 45, 50);
-            SetResistance(ResistanceType.Cold, 45, 50);
-            SetResistance(ResistanceType.Poison, 45, 50);
-            SetResistance(ResistanceType.Energy, 45, 50);
+            SetResist(ResistanceType.Physical, 45, 50);
+            SetResist(ResistanceType.Fire, 45, 50);
+            SetResist(ResistanceType.Cold, 45, 50);
+            SetResist(ResistanceType.Poison, 45, 50);
+            SetResist(ResistanceType.Energy, 45, 50);
 
             SetSkill(SkillName.Anatomy, 90.3, 99.9);
             SetSkill(SkillName.MagicResist, 121.0, 126.7);
@@ -97,11 +97,11 @@ namespace Server.Items
             if (attrs == null)
                 return;
 
-            SetResistance(ResistanceType.Physical, Utility.RandomMinMax(45, 50) + attrs.ArmorPhysicalResist);
-            SetResistance(ResistanceType.Fire, Utility.RandomMinMax(45, 50) + attrs.ArmorFireResist);
-            SetResistance(ResistanceType.Cold, Utility.RandomMinMax(45, 50) + attrs.ArmorColdResist);
-            SetResistance(ResistanceType.Poison, Utility.RandomMinMax(45, 50) + attrs.ArmorPoisonResist);
-            SetResistance(ResistanceType.Energy, Utility.RandomMinMax(45, 50) + attrs.ArmorEnergyResist);
+            SetResist(ResistanceType.Physical, Utility.RandomMinMax(45, 50) + attrs.ArmorPhysicalResist);
+            SetResist(ResistanceType.Fire, Utility.RandomMinMax(45, 50) + attrs.ArmorFireResist);
+            SetResist(ResistanceType.Cold, Utility.RandomMinMax(45, 50) + attrs.ArmorColdResist);
+            SetResist(ResistanceType.Poison, Utility.RandomMinMax(45, 50) + attrs.ArmorPoisonResist);
+            SetResist(ResistanceType.Energy, Utility.RandomMinMax(45, 50) + attrs.ArmorEnergyResist);
 
             int fire = attrs.WeaponFireDamage;
             int cold = attrs.WeaponColdDamage;

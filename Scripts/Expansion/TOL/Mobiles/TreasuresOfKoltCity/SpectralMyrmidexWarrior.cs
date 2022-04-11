@@ -29,21 +29,21 @@ namespace Server.Mobiles
             {
                 SetHits(1200, 1400);
 
-                SetResistance(ResistanceType.Physical, 1, 10);
-                SetResistance(ResistanceType.Fire, 1, 10);
-                SetResistance(ResistanceType.Cold, 1, 10);
-                SetResistance(ResistanceType.Poison, 8, 10);
-                SetResistance(ResistanceType.Energy, 5, 10);
+                SetResist(ResistanceType.Physical, 1, 10);
+                SetResist(ResistanceType.Fire, 1, 10);
+                SetResist(ResistanceType.Cold, 1, 10);
+                SetResist(ResistanceType.Poison, 8, 10);
+                SetResist(ResistanceType.Energy, 5, 10);
             }
             else
             {
                 SetHits(330, 360);
 
-                SetResistance(ResistanceType.Physical, 40, 50);
-                SetResistance(ResistanceType.Fire, 30, 40);
-                SetResistance(ResistanceType.Cold, 30, 40);
-                SetResistance(ResistanceType.Poison, 90, 100);
-                SetResistance(ResistanceType.Energy, 80, 90);
+                SetResist(ResistanceType.Physical, 40, 50);
+                SetResist(ResistanceType.Fire, 30, 40);
+                SetResist(ResistanceType.Cold, 30, 40);
+                SetResist(ResistanceType.Poison, 90, 100);
+                SetResist(ResistanceType.Energy, 80, 90);
             }
 
             SetDamageType(ResistanceType.Physical, 50);

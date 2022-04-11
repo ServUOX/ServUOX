@@ -51,8 +51,8 @@ namespace Server.Mobiles
             {
                 Hue = 2101;
 
-                SetResistance(ResistanceType.Fire, 50, 65);
-                SetResistance(ResistanceType.Poison, 75, 85);
+                SetResist(ResistanceType.Fire, 50, 65);
+                SetResist(ResistanceType.Poison, 75, 85);
 
                 SetSkill(SkillName.MagicResist, (150.1 * scalar), (190.0 * scalar));
                 SetSkill(SkillName.Tactics, (60.1 * scalar), (100.0 * scalar));
@@ -65,8 +65,8 @@ namespace Server.Mobiles
             {
                 SetHits(151, 210);
 
-                SetResistance(ResistanceType.Fire, 100);
-                SetResistance(ResistanceType.Poison, 10, 25);
+                SetResist(ResistanceType.Fire, 100);
+                SetResist(ResistanceType.Poison, 10, 25);
 
                 SetSkill(SkillName.MagicResist, 60.0, 100.0);
                 SetSkill(SkillName.Tactics, 60.0, 100.0);
@@ -83,9 +83,9 @@ namespace Server.Mobiles
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 40, 60);
-            SetResistance(ResistanceType.Cold, 20, 30);
-            SetResistance(ResistanceType.Energy, 30, 45);
+            SetResist(ResistanceType.Physical, 40, 60);
+            SetResist(ResistanceType.Cold, 20, 30);
+            SetResist(ResistanceType.Energy, 30, 45);
 
             ControlSlots = 3;
 

@@ -48,11 +48,11 @@ namespace Server.Mobiles
 
                 SetDamageType(ResistanceType.Physical, 100);
 
-                SetResistance(ResistanceType.Physical, 30, 40);
-                SetResistance(ResistanceType.Fire, 30, 40);
-                SetResistance(ResistanceType.Cold, 20, 30);
-                SetResistance(ResistanceType.Poison, 30, 40);
-                SetResistance(ResistanceType.Energy, 30, 40);
+                SetResist(ResistanceType.Physical, 30, 40);
+                SetResist(ResistanceType.Fire, 30, 40);
+                SetResist(ResistanceType.Cold, 20, 30);
+                SetResist(ResistanceType.Poison, 30, 40);
+                SetResist(ResistanceType.Energy, 30, 40);
 
                 ChangeAIType(AIType.AI_Mage);
 
@@ -74,11 +74,11 @@ namespace Server.Mobiles
                 SetDamageType(ResistanceType.Physical, 75);
                 SetDamageType(ResistanceType.Fire, 25);
 
-                SetResistance(ResistanceType.Physical, 20, 30);
-                SetResistance(ResistanceType.Fire, 30, 40);
-                SetResistance(ResistanceType.Cold, 15, 25);
-                SetResistance(ResistanceType.Poison, 15, 25);
-                SetResistance(ResistanceType.Energy, 20, 30);
+                SetResist(ResistanceType.Physical, 20, 30);
+                SetResist(ResistanceType.Fire, 30, 40);
+                SetResist(ResistanceType.Cold, 15, 25);
+                SetResist(ResistanceType.Poison, 15, 25);
+                SetResist(ResistanceType.Energy, 20, 30);
 
                 SetSkill(SkillName.Wrestling, 60.0, 90.0);
                 SetSkill(SkillName.Tactics, 70.0, 85.0);
@@ -93,11 +93,11 @@ namespace Server.Mobiles
 
                 SetDamageType(ResistanceType.Physical, 100);
 
-                SetResistance(ResistanceType.Physical, 20, 35);
-                SetResistance(ResistanceType.Fire, 30, 40);
-                SetResistance(ResistanceType.Cold, 15, 25);
-                SetResistance(ResistanceType.Poison, 15, 25);
-                SetResistance(ResistanceType.Energy, 20, 30);
+                SetResist(ResistanceType.Physical, 20, 35);
+                SetResist(ResistanceType.Fire, 30, 40);
+                SetResist(ResistanceType.Cold, 15, 25);
+                SetResist(ResistanceType.Poison, 15, 25);
+                SetResist(ResistanceType.Energy, 20, 30);
 
                 ChangeAIType(AIType.AI_Archer);
 

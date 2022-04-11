@@ -173,11 +173,11 @@ namespace Server.Engines.Blackthorn
 
         public virtual void SetResists()
         {
-            SetResistance(ResistanceType.Physical, MinResist, MaxResist);
-            SetResistance(ResistanceType.Fire, MinResist, MaxResist);
-            SetResistance(ResistanceType.Cold, MinResist, MaxResist);
-            SetResistance(ResistanceType.Poison, MinResist, MaxResist);
-            SetResistance(ResistanceType.Energy, MinResist, MaxResist);
+            SetResist(ResistanceType.Physical, MinResist, MaxResist);
+            SetResist(ResistanceType.Fire, MinResist, MaxResist);
+            SetResist(ResistanceType.Cold, MinResist, MaxResist);
+            SetResist(ResistanceType.Poison, MinResist, MaxResist);
+            SetResist(ResistanceType.Energy, MinResist, MaxResist);
         }
 
         public virtual void SetSkills()

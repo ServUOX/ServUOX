@@ -25,11 +25,11 @@ namespace Server.Engines.Shadowguard
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 35, 45);
-            SetResistance(ResistanceType.Fire, 25, 30);
-            SetResistance(ResistanceType.Cold, 25, 30);
-            SetResistance(ResistanceType.Poison, 10, 20);
-            SetResistance(ResistanceType.Energy, 10, 20);
+            SetResist(ResistanceType.Physical, 35, 45);
+            SetResist(ResistanceType.Fire, 25, 30);
+            SetResist(ResistanceType.Cold, 25, 30);
+            SetResist(ResistanceType.Poison, 10, 20);
+            SetResist(ResistanceType.Energy, 10, 20);
 
             SetSkill(SkillName.Anatomy, 125.0);
             SetSkill(SkillName.MagicResist, 83.5, 92.5);
@@ -206,11 +206,11 @@ namespace Server.Engines.Shadowguard
             SetDamageType(ResistanceType.Physical, 50);
             SetDamageType(ResistanceType.Cold, 50);
 
-            SetResistance(ResistanceType.Physical, 50, 60);
-            SetResistance(ResistanceType.Fire, 45, 55);
-            SetResistance(ResistanceType.Cold, 60, 70);
-            SetResistance(ResistanceType.Poison, 70, 80);
-            SetResistance(ResistanceType.Energy, 40, 60);
+            SetResist(ResistanceType.Physical, 50, 60);
+            SetResist(ResistanceType.Fire, 45, 55);
+            SetResist(ResistanceType.Cold, 60, 70);
+            SetResist(ResistanceType.Poison, 70, 80);
+            SetResist(ResistanceType.Energy, 40, 60);
 
             SetSkill(SkillName.Wrestling, 95.0, 110.0);
             SetSkill(SkillName.Tactics, 95.0, 110.0);
@@ -249,10 +249,10 @@ namespace Server.Engines.Shadowguard
 
             //Missing Attr - Hit Point Reg: 35, Mana Reg: 20
 
-            SetResistance(ResistanceType.Physical, 2);
-            SetResistance(ResistanceType.Cold, 5);
-            SetResistance(ResistanceType.Poison, 3);
-            SetResistance(ResistanceType.Energy, 2);
+            SetResist(ResistanceType.Physical, 2);
+            SetResist(ResistanceType.Cold, 5);
+            SetResist(ResistanceType.Poison, 3);
+            SetResist(ResistanceType.Energy, 2);
 
             SetSkill(SkillName.MagicResist, 40.1, 55.0);
             SetSkill(SkillName.Tactics, 65.1, 90.0);
@@ -332,11 +332,11 @@ namespace Server.Engines.Shadowguard
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 35, 45);
-            SetResistance(ResistanceType.Fire, 25, 30);
-            SetResistance(ResistanceType.Cold, 25, 30);
-            SetResistance(ResistanceType.Poison, 10, 20);
-            SetResistance(ResistanceType.Energy, 10, 20);
+            SetResist(ResistanceType.Physical, 35, 45);
+            SetResist(ResistanceType.Fire, 25, 30);
+            SetResist(ResistanceType.Cold, 25, 30);
+            SetResist(ResistanceType.Poison, 10, 20);
+            SetResist(ResistanceType.Energy, 10, 20);
 
             SetSkill(SkillName.Anatomy, 125.0);
             SetSkill(SkillName.Fencing, 46.0, 77.5);
@@ -422,11 +422,11 @@ namespace Server.Engines.Shadowguard
         {
             Name = "a vile drake";
 
-            SetResistance(ResistanceType.Physical, 50, 60);
-            SetResistance(ResistanceType.Fire, 80, 90);
-            SetResistance(ResistanceType.Cold, 80, 90);
-            SetResistance(ResistanceType.Poison, 90, 100);
-            SetResistance(ResistanceType.Energy, 70, 80);
+            SetResist(ResistanceType.Physical, 50, 60);
+            SetResist(ResistanceType.Fire, 80, 90);
+            SetResist(ResistanceType.Cold, 80, 90);
+            SetResist(ResistanceType.Poison, 90, 100);
+            SetResist(ResistanceType.Energy, 70, 80);
 
             SetSkill(SkillName.MagicResist, 65.0, 80.0);
             SetSkill(SkillName.Tactics, 65.0, 90.0);
@@ -651,11 +651,11 @@ namespace Server.Engines.Shadowguard
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 35, 45);
-            SetResistance(ResistanceType.Fire, 25, 30);
-            SetResistance(ResistanceType.Cold, 25, 30);
-            SetResistance(ResistanceType.Poison, 10, 20);
-            SetResistance(ResistanceType.Energy, 10, 20);
+            SetResist(ResistanceType.Physical, 35, 45);
+            SetResist(ResistanceType.Fire, 25, 30);
+            SetResist(ResistanceType.Cold, 25, 30);
+            SetResist(ResistanceType.Poison, 10, 20);
+            SetResist(ResistanceType.Energy, 10, 20);
 
             SetSkill(SkillName.Magery, 125.0);
             SetSkill(SkillName.EvalInt, 125.0);

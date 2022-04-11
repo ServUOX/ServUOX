@@ -34,11 +34,11 @@ namespace Server.Items
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 80, 90);
-            SetResistance(ResistanceType.Fire, 60, 77);
-            SetResistance(ResistanceType.Cold, 70, 85);
-            SetResistance(ResistanceType.Poison, 55, 85);
-            SetResistance(ResistanceType.Energy, 50, 60);
+            SetResist(ResistanceType.Physical, 80, 90);
+            SetResist(ResistanceType.Fire, 60, 77);
+            SetResist(ResistanceType.Cold, 70, 85);
+            SetResist(ResistanceType.Poison, 55, 85);
+            SetResist(ResistanceType.Energy, 50, 60);
 
             SetSkill(SkillName.Wrestling, 120.0, 140.0);
             SetSkill(SkillName.Tactics, 120.0, 140.0);

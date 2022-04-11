@@ -24,7 +24,7 @@ namespace Server.Engines.Quests.Samurai
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 5, 10);
+            SetResist(ResistanceType.Physical, 5, 10);
 
             SetSkill(SkillName.MagicResist, 5.0);
             SetSkill(SkillName.Tactics, 4.0);

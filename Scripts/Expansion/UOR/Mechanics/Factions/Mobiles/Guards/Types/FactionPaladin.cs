@@ -15,11 +15,11 @@ namespace Server.Factions
             SetDex(61, 85);
             SetInt(81, 95);
 
-            SetResistance(ResistanceType.Physical, 40, 60);
-            SetResistance(ResistanceType.Fire, 40, 60);
-            SetResistance(ResistanceType.Cold, 40, 60);
-            SetResistance(ResistanceType.Energy, 40, 60);
-            SetResistance(ResistanceType.Poison, 40, 60);
+            SetResist(ResistanceType.Physical, 40, 60);
+            SetResist(ResistanceType.Fire, 40, 60);
+            SetResist(ResistanceType.Cold, 40, 60);
+            SetResist(ResistanceType.Energy, 40, 60);
+            SetResist(ResistanceType.Poison, 40, 60);
 
             VirtualArmor = 32;
 

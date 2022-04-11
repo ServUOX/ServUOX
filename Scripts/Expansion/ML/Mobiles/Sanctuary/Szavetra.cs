@@ -22,11 +22,11 @@ namespace Server.Mobiles
             SetDamageType(ResistanceType.Physical, 75);
             SetDamageType(ResistanceType.Energy, 25);
 
-            SetResistance(ResistanceType.Physical, 83, 90);
-            SetResistance(ResistanceType.Fire, 72, 80);
-            SetResistance(ResistanceType.Cold, 40, 49);
-            SetResistance(ResistanceType.Poison, 51, 60);
-            SetResistance(ResistanceType.Energy, 50, 60);
+            SetResist(ResistanceType.Physical, 83, 90);
+            SetResist(ResistanceType.Fire, 72, 80);
+            SetResist(ResistanceType.Cold, 40, 49);
+            SetResist(ResistanceType.Poison, 51, 60);
+            SetResist(ResistanceType.Energy, 50, 60);
 
             SetSkill(SkillName.EvalInt, 90.3, 99.8);
             SetSkill(SkillName.Magery, 100.1, 100.6); // 10.1-10.6 on OSI, bug?

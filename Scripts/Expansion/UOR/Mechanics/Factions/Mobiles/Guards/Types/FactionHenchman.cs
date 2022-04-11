@@ -17,11 +17,11 @@ namespace Server.Factions
 
             SetDamage(10, 14);
 
-            SetResistance(ResistanceType.Physical, 10, 30);
-            SetResistance(ResistanceType.Fire, 10, 30);
-            SetResistance(ResistanceType.Cold, 10, 30);
-            SetResistance(ResistanceType.Energy, 10, 30);
-            SetResistance(ResistanceType.Poison, 10, 30);
+            SetResist(ResistanceType.Physical, 10, 30);
+            SetResist(ResistanceType.Fire, 10, 30);
+            SetResist(ResistanceType.Cold, 10, 30);
+            SetResist(ResistanceType.Energy, 10, 30);
+            SetResist(ResistanceType.Poison, 10, 30);
 
             VirtualArmor = 8;
 

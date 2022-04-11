@@ -24,8 +24,8 @@ namespace Server.Engines.Quests.Samurai
 
             SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 15, 20);
-            SetResistance(ResistanceType.Fire, 8, 12);
+            SetResist(ResistanceType.Physical, 15, 20);
+            SetResist(ResistanceType.Fire, 8, 12);
 
             SetSkill(SkillName.Wrestling, 35.0, 39.0);
             SetSkill(SkillName.Tactics, 5.0, 15.0);

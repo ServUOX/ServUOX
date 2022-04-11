@@ -27,11 +27,11 @@ namespace Server.Mobiles
             SetSkill(SkillName.Tactics, 80.1, 90.0);
             SetSkill(SkillName.Wrestling, 80.1, 100.0);
 
-            SetResistance(ResistanceType.Physical, 55, 65);
-            SetResistance(ResistanceType.Fire, 10, 20);
-            SetResistance(ResistanceType.Cold, 60, 70);
-            SetResistance(ResistanceType.Poison, 20, 30);
-            SetResistance(ResistanceType.Energy, 30, 40);
+            SetResist(ResistanceType.Physical, 55, 65);
+            SetResist(ResistanceType.Fire, 10, 20);
+            SetResist(ResistanceType.Cold, 60, 70);
+            SetResist(ResistanceType.Poison, 20, 30);
+            SetResist(ResistanceType.Energy, 30, 40);
 
             Fame = 18000;
             Karma = -18000;
@@ -102,10 +102,10 @@ namespace Server.Mobiles
             SetDamageType(ResistanceType.Physical, 10);
             SetDamageType(ResistanceType.Cold, 90);
 
-            SetResistance(ResistanceType.Physical, 30, 35);
-            SetResistance(ResistanceType.Cold, 80, 90);
-            SetResistance(ResistanceType.Poison, 15, 25);
-            SetResistance(ResistanceType.Energy, 10, 20);
+            SetResist(ResistanceType.Physical, 30, 35);
+            SetResist(ResistanceType.Cold, 80, 90);
+            SetResist(ResistanceType.Poison, 15, 25);
+            SetResist(ResistanceType.Energy, 10, 20);
 
             SetSkill(SkillName.Anatomy, 27.5, 50.0);
             SetSkill(SkillName.MagicResist, 25.1, 40.0);
@@ -184,10 +184,10 @@ namespace Server.Mobiles
             SetDamageType(ResistanceType.Cold, 25);
             SetDamageType(ResistanceType.Poison, 50);
 
-            SetResistance(ResistanceType.Physical, 20, 25);
-            SetResistance(ResistanceType.Cold, 80, 90);
-            SetResistance(ResistanceType.Poison, 60, 70);
-            SetResistance(ResistanceType.Energy, 30, 40);
+            SetResist(ResistanceType.Physical, 20, 25);
+            SetResist(ResistanceType.Cold, 80, 90);
+            SetResist(ResistanceType.Poison, 60, 70);
+            SetResist(ResistanceType.Energy, 30, 40);
 
             SetSkill(SkillName.MagicResist, 15.1, 20.0);
             SetSkill(SkillName.Tactics, 39.3, 54.0);

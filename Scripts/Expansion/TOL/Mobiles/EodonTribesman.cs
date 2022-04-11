@@ -95,46 +95,46 @@ namespace Server.Mobiles
             switch (type)
             {
                 case EodonTribe.Jukari:
-                    SetResistance(ResistanceType.Physical, 20, 30);
-                    SetResistance(ResistanceType.Fire, 100);
-                    SetResistance(ResistanceType.Cold, 10, 20);
-                    SetResistance(ResistanceType.Poison, 40, 50);
-                    SetResistance(ResistanceType.Energy, 40, 50);
+                    SetResist(ResistanceType.Physical, 20, 30);
+                    SetResist(ResistanceType.Fire, 100);
+                    SetResist(ResistanceType.Cold, 10, 20);
+                    SetResist(ResistanceType.Poison, 40, 50);
+                    SetResist(ResistanceType.Energy, 40, 50);
                     break;
                 case EodonTribe.Kurak:
-                    SetResistance(ResistanceType.Physical, 20, 30);
-                    SetResistance(ResistanceType.Fire, 10, 20);
-                    SetResistance(ResistanceType.Cold, 100);
-                    SetResistance(ResistanceType.Poison, 40, 50);
-                    SetResistance(ResistanceType.Energy, 40, 50);
+                    SetResist(ResistanceType.Physical, 20, 30);
+                    SetResist(ResistanceType.Fire, 10, 20);
+                    SetResist(ResistanceType.Cold, 100);
+                    SetResist(ResistanceType.Poison, 40, 50);
+                    SetResist(ResistanceType.Energy, 40, 50);
                     break;
                 case EodonTribe.Barrab:
-                    SetResistance(ResistanceType.Physical, 20, 30);
-                    SetResistance(ResistanceType.Fire, 40, 50);
-                    SetResistance(ResistanceType.Cold, 40, 50);
-                    SetResistance(ResistanceType.Poison, 100);
-                    SetResistance(ResistanceType.Energy, 10, 20);
+                    SetResist(ResistanceType.Physical, 20, 30);
+                    SetResist(ResistanceType.Fire, 40, 50);
+                    SetResist(ResistanceType.Cold, 40, 50);
+                    SetResist(ResistanceType.Poison, 100);
+                    SetResist(ResistanceType.Energy, 10, 20);
                     break;
                 case EodonTribe.Barako:
-                    SetResistance(ResistanceType.Physical, 20, 30);
-                    SetResistance(ResistanceType.Fire, 40, 50);
-                    SetResistance(ResistanceType.Cold, 40, 50);
-                    SetResistance(ResistanceType.Poison, 10, 20);
-                    SetResistance(ResistanceType.Energy, 40, 50);
+                    SetResist(ResistanceType.Physical, 20, 30);
+                    SetResist(ResistanceType.Fire, 40, 50);
+                    SetResist(ResistanceType.Cold, 40, 50);
+                    SetResist(ResistanceType.Poison, 10, 20);
+                    SetResist(ResistanceType.Energy, 40, 50);
                     break;
                 case EodonTribe.Urali:
-                    SetResistance(ResistanceType.Physical, 20, 30);
-                    SetResistance(ResistanceType.Fire, 40, 50);
-                    SetResistance(ResistanceType.Cold, 40, 50);
-                    SetResistance(ResistanceType.Poison, 10, 20);
-                    SetResistance(ResistanceType.Energy, 100);
+                    SetResist(ResistanceType.Physical, 20, 30);
+                    SetResist(ResistanceType.Fire, 40, 50);
+                    SetResist(ResistanceType.Cold, 40, 50);
+                    SetResist(ResistanceType.Poison, 10, 20);
+                    SetResist(ResistanceType.Energy, 100);
                     break;
                 case EodonTribe.Sakkhra:
-                    SetResistance(ResistanceType.Physical, 100);
-                    SetResistance(ResistanceType.Fire, 40, 50);
-                    SetResistance(ResistanceType.Cold, 40, 50);
-                    SetResistance(ResistanceType.Poison, 60, 70);
-                    SetResistance(ResistanceType.Energy, 40, 50);
+                    SetResist(ResistanceType.Physical, 100);
+                    SetResist(ResistanceType.Fire, 40, 50);
+                    SetResist(ResistanceType.Cold, 40, 50);
+                    SetResist(ResistanceType.Poison, 60, 70);
+                    SetResist(ResistanceType.Energy, 40, 50);
                     break;
             }
         }

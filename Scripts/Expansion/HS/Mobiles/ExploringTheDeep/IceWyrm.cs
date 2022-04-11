@@ -19,7 +19,7 @@ namespace Server.Mobiles
             Hue = 2729;
             Body = 180;
 
-            SetResistance(ResistanceType.Cold, 100);
+            SetResist(ResistanceType.Cold, 100);
 
             Timer SelfDeleteTimer = new InternalSelfDeleteTimer(this);
             SelfDeleteTimer.Start();

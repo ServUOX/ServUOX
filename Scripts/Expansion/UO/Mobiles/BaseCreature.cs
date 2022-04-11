@@ -4985,6 +4985,7 @@ namespace Server.Mobiles
         }
 
         #region Set[...]
+
         public void SetDamage(int val)
         {
             m_DamageMin = val;
@@ -4995,6 +4996,53 @@ namespace Server.Mobiles
         {
             m_DamageMin = min;
             m_DamageMax = max;
+        }
+
+        public void SetDamage(ResistanceType type, int min, int max = 0, int dmgmin = 0, int dmgmax = 0)
+        {
+            if (dmgmin > 0 || dmgmax > 0)
+            {
+                m_DamageMin = dmgmin;
+                if (dmgmax == 0)
+                    m_DamageMax = dmgmin;
+                else
+                    m_DamageMax = dmgmax;
+            }
+
+            switch (type)
+            {
+                case ResistanceType.Physical:
+                    if (max > 0)
+                        PhysicalDamage = Utility.RandomMinMax(min, max);
+                    else
+                        PhysicalDamage = min;
+                    break;
+                case ResistanceType.Fire:
+                    if (max > 0)
+                        FireDamage = Utility.RandomMinMax(min, max);
+                    else
+                        FireDamage = min;
+                    break;
+                case ResistanceType.Cold:
+                    if (max > 0)
+                        ColdDamage = Utility.RandomMinMax(min, max);
+                    else
+                        ColdDamage = min;
+                    break;
+                case ResistanceType.Poison:
+                    if (max > 0)
+                        PoisonDamage = Utility.RandomMinMax(min, max);
+                    else
+                        PoisonDamage = min;
+                    break;
+                case ResistanceType.Energy:
+                    if (max > 0)
+                        EnergyDamage = Utility.RandomMinMax(min, max);
+                    else
+                        EnergyDamage = min;
+
+                    break;
+            }
         }
 
         public void SetHits(int val)
@@ -5113,16 +5161,37 @@ namespace Server.Mobiles
             }
         }
 
-        public void SetResistance(ResistanceType type, int value)
+        /*
+        public void SetResist(ResistanceType type, int value)
         {
-            SetResistance(type, value, value);
+            SetResist(type, value, value);
         }
 
-        public void SetResistance(ResistanceType type, int min, int max)
+        public void SetResist(ResistanceType type, int min, int max)
         {
             int val = min == max ? min : Utility.RandomMinMax(min, max);
 
             SetAverage(min, max, val);
+
+            switch (type)
+            {
+                case ResistanceType.Physical: m_PhysicalResistance = val; break;
+                case ResistanceType.Fire: m_FireResistance = val; break;
+                case ResistanceType.Cold: m_ColdResistance = val; break;
+                case ResistanceType.Poison: m_PoisonResistance = val; break;
+                case ResistanceType.Energy: m_EnergyResistance = val; break;
+            }
+
+            UpdateResistances();
+        }
+        */
+
+        public void SetResist(ResistanceType type, int min, int max = 0)
+        {
+            int val = (min == max || max == 0) ? min : Utility.RandomMinMax(min, max);
+            if (max == 0) max = min;
+
+            SetAverage(min, max, val);// didn't this use to be for tamed?
 
             switch (type)
             {

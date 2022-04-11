@@ -112,11 +112,11 @@ namespace Server.Spells.SkillMasteries
             SetDamageType(ResistanceType.Physical, 80);
             SetDamageType(ResistanceType.Poison, 20);
 
-            SetResistance(ResistanceType.Physical, 70);
-            SetResistance(ResistanceType.Fire, 15);
-            SetResistance(ResistanceType.Cold, 18);
-            SetResistance(ResistanceType.Poison, 100);
-            SetResistance(ResistanceType.Energy, 69);
+            SetResist(ResistanceType.Physical, 70);
+            SetResist(ResistanceType.Fire, 15);
+            SetResist(ResistanceType.Cold, 18);
+            SetResist(ResistanceType.Poison, 100);
+            SetResist(ResistanceType.Energy, 69);
 
             SetSkill(SkillName.Spellweaving, Math.Max(100, 75 * scale));
             SetSkill(SkillName.Anatomy, Math.Max(100, 75 * scale));
