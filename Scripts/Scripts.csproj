@@ -545,6 +545,7 @@
     <Compile Include="Expansion\SA\Items\Clothing\ChefsToque.cs" />
     <Compile Include="Expansion\UOR\Items\Vetrewards\RewardDress.cs" />
     <Compile Include="Expansion\UOR\Items\Vetrewards\RewardRobe.cs" />
+    <Compile Include="Expansion\UOR\Mobiles\RottingCorpse.cs" />
     <Compile Include="Expansion\UOTD\FlowerGarland.cs" />
     <Compile Include="Expansion\UOR\Items\Vetrewards\RewardCloak.cs" />
     <Compile Include="Expansion\UO\Items\Craft and Component\Resources\FoldedCloth4.cs" />
@@ -3251,7 +3252,6 @@
     <Compile Include="Expansion\SE\Mobiles\RevenantLion.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\Ridgeback.cs" />
     <Compile Include="Expansion\SE\Mobiles\Ronin.cs" />
-    <Compile Include="Expansion\UOR\Mobiles\TrinsicInvasion\RottingCorpse.cs" />
     <Compile Include="Expansion\SA\Mobiles\Rotworm.cs" />
     <Compile Include="Expansion\SA\TerMur\RuddyBoura.cs" />
     <Compile Include="Expansion\SE\Mobiles\RuneBeetle.cs" />

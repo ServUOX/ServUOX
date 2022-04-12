@@ -20,10 +20,8 @@ namespace Server.Mobiles
 
             SetHits(136, 153);
 
-            SetDamage(9, 16);
-
-            SetDamageType(ResistType.Phys, 50);
-            SetDamageType(ResistType.Engy, 50);
+            SetDamage(ResistType.Phys, 50, 0, 9, 16);
+            SetDamage(ResistType.Engy, 50);
 
             SetResist(ResistType.Phys, 30, 40);
             SetResist(ResistType.Fire, 10, 20);
@@ -59,9 +57,7 @@ namespace Server.Mobiles
 
         public static void OnHit(Mobile defender, Item item, int damage)
         {
-            IWearableDurability dur = item as IWearableDurability;
-
-            if (dur == null || dur.MaxHitPoints == 0 || item.LootType == LootType.Blessed || item.Insured)
+            if (!(item is IWearableDurability dur) || dur.MaxHitPoints == 0 || item.LootType == LootType.Blessed || item.Insured)
             {
                 return;
             }
