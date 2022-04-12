@@ -20,9 +20,7 @@ namespace Server.Mobiles
 
             SetHits(58, 72);
 
-            SetDamage(5, 7);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 5, 7);
 
             SetResist(ResistType.Phys, 25, 30);
             SetResist(ResistType.Fire, 20, 30);
@@ -168,9 +166,7 @@ namespace Server.Mobiles
 
             SetHits(67, 87);
 
-            SetDamage(5, 15);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 5, 15);
 
             SetResist(ResistType.Phys, 30, 35);
             SetResist(ResistType.Fire, 10, 20);
@@ -276,7 +272,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -297,9 +293,7 @@ namespace Server.Mobiles
 
             SetHits(95, 123);
 
-            SetDamage(4, 14);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 4, 14);
 
             SetResist(ResistType.Phys, 25, 35);
             SetResist(ResistType.Fire, 30, 40);
@@ -404,7 +398,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -425,9 +419,7 @@ namespace Server.Mobiles
 
             SetHits(70, 90);
 
-            SetDamage(4, 14);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 1000, 0, 4, 14);
 
             SetResist(ResistType.Phys, 25, 35);
             SetResist(ResistType.Fire, 30, 40);
@@ -518,7 +510,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Server.Mobiles
             SetDex(91, 91);
             SetInt(50, 50);
 
-            SetDamage(7, 14);
+            SetDamage(ResistType.Phys, 100, 0, 5, 10);
 
             SetSkill(SkillName.Tactics, 36, 67);
             SetSkill(SkillName.Magery, 22, 22);
@@ -167,15 +167,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0);// version 
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

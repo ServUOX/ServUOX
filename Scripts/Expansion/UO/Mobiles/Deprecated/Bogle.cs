@@ -19,7 +19,7 @@ namespace Server.Mobiles
 
             SetHits(46, 60);
 
-            SetDamage(7, 11);
+            SetDamage(ResistType.Phys, 100, 0, 7, 11);
 
             SetSkill(SkillName.EvalInt, 55.1, 70.0);
             SetSkill(SkillName.Magery, 55.1, 70.0);

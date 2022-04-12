@@ -30,7 +30,7 @@ namespace Server.Mobiles
             SetDex(81, 95);
             SetInt(61, 75);
 
-            SetDamage(10, 23);
+            SetDamage(ResistType.Phys, 0, 0, 10, 23);
 
             SetSkill(SkillName.Fencing, 66.0, 97.5);
             SetSkill(SkillName.Macing, 65.0, 87.5);
