@@ -19,9 +19,7 @@ namespace Server.Mobiles
             SetHits(34, 48);
             SetMana(0);
 
-            SetDamage(3, 7);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 3, 7);
 
             SetResist(ResistType.Phys, 15, 20);
             SetResist(ResistType.Fire, 10, 15);
@@ -85,9 +83,7 @@ namespace Server.Mobiles
             SetHits(34, 48);
             SetMana(0);
 
-            SetDamage(5, 9);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 5, 9);
 
             SetResist(ResistType.Phys, 15, 20);
             SetResist(ResistType.Fire, 5, 10);
@@ -151,9 +147,7 @@ namespace Server.Mobiles
             SetHits(34, 48);
             SetMana(0);
 
-            SetDamage(3, 7);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 3, 7);
 
             SetResist(ResistType.Phys, 15, 20);
             SetResist(ResistType.Fire, 10, 15);
@@ -217,9 +211,7 @@ namespace Server.Mobiles
             SetHits(58, 72);
             SetMana(0);
 
-            SetDamage(11, 17);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 11, 17);
 
             SetResist(ResistType.Phys, 20, 25);
             SetResist(ResistType.Fire, 10, 20);
@@ -250,7 +242,7 @@ namespace Server.Mobiles
 
         public override bool IsEnemy(Mobile m)
         {
-            if (m is BaseCreature && ((BaseCreature)m).IsMonster && m.Karma > 0)
+            if (m is BaseCreature creature && creature.IsMonster && m.Karma > 0)
             {
                 return true;
             }

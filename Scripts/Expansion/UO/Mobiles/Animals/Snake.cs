@@ -19,9 +19,7 @@ namespace Server.Mobiles
             SetHits(15, 19);
             SetMana(0);
 
-            SetDamage(1, 4);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 1, 4);
 
             SetResist(ResistType.Phys, 15, 20);
             SetResist(ResistType.Pois, 20, 30);
@@ -55,18 +53,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(1);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-
-            if (version == 0 && (AbilityProfile == null || AbilityProfile.MagicalAbility == MagicalAbility.None))
-            {
-                SetMagicalAbility(MagicalAbility.Poisoning);
-            }
         }
     }
 }

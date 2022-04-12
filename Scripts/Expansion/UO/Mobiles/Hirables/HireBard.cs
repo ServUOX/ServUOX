@@ -41,7 +41,7 @@ namespace Server.Mobiles
             SetDex(26, 26);
             SetInt(26, 26);
 
-            SetDamage(5, 10);
+            SetDamage(ResistType.Phys, 100, 0, 5, 10);
 
             SetSkill(SkillName.Tactics, 35, 57);
             SetSkill(SkillName.Magery, 22, 22);

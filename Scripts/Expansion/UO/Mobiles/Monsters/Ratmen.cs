@@ -20,9 +20,7 @@ namespace Server.Mobiles
 
             SetHits(58, 72);
 
-            SetDamage(4, 5);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 4, 5);
 
             SetResist(ResistType.Phys, 25, 30);
             SetResist(ResistType.Fire, 10, 20);
@@ -85,9 +83,7 @@ namespace Server.Mobiles
 
             SetHits(88, 108);
 
-            SetDamage(4, 10);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 4, 10);
 
             SetResist(ResistType.Phys, 40, 55);
             SetResist(ResistType.Fire, 10, 20);
@@ -155,9 +151,7 @@ namespace Server.Mobiles
 
             SetHits(88, 108);
 
-            SetDamage(7, 14);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 7, 14);
 
             SetResist(ResistType.Phys, 40, 45);
             SetResist(ResistType.Fire, 10, 20);

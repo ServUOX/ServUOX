@@ -39,9 +39,7 @@ namespace Server.Mobiles
             SetHits(28, 45);
             SetMana(0);
 
-            SetDamage(3, 4);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 3, 4);
 
             SetResist(ResistType.Phys, 15, 20);
 
@@ -98,9 +96,7 @@ namespace Server.Mobiles
             SetStam(81, 100);
             SetMana(0);
 
-            SetDamage(5, 11);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 5, 11);
 
             SetResist(ResistType.Phys, 20, 25);
             SetResist(ResistType.Fire, 10, 15);
@@ -126,8 +122,10 @@ namespace Server.Mobiles
             if (pack != null)
                 pack.Delete();
 
-            pack = new StrongBackpack();
-            pack.Movable = false;
+            pack = new StrongBackpack
+            {
+                Movable = false
+            };
 
             AddItem(pack);
         }

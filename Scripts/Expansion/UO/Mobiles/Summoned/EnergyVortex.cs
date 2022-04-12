@@ -37,10 +37,8 @@ namespace Server.Mobiles
             SetStam(250);
             SetMana(0);
 
-            SetDamage(weak ? 10 : 14, weak ? 13 : 17);
-
-            SetDamageType(ResistType.Phys, 0);
-            SetDamageType(ResistType.Engy, 100);
+            SetDamage(ResistType.Phys, 0, 0, weak ? 10 : 14, weak ? 13 : 17);
+            SetDamage(ResistType.Engy, 100);
 
             SetResist(ResistType.Phys, 60, 70);
             SetResist(ResistType.Fire, 40, 50);
@@ -118,8 +116,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             if (BaseSoundID == 263)
                 BaseSoundID = 0;
