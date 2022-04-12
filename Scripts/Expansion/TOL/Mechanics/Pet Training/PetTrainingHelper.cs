@@ -845,11 +845,11 @@ namespace Server.Mobiles
 
             _TrainingPoints.Add(new TrainingPoint(PetStat.BaseDamage, 5.0, 1, 22, 1157506, 1157516));
 
-            _TrainingPoints.Add(new TrainingPoint(ResistType.Physical, 3.0, 1, 80, 1061158, 1157517));
+            _TrainingPoints.Add(new TrainingPoint(ResistType.Phys, 3.0, 1, 80, 1061158, 1157517));
             _TrainingPoints.Add(new TrainingPoint(ResistType.Fire, 3.0, 1, 80, 1061159, 1157518));
             _TrainingPoints.Add(new TrainingPoint(ResistType.Cold, 3.0, 1, 80, 1061160, 1157519));
-            _TrainingPoints.Add(new TrainingPoint(ResistType.Poison, 3.0, 1, 80, 1061161, 1157520));
-            _TrainingPoints.Add(new TrainingPoint(ResistType.Energy, 3.0, 1, 80, 1061162, 1157521));
+            _TrainingPoints.Add(new TrainingPoint(ResistType.Pois, 3.0, 1, 80, 1061161, 1157520));
+            _TrainingPoints.Add(new TrainingPoint(ResistType.Engy, 3.0, 1, 80, 1061162, 1157521));
 
             _TrainingPoints.Add(new TrainingPoint(SkillName.Magery, 0.5, 50, 200, 1002106, 1157522));
             _TrainingPoints.Add(new TrainingPoint(SkillName.EvalInt, 1.0, 50, 200, 1044076, 1157522));
@@ -1034,11 +1034,11 @@ namespace Server.Mobiles
 
         public static int GetTotalResistWeight(BaseCreature bc)
         {
-            var phys = GetTrainingPoint(ResistType.Physical);
+            var phys = GetTrainingPoint(ResistType.Phys);
             var fire = GetTrainingPoint(ResistType.Fire);
             var cold = GetTrainingPoint(ResistType.Cold);
-            var pois = GetTrainingPoint(ResistType.Poison);
-            var nrgy = GetTrainingPoint(ResistType.Energy);
+            var pois = GetTrainingPoint(ResistType.Pois);
+            var nrgy = GetTrainingPoint(ResistType.Engy);
 
             return (int)((bc.PhysicalResistanceSeed * phys.Weight) +
                    (bc.FireResistSeed * fire.Weight) +
@@ -1165,11 +1165,11 @@ namespace Server.Mobiles
                 {
                     switch ((ResistType)tp.TrainPoint)
                     {
-                        case ResistType.Physical: value = Math.Max(bc.PhysicalResistanceSeed, value); break;
+                        case ResistType.Phys: value = Math.Max(bc.PhysicalResistanceSeed, value); break;
                         case ResistType.Fire: value = Math.Max(bc.FireResistSeed, value); break;
                         case ResistType.Cold: value = Math.Max(bc.ColdResistSeed, value); break;
-                        case ResistType.Poison: value = Math.Max(bc.PoisonResistSeed, value); break;
-                        case ResistType.Energy: value = Math.Max(bc.EnergyResistSeed, value); break;
+                        case ResistType.Pois: value = Math.Max(bc.PoisonResistSeed, value); break;
+                        case ResistType.Engy: value = Math.Max(bc.EnergyResistSeed, value); break;
                     }
                 }
                 else if (tp.TrainPoint is SkillName)
@@ -1302,11 +1302,11 @@ namespace Server.Mobiles
             {
                 switch ((ResistType)trainingPoint.TrainPoint)
                 {
-                    case ResistType.Physical: bc.PhysicalResistanceSeed = value; break;
+                    case ResistType.Phys: bc.PhysicalResistanceSeed = value; break;
                     case ResistType.Fire: bc.FireResistSeed = value; break;
                     case ResistType.Cold: bc.ColdResistSeed = value; break;
-                    case ResistType.Poison: bc.PoisonResistSeed = value; break;
-                    case ResistType.Energy: bc.EnergyResistSeed = value; break;
+                    case ResistType.Pois: bc.PoisonResistSeed = value; break;
+                    case ResistType.Engy: bc.EnergyResistSeed = value; break;
                 }
 
                 return true;

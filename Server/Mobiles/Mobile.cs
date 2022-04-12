@@ -435,11 +435,11 @@ namespace Server
 
     public enum ResistType
     {
-        Physical,
+        Phys,
         Fire,
         Cold,
-        Poison,
-        Energy
+        Pois,
+        Engy
     }
 
     public enum ApplyPoisonResult
@@ -817,7 +817,7 @@ namespace Server
         { }
 
         [CommandProperty(AccessLevel.Counselor)]
-        public virtual int PhysicalResistance => GetResistance(ResistType.Physical);
+        public virtual int PhysicalResistance => GetResistance(ResistType.Phys);
 
         [CommandProperty(AccessLevel.Counselor)]
         public virtual int FireResistance => GetResistance(ResistType.Fire);
@@ -826,10 +826,10 @@ namespace Server
         public virtual int ColdResistance => GetResistance(ResistType.Cold);
 
         [CommandProperty(AccessLevel.Counselor)]
-        public virtual int PoisonResistance => GetResistance(ResistType.Poison);
+        public virtual int PoisonResistance => GetResistance(ResistType.Pois);
 
         [CommandProperty(AccessLevel.Counselor)]
-        public virtual int EnergyResistance => GetResistance(ResistType.Energy);
+        public virtual int EnergyResistance => GetResistance(ResistType.Engy);
 
         public virtual void UpdateResistances()
         {

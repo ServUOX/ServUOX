@@ -25,13 +25,13 @@ namespace Server.Items
 
             SetDamage(15, 20);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, 55, 60);
+            SetResist(ResistType.Phys, 55, 60);
             SetResist(ResistType.Fire, 55, 60);
             SetResist(ResistType.Cold, 50, 55);
-            SetResist(ResistType.Poison, 50, 55);
-            SetResist(ResistType.Energy, 45, 50);
+            SetResist(ResistType.Pois, 50, 55);
+            SetResist(ResistType.Engy, 45, 50);
 
             SetSkill(SkillName.Anatomy, 90.3, 99.9);
             SetSkill(SkillName.MagicResist, 121.0, 126.7);

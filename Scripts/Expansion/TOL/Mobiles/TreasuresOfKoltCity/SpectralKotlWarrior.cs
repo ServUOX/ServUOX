@@ -29,25 +29,25 @@ namespace Server.Mobiles
             {
                 SetHits(1200, 1400);
 
-                SetResist(ResistType.Physical, 1, 10);
+                SetResist(ResistType.Phys, 1, 10);
                 SetResist(ResistType.Fire, 1, 10);
                 SetResist(ResistType.Cold, 1, 10);
-                SetResist(ResistType.Poison, 8, 10);
-                SetResist(ResistType.Energy, 5, 10);
+                SetResist(ResistType.Pois, 8, 10);
+                SetResist(ResistType.Engy, 5, 10);
             }
             else
             {
                 SetHits(330, 360);
 
-                SetResist(ResistType.Physical, 40, 50);
+                SetResist(ResistType.Phys, 40, 50);
                 SetResist(ResistType.Fire, 30, 40);
                 SetResist(ResistType.Cold, 30, 40);
-                SetResist(ResistType.Poison, 90, 100);
-                SetResist(ResistType.Energy, 80, 90);
+                SetResist(ResistType.Pois, 90, 100);
+                SetResist(ResistType.Engy, 80, 90);
             }
 
-            SetDamageType(ResistType.Physical, 50);
-            SetDamageType(ResistType.Poison, 50);
+            SetDamageType(ResistType.Phys, 50);
+            SetDamageType(ResistType.Pois, 50);
 
             SetSkill(SkillName.Wrestling, 90, 100);
             SetSkill(SkillName.Tactics, 90, 100);

@@ -21,11 +21,11 @@ namespace Server.Engines.Quests.Samurai
 
             SetDamageType(ResistType.Fire, 100);
 
-            SetResist(ResistType.Physical, 95, 98);
+            SetResist(ResistType.Phys, 95, 98);
             SetResist(ResistType.Fire, 95, 98);
             SetResist(ResistType.Cold, 95, 98);
-            SetResist(ResistType.Poison, 95, 98);
-            SetResist(ResistType.Energy, 95, 98);
+            SetResist(ResistType.Pois, 95, 98);
+            SetResist(ResistType.Engy, 95, 98);
 
             SetSkill(SkillName.Tactics, 120.0);
             SetSkill(SkillName.Wrestling, 120.0);

@@ -169,13 +169,13 @@ namespace Server.Engines.Despise
             SetStam(StamStart);
             SetMana(ManaStart);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, 5, 50);
+            SetResist(ResistType.Phys, 5, 50);
             SetResist(ResistType.Fire, 5, 50);
             SetResist(ResistType.Cold, 5, 50);
-            SetResist(ResistType.Poison, 5, 50);
-            SetResist(ResistType.Energy, 5, 50);
+            SetResist(ResistType.Pois, 5, 50);
+            SetResist(ResistType.Engy, 5, 50);
 
             SetSkill(SkillName.Wrestling, SkillStart);
             SetSkill(SkillName.Tactics, SkillStart);
@@ -371,11 +371,11 @@ namespace Server.Engines.Despise
 
         private void IncreaseResists()
         {
-            SetResist(ResistType.Physical, Math.Min(80, PhysicalResistanceSeed + Utility.RandomMinMax(5, 15)));
+            SetResist(ResistType.Phys, Math.Min(80, PhysicalResistanceSeed + Utility.RandomMinMax(5, 15)));
             SetResist(ResistType.Fire, Math.Min(80, FireResistSeed + Utility.RandomMinMax(5, 15)));
             SetResist(ResistType.Cold, Math.Min(80, ColdResistSeed + Utility.RandomMinMax(5, 15)));
-            SetResist(ResistType.Poison, Math.Min(80, PoisonResistSeed + Utility.RandomMinMax(5, 15)));
-            SetResist(ResistType.Energy, Math.Min(80, EnergyResistSeed + Utility.RandomMinMax(5, 15)));
+            SetResist(ResistType.Pois, Math.Min(80, PoisonResistSeed + Utility.RandomMinMax(5, 15)));
+            SetResist(ResistType.Engy, Math.Min(80, EnergyResistSeed + Utility.RandomMinMax(5, 15)));
         }
 
         public static int GetPowerLabel(int power)

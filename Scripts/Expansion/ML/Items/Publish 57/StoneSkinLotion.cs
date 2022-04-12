@@ -12,7 +12,7 @@ namespace Server.Items
             pm.AddResistanceMod(new ResistanceMod(ResistType.Cold, -5));
             pm.AddResistanceMod(new ResistanceMod(ResistType.Fire, -5));
 
-            pm.AddResistanceMod(new ResistanceMod(ResistType.Physical, 30));
+            pm.AddResistanceMod(new ResistanceMod(ResistType.Phys, 30));
 
             base.ApplyEffect(pm);
         }

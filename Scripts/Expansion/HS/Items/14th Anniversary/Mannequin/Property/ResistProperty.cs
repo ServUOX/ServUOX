@@ -48,7 +48,7 @@ namespace Server.Mobiles.MannequinProperty
         {
             switch (resist)
             {
-                case ResistType.Physical:
+                case ResistType.Phys:
                     {
                         if (item is BaseWeapon)
                             return ((BaseWeapon)item).PhysicalResistance;
@@ -87,7 +87,7 @@ namespace Server.Mobiles.MannequinProperty
 
                         break;
                     }
-                case ResistType.Poison:
+                case ResistType.Pois:
                     {
                         if (item is BaseWeapon)
                             return ((BaseWeapon)item).PoisonResistance;
@@ -100,7 +100,7 @@ namespace Server.Mobiles.MannequinProperty
 
                         break;
                     }
-                case ResistType.Energy:
+                case ResistType.Engy:
                     {
                         if (item is BaseWeapon)
                             return ((BaseWeapon)item).EnergyResistance;
@@ -123,7 +123,7 @@ namespace Server.Mobiles.MannequinProperty
     {
         public override int Order => 1;
         public override int LabelNumber => 1079764;  // Physical Resist
-        public override ResistType Resist => ResistType.Physical;
+        public override ResistType Resist => ResistType.Phys;
         public override int Description => 1115226;  // This property reduces the damage taken from attacks that cause physical damage.  This property can be found on all armor, shields, accessories or weapons.
         public override int SpriteW => 30;
         public override int SpriteH => 30;
@@ -153,7 +153,7 @@ namespace Server.Mobiles.MannequinProperty
     {
         public override int Order => 4;
         public override int LabelNumber => 1079765;  // Poison Resist
-        public override ResistType Resist => ResistType.Poison;
+        public override ResistType Resist => ResistType.Pois;
         public override int Description => 1115229;  // This property reduces the damage taken from attacks that cause poison damage.  This property can be found on all armor, shields, accessories or weapons.
         public override int SpriteW => 60;
         public override int SpriteH => 30;
@@ -163,7 +163,7 @@ namespace Server.Mobiles.MannequinProperty
     {
         public override int Order => 5;
         public override int LabelNumber => 1079762;  // Energy Resist
-        public override ResistType Resist => ResistType.Energy;
+        public override ResistType Resist => ResistType.Engy;
         public override int Description => 1115230;  // This property reduces the damage taken from attacks that cause energy damage.  This property can be found on all armor, shields, accessories or weapons.
         public override int SpriteW => 120;
         public override int SpriteH => 0;

@@ -1959,7 +1959,7 @@ namespace Server.Spells
 
                     if (transformSpell.PhysResistOffset != 0)
                     {
-                        mods.Add(new ResistanceMod(ResistType.Physical, transformSpell.PhysResistOffset));
+                        mods.Add(new ResistanceMod(ResistType.Phys, transformSpell.PhysResistOffset));
                     }
 
                     if (transformSpell.FireResistOffset != 0)
@@ -1974,12 +1974,12 @@ namespace Server.Spells
 
                     if (transformSpell.PoisResistOffset != 0)
                     {
-                        mods.Add(new ResistanceMod(ResistType.Poison, transformSpell.PoisResistOffset));
+                        mods.Add(new ResistanceMod(ResistType.Pois, transformSpell.PoisResistOffset));
                     }
 
                     if (transformSpell.NrgyResistOffset != 0)
                     {
-                        mods.Add(new ResistanceMod(ResistType.Energy, transformSpell.NrgyResistOffset));
+                        mods.Add(new ResistanceMod(ResistType.Engy, transformSpell.NrgyResistOffset));
                     }
 
                     if (!((Body)transformSpell.Body).IsHuman)

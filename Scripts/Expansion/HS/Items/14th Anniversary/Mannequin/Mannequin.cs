@@ -26,11 +26,11 @@ namespace Server.Mobiles
         {
             InitStats(100, 100, 25);
 
-            SetDamageType(ResistType.Physical, 0);
+            SetDamageType(ResistType.Phys, 0);
             SetDamageType(ResistType.Fire, 0);
             SetDamageType(ResistType.Cold, 0);
-            SetDamageType(ResistType.Poison, 0);
-            SetDamageType(ResistType.Energy, 0);
+            SetDamageType(ResistType.Pois, 0);
+            SetDamageType(ResistType.Engy, 0);
 
             Hits = HitsMax;
             Blessed = true;

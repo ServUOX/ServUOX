@@ -584,7 +584,7 @@ namespace Server.Items
                         ApplyAttribute(primary, min, max, AosAttribute.ReflectPhysical, 1, 15);
                         break;
                     case 19:
-                        ApplyResistance(armor, min, max, ResistType.Physical, 1, 15);
+                        ApplyResistance(armor, min, max, ResistType.Phys, 1, 15);
                         break;
                     case 20:
                         ApplyResistance(armor, min, max, ResistType.Fire, 1, 15);
@@ -593,10 +593,10 @@ namespace Server.Items
                         ApplyResistance(armor, min, max, ResistType.Cold, 1, 15);
                         break;
                     case 22:
-                        ApplyResistance(armor, min, max, ResistType.Poison, 1, 15);
+                        ApplyResistance(armor, min, max, ResistType.Pois, 1, 15);
                         break;
                     case 23:
-                        ApplyResistance(armor, min, max, ResistType.Energy, 1, 15);
+                        ApplyResistance(armor, min, max, ResistType.Engy, 1, 15);
                         break;
                         /* End Armor */
                 }
@@ -1096,7 +1096,7 @@ namespace Server.Items
         {
             switch (res)
             {
-                case ResistType.Physical:
+                case ResistType.Phys:
                     ar.PhysicalBonus += Scale(min, max, low, high);
                     break;
                 case ResistType.Fire:
@@ -1105,10 +1105,10 @@ namespace Server.Items
                 case ResistType.Cold:
                     ar.ColdBonus += Scale(min, max, low, high);
                     break;
-                case ResistType.Poison:
+                case ResistType.Pois:
                     ar.PoisonBonus += Scale(min, max, low, high);
                     break;
-                case ResistType.Energy:
+                case ResistType.Engy:
                     ar.EnergyBonus += Scale(min, max, low, high);
                     break;
             }

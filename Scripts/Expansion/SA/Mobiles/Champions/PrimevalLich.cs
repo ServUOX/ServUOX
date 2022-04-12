@@ -31,17 +31,17 @@ namespace Server.Mobiles
 
             SetDamage(17, 21);
 
-            SetDamageType(ResistType.Physical, 20);
+            SetDamageType(ResistType.Phys, 20);
             SetDamageType(ResistType.Fire, 20);
             SetDamageType(ResistType.Cold, 20);
-            SetDamageType(ResistType.Energy, 20);
-            SetDamageType(ResistType.Poison, 20);
+            SetDamageType(ResistType.Engy, 20);
+            SetDamageType(ResistType.Pois, 20);
 
-            SetResist(ResistType.Physical, 30);
+            SetResist(ResistType.Phys, 30);
             SetResist(ResistType.Fire, 30);
             SetResist(ResistType.Cold, 30);
-            SetResist(ResistType.Poison, 30);
-            SetResist(ResistType.Energy, 20);
+            SetResist(ResistType.Pois, 30);
+            SetResist(ResistType.Engy, 20);
 
             SetSkill(SkillName.EvalInt, 90, 120.0);
             SetSkill(SkillName.Magery, 90, 120.0);
@@ -364,7 +364,7 @@ namespace Server.Mobiles
 
                 if (target.PhysicalResistance > 0)
                 {
-                    mods.Add(new ResistanceMod(ResistType.Physical, (int)(target.PhysicalResistance * scalar)));
+                    mods.Add(new ResistanceMod(ResistType.Phys, (int)(target.PhysicalResistance * scalar)));
                 }
 
                 if (target.FireResistance > 0)
@@ -379,12 +379,12 @@ namespace Server.Mobiles
 
                 if (target.PoisonResistance > 0)
                 {
-                    mods.Add(new ResistanceMod(ResistType.Poison, (int)(target.PoisonResistance * scalar)));
+                    mods.Add(new ResistanceMod(ResistType.Pois, (int)(target.PoisonResistance * scalar)));
                 }
 
                 if (target.EnergyResistance > 0)
                 {
-                    mods.Add(new ResistanceMod(ResistType.Energy, (int)(target.EnergyResistance * scalar)));
+                    mods.Add(new ResistanceMod(ResistType.Engy, (int)(target.EnergyResistance * scalar)));
                 }
 
                 for (int i = 0; i < target.Skills.Length; ++i)

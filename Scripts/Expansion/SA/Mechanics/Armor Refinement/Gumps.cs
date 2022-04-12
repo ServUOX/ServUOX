@@ -167,11 +167,11 @@ namespace Server.Gumps
 
                             switch (m_Entry.Resists[i])
                             {
-                                case ResistType.Physical: armor.RefinedPhysical += value; break;
+                                case ResistType.Phys: armor.RefinedPhysical += value; break;
                                 case ResistType.Fire: armor.RefinedFire += value; break;
                                 case ResistType.Cold: armor.RefinedCold += value; break;
-                                case ResistType.Poison: armor.RefinedPoison += value; break;
-                                case ResistType.Energy: armor.RefinedEnergy += value; break;
+                                case ResistType.Pois: armor.RefinedPoison += value; break;
+                                case ResistType.Engy: armor.RefinedEnergy += value; break;
                             }
                         }
 
@@ -195,11 +195,11 @@ namespace Server.Gumps
             switch (attr)
             {
                 default:
-                case ResistType.Physical: return 1061158;
+                case ResistType.Phys: return 1061158;
                 case ResistType.Fire: return 1061159;
                 case ResistType.Cold: return 1061160;
-                case ResistType.Poison: return 1061161;
-                case ResistType.Energy: return 1061162;
+                case ResistType.Pois: return 1061161;
+                case ResistType.Engy: return 1061162;
             }
         }
 

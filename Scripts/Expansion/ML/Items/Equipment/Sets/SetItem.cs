@@ -374,11 +374,11 @@ namespace Server
 
                 switch (resist)
                 {
-                    case ResistType.Physical: total += item.PhysicalResistance + sItem.SetPhysicalBonus; break;
+                    case ResistType.Phys: total += item.PhysicalResistance + sItem.SetPhysicalBonus; break;
                     case ResistType.Fire: total += item.FireResistance + sItem.SetFireBonus; break;
                     case ResistType.Cold: total += item.ColdResistance + sItem.SetColdBonus; break;
-                    case ResistType.Poison: total += item.PoisonResistance + sItem.SetPoisonBonus; break;
-                    case ResistType.Energy: total += item.EnergyResistance + sItem.SetEnergyBonus; break;
+                    case ResistType.Pois: total += item.PoisonResistance + sItem.SetPoisonBonus; break;
+                    case ResistType.Engy: total += item.EnergyResistance + sItem.SetEnergyBonus; break;
                 }
             }
 
