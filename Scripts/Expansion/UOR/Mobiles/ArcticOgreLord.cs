@@ -20,10 +20,8 @@ namespace Server.Mobiles
 
             SetHits(476, 552);
 
-            SetDamage(20, 25);
-
-            SetDamageType(ResistType.Phys, 30);
-            SetDamageType(ResistType.Cold, 70);
+            SetDamage(ResistType.Phys, 30, 0, 20, 25);
+            SetDamage(ResistType.Cold, 70);
 
             SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Cold, 60, 70);
