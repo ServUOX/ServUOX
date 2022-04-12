@@ -21,9 +21,7 @@ namespace Server.Mobiles
             SetHits(46, 60);
             SetMana(0);
 
-            SetDamage(5, 17);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 5, 17);
 
             SetResist(ResistType.Phys, 20, 25);
             SetResist(ResistType.Fire, 5, 10);
@@ -77,19 +75,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(1);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
-
-            if (version < 1)
-            {
-                AI = AIType.AI_Melee;
-                FightMode = FightMode.Closest;
-            }
+            _ = reader.ReadInt();
         }
     }
 }
