@@ -1531,11 +1531,11 @@ namespace Server.Items
         {
             switch (resist)
             {
-                case ResistType.Physical: return PhysicalResistance;
+                case ResistType.Phys: return PhysicalResistance;
                 case ResistType.Fire: return FireResistance;
                 case ResistType.Cold: return ColdResistance;
-                case ResistType.Poison: return PoisonResistance;
-                case ResistType.Energy: return EnergyResistance;
+                case ResistType.Pois: return PoisonResistance;
+                case ResistType.Engy: return EnergyResistance;
             }
 
             return 0;

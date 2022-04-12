@@ -219,15 +219,15 @@ namespace Server.Gumps
                             }
                         }
 
-                        if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Physical)
+                        if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Phys)
                             attrvalue = ((BaseArmor)m_Item).PhysicalBonus;
                         else if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Fire)
                             attrvalue = ((BaseArmor)m_Item).FireBonus;
                         else if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Cold)
                             attrvalue = ((BaseArmor)m_Item).ColdBonus;
-                        else if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Poison)
+                        else if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Pois)
                             attrvalue = ((BaseArmor)m_Item).PoisonBonus;
-                        else if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Energy)
+                        else if (LevelAttributes.m_ResistTypes[i].m_Attribute == ResistType.Engy)
                             attrvalue = ((BaseArmor)m_Item).EnergyBonus;
                         else
                             attrvalue = 0;
@@ -566,7 +566,7 @@ namespace Server.Gumps
                             //add point to selected weapon attribute
                             if (index >= 0 && index < LevelAttributes.m_ResistTypes.Length)
                             {
-                                if (LevelAttributes.m_ResistTypes[index].m_Attribute == ResistType.Physical)
+                                if (LevelAttributes.m_ResistTypes[index].m_Attribute == ResistType.Phys)
                                 {
                                     attrvalue = ((BaseArmor)m_Item).PhysicalBonus;
                                     if (attrvalue < LevelAttributes.m_ResistTypes[index].m_MaxValue)
@@ -593,7 +593,7 @@ namespace Server.Gumps
                                         levitem.Points -= cost;
                                     }
                                 }
-                                else if (LevelAttributes.m_ResistTypes[index].m_Attribute == ResistType.Poison)
+                                else if (LevelAttributes.m_ResistTypes[index].m_Attribute == ResistType.Pois)
                                 {
                                     attrvalue = ((BaseArmor)m_Item).PoisonBonus;
                                     if (attrvalue < LevelAttributes.m_ResistTypes[index].m_MaxValue)
@@ -602,7 +602,7 @@ namespace Server.Gumps
                                         levitem.Points -= cost;
                                     }
                                 }
-                                else if (LevelAttributes.m_ResistTypes[index].m_Attribute == ResistType.Energy)
+                                else if (LevelAttributes.m_ResistTypes[index].m_Attribute == ResistType.Engy)
                                 {
                                     attrvalue = ((BaseArmor)m_Item).EnergyBonus;
                                     if (attrvalue < LevelAttributes.m_ResistTypes[index].m_MaxValue)

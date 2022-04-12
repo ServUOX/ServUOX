@@ -20,15 +20,15 @@ namespace Server.Mobiles
 
             SetDamage(18, 25);
 
-            SetDamageType(ResistType.Physical, 10);
+            SetDamageType(ResistType.Phys, 10);
             SetDamageType(ResistType.Cold, 45);
-            SetDamageType(ResistType.Energy, 45);
+            SetDamageType(ResistType.Engy, 45);
 
-            SetResist(ResistType.Physical, 55, 65);
+            SetResist(ResistType.Phys, 55, 65);
             SetResist(ResistType.Fire, 40, 50);
             SetResist(ResistType.Cold, 30, 50);
-            SetResist(ResistType.Poison, 40, 50);
-            SetResist(ResistType.Energy, 20, 30);
+            SetResist(ResistType.Pois, 40, 50);
+            SetResist(ResistType.Engy, 20, 30);
 
             SetSkill(SkillName.Necromancy, 100.0, 120.0);
             SetSkill(SkillName.SpiritSpeak, 100.0, 120.0);

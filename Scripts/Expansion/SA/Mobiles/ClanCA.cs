@@ -22,13 +22,13 @@ namespace Server.Mobiles
 
             SetDamage(4, 10);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, 23, 35);
+            SetResist(ResistType.Phys, 23, 35);
             SetResist(ResistType.Fire, 20, 30);
             SetResist(ResistType.Cold, 30, 50);
-            SetResist(ResistType.Poison, 15, 20);
-            SetResist(ResistType.Energy, 10, 20);
+            SetResist(ResistType.Pois, 15, 20);
+            SetResist(ResistType.Engy, 10, 20);
 
             SetSkill(SkillName.Anatomy, 0);
             SetSkill(SkillName.Archery, 80.1, 90.0);

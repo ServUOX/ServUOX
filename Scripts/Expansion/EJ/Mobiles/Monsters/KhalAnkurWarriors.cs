@@ -71,13 +71,13 @@ namespace Server.Mobiles
 
             Title = _title;
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, 20, 30);
+            SetResist(ResistType.Phys, 20, 30);
             SetResist(ResistType.Fire, 20, 30);
             SetResist(ResistType.Cold, 20, 30);
-            SetResist(ResistType.Poison, 20, 30);
-            SetResist(ResistType.Energy, 20, 30);
+            SetResist(ResistType.Pois, 20, 30);
+            SetResist(ResistType.Engy, 20, 30);
 
             SetSkill(SkillName.Fencing, 105.0, 130.0);
             SetSkill(SkillName.Macing, 1105.0, 130.0);

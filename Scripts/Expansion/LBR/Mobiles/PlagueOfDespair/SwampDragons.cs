@@ -32,14 +32,14 @@ namespace Server.Mobiles
 
             SetDamage(3, 4);
 
-            SetDamageType(ResistType.Physical, 75);
-            SetDamageType(ResistType.Poison, 25);
+            SetDamageType(ResistType.Phys, 75);
+            SetDamageType(ResistType.Pois, 25);
 
-            SetResist(ResistType.Physical, 35, 40);
+            SetResist(ResistType.Phys, 35, 40);
             SetResist(ResistType.Fire, 20, 30);
             SetResist(ResistType.Cold, 20, 40);
-            SetResist(ResistType.Poison, 20, 30);
-            SetResist(ResistType.Energy, 30, 40);
+            SetResist(ResistType.Pois, 20, 30);
+            SetResist(ResistType.Engy, 30, 40);
 
             SetSkill(SkillName.Anatomy, 45.1, 55.0);
             SetSkill(SkillName.MagicResist, 45.1, 55.0);
@@ -171,11 +171,11 @@ namespace Server.Mobiles
             switch (type)
             {
                 default:
-                case ResistType.Physical: resBonus = Math.Max(5, attrs.ArmorPhysicalResist); break;
+                case ResistType.Phys: resBonus = Math.Max(5, attrs.ArmorPhysicalResist); break;
                 case ResistType.Fire: resBonus = Math.Max(3, attrs.ArmorFireResist); break;
                 case ResistType.Cold: resBonus = Math.Max(2, attrs.ArmorColdResist); break;
-                case ResistType.Poison: resBonus = Math.Max(3, attrs.ArmorPoisonResist); break;
-                case ResistType.Energy: resBonus = Math.Max(2, attrs.ArmorEnergyResist); break;
+                case ResistType.Pois: resBonus = Math.Max(3, attrs.ArmorPoisonResist); break;
+                case ResistType.Engy: resBonus = Math.Max(2, attrs.ArmorEnergyResist); break;
             }
 
             return (resBonus + expBonus) * 5;
@@ -325,14 +325,14 @@ namespace Server.Mobiles
 
             SetDamage(3, 4);
 
-            SetDamageType(ResistType.Physical, 75);
-            SetDamageType(ResistType.Poison, 25);
+            SetDamageType(ResistType.Phys, 75);
+            SetDamageType(ResistType.Pois, 25);
 
-            SetResist(ResistType.Physical, 35, 40);
+            SetResist(ResistType.Phys, 35, 40);
             SetResist(ResistType.Fire, 20, 30);
             SetResist(ResistType.Cold, 20, 40);
-            SetResist(ResistType.Poison, 20, 30);
-            SetResist(ResistType.Energy, 30, 40);
+            SetResist(ResistType.Pois, 20, 30);
+            SetResist(ResistType.Engy, 30, 40);
 
             SetSkill(SkillName.Anatomy, 45.1, 55.0);
             SetSkill(SkillName.MagicResist, 45.1, 55.0);

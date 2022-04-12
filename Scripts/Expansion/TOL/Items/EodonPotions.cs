@@ -467,7 +467,7 @@ namespace Server.Items
         {
             base.DoEffects(m);
 
-            ResistanceMod mod1 = new ResistanceMod(ResistType.Physical, 10);
+            ResistanceMod mod1 = new ResistanceMod(ResistType.Phys, 10);
             m.AddResistanceMod(mod1);
 
             Timer.DelayCall(TimeSpan.FromMinutes(10), () => m.RemoveResistanceMod(mod1));
@@ -574,12 +574,12 @@ namespace Server.Items
         {
             base.DoEffects(m);
 
-            ResistanceMod mod1 = new ResistanceMod(ResistType.Poison, 10);
+            ResistanceMod mod1 = new ResistanceMod(ResistType.Pois, 10);
             m.AddResistanceMod(mod1);
 
             Timer.DelayCall(TimeSpan.FromMinutes(10), () => m.RemoveResistanceMod(mod1));
 
-            ResistanceMod mod2 = new ResistanceMod(ResistType.Energy, 5);
+            ResistanceMod mod2 = new ResistanceMod(ResistType.Engy, 5);
             m.AddResistanceMod(mod2);
 
             Timer.DelayCall(TimeSpan.FromMinutes(10), () => m.RemoveResistanceMod(mod2));

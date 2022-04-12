@@ -21,12 +21,12 @@ namespace Server.Mobiles
 
             SetDamage(3, 9);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, 15, 20);
+            SetResist(ResistType.Phys, 15, 20);
             SetResist(ResistType.Cold, 40, 50);
-            SetResist(ResistType.Poison, 20, 30);
-            SetResist(ResistType.Energy, 10, 20);
+            SetResist(ResistType.Pois, 20, 30);
+            SetResist(ResistType.Engy, 10, 20);
 
             SetSkill(SkillName.MagicResist, 5.1, 10.0);
             SetSkill(SkillName.Tactics, 19.3, 34.0);
@@ -84,14 +84,14 @@ namespace Server.Mobiles
 
             SetDamage(6, 16);
 
-            SetDamageType(ResistType.Physical, 20);
+            SetDamageType(ResistType.Phys, 20);
             SetDamageType(ResistType.Cold, 80);
 
-            SetResist(ResistType.Physical, 25, 30);
+            SetResist(ResistType.Phys, 25, 30);
             SetResist(ResistType.Fire, 5, 10);
             SetResist(ResistType.Cold, 40, 50);
-            SetResist(ResistType.Poison, 20, 30);
-            SetResist(ResistType.Energy, 10, 20);
+            SetResist(ResistType.Pois, 20, 30);
+            SetResist(ResistType.Engy, 10, 20);
 
             SetSkill(SkillName.MagicResist, 25.1, 40.0);
             SetSkill(SkillName.Tactics, 35.1, 50.0);
@@ -155,13 +155,13 @@ namespace Server.Mobiles
 
             SetDamage(14, 20);
 
-            SetDamageType(ResistType.Physical, 75);
+            SetDamageType(ResistType.Phys, 75);
             SetDamageType(ResistType.Cold, 25);
 
-            SetResist(ResistType.Physical, 45, 55);
+            SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Cold, 40, 50);
-            SetResist(ResistType.Poison, 5, 10);
-            SetResist(ResistType.Energy, 5, 10);
+            SetResist(ResistType.Pois, 5, 10);
+            SetResist(ResistType.Engy, 5, 10);
 
             SetSkill(SkillName.MagicResist, 65.1, 80.0);
             SetSkill(SkillName.Tactics, 80.1, 100.0);

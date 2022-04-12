@@ -26,15 +26,15 @@ namespace Server.Mobiles
 
             SetDamage(29, 35);
 
-            SetDamageType(ResistType.Physical, 70);
-            SetDamageType(ResistType.Poison, 20);
-            SetDamageType(ResistType.Energy, 10);
+            SetDamageType(ResistType.Phys, 70);
+            SetDamageType(ResistType.Pois, 20);
+            SetDamageType(ResistType.Engy, 10);
 
-            SetResist(ResistType.Physical, 30);
+            SetResist(ResistType.Phys, 30);
             SetResist(ResistType.Fire, 60);
             SetResist(ResistType.Cold, 60);
-            SetResist(ResistType.Poison, 90);
-            SetResist(ResistType.Energy, 50);
+            SetResist(ResistType.Pois, 90);
+            SetResist(ResistType.Engy, 50);
 
             SetSkill(SkillName.MagicResist, 120.0);
             SetSkill(SkillName.Tactics, 120.0);
@@ -116,11 +116,11 @@ namespace Server.Mobiles
         {
             double hitsLost = (HitsMax - Hits) / (double)HitsMax;
 
-            SetResist(ResistType.Physical, 30 + (int)(hitsLost * (95 - 30)));
+            SetResist(ResistType.Phys, 30 + (int)(hitsLost * (95 - 30)));
             SetResist(ResistType.Fire, 60 + (int)(hitsLost * (95 - 60)));
             SetResist(ResistType.Cold, 60 + (int)(hitsLost * (95 - 60)));
-            SetResist(ResistType.Poison, 90 + (int)(hitsLost * (95 - 90)));
-            SetResist(ResistType.Energy, 50 + (int)(hitsLost * (95 - 50)));
+            SetResist(ResistType.Pois, 90 + (int)(hitsLost * (95 - 90)));
+            SetResist(ResistType.Engy, 50 + (int)(hitsLost * (95 - 50)));
         }
 
         private void DoCounter(Mobile attacker)

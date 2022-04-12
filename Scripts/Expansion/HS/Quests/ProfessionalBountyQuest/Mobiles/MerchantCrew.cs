@@ -71,12 +71,12 @@ namespace Server.Mobiles
             SetSkill(SkillName.Wrestling, 100.0, 120.0);
             SetSkill(SkillName.Anatomy, 100.0, 120.0);
 
-            SetDamageType(ResistType.Physical, 70);
-            SetResist(ResistType.Physical, 45, 55);
+            SetDamageType(ResistType.Phys, 70);
+            SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Fire, 45, 55);
             SetResist(ResistType.Cold, 45, 55);
-            SetResist(ResistType.Poison, 45, 55);
-            SetResist(ResistType.Energy, 45, 55);
+            SetResist(ResistType.Pois, 45, 55);
+            SetResist(ResistType.Engy, 45, 55);
 
             Item bow;
 

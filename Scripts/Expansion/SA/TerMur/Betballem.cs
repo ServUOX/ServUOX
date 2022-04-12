@@ -24,13 +24,13 @@ namespace Server.Mobiles
             SetHits(90, 100);
             SetDamage(5, 10);
 
-            SetDamageType(ResistType.Physical, 20);
+            SetDamageType(ResistType.Phys, 20);
             SetDamageType(ResistType.Fire, 20);
             SetDamageType(ResistType.Cold, 20);
-            SetDamageType(ResistType.Poison, 20);
-            SetDamageType(ResistType.Energy, 20);
+            SetDamageType(ResistType.Pois, 20);
+            SetDamageType(ResistType.Engy, 20);
 
-            SetResist(ResistType.Physical, 30, 40);
+            SetResist(ResistType.Phys, 30, 40);
             SetResist(ResistType.Fire, 30, 40);
             SetResist(ResistType.Fire, 10, 20);
             SetResist(ResistType.Fire, 10, 20);

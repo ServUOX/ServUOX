@@ -370,7 +370,7 @@ namespace Server.Mobiles
 
             int effect = -(defender.EnergyResistance / 2);
 
-            ResistanceMod mod = new ResistanceMod(ResistType.Energy, effect);
+            ResistanceMod mod = new ResistanceMod(ResistType.Engy, effect);
 
             defender.FixedEffect(0x37B9, 10, 5);
             defender.AddResistanceMod(mod);
@@ -448,7 +448,7 @@ namespace Server.Mobiles
 
             int effect = -(defender.PhysicalResistance * 15 / 100);
 
-            ResistanceMod mod = new ResistanceMod(ResistType.Physical, effect);
+            ResistanceMod mod = new ResistanceMod(ResistType.Phys, effect);
 
             defender.FixedEffect(0x37B9, 10, 5);
             defender.AddResistanceMod(mod);
@@ -1074,7 +1074,7 @@ namespace Server.Mobiles
 
             int effect = -(defender.PhysicalResistance * 15 / 100);
 
-            ResistanceMod mod = new ResistanceMod(ResistType.Physical, effect);
+            ResistanceMod mod = new ResistanceMod(ResistType.Phys, effect);
 
             defender.FixedParticles(0x373A, 10, 15, 5018, EffectLayer.Waist);
             defender.AddResistanceMod(mod);
@@ -1595,7 +1595,7 @@ namespace Server.Mobiles
             {
                 phy = defender.PhysicalResistance / 2;
 
-                mods.Add(new ResistanceMod(ResistType.Physical, -phy));
+                mods.Add(new ResistanceMod(ResistType.Phys, -phy));
             }
 
             if (defender.FireResistance > 0)
@@ -1616,14 +1616,14 @@ namespace Server.Mobiles
             {
                 poison = defender.PoisonResistance / 2;
 
-                mods.Add(new ResistanceMod(ResistType.Poison, -poison));
+                mods.Add(new ResistanceMod(ResistType.Pois, -poison));
             }
 
             if (defender.EnergyResistance > 0)
             {
                 energy = defender.EnergyResistance / 2;
 
-                mods.Add(new ResistanceMod(ResistType.Energy, -energy));
+                mods.Add(new ResistanceMod(ResistType.Engy, -energy));
             }
 
             for (int i = 0; i < mods.Count; ++i)

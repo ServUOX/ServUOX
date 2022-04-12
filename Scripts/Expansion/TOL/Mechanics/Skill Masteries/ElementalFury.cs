@@ -111,7 +111,7 @@ namespace Server.Spells.SkillMasteries
 
                 switch (_Type)
                 {
-                    case ResistType.Physical:
+                    case ResistType.Phys:
                         AOS.Damage(defender, Caster, d, 100, 0, 0, 0, 0);
                         break;
                     case ResistType.Fire:
@@ -120,10 +120,10 @@ namespace Server.Spells.SkillMasteries
                     case ResistType.Cold:
                         AOS.Damage(defender, Caster, d, 0, 0, 100, 0, 0);
                         break;
-                    case ResistType.Poison:
+                    case ResistType.Pois:
                         AOS.Damage(defender, Caster, d, 0, 0, 0, 100, 0);
                         break;
-                    case ResistType.Energy:
+                    case ResistType.Engy:
                         AOS.Damage(defender, Caster, d, 0, 0, 0, 0, 100);
                         break;
                 }
@@ -149,7 +149,7 @@ namespace Server.Spells.SkillMasteries
         private ResistType GetResistType(BaseWeapon weapon)
         {
             if (weapon == null)
-                return ResistType.Physical;
+                return ResistType.Phys;
 
             int phys, fire, cold, pois, nrgy, chaos, direct;
             weapon.GetDamageTypes(null, out phys, out fire, out cold, out pois, out nrgy, out chaos, out direct);

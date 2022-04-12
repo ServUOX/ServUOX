@@ -211,14 +211,14 @@ namespace Server.Engines.Events
 
             SetDamage(8, 18);
 
-            SetDamageType(ResistType.Physical, 40);
+            SetDamageType(ResistType.Phys, 40);
             SetDamageType(ResistType.Cold, 60);
 
             SetResist(ResistType.Fire, 50);
-            SetResist(ResistType.Energy, 50);
-            SetResist(ResistType.Physical, 50);
+            SetResist(ResistType.Engy, 50);
+            SetResist(ResistType.Phys, 50);
             SetResist(ResistType.Cold, 50);
-            SetResist(ResistType.Poison, 50);
+            SetResist(ResistType.Pois, 50);
 
             SetSkill(SkillName.MagicResist, 65.1, 80.0);
             SetSkill(SkillName.Tactics, 95.1, 100);

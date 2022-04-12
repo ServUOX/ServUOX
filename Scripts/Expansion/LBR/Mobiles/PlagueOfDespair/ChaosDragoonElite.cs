@@ -21,7 +21,7 @@ namespace Server.Mobiles
 
             SetDamage(29, 34);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
             /* ERA BASED?
             SetResist(ResistType.Physical, 45, 55);

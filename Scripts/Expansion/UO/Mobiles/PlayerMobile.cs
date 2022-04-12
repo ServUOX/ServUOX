@@ -958,18 +958,18 @@ namespace Server.Mobiles
                 max += Spells.Mysticism.StoneFormSpell.GetMaxResistBonus(this);
             }
 
-            if (Core.ML && Race == Race.Elf && type == ResistType.Energy)
+            if (Core.ML && Race == Race.Elf && type == ResistType.Engy)
             {
                 max += 5; //Intended to go after the 60 max from curse
             }
 
-            if (type != ResistType.Physical && 60 < max && Spells.Fourth.CurseSpell.UnderEffect(this))
+            if (type != ResistType.Phys && 60 < max && Spells.Fourth.CurseSpell.UnderEffect(this))
             {
                 max -= 10;
                 //max = 60;
             }
 
-            if ((type == ResistType.Fire || type == ResistType.Poison) && CorpseSkinSpell.IsUnderEffects(this))
+            if ((type == ResistType.Fire || type == ResistType.Pois) && CorpseSkinSpell.IsUnderEffects(this))
             {
                 max = CorpseSkinSpell.GetResistMalus(this);
             }
@@ -1014,11 +1014,11 @@ namespace Server.Mobiles
 
                 ISetItem setItem = item as ISetItem;
 
-                Resistances[0] += setItem != null && setItem.SetEquipped ? setItem.SetResistBonus(ResistType.Physical) : item.PhysicalResistance;
+                Resistances[0] += setItem != null && setItem.SetEquipped ? setItem.SetResistBonus(ResistType.Phys) : item.PhysicalResistance;
                 Resistances[1] += setItem != null && setItem.SetEquipped ? setItem.SetResistBonus(ResistType.Fire) : item.FireResistance;
                 Resistances[2] += setItem != null && setItem.SetEquipped ? setItem.SetResistBonus(ResistType.Cold) : item.ColdResistance;
-                Resistances[3] += setItem != null && setItem.SetEquipped ? setItem.SetResistBonus(ResistType.Poison) : item.PoisonResistance;
-                Resistances[4] += setItem != null && setItem.SetEquipped ? setItem.SetResistBonus(ResistType.Energy) : item.EnergyResistance;
+                Resistances[3] += setItem != null && setItem.SetEquipped ? setItem.SetResistBonus(ResistType.Pois) : item.PoisonResistance;
+                Resistances[4] += setItem != null && setItem.SetEquipped ? setItem.SetResistBonus(ResistType.Engy) : item.EnergyResistance;
             }
 
             for (int i = 0; i < Resistances.Length; ++i)

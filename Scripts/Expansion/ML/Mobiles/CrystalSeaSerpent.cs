@@ -19,15 +19,15 @@ namespace Server.Mobiles
 
             SetDamage(10, 18);
 
-            SetDamageType(ResistType.Physical, 10);
+            SetDamageType(ResistType.Phys, 10);
             SetDamageType(ResistType.Cold, 45);
-            SetDamageType(ResistType.Energy, 45);
+            SetDamageType(ResistType.Engy, 45);
 
-            SetResist(ResistType.Physical, 50, 70);
+            SetResist(ResistType.Phys, 50, 70);
             SetResist(ResistType.Fire, 0);
             SetResist(ResistType.Cold, 70, 90);
-            SetResist(ResistType.Poison, 20, 30);
-            SetResist(ResistType.Energy, 60, 80);
+            SetResist(ResistType.Pois, 20, 30);
+            SetResist(ResistType.Engy, 60, 80);
         }
 
         public override void OnDeath(Container c)

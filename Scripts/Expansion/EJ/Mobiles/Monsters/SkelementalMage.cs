@@ -40,14 +40,14 @@ namespace Server.Mobiles
                 case SkelementalKnight.SkeletalType.Poison:
                     {
                         Hue = 2688;
-                        SetDamageType(ResistType.Poison, 100);
+                        SetDamageType(ResistType.Pois, 100);
                         energy = 5;
                         break;
                     }
                 case SkelementalKnight.SkeletalType.Energy:
                     {
                         Hue = 2717;
-                        SetDamageType(ResistType.Energy, 100);
+                        SetDamageType(ResistType.Engy, 100);
                         poison = 5;
                         break;
                     }
@@ -61,13 +61,13 @@ namespace Server.Mobiles
 
             SetDamage(8, 18);
 
-            SetDamageType(ResistType.Physical, 0);
+            SetDamageType(ResistType.Phys, 0);
 
-            SetResist(ResistType.Physical, 95);
+            SetResist(ResistType.Phys, 95);
             SetResist(ResistType.Fire, fire);
             SetResist(ResistType.Cold, cold);
-            SetResist(ResistType.Poison, poison);
-            SetResist(ResistType.Energy, energy);
+            SetResist(ResistType.Pois, poison);
+            SetResist(ResistType.Engy, energy);
 
             SetSkill(SkillName.MagicResist, 60.0, 80.0);
             SetSkill(SkillName.Tactics, 75.0, 100.0);

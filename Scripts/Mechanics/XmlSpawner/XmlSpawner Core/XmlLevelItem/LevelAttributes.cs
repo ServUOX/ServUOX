@@ -87,11 +87,11 @@ namespace Server.Items
         //Armor specific
         public static ResistTypeInfo[] m_ResistTypes = new ResistTypeInfo[]
 		{
-            new ResistTypeInfo( ResistType.Physical, "Physical Resistance", AttributeCategory.Resists, 2, 20 ),
+            new ResistTypeInfo( ResistType.Phys, "Physical Resistance", AttributeCategory.Resists, 2, 20 ),
             new ResistTypeInfo( ResistType.Fire, "Fire Resistance", AttributeCategory.Resists, 2, 20 ),
             new ResistTypeInfo( ResistType.Cold, "Cold Resistance", AttributeCategory.Resists, 2, 20 ),
-            new ResistTypeInfo( ResistType.Poison, "Poison Resistance", AttributeCategory.Resists, 2, 20 ),
-            new ResistTypeInfo( ResistType.Energy, "Energy Resistance", AttributeCategory.Resists, 2, 20 )
+            new ResistTypeInfo( ResistType.Pois, "Poison Resistance", AttributeCategory.Resists, 2, 20 ),
+            new ResistTypeInfo( ResistType.Engy, "Energy Resistance", AttributeCategory.Resists, 2, 20 )
         };
 
         //Jewel & Clothing Specific Resists

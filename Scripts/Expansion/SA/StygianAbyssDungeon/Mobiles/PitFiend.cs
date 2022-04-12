@@ -31,11 +31,11 @@ namespace Server.Mobiles
             SetSkill(SkillName.Tactics, 80.1, 90.0);
             SetSkill(SkillName.Wrestling, 80.1, 100.0);
 
-            SetResist(ResistType.Physical, 55, 65);
+            SetResist(ResistType.Phys, 55, 65);
             SetResist(ResistType.Fire, 10, 20);
             SetResist(ResistType.Cold, 60, 70);
-            SetResist(ResistType.Poison, 20, 30);
-            SetResist(ResistType.Energy, 30, 40);
+            SetResist(ResistType.Pois, 20, 30);
+            SetResist(ResistType.Engy, 30, 40);
 
             Fame = 18000;
             Karma = -18000;

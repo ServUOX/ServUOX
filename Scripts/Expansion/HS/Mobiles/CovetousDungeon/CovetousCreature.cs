@@ -87,13 +87,13 @@ namespace Server.Mobiles
 
             SetDamage(MinDamStart, MaxDamStart);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, ResistStart - 5, ResistStart + 5);
+            SetResist(ResistType.Phys, ResistStart - 5, ResistStart + 5);
             SetResist(ResistType.Fire, ResistStart - 5, ResistStart + 5);
             SetResist(ResistType.Cold, ResistStart - 5, ResistStart + 5);
-            SetResist(ResistType.Poison, ResistStart - 5, ResistStart + 5);
-            SetResist(ResistType.Energy, ResistStart - 5, ResistStart + 5);
+            SetResist(ResistType.Pois, ResistStart - 5, ResistStart + 5);
+            SetResist(ResistType.Engy, ResistStart - 5, ResistStart + 5);
 
             if (Stage > 1)
                 Timer.DelayCall(TimeSpan.FromSeconds(.5), SetPower);
@@ -182,11 +182,11 @@ namespace Server.Mobiles
                 }
             }
 
-            SetResist(ResistType.Physical, ((ResistMax / MaxStage) * Stage) + Utility.RandomMinMax(-5, 5));
+            SetResist(ResistType.Phys, ((ResistMax / MaxStage) * Stage) + Utility.RandomMinMax(-5, 5));
             SetResist(ResistType.Fire, ((ResistMax / MaxStage) * Stage) + Utility.RandomMinMax(-5, 5));
             SetResist(ResistType.Cold, ((ResistMax / MaxStage) * Stage) + Utility.RandomMinMax(-5, 5));
-            SetResist(ResistType.Poison, ((ResistMax / MaxStage) * Stage) + Utility.RandomMinMax(-5, 5));
-            SetResist(ResistType.Energy, ((ResistMax / MaxStage) * Stage) + Utility.RandomMinMax(-5, 5));
+            SetResist(ResistType.Pois, ((ResistMax / MaxStage) * Stage) + Utility.RandomMinMax(-5, 5));
+            SetResist(ResistType.Engy, ((ResistMax / MaxStage) * Stage) + Utility.RandomMinMax(-5, 5));
 
             int strRaise = ((StrMax / MaxStage) * Stage) + Utility.RandomMinMax(-5, 5);
             int dexRaise = ((DexMax / MaxStage) * Stage) + Utility.RandomMinMax(-5, 5);

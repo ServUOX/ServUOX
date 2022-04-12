@@ -5011,7 +5011,7 @@ namespace Server.Mobiles
 
             switch (type)
             {
-                case ResistType.Physical:
+                case ResistType.Phys:
                     if (max > 0)
                         PhysicalDamage = Utility.RandomMinMax(min, max);
                     else
@@ -5029,13 +5029,13 @@ namespace Server.Mobiles
                     else
                         ColdDamage = min;
                     break;
-                case ResistType.Poison:
+                case ResistType.Pois:
                     if (max > 0)
                         PoisonDamage = Utility.RandomMinMax(min, max);
                     else
                         PoisonDamage = min;
                     break;
-                case ResistType.Energy:
+                case ResistType.Engy:
                     if (max > 0)
                         EnergyDamage = Utility.RandomMinMax(min, max);
                     else
@@ -5143,7 +5143,7 @@ namespace Server.Mobiles
         {
             switch (type)
             {
-                case ResistType.Physical:
+                case ResistType.Phys:
                     PhysicalDamage = val;
                     break;
                 case ResistType.Fire:
@@ -5152,10 +5152,10 @@ namespace Server.Mobiles
                 case ResistType.Cold:
                     ColdDamage = val;
                     break;
-                case ResistType.Poison:
+                case ResistType.Pois:
                     PoisonDamage = val;
                     break;
-                case ResistType.Energy:
+                case ResistType.Engy:
                     EnergyDamage = val;
                     break;
             }
@@ -5195,11 +5195,11 @@ namespace Server.Mobiles
 
             switch (type)
             {
-                case ResistType.Physical: m_PhysicalResistance = val; break;
+                case ResistType.Phys: m_PhysicalResistance = val; break;
                 case ResistType.Fire: m_FireResistance = val; break;
                 case ResistType.Cold: m_ColdResistance = val; break;
-                case ResistType.Poison: m_PoisonResistance = val; break;
-                case ResistType.Energy: m_EnergyResistance = val; break;
+                case ResistType.Pois: m_PoisonResistance = val; break;
+                case ResistType.Engy: m_EnergyResistance = val; break;
             }
 
             UpdateResistances();

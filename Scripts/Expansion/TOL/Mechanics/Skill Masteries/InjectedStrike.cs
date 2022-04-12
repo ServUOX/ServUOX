@@ -242,7 +242,7 @@ namespace Server.Spells.SkillMasteries
             if (weapon is BaseRanged)
                 malus /= 2;
 
-            ResistanceMod mod = new ResistanceMod(ResistType.Poison, -malus);
+            ResistanceMod mod = new ResistanceMod(ResistType.Pois, -malus);
             defender.AddResistanceMod(mod);
 
             // ~2_NAME~ reduces your poison resistance by ~1_VAL~.

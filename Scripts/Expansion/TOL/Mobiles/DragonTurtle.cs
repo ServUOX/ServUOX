@@ -32,14 +32,14 @@ namespace Server.Mobiles
 
             SetHits(60000);
 
-            SetResist(ResistType.Physical, 75, 85);
+            SetResist(ResistType.Phys, 75, 85);
             SetResist(ResistType.Fire, 65, 75);
             SetResist(ResistType.Cold, 70, 75);
-            SetResist(ResistType.Poison, 100);
-            SetResist(ResistType.Energy, 65, 75);
+            SetResist(ResistType.Pois, 100);
+            SetResist(ResistType.Engy, 65, 75);
 
-            SetDamageType(ResistType.Physical, 50);
-            SetDamageType(ResistType.Poison, 50);
+            SetDamageType(ResistType.Phys, 50);
+            SetDamageType(ResistType.Pois, 50);
 
             SetSkill(SkillName.MagicResist, 90, 120);
             SetSkill(SkillName.Tactics, 200, 110);
@@ -299,11 +299,11 @@ namespace Server.Mobiles
 
             switch (type)
             {
-                case ResistType.Physical: AOS.Damage(mob, this, damage, 100, 0, 0, 0, 0); break;
+                case ResistType.Phys: AOS.Damage(mob, this, damage, 100, 0, 0, 0, 0); break;
                 case ResistType.Fire: AOS.Damage(mob, this, damage, 0, 100, 0, 0, 0); break;
                 case ResistType.Cold: AOS.Damage(mob, this, damage, 0, 0, 100, 0, 0); break;
-                case ResistType.Poison: AOS.Damage(mob, this, damage, 0, 0, 0, 100, 0); break;
-                case ResistType.Energy: AOS.Damage(mob, this, damage, 0, 0, 0, 0, 100); break;
+                case ResistType.Pois: AOS.Damage(mob, this, damage, 0, 0, 0, 100, 0); break;
+                case ResistType.Engy: AOS.Damage(mob, this, damage, 0, 0, 0, 0, 100); break;
             }
         }
 
@@ -311,16 +311,16 @@ namespace Server.Mobiles
         {
             switch (hue)
             {
-                case 0: return ResistType.Physical;
+                case 0: return ResistType.Phys;
                 case 33:
                 case 44: return ResistType.Fire;
                 case 9: return ResistType.Cold;
-                case 63: return ResistType.Poison;
+                case 63: return ResistType.Pois;
                 case 53:
-                case 126: return ResistType.Energy;
+                case 126: return ResistType.Engy;
             }
 
-            return ResistType.Physical;
+            return ResistType.Phys;
         }
 
         public DragonTurtle(Serial serial) : base(serial)

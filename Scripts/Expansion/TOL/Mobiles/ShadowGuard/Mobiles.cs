@@ -23,13 +23,13 @@ namespace Server.Engines.Shadowguard
 
             SetDamage(15, 21);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, 35, 45);
+            SetResist(ResistType.Phys, 35, 45);
             SetResist(ResistType.Fire, 25, 30);
             SetResist(ResistType.Cold, 25, 30);
-            SetResist(ResistType.Poison, 10, 20);
-            SetResist(ResistType.Energy, 10, 20);
+            SetResist(ResistType.Pois, 10, 20);
+            SetResist(ResistType.Engy, 10, 20);
 
             SetSkill(SkillName.Anatomy, 125.0);
             SetSkill(SkillName.MagicResist, 83.5, 92.5);
@@ -203,14 +203,14 @@ namespace Server.Engines.Shadowguard
 
             SetDamage(14, 16);
 
-            SetDamageType(ResistType.Physical, 50);
+            SetDamageType(ResistType.Phys, 50);
             SetDamageType(ResistType.Cold, 50);
 
-            SetResist(ResistType.Physical, 50, 60);
+            SetResist(ResistType.Phys, 50, 60);
             SetResist(ResistType.Fire, 45, 55);
             SetResist(ResistType.Cold, 60, 70);
-            SetResist(ResistType.Poison, 70, 80);
-            SetResist(ResistType.Energy, 40, 60);
+            SetResist(ResistType.Pois, 70, 80);
+            SetResist(ResistType.Engy, 40, 60);
 
             SetSkill(SkillName.Wrestling, 95.0, 110.0);
             SetSkill(SkillName.Tactics, 95.0, 110.0);
@@ -249,10 +249,10 @@ namespace Server.Engines.Shadowguard
 
             //Missing Attr - Hit Point Reg: 35, Mana Reg: 20
 
-            SetResist(ResistType.Physical, 2);
+            SetResist(ResistType.Phys, 2);
             SetResist(ResistType.Cold, 5);
-            SetResist(ResistType.Poison, 3);
-            SetResist(ResistType.Energy, 2);
+            SetResist(ResistType.Pois, 3);
+            SetResist(ResistType.Engy, 2);
 
             SetSkill(SkillName.MagicResist, 40.1, 55.0);
             SetSkill(SkillName.Tactics, 65.1, 90.0);
@@ -330,13 +330,13 @@ namespace Server.Engines.Shadowguard
 
             SetDamage(15, 21);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, 35, 45);
+            SetResist(ResistType.Phys, 35, 45);
             SetResist(ResistType.Fire, 25, 30);
             SetResist(ResistType.Cold, 25, 30);
-            SetResist(ResistType.Poison, 10, 20);
-            SetResist(ResistType.Energy, 10, 20);
+            SetResist(ResistType.Pois, 10, 20);
+            SetResist(ResistType.Engy, 10, 20);
 
             SetSkill(SkillName.Anatomy, 125.0);
             SetSkill(SkillName.Fencing, 46.0, 77.5);
@@ -422,11 +422,11 @@ namespace Server.Engines.Shadowguard
         {
             Name = "a vile drake";
 
-            SetResist(ResistType.Physical, 50, 60);
+            SetResist(ResistType.Phys, 50, 60);
             SetResist(ResistType.Fire, 80, 90);
             SetResist(ResistType.Cold, 80, 90);
-            SetResist(ResistType.Poison, 90, 100);
-            SetResist(ResistType.Energy, 70, 80);
+            SetResist(ResistType.Pois, 90, 100);
+            SetResist(ResistType.Engy, 70, 80);
 
             SetSkill(SkillName.MagicResist, 65.0, 80.0);
             SetSkill(SkillName.Tactics, 65.0, 90.0);
@@ -649,13 +649,13 @@ namespace Server.Engines.Shadowguard
 
             SetDamage(15, 21);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, 35, 45);
+            SetResist(ResistType.Phys, 35, 45);
             SetResist(ResistType.Fire, 25, 30);
             SetResist(ResistType.Cold, 25, 30);
-            SetResist(ResistType.Poison, 10, 20);
-            SetResist(ResistType.Energy, 10, 20);
+            SetResist(ResistType.Pois, 10, 20);
+            SetResist(ResistType.Engy, 10, 20);
 
             SetSkill(SkillName.Magery, 125.0);
             SetSkill(SkillName.EvalInt, 125.0);

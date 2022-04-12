@@ -24,13 +24,13 @@ namespace Server.Mobiles
 
             SetDamage(10, 12);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, 40, 50);
+            SetResist(ResistType.Phys, 40, 50);
             SetResist(ResistType.Fire, 45, 50);
             SetResist(ResistType.Cold, 40, 50);
-            SetResist(ResistType.Poison, 20, 25);
-            SetResist(ResistType.Energy, 40, 50);
+            SetResist(ResistType.Pois, 20, 25);
+            SetResist(ResistType.Engy, 40, 50);
 
             SetSkill(SkillName.Anatomy, 90.1, 100.0);
             SetSkill(SkillName.Archery, 95.1, 100.0);
@@ -132,13 +132,13 @@ namespace Server.Mobiles
 
             SetDamage(4, 10);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, 20, 30);
+            SetResist(ResistType.Phys, 20, 30);
             SetResist(ResistType.Fire, 35, 45);
             SetResist(ResistType.Cold, 30, 40);
-            SetResist(ResistType.Poison, 10, 20);
-            SetResist(ResistType.Energy, 35, 45);
+            SetResist(ResistType.Pois, 10, 20);
+            SetResist(ResistType.Engy, 35, 45);
 
             SetSkill(SkillName.Anatomy, 80.1, 90.0);
             SetSkill(SkillName.EvalInt, 80.2, 100.0);
@@ -326,13 +326,13 @@ namespace Server.Mobiles
 
             SetDamage(7, 9);
 
-            SetDamageType(ResistType.Physical, 100);
+            SetDamageType(ResistType.Phys, 100);
 
-            SetResist(ResistType.Physical, 40, 50);
+            SetResist(ResistType.Phys, 40, 50);
             SetResist(ResistType.Fire, 30, 40);
             SetResist(ResistType.Cold, 25, 35);
-            SetResist(ResistType.Poison, 10, 20);
-            SetResist(ResistType.Energy, 10, 20);
+            SetResist(ResistType.Pois, 10, 20);
+            SetResist(ResistType.Engy, 10, 20);
 
             SetSkill(SkillName.Anatomy, 80.1, 90.0);
             SetSkill(SkillName.Fencing, 80.1, 90.0);

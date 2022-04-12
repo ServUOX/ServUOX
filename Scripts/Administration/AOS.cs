@@ -460,11 +460,11 @@ namespace Server
         {
             switch (index)
             {
-                case 0: return from.GetMaxResistance(ResistType.Physical);
+                case 0: return from.GetMaxResistance(ResistType.Phys);
                 case 1: return from.GetMaxResistance(ResistType.Fire);
                 case 2: return from.GetMaxResistance(ResistType.Cold);
-                case 3: return from.GetMaxResistance(ResistType.Poison);
-                case 4: return from.GetMaxResistance(ResistType.Energy);
+                case 3: return from.GetMaxResistance(ResistType.Pois);
+                case 4: return from.GetMaxResistance(ResistType.Engy);
                 case 5: return Math.Min(45 + BaseArmor.GetRefinedDefenseChance(from), AosAttributes.GetValue(from, AosAttribute.DefendChance));
                 case 6: return 45 + BaseArmor.GetRefinedDefenseChance(from);
                 case 7: return Math.Min(from.Race == Race.Gargoyle ? 50 : 45, AosAttributes.GetValue(from, AosAttribute.AttackChance));
