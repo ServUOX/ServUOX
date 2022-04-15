@@ -17,7 +17,7 @@ namespace Server.Mobiles
         [CommandProperty(AccessLevel.GameMaster)]
         public int DevourGoal
         {
-            get => (IsParagon ? m_DevourGoal + 25 : m_DevourGoal);
+            get => IsParagon ? m_DevourGoal + 25 : m_DevourGoal;
             set => m_DevourGoal = value;
         }
 
@@ -84,9 +84,10 @@ namespace Server.Mobiles
         {
             if (Map != null && caster != this && 0.25 > Utility.RandomDouble())
             {
-                BaseCreature spawn = new PlagueSpawn(this);
-
-                spawn.Team = Team;
+                BaseCreature spawn = new PlagueSpawn(this)
+                {
+                    Team = Team
+                };
                 spawn.MoveToWorld(Location, Map);
                 spawn.Combatant = caster;
 
@@ -103,9 +104,10 @@ namespace Server.Mobiles
         {
             if (Map != null && attacker != this && 0.25 > Utility.RandomDouble())
             {
-                BaseCreature spawn = new PlagueSpawn(this);
-
-                spawn.Team = Team;
+                BaseCreature spawn = new PlagueSpawn(this)
+                {
+                    Team = Team
+                };
                 spawn.MoveToWorld(Location, Map);
                 spawn.Combatant = attacker;
 
@@ -163,10 +165,8 @@ namespace Server.Mobiles
             {
                 if (item is Corpse) // For each Corpse
                 {
-                    Corpse corpse = item as Corpse;
-
                     // Ensure that the corpse was killed by us
-                    if (corpse != null && corpse.Killer == this && corpse.Owner != null)
+                    if (item is Corpse corpse && corpse.Killer == this && corpse.Owner != null)
                     {
                         if (!corpse.DevourCorpse() && !corpse.Devoured)
                             PublicOverheadMessage(MessageType.Emote, 0x3B2, 1053032); // * The plague beast attempts to absorb the remains, but cannot! *
@@ -210,7 +210,7 @@ namespace Server.Mobiles
                 maxhits = (int)(maxhits * Paragon.HitsBuff);
 
             if (hp < 1000 && !Core.AOS)
-                hp = (hp * 100) / 60;
+                hp = hp * 100 / 60;
 
             if (HitsMaxSeed >= maxhits)
             {
@@ -253,11 +253,9 @@ namespace Server.Mobiles
 
             SetHits(1800);
 
-            SetDamage(20, 25);
-
-            SetDamageType(ResistType.Phys, 50);
-            SetDamageType(ResistType.Fire, 25);
-            SetDamageType(ResistType.Pois, 25);
+            SetDamage(ResistType.Phys, 50, 0, 20, 25);
+            SetDamage(ResistType.Fire, 25);
+            SetDamage(ResistType.Pois, 25);
 
             SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Fire, 40, 50);
@@ -300,9 +298,7 @@ namespace Server.Mobiles
                 {
                     for (int i = 0; i < pack.Items.Count; i++)
                     {
-                        PlagueBeastBlood blood = pack.Items[i] as PlagueBeastBlood;
-
-                        if (blood != null && !blood.Patched)
+                        if (pack.Items[i] is PlagueBeastBlood blood && !blood.Patched)
                             return true;
                     }
                 }
@@ -335,7 +331,9 @@ namespace Server.Mobiles
             base.OnDeath(c);
 
             for (int i = c.Items.Count - 1; i >= 0; i--)
+            {
                 c.Items[i].Delete();
+            }
         }
 
         public override void OnDelete()
@@ -587,9 +585,7 @@ namespace Server.Mobiles
             SetHits(92);
             SetMana(0);
 
-            SetDamage(4, 8);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 4, 8);
 
             SetResist(ResistType.Phys, 35, 40);
             SetResist(ResistType.Fire, 20, 25);
@@ -685,8 +681,7 @@ namespace Server.Mobiles
 
             SetHits(121, 180);
 
-            SetDamage(11, 17);
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 11, 17);
 
             SetResist(ResistType.Phys, 35, 45);
             SetResist(ResistType.Fire, 30, 40);

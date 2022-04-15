@@ -18,8 +18,8 @@ namespace Server.Engines.Quests
         {
             Mobile from = Owner.From;
 
-            if (from.CheckAlive() && from is PlayerMobile && m_Quester.CanTalkTo((PlayerMobile)from))
-                m_Quester.OnTalk((PlayerMobile)from, true);
+            if (from.CheckAlive() && from is PlayerMobile mobile && m_Quester.CanTalkTo(mobile))
+                m_Quester.OnTalk(mobile, true);
         }
     }
 

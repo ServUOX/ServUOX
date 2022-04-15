@@ -22,9 +22,7 @@ namespace Server.Mobiles
 
             SetHits(58, 66);
 
-            SetDamage(5, 15);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 5, 15);
 
             SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Fire, 10, 20);
@@ -96,6 +94,8 @@ namespace Server.Mobiles
                     break;
                 case 5:
                     CorpseLoot.DropItem(new VikingSword());
+                    break;
+                default:
                     break;
             }
 
@@ -184,9 +184,7 @@ namespace Server.Mobiles
 
             SetHits(250, 303);
 
-            SetDamage(11, 13);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 11, 13);
 
             SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Fire, 15, 25);
@@ -249,9 +247,7 @@ namespace Server.Mobiles
         {
             if (DateTime.UtcNow >= m_NextAbilityTime)
             {
-                Mobile combatant = Combatant as Mobile;
-
-                if (combatant != null && combatant.Map == Map && combatant.InRange(this, 12))
+                if (Combatant is Mobile combatant && combatant.Map == Map && combatant.InRange(this, 12))
                 {
                     m_NextAbilityTime = DateTime.UtcNow + TimeSpan.FromSeconds(Utility.RandomMinMax(10, 15));
 
@@ -270,6 +266,8 @@ namespace Server.Mobiles
                             break;
                         case 3:
                             DoAreaLeech();
+                            break;
+                        default:
                             break;
                             // TODO: Resurrect ability
                     }
@@ -321,12 +319,18 @@ namespace Server.Mobiles
             {
                 double scalar;
 
-                if (list.Count == 1)
-                    scalar = 0.75;
-                else if (list.Count == 2)
-                    scalar = 0.50;
-                else
-                    scalar = 0.25;
+                switch (list.Count)
+                {
+                    case 1:
+                        scalar = 0.75;
+                        break;
+                    case 2:
+                        scalar = 0.50;
+                        break;
+                    default:
+                        scalar = 0.25;
+                        break;
+                }
 
                 for (int i = 0; i < list.Count; ++i)
                 {
@@ -405,9 +409,7 @@ namespace Server.Mobiles
 
             SetHits(103, 120);
 
-            SetDamage(24, 26);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 24, 26);
 
             SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Fire, 15, 25);
@@ -487,16 +489,12 @@ namespace Server.Mobiles
         {
             if (DateTime.UtcNow >= m_NextAbilityTime)
             {
-                Mobile combatant = Combatant as Mobile;
-
-                if (combatant != null && combatant.Map == Map && combatant.InRange(this, 12) && IsEnemy(combatant) && !UnderEffect(combatant))
+                if (Combatant is Mobile combatant && combatant.Map == Map && combatant.InRange(this, 12) && IsEnemy(combatant) && !UnderEffect(combatant))
                 {
                     m_NextAbilityTime = DateTime.UtcNow + TimeSpan.FromSeconds(Utility.RandomMinMax(20, 30));
 
-                    if (combatant is BaseCreature)
+                    if (combatant is BaseCreature bc)
                     {
-                        BaseCreature bc = (BaseCreature)combatant;
-
                         if (bc.Controlled && bc.ControlMaster != null && !bc.ControlMaster.Deleted && bc.ControlMaster.Alive)
                         {
                             if (bc.ControlMaster.Map == Map && bc.ControlMaster.InRange(this, 12) && !UnderEffect(bc.ControlMaster))
@@ -573,9 +571,7 @@ namespace Server.Mobiles
             }
             else
             {
-                Torch torch = m.FindItemOnLayer(Layer.TwoHanded) as Torch;
-
-                if (torch != null && torch.Burning)
+                if (m.FindItemOnLayer(Layer.TwoHanded) is Torch torch && torch.Burning)
                 {
                     StopEffect(m, true);
                 }
@@ -630,9 +626,7 @@ namespace Server.Mobiles
 
             SetHits(52, 60);
 
-            SetDamage(12, 19);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 12, 19);
 
             SetResist(ResistType.Phys, 35, 45);
             SetResist(ResistType.Fire, 5, 15);

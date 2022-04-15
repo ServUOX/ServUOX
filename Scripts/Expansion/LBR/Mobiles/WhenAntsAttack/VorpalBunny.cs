@@ -54,9 +54,7 @@ namespace Server.Mobiles
             SetStam(500);
             SetMana(0);
 
-            SetDamage(1);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamageType(ResistType.Phys, 100, 1);
 
             SetSkill(SkillName.MagicResist, 200.0);
             SetSkill(SkillName.Tactics, 5.0);

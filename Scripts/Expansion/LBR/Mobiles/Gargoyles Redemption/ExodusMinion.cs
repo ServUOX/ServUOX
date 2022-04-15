@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -20,7 +19,7 @@ namespace Server.Mobiles
 
             SetHits(511, 570);
 
-            SetDamage(16, 22);
+            SetDamage(ResistType.Phys, 0, 0, 16, 22);
 
             SetResist(ResistType.Phys, 60, 70);
             SetResist(ResistType.Fire, 40, 50);
@@ -50,6 +49,8 @@ namespace Server.Mobiles
                     break;
                 case 2:
                     PackItem(new ClockworkAssembly());
+                    break;
+                default:
                     break;
             }
 
@@ -198,7 +199,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_FieldActive = CanUseField;
         }

@@ -25,10 +25,8 @@ namespace Server.Mobiles
 
             SetHits(151, 162);
 
-            SetDamage(7, 21);
-
-            SetDamageType(ResistType.Phys, 70);
-            SetDamageType(ResistType.Pois, 30);
+            SetDamage(ResistType.Phys, 70, 0, 7, 21);
+            SetDamage(ResistType.Pois, 30);
 
             SetResist(ResistType.Phys, 45, 60);
             SetResist(ResistType.Fire, 25, 35);
@@ -203,10 +201,8 @@ namespace Server.Mobiles
 
         public void BeginAcidBreath()
         {
-            PlayerMobile m = Combatant as PlayerMobile;
-            // Mobile m = Combatant;
 
-            if (m == null || m.Deleted || !m.Alive || !Alive || m_NextAcidBreath > DateTime.Now || !CanBeHarmful(m))
+            if (!(Combatant is PlayerMobile m) || m.Deleted || !m.Alive || !Alive || m_NextAcidBreath > DateTime.Now || !CanBeHarmful(m))
                 return;
 
             PlaySound(0x118);

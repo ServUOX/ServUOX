@@ -25,10 +25,8 @@ namespace Server.Mobiles
 
             SetHits(226, 240);
 
-            SetDamage(11, 30);
-
-            SetDamageType(ResistType.Phys, 20);
-            SetDamageType(ResistType.Fire, 80);
+            SetDamage(ResistType.Phys, 20 0, 11, 30);
+            SetDamage(ResistType.Fire, 80);
 
             SetResist(ResistType.Phys, 30, 40);
             SetResist(ResistType.Fire, 70, 80);
@@ -74,26 +72,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(1);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-
-            if (version < 1)
-            {
-                for (int i = 0; i < Skills.Length; ++i)
-                {
-                    Skills[i].Cap = Math.Max(100.0, Skills[i].Cap * 0.9);
-
-                    if (Skills[i].Base > Skills[i].Cap)
-                    {
-                        Skills[i].Base = Skills[i].Cap;
-                    }
-                }
-            }
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -20,7 +19,7 @@ namespace Server.Mobiles
 
             SetHits(331, 390);
 
-            SetDamage(13, 19);
+            SetDamage(ResistType.Phys, 0, 0, 13, 19);
 
             SetDamageType(ResistType.Phys, 50);
             SetDamageType(ResistType.Engy, 50);
@@ -39,10 +38,15 @@ namespace Server.Mobiles
             Karma = -10000;
             VirtualArmor = 50;
 
-            if (Utility.Random(2) == 0)
-                PackItem(new PowerCrystal());
-            else
-                PackItem(new ArcaneGem());
+            switch (Utility.Random(2))
+            {
+                case 0:
+                    PackItem(new PowerCrystal());
+                    break;
+                default:
+                    PackItem(new ArcaneGem());
+                    break;
+            }
 
             m_FieldActive = CanUseField;
         }
@@ -176,7 +180,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_FieldActive = CanUseField;
         }

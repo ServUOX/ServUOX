@@ -19,12 +19,10 @@ namespace Server.Mobiles
 
             SetHits(176, 225);
 
-            SetDamage(24, 26);
-
-            SetDamageType(ResistType.Phys, 25);
-            SetDamageType(ResistType.Fire, 25);
-            SetDamageType(ResistType.Cold, 25);
-            SetDamageType(ResistType.Engy, 25);
+            SetDamage(ResistType.Phys, 25, 0, 24, 26);
+            SetDamage(ResistType.Fire, 25);
+            SetDamage(ResistType.Cold, 25);
+            SetDamage(ResistType.Engy, 25);
 
             SetSkill(SkillName.Fencing, 77.6, 92.5);
             SetSkill(SkillName.Healing, 60.3, 90.0);
@@ -59,6 +57,8 @@ namespace Server.Mobiles
                 case 5:
                     res = CraftResource.WhiteScales;
                     break;
+                default:
+                    break;
             }
 
             BaseWeapon melee = null;
@@ -78,24 +78,34 @@ namespace Server.Mobiles
 
             AddItem(melee);
 
-            DragonHelm helm = new DragonHelm();
-            helm.Resource = res;
+            DragonHelm helm = new DragonHelm
+            {
+                Resource = res
+            };
             AddItem(helm);
 
-            DragonChest chest = new DragonChest();
-            chest.Resource = res;
+            DragonChest chest = new DragonChest
+            {
+                Resource = res
+            };
             AddItem(chest);
 
-            DragonArms arms = new DragonArms();
-            arms.Resource = res;
+            DragonArms arms = new DragonArms
+            {
+                Resource = res
+            };
             AddItem(arms);
 
-            DragonGloves gloves = new DragonGloves();
-            gloves.Resource = res;
+            DragonGloves gloves = new DragonGloves
+            {
+                Resource = res
+            };
             AddItem(gloves);
 
-            DragonLegs legs = new DragonLegs();
-            legs.Resource = res;
+            DragonLegs legs = new DragonLegs
+            {
+                Resource = res
+            };
             AddItem(legs);
 
             ChaosShield shield = new ChaosShield();
@@ -103,8 +113,6 @@ namespace Server.Mobiles
 
             AddItem(new Shirt());
             AddItem(new Boots());
-            //AddItem(new Boots(0x455));
-            //AddItem(new Shirt(Utility.RandomMetalHue()));
 
             int amount = Utility.RandomMinMax(1, 3);
 

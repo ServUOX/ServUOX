@@ -25,10 +25,8 @@ namespace Server.Mobiles
 
             SetHits(151, 162);
 
-            SetDamage(10, 15);
-
-            SetDamageType(ResistType.Phys, 70);
-            SetDamageType(ResistType.Pois, 30);
+            SetDamage(ResistType.Phys, 70, 0, 10, 15);
+            SetDamage(ResistType.Pois, 30);
 
             SetResist(ResistType.Phys, 30, 40);
             SetResist(ResistType.Fire, 30, 35);
@@ -123,9 +121,7 @@ namespace Server.Mobiles
 
         public void BeginAcidBreath()
         {
-            PlayerMobile m = Combatant as PlayerMobile;
-
-            if (m == null || m.Deleted || !m.Alive || !Alive || m_NextAcidBreath > DateTime.Now || !CanBeHarmful(m))
+            if (!(Combatant is PlayerMobile m) || m.Deleted || !m.Alive || !Alive || m_NextAcidBreath > DateTime.Now || !CanBeHarmful(m))
                 return;
 
             PlaySound(0x118);
@@ -276,7 +272,7 @@ namespace Server.Mobiles
 
         private class SpawnTimer : Timer
         {
-            private Item m_Item;
+            private readonly Item m_Item;
 
             public SpawnTimer(Item item)
                 : base(TimeSpan.FromSeconds(Utility.RandomMinMax(5, 10)))
@@ -304,6 +300,8 @@ namespace Server.Mobiles
                         spawn = new BlackSolenWorker();
                         spawn.MoveToWorld(m_Item.Location, m_Item.Map);
                         m_Item.Delete();
+                        break;
+                    default:
                         break;
                 }
             }
