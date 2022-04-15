@@ -28,9 +28,7 @@ namespace Server.Mobiles
 
             SetHits(200);
 
-            SetDamage(7, 20);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 7, 20);
 
             SetResist(ResistType.Phys, 30, 40);
             SetResist(ResistType.Fire, 20, 30);
@@ -54,8 +52,10 @@ namespace Server.Mobiles
             if (pack != null)
                 pack.Delete();
 
-            pack = new StrongBackpack();
-            pack.Movable = false;
+            pack = new StrongBackpack
+            {
+                Movable = false
+            };
 
             AddItem(pack);
         }
@@ -161,30 +161,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(1);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
-
-            if (version < 1 && PetTrainingHelper.Enabled && ControlSlots <= 3)
-            {
-                var profile = PetTrainingHelper.GetAbilityProfile(this);
-
-                if (profile == null || !profile.HasCustomized())
-                {
-                    MinTameSkill = 98.7;
-                    ControlSlotsMin = 1;
-                    ControlSlots = 1;
-                }
-
-                if ((ControlMaster != null || IsStabled) && Int < 500)
-                {
-                    SetInt(500);
-                }
-            }
+            _ = reader.ReadInt();
         }
     }
 }

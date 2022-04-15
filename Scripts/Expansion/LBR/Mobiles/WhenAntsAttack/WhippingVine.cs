@@ -20,10 +20,8 @@ namespace Server.Mobiles
 
             SetMana(0);
 
-            SetDamage(7, 25);
-
-            SetDamageType(ResistType.Phys, 70);
-            SetDamageType(ResistType.Pois, 30);
+            SetDamage(ResistType.Phys, 70, 0, 7, 25);
+            SetDamage(ResistType.Pois, 30);
 
             SetResist(ResistType.Phys, 75, 85);
             SetResist(ResistType.Fire, 15, 25);

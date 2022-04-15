@@ -19,9 +19,7 @@ namespace Server.Mobiles
 
             SetHits(276, 350);
 
-            SetDamage(29, 34);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 29, 34);
 
             /* ERA BASED?
             SetResist(ResistType.Physical, 45, 55);
@@ -65,6 +63,8 @@ namespace Server.Mobiles
                 case 5:
                     res = CraftResource.WhiteScales;
                     break;
+                default:
+                    break;
             }
 
             BaseWeapon melee = null;
@@ -80,29 +80,41 @@ namespace Server.Mobiles
                 case 2:
                     melee = new Katana();
                     break;
+                default:
+                    break;
             }
 
             melee.Movable = false;
             AddItem(melee);
 
-            DragonChest Tunic = new DragonChest();
-            Tunic.Resource = res;
+            DragonChest Tunic = new DragonChest
+            {
+                Resource = res
+            };
             AddItem(Tunic);
 
-            DragonLegs Legs = new DragonLegs();
-            Legs.Resource = res;
+            DragonLegs Legs = new DragonLegs
+            {
+                Resource = res
+            };
             AddItem(Legs);
 
-            DragonArms Arms = new DragonArms();
-            Arms.Resource = res;
+            DragonArms Arms = new DragonArms
+            {
+                Resource = res
+            };
             AddItem(Arms);
 
-            DragonGloves Gloves = new DragonGloves();
-            Gloves.Resource = res;
+            DragonGloves Gloves = new DragonGloves
+            {
+                Resource = res
+            };
             AddItem(Gloves);
 
-            DragonHelm Helm = new DragonHelm();
-            Helm.Resource = res;
+            DragonHelm Helm = new DragonHelm
+            {
+                Resource = res
+            };
             AddItem(Helm);
 
             ChaosShield shield = new ChaosShield();
@@ -132,6 +144,8 @@ namespace Server.Mobiles
                     break;
                 case CraftResource.WhiteScales:
                     AddItem(new WhiteScales(amount));
+                    break;
+                default:
                     break;
             }
             switch (Utility.Random(9))
@@ -163,11 +177,15 @@ namespace Server.Mobiles
                 case 8:
                     res = CraftResource.Iron;
                     break;
+                default:
+                    break;
             }
 
-            SwampDragon mt = new SwampDragon();
-            mt.HasBarding = true;
-            mt.BardingResource = res;
+            SwampDragon mt = new SwampDragon
+            {
+                HasBarding = true,
+                BardingResource = res
+            };
             mt.BardingHP = mt.BardingMaxHP;
             mt.Rider = this;
 
@@ -202,8 +220,8 @@ namespace Server.Mobiles
 
             if (mount != null)
             {
-                if (mount is SwampDragon)
-                    ((SwampDragon)mount).HasBarding = false;
+                if (mount is SwampDragon dragon)
+                    dragon.HasBarding = false;
 
                 mount.Rider = null;
             }

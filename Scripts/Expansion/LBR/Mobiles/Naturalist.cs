@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Plants;
 using Server.Items;
 using Server.Mobiles;
@@ -41,13 +40,9 @@ namespace Server.Engines.Quests.Naturalist
 
         public override void OnTalk(PlayerMobile player, bool contextMenu)
         {
-            StudyOfSolenQuest qs = player.Quest as StudyOfSolenQuest;
-
-            if (qs != null && qs.Naturalist == this)
+            if (player.Quest is StudyOfSolenQuest qs && qs.Naturalist == this)
             {
-                StudyNestsObjective study = qs.FindObjective(typeof(StudyNestsObjective)) as StudyNestsObjective;
-
-                if (study != null)
+                if (qs.FindObjective(typeof(StudyNestsObjective)) is StudyNestsObjective study)
                 {
                     if (!study.Completed)
                     {
@@ -197,15 +192,13 @@ namespace Server.Engines.Quests.Naturalist
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }

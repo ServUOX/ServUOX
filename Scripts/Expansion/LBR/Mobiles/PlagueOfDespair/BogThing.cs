@@ -20,10 +20,8 @@ namespace Server.Mobiles
             SetHits(481, 540);
             SetMana(0);
 
-            SetDamage(10, 23);
-
-            SetDamageType(ResistType.Phys, 60);
-            SetDamageType(ResistType.Pois, 40);
+            SetDamage(ResistType.Phys, 60, 0, 10, 23);
+            SetDamage(ResistType.Pois, 40);
 
             SetResist(ResistType.Phys, 30, 40);
             SetResist(ResistType.Fire, 20, 25);
@@ -88,9 +86,10 @@ namespace Server.Mobiles
             if (map == null)
                 return;
 
-            Bogling spawned = new Bogling();
-
-            spawned.Team = Team;
+            Bogling spawned = new Bogling
+            {
+                Team = Team
+            };
 
             bool validLocation = false;
             Point3D loc = Location;
