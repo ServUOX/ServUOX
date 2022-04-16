@@ -90,13 +90,11 @@ namespace Server.Mobiles
 
             if (!Core.SE && 0.2 > Utility.RandomDouble() && attacker is BaseCreature creature)
             {
-                BaseCreature c = creature;
-
-                if (c.Controlled && c.ControlMaster != null)
+                if (creature.Controlled && creature.ControlMaster != null)
                 {
-                    c.ControlTarget = c.ControlMaster;
-                    c.ControlOrder = OrderType.Attack;
-                    c.Combatant = c.ControlMaster;
+                    creature.ControlTarget = creature.ControlMaster;
+                    creature.ControlOrder = OrderType.Attack;
+                    creature.Combatant = creature.ControlMaster;
                 }
             }
         }

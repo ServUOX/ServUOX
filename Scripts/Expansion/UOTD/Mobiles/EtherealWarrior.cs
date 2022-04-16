@@ -130,6 +130,8 @@ namespace Server.Mobiles
                         defender.Mana -= toSap;
                         Mana += toSap;
                         break;
+                    default:
+                        break;
                 }
             }
         }

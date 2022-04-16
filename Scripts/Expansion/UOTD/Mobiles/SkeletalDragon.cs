@@ -2,7 +2,7 @@ namespace Server.Mobiles
 {
     [CorpseName("a skeletal dragon corpse")]
     public class SkeletalDragon : BaseCreature
-    {
+    {// TODO: Undead summoning
         [Constructible]
         public SkeletalDragon()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
@@ -50,7 +50,7 @@ namespace Server.Mobiles
         public override bool AutoDispel => !Controlled;
         public override bool BleedImmunity => true;
         public override bool ReacquireOnMovement => !Controlled;
-        public override double BonusPetDamageScalar => (Core.SE) ? 3.0 : 1.0;
+        public override double BonusPetDamageScalar => Core.SE ? 3.0 : 1.0;
         public override int Hides => 20;
         public override int Meat => 19;
         public override HideType HideType => HideType.Barbed;
