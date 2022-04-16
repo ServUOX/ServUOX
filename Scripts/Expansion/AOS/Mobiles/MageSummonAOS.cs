@@ -21,10 +21,8 @@ namespace Server.Mobiles
             SetHits(150);
             SetStam(50);
 
-            SetDamage(6, 9);
-
-            SetDamageType(ResistType.Phys, 50);
-            SetDamageType(ResistType.Engy, 50);
+            SetDamage(ResistType.Phys, 50, 0, 6, 9);
+            SetDamage(ResistType.Engy, 50);
 
             SetResist(ResistType.Phys, 40, 50);
             SetResist(ResistType.Fire, 30, 40);
@@ -61,9 +59,6 @@ namespace Server.Mobiles
         {
             base.Deserialize(reader);
             _ = reader.ReadInt();
-
-            if (BaseSoundID == 263)
-                BaseSoundID = 655;
         }
     }
 
@@ -82,10 +77,8 @@ namespace Server.Mobiles
             SetDex(110);
             SetInt(150);
 
-            SetDamage(14, 21);
-
-            SetDamageType(ResistType.Phys, 0);
-            SetDamageType(ResistType.Pois, 100);
+            SetDamage(ResistType.Phys, 0, 0, 14, 21);
+            SetDamage(ResistType.Pois, 100);
 
             SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Fire, 50, 60);
@@ -144,9 +137,7 @@ namespace Server.Mobiles
 
             SetHits(180);
 
-            SetDamage(14, 21);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 14, 21);
 
             SetResist(ResistType.Phys, 65, 75);
             SetResist(ResistType.Fire, 40, 50);
@@ -198,10 +189,8 @@ namespace Server.Mobiles
             SetDex(200);
             SetInt(100);
 
-            SetDamage(9, 14);
-
-            SetDamageType(ResistType.Phys, 0);
-            SetDamageType(ResistType.Fire, 100);
+            SetDamage(ResistType.Phys, 0, 0, 9, 14);
+            SetDamage(ResistType.Fire, 100);
 
             SetResist(ResistType.Phys, 50, 60);
             SetResist(ResistType.Fire, 70, 80);
@@ -259,10 +248,8 @@ namespace Server.Mobiles
 
             SetHits(165);
 
-            SetDamage(12, 16);
-
-            SetDamageType(ResistType.Phys, 0);
-            SetDamageType(ResistType.Cold, 100);
+            SetDamage(ResistType.Phys, 0, 0, 12, 16);
+            SetDamage(ResistType.Cold, 100);
 
             SetResist(ResistType.Phys, 50, 60);
             SetResist(ResistType.Fire, 20, 30);

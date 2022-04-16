@@ -47,9 +47,9 @@ namespace Server.Mobiles
             if (qs == null)
                 return false;
 
-            return (qs.IsObjectiveInProgress(typeof(FindTomasObjective)) ||
+            return qs.IsObjectiveInProgress(typeof(FindTomasObjective)) ||
                     qs.IsObjectiveInProgress(typeof(CaptureImagesObjective)) ||
-                    qs.IsObjectiveInProgress(typeof(ReturnImagesObjective)));
+                    qs.IsObjectiveInProgress(typeof(ReturnImagesObjective));
         }
 
         public override void OnTalk(PlayerMobile player, bool contextMenu)
@@ -98,15 +98,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

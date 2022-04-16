@@ -56,9 +56,7 @@ namespace Server.Engines.Quests.Collector
 
             if (qs is CollectorQuest)
             {
-                FindSheetMusicObjective obj = qs.FindObjective(typeof(FindSheetMusicObjective)) as FindSheetMusicObjective;
-
-                if (obj != null && !obj.Completed)
+                if (qs.FindObjective(typeof(FindSheetMusicObjective)) is FindSheetMusicObjective obj && !obj.Completed)
                 {
                     Direction = GetDirectionTo(player);
 
@@ -78,15 +76,13 @@ namespace Server.Engines.Quests.Collector
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -136,17 +132,13 @@ namespace Server.Engines.Quests.Collector
         {
             if (info.ButtonID == 1 && info.IsSwitched(1))
             {
-                PlayerMobile player = sender.Mobile as PlayerMobile;
-
-                if (player != null)
+                if (sender.Mobile is PlayerMobile player)
                 {
                     QuestSystem qs = player.Quest;
 
                     if (qs is CollectorQuest)
                     {
-                        FindSheetMusicObjective obj = qs.FindObjective(typeof(FindSheetMusicObjective)) as FindSheetMusicObjective;
-
-                        if (obj != null && !obj.Completed)
+                        if (qs.FindObjective(typeof(FindSheetMusicObjective)) is FindSheetMusicObjective obj && !obj.Completed)
                         {
                             if (player.Backpack != null && player.Backpack.ConsumeTotal(typeof(Gold), 10))
                             {

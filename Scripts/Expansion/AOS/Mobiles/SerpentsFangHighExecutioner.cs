@@ -11,7 +11,7 @@ namespace Server.Mobiles
             : base()
         {
             Name = "Black Order High Executioner";
-            Title = "of the Serpent's Fang Sect";
+            Title = "the Serpent's Fang Sect";
             SetStr(545, 560);
             SetDex(160, 175);
             SetInt(160, 175);
@@ -19,7 +19,7 @@ namespace Server.Mobiles
             SetHits(800);
             SetStam(190, 205);
 
-            SetDamage(15, 20);
+            SetDamage(ResistType.Phys, 100, 0, 15, 20);
 
             Fame = 25000;
             Karma = -25000;

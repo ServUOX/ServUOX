@@ -1,23 +1,22 @@
-using System;
 using Server.Mobiles;
 
-namespace Server.Engines.Quests.Hag
+namespace Server.Engines.Quests.Necro
 {
-    public class Zeefzorpul : BaseQuester
+    public class Maabus : BaseQuester
     {
-        public Zeefzorpul()
+        public Maabus()
         {
         }
 
-        public Zeefzorpul(Serial serial)
+        public Maabus(Serial serial)
             : base(serial)
         {
         }
 
         public override void InitBody()
         {
-            Body = 0x4A;
-            Name = "Zeefzorpul";
+            Body = 0x94;
+            Name = "Maabus";
         }
 
         public override bool CanTalkTo(PlayerMobile to)
@@ -32,17 +31,13 @@ namespace Server.Engines.Quests.Hag
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
-            Delete();
+            _ = reader.ReadInt();
         }
     }
 }

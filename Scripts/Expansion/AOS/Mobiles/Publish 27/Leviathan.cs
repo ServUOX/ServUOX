@@ -33,10 +33,8 @@ namespace Server.Mobiles
 
             SetHits(1500);
 
-            SetDamage(25, 33);
-
-            SetDamageType(ResistType.Phys, 70);
-            SetDamageType(ResistType.Cold, 30);
+            SetDamage(ResistType.Phys, 70, 0, 25, 33);
+            SetDamage(ResistType.Cold, 30);
 
             SetResist(ResistType.Phys, 55, 65);
             SetResist(ResistType.Fire, 45, 55);
@@ -61,12 +59,16 @@ namespace Server.Mobiles
 
             PackItem(new MessageInABottle());
 
-            Rope rope = new Rope();
-            rope.ItemID = 0x14F8;
+            Rope rope = new Rope
+            {
+                ItemID = 0x14F8
+            };
             PackItem(rope);
 
-            rope = new Rope();
-            rope.ItemID = 0x14FA;
+            rope = new Rope
+            {
+                ItemID = 0x14FA
+            };
             PackItem(rope);
 
             SetSpecialAbility(SpecialAbility.DragonBreath);
@@ -162,9 +164,7 @@ namespace Server.Mobiles
 
         public override void OnActionCombat()
         {
-            Mobile combatant = Combatant as Mobile;
-
-            if (combatant == null || combatant.Deleted || combatant.Map != Map || !InRange(combatant, 12) || !CanBeHarmful(combatant) || !InLOS(combatant))
+            if (!(Combatant is Mobile combatant) || combatant.Deleted || combatant.Map != Map || !InRange(combatant, 12) || !CanBeHarmful(combatant) || !InLOS(combatant))
                 return;
 
             if (DateTime.UtcNow >= m_NextWaterBall)

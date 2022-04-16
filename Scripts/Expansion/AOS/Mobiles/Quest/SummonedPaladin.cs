@@ -59,7 +59,7 @@ namespace Server.Engines.Quests.Necro
 
         public override bool IsHarmfulCriminal(IDamageable target)
         {
-            if (target is Mobile && (Mobile)target == m_Necromancer)
+            if (target is Mobile mobile && mobile == m_Necromancer)
                 return false;
 
             return base.IsHarmfulCriminal(target);
@@ -122,7 +122,7 @@ namespace Server.Engines.Quests.Necro
         {
             base.Serialize(writer);
 
-            writer.Write(0); // version
+            writer.Write(0);
 
             writer.Write(m_Necromancer);
             writer.Write(m_ToDelete);
@@ -131,8 +131,7 @@ namespace Server.Engines.Quests.Necro
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_Necromancer = reader.ReadMobile() as PlayerMobile;
             m_ToDelete = reader.ReadBool();
@@ -174,11 +173,12 @@ namespace Server.Engines.Quests.Necro
 
                     Effects.PlaySound(moongate.Location, moongate.Map, 0x20E);
 
-                    m_Paladin = new SummonedPaladin(m_Player);
-                    m_Paladin.Frozen = true;
-
-                    m_Paladin.Location = moongate.Location;
-                    m_Paladin.Map = moongate.Map;
+                    m_Paladin = new SummonedPaladin(m_Player)
+                    {
+                        Frozen = true,
+                        Location = moongate.Location,
+                        Map = moongate.Map
+                    };
 
                     Delay = TimeSpan.FromSeconds(2.0);
                     Start();
@@ -225,16 +225,13 @@ namespace Server.Engines.Quests.Necro
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
+            _ = reader.ReadInt();
             Delete();
         }
     }

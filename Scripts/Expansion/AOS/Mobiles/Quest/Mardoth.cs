@@ -30,19 +30,17 @@ namespace Server.Engines.Quests.Necro
 
         public override bool OnDragDrop(Mobile from, Item dropped)
         {
-            PlayerMobile player = from as PlayerMobile;
-
-            if (player != null)
+            if (from is PlayerMobile player)
             {
                 QuestSystem qs = player.Quest;
 
                 if (qs is DarkTidesQuest)
                 {
-                    if (dropped is DarkTidesHorn)
+                    if (dropped is DarkTidesHorn horn1)
                     {
                         if (player.Young)
                         {
-                            DarkTidesHorn horn = (DarkTidesHorn)dropped;
+                            DarkTidesHorn horn = horn1;
 
                             if (horn.Charges < 10)
                             {
@@ -80,12 +78,16 @@ namespace Server.Engines.Quests.Necro
             HairItemID = 0x203C;
             HairHue = 0x482;
 
-            Item gloves = new BoneGloves();
-            gloves.Hue = 0x66D;
+            Item gloves = new BoneGloves
+            {
+                Hue = 0x66D
+            };
             AddItem(gloves);
 
-            Item gorget = new PlateGorget();
-            gorget.Hue = 0x1;
+            Item gorget = new PlateGorget
+            {
+                Hue = 0x1
+            };
             AddItem(gorget);
         }
 
@@ -96,12 +98,10 @@ namespace Server.Engines.Quests.Necro
 
         public override bool CanTalkTo(PlayerMobile to)
         {
-            DarkTidesQuest qs = to.Quest as DarkTidesQuest;
+            if (!(to.Quest is DarkTidesQuest qs))
+                return to.Quest == null && QuestSystem.CanOfferQuest(to, typeof(DarkTidesQuest));
 
-            if (qs == null)
-                return (to.Quest == null && QuestSystem.CanOfferQuest(to, typeof(DarkTidesQuest)));
-
-            return (qs.FindObjective(typeof(FindMardothAboutVaultObjective)) != null);
+            return qs.FindObjective(typeof(FindMardothAboutVaultObjective)) != null;
         }
 
         public override void OnTalk(PlayerMobile player, bool contextMenu)
@@ -144,9 +144,10 @@ namespace Server.Engines.Quests.Necro
                                 cont.DropItem(new DaemonBlood(20));
                                 cont.DropItem(new GraveDust(20));
 
-                                BaseWeapon weapon = new BoneHarvester();
-
-                                weapon.Slayer = SlayerName.OrcSlaying;
+                                BaseWeapon weapon = new BoneHarvester
+                                {
+                                    Slayer = SlayerName.OrcSlaying
+                                };
 
                                 if (Core.AOS)
                                 {
@@ -223,15 +224,13 @@ namespace Server.Engines.Quests.Necro
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

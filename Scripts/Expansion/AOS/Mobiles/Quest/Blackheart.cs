@@ -36,15 +36,19 @@ namespace Server.Engines.Quests.Hag
             AddItem(new TricorneHat(0x1));
             AddItem(new BodySash(0x66D));
 
-            LeatherGloves gloves = new LeatherGloves();
-            gloves.Hue = 0x66D;
+            LeatherGloves gloves = new LeatherGloves
+            {
+                Hue = 0x66D
+            };
             AddItem(gloves);
 
             FacialHairItemID = 0x203E; // Long Beard
             FacialHairHue = 0x455;
 
-            Item sword = new Cutlass();
-            sword.Movable = false;
+            Item sword = new Cutlass
+            {
+                Movable = false
+            };
             AddItem(sword);
         }
 
@@ -57,9 +61,7 @@ namespace Server.Engines.Quests.Hag
 
             if (qs is WitchApprenticeQuest)
             {
-                FindIngredientObjective obj = qs.FindObjective(typeof(FindIngredientObjective)) as FindIngredientObjective;
-
-                if (obj != null && !obj.Completed && obj.Ingredient == Ingredient.Whiskey)
+                if (qs.FindObjective(typeof(FindIngredientObjective)) is FindIngredientObjective obj && !obj.Completed && obj.Ingredient == Ingredient.Whiskey)
                 {
                     PlaySound(Utility.RandomBool() ? 0x42E : 0x43F);
 
@@ -97,15 +99,13 @@ namespace Server.Engines.Quests.Hag
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             Heave();
         }

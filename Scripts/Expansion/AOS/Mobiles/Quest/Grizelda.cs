@@ -1,7 +1,5 @@
-using System;
 using Server.Items;
 using Server.Mobiles;
-using Server.Services.Virtues;
 
 namespace Server.Engines.Quests.Hag
 {
@@ -39,8 +37,10 @@ namespace Server.Engines.Quests.Hag
 
             HairItemID = 0x203C;
 
-            Item staff = new GnarledStaff();
-            staff.Movable = false;
+            Item staff = new GnarledStaff
+            {
+                Movable = false
+            };
             AddItem(staff);
         }
 
@@ -138,10 +138,10 @@ namespace Server.Engines.Quests.Hag
                                     {
                                         item = Loot.RandomArmorOrShieldOrJewelry();
 
-                                        if (item is BaseArmor)
-                                            BaseRunicTool.ApplyAttributesTo((BaseArmor)item, 2, 20, 30);
-                                        else if (item is BaseJewel)
-                                            BaseRunicTool.ApplyAttributesTo((BaseJewel)item, 2, 20, 30);
+                                        if (item is BaseArmor armor)
+                                            BaseRunicTool.ApplyAttributesTo(armor, 2, 20, 30);
+                                        else if (item is BaseJewel jewel)
+                                            BaseRunicTool.ApplyAttributesTo(jewel, 2, 20, 30);
                                     }
                                     else
                                     {
@@ -182,8 +182,7 @@ namespace Server.Engines.Quests.Hag
             else
             {
                 QuestSystem newQuest = new WitchApprenticeQuest(player);
-                bool inRestartPeriod = false;
-
+                bool inRestartPeriod;
                 if (qs != null)
                 {
                     newQuest.AddConversation(new DontOfferConversation());
@@ -206,15 +205,13 @@ namespace Server.Engines.Quests.Hag
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

@@ -22,9 +22,7 @@ namespace Server.Mobiles
             SetStam(60);
             SetMana(0);
 
-            SetDamage(5, 10);
-
-            SetDamageType(ResistType.Engy, 100);
+            SetDamage(ResistType.Engy, 100, 0, 5, 10);
 
             SetResist(ResistType.Phys, 10, 15);
             SetResist(ResistType.Fire, 10, 15);
@@ -68,8 +66,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         private void Flare()
