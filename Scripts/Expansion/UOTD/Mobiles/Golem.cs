@@ -176,7 +176,7 @@ namespace Server.Mobiles
         {
             if (Controlled || Summoned)
             {
-                Mobile master = (ControlMaster);
+                Mobile master = ControlMaster;
 
                 if (master == null)
                     master = SummonMaster;

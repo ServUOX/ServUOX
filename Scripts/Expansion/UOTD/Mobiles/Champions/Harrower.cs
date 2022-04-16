@@ -296,6 +296,10 @@ namespace Server.Mobiles
                             case VirtueLevel.Knight:
                                 chance = 100;
                                 break;
+                            case VirtueLevel.None:
+                                break;
+                            default:
+                                break;
                         }
 
                         if (chance > Utility.Random(100))
