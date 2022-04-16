@@ -1,5 +1,6 @@
 using System;
 using Server.Items;
+using Server.Network;
 
 namespace Server.Mobiles
 {
@@ -24,10 +25,8 @@ namespace Server.Mobiles
 
             SetHits(191, 210);
 
-            SetDamage(16, 22);
-
-            SetDamageType(ResistType.Phys, 75);
-            SetDamageType(ResistType.Engy, 25);
+            SetDamage(ResistType.Phys, 75, 0, 16, 22);
+            SetDamage(ResistType.Engy, 25);
 
             SetResist(ResistType.Phys, 55, 65);
             SetResist(ResistType.Fire, 25, 40);
@@ -92,7 +91,7 @@ namespace Server.Mobiles
                     {
                         if (Rider.CurePoison(this))	//TODO: Confirm if mount is the one flagged for curing it or the rider is
                         {
-                            Rider.LocalOverheadMessage(Server.Network.MessageType.Regular, 0x3B2, true, "Your mount senses you are in danger and aids you with magic.");
+                            Rider.LocalOverheadMessage(MessageType.Regular, 0x3B2, true, "Your mount senses you are in danger and aids you with magic.");
                             Rider.FixedParticles(0x373A, 10, 15, 5012, EffectLayer.Waist);
                             Rider.PlaySound(0x1E0);	// Cure spell effect.
                             Rider.PlaySound(0xA9);		// Unicorn's whinny.

@@ -25,9 +25,7 @@ namespace Server.Mobiles
             SetStam(102, 300);
             SetMana(505, 750);
 
-            SetDamage(29, 38);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 29, 38);
 
             SetResist(ResistType.Phys, 65, 75);
             SetResist(ResistType.Fire, 70, 80);
@@ -177,9 +175,13 @@ namespace Server.Mobiles
                         int z = map.GetAverageZ(x, y);
 
                         if (validLocation = map.CanFit(x, y, Z, 16, false, false))
+                        {
                             loc = new Point3D(x, y, Z);
+                        }
                         else if (validLocation = map.CanFit(x, y, z, 16, false, false))
+                        {
                             loc = new Point3D(x, y, z);
+                        }
                     }
 
                     rat.IsChampionSpawn = true;
@@ -228,24 +230,22 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_SlayerVulnerabilities.Clear();
         }
 
         private class ExpirePolymorphTimer : Timer
         {
-            private Mobile m_Owner;
+            private readonly Mobile m_Owner;
             public ExpirePolymorphTimer(Mobile owner)
-                : base(TimeSpan.FromMinutes(3.0)) //3.0
+                : base(TimeSpan.FromMinutes(3.0))
             {
                 m_Owner = owner;
 

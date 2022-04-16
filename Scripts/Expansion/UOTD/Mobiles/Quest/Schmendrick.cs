@@ -1,4 +1,3 @@
-using System;
 using Server.Gumps;
 using Server.Items;
 using Server.Mobiles;
@@ -41,12 +40,16 @@ namespace Server.Engines.Quests.Haven
             FacialHairItemID = 0x203E;
             FacialHairHue = 0x455;
 
-            GlacialStaff staff = new GlacialStaff();
-            staff.Movable = false;
+            GlacialStaff staff = new GlacialStaff
+            {
+                Movable = false
+            };
             AddItem(staff);
 
-            Backpack pack = new Backpack();
-            pack.Movable = false;
+            Backpack pack = new Backpack
+            {
+                Movable = false
+            };
             AddItem(pack);
         }
 
@@ -57,9 +60,7 @@ namespace Server.Engines.Quests.Haven
 
         public override bool CanTalkTo(PlayerMobile to)
         {
-            UzeraanTurmoilQuest qs = to.Quest as UzeraanTurmoilQuest;
-
-            return (qs != null && qs.FindObjective(typeof(FindSchmendrickObjective)) != null);
+            return (to.Quest is UzeraanTurmoilQuest qs && qs.FindObjective(typeof(FindSchmendrickObjective)) != null);
         }
 
         public override void OnTalk(PlayerMobile player, bool contextMenu)
@@ -142,15 +143,13 @@ namespace Server.Engines.Quests.Haven
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Server.Mobiles
 {
     public class Harrower : BaseCreature
     {
-        private int m_StatCap = Initialization.Get("PlayerCaps.TotalStatCap", 225);
+        private readonly int m_StatCap = Initialization.Get("PlayerCaps.TotalStatCap", 225);
         private static readonly SpawnEntry[] m_Entries = new SpawnEntry[]
         {
             new SpawnEntry(new Point3D(5242, 945, -40), new Point3D(1176, 2638, 0)), // Destard
@@ -58,13 +58,11 @@ namespace Server.Mobiles
             SetDex(125, 135);
             SetInt(1000, 1200);
 
-            Fame = 22500;
-            Karma = -22500;
-
-            VirtualArmor = 60;
-
-            SetDamageType(ResistType.Phys, 50);
-            SetDamageType(ResistType.Engy, 50);
+            SetDamage(ResistType.Phys, 20, 30, 25, 41);
+            SetDamage(ResistType.Cold, 20);
+            SetDamage(ResistType.Fire, 20);
+            SetDamage(ResistType.Pois, 20);
+            SetDamage(ResistType.Engy, 20);
 
             SetResist(ResistType.Phys, 55, 65);
             SetResist(ResistType.Fire, 60, 80);
@@ -78,6 +76,11 @@ namespace Server.Mobiles
             SetSkill(SkillName.Magery, 120.0);
             SetSkill(SkillName.EvalInt, 120.0);
             SetSkill(SkillName.Meditation, 120.0);
+
+            Fame = 22500;
+            Karma = -22500;
+
+            VirtualArmor = 60;
 
             m_Tentacles = new List<HarrowerTentacles>();
         }
@@ -110,8 +113,10 @@ namespace Server.Mobiles
 
             SpawnEntry entry = m_Entries[Utility.Random(m_Entries.Length)];
 
-            Harrower harrower = new Harrower();
-            harrower.m_IsSpawned = true;
+            Harrower harrower = new Harrower
+            {
+                m_IsSpawned = true
+            };
 
             Instances.Add(harrower);
 
@@ -180,9 +185,10 @@ namespace Server.Mobiles
                     if (!ok)
                         continue;
 
-                    HarrowerTentacles spawn = new HarrowerTentacles(this);
-
-                    spawn.Team = Team;
+                    HarrowerTentacles spawn = new HarrowerTentacles(this)
+                    {
+                        Team = Team
+                    };
 
                     spawn.MoveToWorld(new Point3D(x, y, z), map);
 
@@ -229,6 +235,9 @@ namespace Server.Mobiles
 
                         break;
                     }
+
+                default:
+                    break;
             }
 
             if (m_IsSpawned)
@@ -255,9 +264,7 @@ namespace Server.Mobiles
             for (int i = 0; i < toGive.Count; ++i)
             {
                 int rand = Utility.Random(toGive.Count);
-                Mobile hold = toGive[i];
-                toGive[i] = toGive[rand];
-                toGive[rand] = hold;
+                (toGive[rand], toGive[i]) = (toGive[i], toGive[rand]);
             }
 
             for (int i = 0; i < ChampionSystem.StatScrollAmount; ++i)
@@ -267,10 +274,8 @@ namespace Server.Mobiles
                 m.SendLocalizedMessage(1049524); // You have received a scroll of power!
                 m.AddToBackpack(new StatCapScroll(m_StatCap + RandomStatScrollLevel()));
 
-                if (m is PlayerMobile)
+                if (m is PlayerMobile pm)
                 {
-                    PlayerMobile pm = (PlayerMobile)m;
-
                     for (int j = 0; j < pm.JusticeProtectors.Count; ++j)
                     {
                         Mobile prot = pm.JusticeProtectors[j];
@@ -328,15 +333,14 @@ namespace Server.Mobiles
                 {
                     DamageStore ds = rights[i];
 
-                    if (ds.m_HasRight && ds.m_Mobile is PlayerMobile)
-                        PlayerMobile.ChampionTitleInfo.AwardHarrowerTitle((PlayerMobile)ds.m_Mobile);
+                    if (ds.m_HasRight && ds.m_Mobile is PlayerMobile mobile)
+                        PlayerMobile.ChampionTitleInfo.AwardHarrowerTitle(mobile);
                 }
 
                 if (!NoKillAwards)
                 {
                     GivePowerScrolls();
-
-                    Map map = Map;
+                    _ = Map;
 
                     GoldShower.DoForHarrower(Location, Map);
 

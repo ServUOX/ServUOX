@@ -1,4 +1,3 @@
-using System;
 using Server.Gumps;
 using Server.Items;
 using Server.Mobiles;
@@ -41,8 +40,10 @@ namespace Server.Engines.Quests.Haven
             FacialHairItemID = 0x203E;
             FacialHairHue = 0x455;
 
-            BlackStaff staff = new BlackStaff();
-            staff.Movable = false;
+            BlackStaff staff = new BlackStaff
+            {
+                Movable = false
+            };
             AddItem(staff);
         }
 
@@ -201,19 +202,17 @@ namespace Server.Engines.Quests.Haven
 
         public override bool OnDragDrop(Mobile from, Item dropped)
         {
-            PlayerMobile player = from as PlayerMobile;
-
-            if (player != null)
+            if (from is PlayerMobile player)
             {
                 QuestSystem qs = player.Quest;
 
                 if (qs is UzeraanTurmoilQuest)
                 {
-                    if (dropped is UzeraanTurmoilHorn)
+                    if (dropped is UzeraanTurmoilHorn horn1)
                     {
                         if (player.Young)
                         {
-                            UzeraanTurmoilHorn horn = (UzeraanTurmoilHorn)dropped;
+                            UzeraanTurmoilHorn horn = horn1;
 
                             if (horn.Charges < 10)
                             {
@@ -441,15 +440,13 @@ namespace Server.Engines.Quests.Haven
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

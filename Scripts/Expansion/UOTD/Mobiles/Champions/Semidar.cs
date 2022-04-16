@@ -22,10 +22,8 @@ namespace Server.Mobiles
             SetHits(10000);
             SetStam(103, 250);
 
-            SetDamage(29, 35);
-
-            SetDamageType(ResistType.Phys, 75);
-            SetDamageType(ResistType.Fire, 25);
+            SetDamage(ResistType.Phys, 75, 0, 29, 35);
+            SetDamage(ResistType.Fire, 25);
 
             SetResist(ResistType.Phys, 75, 90);
             SetResist(ResistType.Fire, 65, 75);
@@ -74,12 +72,6 @@ namespace Server.Mobiles
                 reflect = true; // Always reflect if caster isn't female
         }
 
-        /*public override void AlterDamageScalarFrom(Mobile caster, ref double scalar)
-        {
-            if (caster.Body.IsMale)
-                scalar = 20; // Male bodies always reflect.. damage scaled 20x
-        }*/
-
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -89,7 +81,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

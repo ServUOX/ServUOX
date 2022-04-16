@@ -22,10 +22,8 @@ namespace Server.Mobiles
             SetHits(12000);
             SetStam(202, 400);
 
-            SetDamage(21, 33);
-
-            SetDamageType(ResistType.Phys, 75);
-            SetDamageType(ResistType.Fire, 25);
+            SetDamage(ResistType.Phys, 75, 0, 21, 33);
+            SetDamage(ResistType.Fire, 25);
 
             SetResist(ResistType.Phys, 85, 90);
             SetResist(ResistType.Fire, 60, 70);
@@ -99,10 +97,11 @@ namespace Server.Mobiles
 
             for (int i = 0; i < newPixies; ++i)
             {
-                Pixie pixie = new Pixie();
-
-                pixie.Team = Team;
-                pixie.FightMode = FightMode.Closest;
+                Pixie pixie = new Pixie
+                {
+                    Team = Team,
+                    FightMode = FightMode.Closest
+                };
 
                 bool validLocation = false;
                 Point3D loc = Location;
@@ -207,12 +206,10 @@ namespace Server.Mobiles
                         defender.Mana -= toSap;
                         Mana += toSap;
                         break;
+                    default:
+                        break;
                 }
             }
-
-            /*defender.Damage(Utility.Random(20, 10), this);
-            defender.Stam -= Utility.Random(20, 10);
-            defender.Mana -= Utility.Random(20, 10);*/
         }
 
         public override void OnGotMeleeAttack(Mobile attacker)
@@ -223,17 +220,13 @@ namespace Server.Mobiles
 
             if (m_Queen != null && 0.1 >= Utility.RandomDouble())
                 SpawnPixies(attacker);
-
-            /*attacker.Damage(Utility.Random(20, 10), this);
-            attacker.Stam -= Utility.Random(20, 10);
-            attacker.Mana -= Utility.Random(20, 10);*/
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write(0); // version
+            writer.Write(0);
 
             writer.Write(m_Queen);
             writer.Write(m_SpawnedQueen);
@@ -254,6 +247,9 @@ namespace Server.Mobiles
 
                         break;
                     }
+
+                default:
+                    break;
             }
         }
     }

@@ -19,10 +19,8 @@ namespace Server.Mobiles
 
             SetHits(480);
 
-            SetDamage(5, 12);
-
-            SetDamageType(ResistType.Phys, 75);
-            SetDamageType(ResistType.Pois, 25);
+            SetDamage(ResistType.Phys, 75, 0, 5, 12);
+            SetDamage(ResistType.Pois, 25);
 
             SetResist(ResistType.Phys, 35, 40);
             SetResist(ResistType.Fire, 25, 35);
@@ -90,9 +88,9 @@ namespace Server.Mobiles
         {
             base.OnGotMeleeAttack(attacker);
 
-            if (!Core.SE && 0.2 > Utility.RandomDouble() && attacker is BaseCreature)
+            if (!Core.SE && 0.2 > Utility.RandomDouble() && attacker is BaseCreature creature)
             {
-                BaseCreature c = (BaseCreature)attacker;
+                BaseCreature c = creature;
 
                 if (c.Controlled && c.ControlMaster != null)
                 {
