@@ -1,7 +1,3 @@
-using System;
-using Server;
-using Server.Items;
-
 namespace Server.Mobiles
 {
     [CorpseName("a dark guardians' corpse")]
@@ -20,11 +16,10 @@ namespace Server.Mobiles
             SetInt(200, 235);
 
             SetHits(150, 180);
-            SetDamage(24, 26);
 
-            SetDamageType(ResistType.Phys, 10);
-            SetDamageType(ResistType.Cold, 40);
-            SetDamageType(ResistType.Engy, 50);
+            SetDamage(ResistType.Phys, 10, 0, 24, 26);
+            SetDamage(ResistType.Cold, 40);
+            SetDamage(ResistType.Engy, 50);
 
             SetResist(ResistType.Phys, 40, 50);
             SetResist(ResistType.Fire, 20, 45);
@@ -69,13 +64,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }

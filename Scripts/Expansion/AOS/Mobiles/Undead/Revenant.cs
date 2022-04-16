@@ -25,14 +25,13 @@ namespace Server.Mobiles
             SetDex(150);
             SetInt(150);
 
-            SetDamage(16, 17);
 
-            // Bestiary says 50 phys 50 cold, animal lore says differently
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 50, 0, 16, 17);
+            SetDamage(ResistType.Cold, 50);
 
-            SetSkill(SkillName.MagicResist, 100.0 * scalar); // magic resist is absolute value of spiritspeak
-            SetSkill(SkillName.Tactics, 100.0); // always 100
-            SetSkill(SkillName.Swords, 100.0 * scalar); // not displayed in animal lore but tests clearly show this is influenced
+            SetSkill(SkillName.MagicResist, 100.0 * scalar);
+            SetSkill(SkillName.Tactics, 100.0);
+            SetSkill(SkillName.Swords, 100.0 * scalar);
             SetSkill(SkillName.DetectHidden, 75.0 * scalar);
 
             scalar /= 1.2;
@@ -50,15 +49,19 @@ namespace Server.Mobiles
 
             VirtualArmor = 32;
 
-            Item shroud = new Robe();
-            shroud.ItemID = 0x2683;
-            shroud.Hue = 0x455;
-            shroud.Movable = false;
+            Item shroud = new Robe
+            {
+                ItemID = 0x2683,
+                Hue = 0x455,
+                Movable = false
+            };
             SetWearable(shroud);
 
-            Halberd weapon = new Halberd();
-            weapon.Hue = 1;
-            weapon.Movable = false;
+            Halberd weapon = new Halberd
+            {
+                Hue = 1,
+                Movable = false
+            };
             SetWearable(weapon);
         }
 

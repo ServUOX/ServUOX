@@ -24,9 +24,7 @@ namespace Server.Mobiles
             SetStam(90);
             SetMana(0);
 
-            SetDamage(5, 10);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 5, 10);
 
             SetResist(ResistType.Phys, 40, 50);
             SetResist(ResistType.Fire, 25, 40);
@@ -83,15 +81,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

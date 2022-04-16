@@ -22,9 +22,7 @@ namespace Server.Mobiles
 
             SetHits(16, 24);
 
-            SetDamage(1, 10);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 1, 10);
 
             SetResist(ResistType.Phys, 15, 25);
             SetResist(ResistType.Fire, 5, 15);
@@ -79,9 +77,7 @@ namespace Server.Mobiles
 
         public override bool IsEnemy(Mobile m)
         {
-            PlayerMobile player = m as PlayerMobile;
-
-            if (player != null && Map == Map.Trammel && X >= 5199 && X <= 5271 && Y >= 1812 && Y <= 1865) // Schmendrick's cave
+            if (m is PlayerMobile player && Map == Map.Trammel && X >= 5199 && X <= 5271 && Y >= 1812 && Y <= 1865) // Schmendrick's cave
             {
                 QuestSystem qs = player.Quest;
 

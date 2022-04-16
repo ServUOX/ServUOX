@@ -19,7 +19,7 @@ namespace Server.Mobiles
 
             SetHits(101, 120);
 
-            SetDamage(8, 12);
+            SetDamage(ResistType.Phys, 100, 0, 8, 12);
 
             SetResist(ResistType.Phys, 50, 60);
             SetResist(ResistType.Fire, 10, 20);
@@ -58,7 +58,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

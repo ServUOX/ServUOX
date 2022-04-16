@@ -26,13 +26,11 @@ namespace Server.Mobiles
             SetHits(30000);
             SetMana(5000);
 
-            SetDamage(17, 21);
-
-            SetDamageType(ResistType.Phys, 20);
-            SetDamageType(ResistType.Fire, 20);
-            SetDamageType(ResistType.Cold, 20);
-            SetDamageType(ResistType.Pois, 20);
-            SetDamageType(ResistType.Engy, 20);
+            SetDamage(ResistType.Phys, 20, 0, 17, 21);
+            SetDamage(ResistType.Fire, 20);
+            SetDamage(ResistType.Cold, 20);
+            SetDamage(ResistType.Pois, 20);
+            SetDamage(ResistType.Engy, 20);
 
             SetResist(ResistType.Phys, 60, 70);
             SetResist(ResistType.Fire, 50, 60);
@@ -169,11 +167,12 @@ namespace Server.Mobiles
                         continue;
                 }
 
-                UnholyBone bone = new UnholyBone();
-
-                bone.Hue = 0;
-                bone.Name = "unholy bones";
-                bone.ItemID = Utility.Random(0xECA, 9);
+                UnholyBone bone = new UnholyBone
+                {
+                    Hue = 0,
+                    Name = "unholy bones",
+                    ItemID = Utility.Random(0xECA, 9)
+                };
 
                 bone.MoveToWorld(new Point3D(x, y, z), map);
             }

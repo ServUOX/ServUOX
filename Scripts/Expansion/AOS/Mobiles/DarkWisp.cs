@@ -21,10 +21,8 @@ namespace Server.Mobiles
 
             SetHits(118, 135);
 
-            SetDamage(17, 18);
-
-            SetDamageType(ResistType.Phys, 50);
-            SetDamageType(ResistType.Engy, 50);
+            SetDamage(ResistType.Phys, 50, 0, 17, 18);
+            SetDamage(ResistType.Engy, 50);
 
             SetResist(ResistType.Phys, 35, 45);
             SetResist(ResistType.Fire, 20, 40);
@@ -57,14 +55,6 @@ namespace Server.Mobiles
         public override TimeSpan ReacquireDelay => TimeSpan.FromSeconds(1.0);
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 
-        /*public override Ethics.Ethic EthicAllegiance
-        {
-            get
-            {
-                return Ethics.Ethic.Evil;
-            }
-        }*/
-
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Rich);
@@ -80,7 +70,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

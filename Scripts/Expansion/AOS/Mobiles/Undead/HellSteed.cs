@@ -22,10 +22,9 @@ namespace Server.Mobiles
             SetInt(101, 115);
 
             SetHits(201, 220);
-            SetDamage(20, 24);
 
-            SetDamageType(ResistType.Phys, 25);
-            SetDamageType(ResistType.Fire, 75);
+            SetDamage(ResistType.Phys, 25, 0, 20, 24);
+            SetDamage(ResistType.Fire, 75);
 
             SetResist(ResistType.Phys, 60, 70);
             SetResist(ResistType.Fire, 90);
@@ -51,13 +50,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

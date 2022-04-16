@@ -76,10 +76,9 @@ namespace Server.Engines.Quests.Necro
         {
             base.OnMovement(m, oldLocation);
 
-            if (InRange(m.Location, 2) && !InRange(oldLocation, 2) && m is PlayerMobile)
+            if (InRange(m.Location, 2) && !InRange(oldLocation, 2) && m is PlayerMobile mobile)
             {
-                PlayerMobile pm = (PlayerMobile)m;
-                QuestSystem qs = pm.Quest;
+                QuestSystem qs = mobile.Quest;
 
                 if (qs is DarkTidesQuest)
                 {
@@ -102,10 +101,10 @@ namespace Server.Engines.Quests.Necro
                                 BaseRunicTool.ApplyAttributesTo(jewel, 3, 20, 40);
                             cont.DropItem(jewel);
 
-                            if (!pm.PlaceInBackpack(cont))
+                            if (!mobile.PlaceInBackpack(cont))
                             {
                                 cont.Delete();
-                                pm.SendLocalizedMessage(1046260); // You need to clear some space in your inventory to continue with the quest.  Come back here when you have more space in your inventory.
+                                mobile.SendLocalizedMessage(1046260); // You need to clear some space in your inventory to continue with the quest.  Come back here when you have more space in your inventory.
                             }
                             else
                             {
@@ -123,9 +122,7 @@ namespace Server.Engines.Quests.Necro
 
             if (from.Alive)
             {
-                PlayerMobile pm = from as PlayerMobile;
-
-                if (pm != null)
+                if (from is PlayerMobile pm)
                 {
                     QuestSystem qs = pm.Quest;
 
@@ -161,15 +158,13 @@ namespace Server.Engines.Quests.Necro
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         private class SpeakPasswordEntry : ContextMenuEntry

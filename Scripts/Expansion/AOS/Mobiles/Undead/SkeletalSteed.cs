@@ -19,10 +19,8 @@ namespace Server.Mobiles
 
             SetHits(41, 50);
 
-            SetDamage(5, 12);
-
-            SetDamageType(ResistType.Phys, 50);
-            SetDamageType(ResistType.Cold, 50);
+            SetDamage(ResistType.Phys, 50, 0, 5, 12);
+            SetDamage(ResistType.Cold, 50);
 
             SetResist(ResistType.Phys, 50, 60);
             SetResist(ResistType.Cold, 90, 95);
@@ -48,25 +46,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(1);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
-
-            switch (version)
-            {
-                case 0:
-                    {
-                        Name = "a skeletal steed";
-                        Tamable = false;
-                        MinTameSkill = 0.0;
-                        ControlSlots = 0;
-                        break;
-                    }
-            }
+            _ = reader.ReadInt();
         }
     }
 }
