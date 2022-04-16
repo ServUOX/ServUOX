@@ -23,9 +23,7 @@ namespace Server.Mobiles
             SetDex(86, 105);
             SetInt(51, 65);
 
-            SetDamage(23, 27);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 23, 27);
 
             SetSkill(SkillName.Fencing, 60.0, 82.5);
             SetSkill(SkillName.Macing, 60.0, 82.5);
@@ -97,8 +95,8 @@ namespace Server.Mobiles
                 aggressor.PlaySound(0x307);
                 aggressor.SendLocalizedMessage(1040008); // Your skin is scorched as the tribal paint burns away!
 
-                if (aggressor is PlayerMobile)
-                    ((PlayerMobile)aggressor).SavagePaintExpiration = TimeSpan.Zero;
+                if (aggressor is PlayerMobile mobile)
+                    mobile.SavagePaintExpiration = TimeSpan.Zero;
             }
         }
 
@@ -136,9 +134,7 @@ namespace Server.Mobiles
             SetDex(92, 130);
             SetInt(51, 65);
 
-            SetDamage(29, 34);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 29, 34);
 
             SetSkill(SkillName.Fencing, 72.5, 95.0);
             SetSkill(SkillName.Healing, 60.3, 90.0);
@@ -187,13 +183,12 @@ namespace Server.Mobiles
 
         public override bool OnBeforeDeath()
         {
-            IMount mount = Mount;
 
-            if (mount != null)
-                mount.Rider = null;
+            if (Mount != null)
+                Mount.Rider = null;
 
-            if (mount is Mobile)
-                ((Mobile)mount).Delete();
+            if (Mount is Mobile mobile)
+                mobile.Delete();
 
             return base.OnBeforeDeath();
         }
@@ -219,8 +214,8 @@ namespace Server.Mobiles
                 aggressor.PlaySound(0x307);
                 aggressor.SendLocalizedMessage(1040008); // Your skin is scorched as the tribal paint burns away!
 
-                if (aggressor is PlayerMobile)
-                    ((PlayerMobile)aggressor).SavagePaintExpiration = TimeSpan.Zero;
+                if (aggressor is PlayerMobile mobile)
+                    mobile.SavagePaintExpiration = TimeSpan.Zero;
             }
         }
 
@@ -259,9 +254,7 @@ namespace Server.Mobiles
             SetDex(91, 110);
             SetInt(161, 185);
 
-            SetDamage(4, 10);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 4, 10);
 
             SetResist(ResistType.Phys, 30, 40);
             SetResist(ResistType.Fire, 20, 30);
@@ -339,9 +332,9 @@ namespace Server.Mobiles
                 aggressor.PlaySound(0x307);
                 aggressor.SendLocalizedMessage(1040008); // Your skin is scorched as the tribal paint burns away!
 
-                if (aggressor is PlayerMobile)
+                if (aggressor is PlayerMobile mobile)
                 {
-                    ((PlayerMobile)aggressor).SavagePaintExpiration = TimeSpan.Zero;
+                    mobile.SavagePaintExpiration = TimeSpan.Zero;
                 }
             }
         }
@@ -447,8 +440,6 @@ namespace Server.Mobiles
 
                                 DoBeneficial(m);
 
-                                // Algorithm: (40% of magery) + (1-10)
-
                                 int toHeal = (int)(Skills[SkillName.Magery].Value * 0.4);
                                 toHeal += Utility.Random(1, 10);
 
@@ -483,7 +474,6 @@ namespace Server.Mobiles
                                 if (Core.AOS)
                                 {
                                     int baseDamage = 6 + (int)(Skills[SkillName.EvalInt].Value / 5.0);
-
                                     damage = Utility.RandomMinMax(baseDamage, baseDamage + 3);
                                 }
                                 else

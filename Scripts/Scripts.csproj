@@ -546,7 +546,7 @@
     <Compile Include="Expansion\UOR\Items\Vetrewards\RewardDress.cs" />
     <Compile Include="Expansion\UOR\Items\Vetrewards\RewardRobe.cs" />
     <Compile Include="Expansion\UOR\Mobiles\RottingCorpse.cs" />
-    <Compile Include="Expansion\UOTD\FlowerGarland.cs" />
+    <Compile Include="Expansion\UOTD\Items\FlowerGarland.cs" />
     <Compile Include="Expansion\UOR\Items\Vetrewards\RewardCloak.cs" />
     <Compile Include="Expansion\UO\Items\Craft and Component\Resources\FoldedCloth4.cs" />
     <Compile Include="Expansion\UO\Items\Craft and Component\Resources\FoldedCloth3.cs" />
@@ -601,11 +601,11 @@
     <Compile Include="Expansion\UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfCarrots.cs" />
     <Compile Include="Expansion\UO\Items\Provision\Food and Drink\Resources\EmptyPewterBowl.cs" />
     <Compile Include="Expansion\UO\Items\Provision\Food and Drink\Resources\EmptyWoodenBowl.cs" />
-    <Compile Include="Expansion\UOTD\ChampionSystem\MemorialStone.cs" />
+    <Compile Include="Expansion\UOTD\Items\MemorialStone.cs" />
     <Compile Include="Expansion\ML\Quests\Defintions\LastWordsQuest.cs" />
     <Compile Include="Expansion\UOR\Mobiles\Ethereals\EtherealLlama.cs" />
     <Compile Include="Expansion\TOL\Mobiles\Ethereals\EtherealWarBoar.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Ethereals\EtherealSerpentineDragon.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\Ethereals\EtherealSerpentineDragon.cs" />
     <Compile Include="Expansion\SA\Mobiles\EtherealLasher.cs" />
     <Compile Include="Expansion\TOL\Mobiles\EtherealTarantula.cs" />
     <Compile Include="Expansion\TOL\Mobiles\EtherealTiger.cs" />
@@ -2158,7 +2158,7 @@
     </Compile>
     <Compile Include="Expansion\HS\Items\Gothic Theme Pack\ChestOfSending.cs" />
     <Compile Include="Expansion\SA\Items\World\ForgedMetalOfArtifacts.cs" />
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\GreaterBraceletOfBinding.cs" />
+    <Compile Include="Expansion\UOTD\Items\GreaterBraceletOfBinding.cs" />
     <Compile Include="Expansion\HS\Items\VetRewards\MetallicLeatherDyeTub.cs" />
     <Compile Include="Expansion\HS\Items\VetRewards\MetallicDyeTub.cs" />
     <Compile Include="Expansion\HS\Items\VetRewards\MetallicClothDyeTub.cs" />
@@ -2376,7 +2376,7 @@
     <Compile Include="Expansion\SA\Items\Books\GargoyleBook200.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\GlassItems.cs">
+    <Compile Include="Expansion\UOTD\Items\GlassItems.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Items\Resource\GoblinBlood.cs">
@@ -2443,7 +2443,7 @@
     <Compile Include="Expansion\UO\Items\Admin\MorphItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\OilCloth.cs">
+    <Compile Include="Expansion\UOTD\Items\OilCloth.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SE\Items\Decorative\Origami.cs">
@@ -2687,7 +2687,7 @@
     <Compile Include="Expansion\SA\Items\Resource\TribalBerry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\TribalPaint.cs">
+    <Compile Include="Expansion\UOTD\Items\TribalPaint.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Quest\HornOfTheDreadhorn.cs">
@@ -2908,22 +2908,22 @@
     <Compile Include="Mechanics\AI\Magical AI\SpellbinderAI.cs" />
     <Compile Include="Mechanics\AI\Magical AI\SpellweavingAI.cs" />
     <Compile Include="Expansion\SA\Mobiles\Champions\AbyssalInfernal.cs" />
-    <Compile Include="Expansion\UOTD\ChampionSystem\Barracoon.cs" />
-    <Compile Include="Expansion\UOTD\ChampionSystem\BaseChampion.cs" />
-    <Compile Include="Expansion\UOTD\Harrower\Harrower.cs" />
-    <Compile Include="Expansion\UOTD\Harrower\HarrowerTentacles.cs" />
-    <Compile Include="Expansion\UOTD\ChampionSystem\LordOaks.cs" />
-    <Compile Include="Expansion\UOTD\ChampionSystem\Mephitis.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Champions\Barracoon.cs" />
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\BaseChampion.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Champions\Harrower.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Champions\HarrowerTentacles.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Champions\LordOaks.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Champions\Mephitis.cs" />
     <Compile Include="Expansion\SA\Mobiles\Champions\Navery\EyeOfNavrey.cs" />
     <Compile Include="Expansion\SA\Mobiles\Champions\Navery\Navrey.cs" />
     <Compile Include="Expansion\UO\Items\World\SpiderWebbing.cs" />
-    <Compile Include="Expansion\UOTD\ChampionSystem\Neira.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Champions\Neira.cs" />
     <Compile Include="Expansion\SA\Mobiles\Champions\PrimevalLich.cs" />
-    <Compile Include="Expansion\UOTD\ChampionSystem\Rikktor.cs" />
-    <Compile Include="Expansion\UOTD\ChampionSystem\Semidar.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Champions\Rikktor.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Champions\Semidar.cs" />
     <Compile Include="Expansion\SE\Mobiles\Champions\Serado.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\ServantOfSemidar.cs" />
-    <Compile Include="Expansion\UOTD\ChampionSystem\Silvani.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Champions\Silvani.cs" />
     <Compile Include="Expansion\SA\Mobiles\Publish 66.2 Ophidian Bane Wars\BaneDragon.cs" />
     <Compile Include="Holidays\Holiday Mobiles\PumpkinHead.cs" />
     <Compile Include="Customs\Mobiles\Wanderer.cs" />
@@ -2934,7 +2934,7 @@
     <Compile Include="Expansion\UOR\Mechanics\Factions\Mobiles\Mounts\TBWarHorse.cs" />
     <Compile Include="Expansion\UO\Mobiles\MobileInterfaces.cs" />
     <Compile Include="Expansion\ML\Mobiles\BlightedGrove\Abscess.cs" />
-    <Compile Include="Expansion\UOR\Mobiles\AcidElementalRenowned.cs" />
+    <Compile Include="Expansion\SA\Mobiles\AcidElementalRenowned.cs" />
     <Compile Include="Expansion\UOR\Mechanics\Khaldun\Mobiles\AncientLichRenowned.cs" />
     <Compile Include="Expansion\SA\Mobiles\Chiikkaha.cs" />
     <Compile Include="Expansion\ML\Mobiles\Coil.cs" />
@@ -2965,7 +2965,7 @@
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Miasma.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Mistral.cs" />
     <Compile Include="Expansion\ML\Mobiles\Sanctuary\MougGuur.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\PixieRenowned.cs" />
+    <Compile Include="Expansion\SA\Mobiles\PixieRenowned.cs" />
     <Compile Include="Expansion\ML\Mobiles\PalaceOfParaxysmus\Putrefier.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Pyre.cs" />
     <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\RakktaviRenowned.cs" />
@@ -2974,7 +2974,7 @@
     <Compile Include="Expansion\ML\Mobiles\BlightedGrove\Saliva.cs" />
     <Compile Include="Expansion\ML\Mobiles\Silk.cs" />
     <Compile Include="Expansion\TOL\Mobiles\SirPatrick.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\SkeletalDragonRenowned.cs" />
+    <Compile Include="Expansion\SA\Mobiles\SkeletalDragonRenowned.cs" />
     <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Spite.cs" />
     <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Swoop.cs" />
     <Compile Include="Expansion\ML\Mobiles\Sanctuary\Szavetra.cs" />
@@ -3273,7 +3273,7 @@
     <Compile Include="Expansion\UO\Mobiles\Animals\Sheep.cs" />
     <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Mobiles\Deprecated\SilverSteed.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\SkeletalDragon.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\SkeletalDrake.cs" />
+    <Compile Include="Expansion\SA\Mobiles\SkeletalDrake.cs" />
     <Compile Include="Holidays\Holiday Mobiles\Halloween\SkeletalLich.cs" />
     <Compile Include="Expansion\AOS\Mobiles\SkeletalSteed.cs" />
     <Compile Include="Expansion\AOS\Mobiles\SkitteringHopper.cs" />
@@ -3884,11 +3884,11 @@
     <Compile Include="Expansion\ML\Items\Quest\UzeraanTurmoilHorn.cs" />
     <Compile Include="Expansion\UOTD\Quests\UzeraanTurmoil\UzeraanTurmoilTeleporter.cs" />
     <Compile Include="Expansion\AOS\Quests\Dryad.cs" />
-    <Compile Include="Expansion\UOTD\Quests\UzeraanTurmoil\MansionGuard.cs" />
-    <Compile Include="Expansion\UOTD\Quests\UzeraanTurmoil\MilitiaCanoneer.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Quest\MansionGuard.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Quest\MilitiaCanoneer.cs" />
     <Compile Include="Expansion\ML\Mobiles\MilitiaFighter.cs" />
-    <Compile Include="Expansion\UOTD\Quests\Schmendrick.cs" />
-    <Compile Include="Expansion\UOTD\Quests\Uzeraan.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Quest\Schmendrick.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Quest\Uzeraan.cs" />
     <Compile Include="Expansion\UOTD\Quests\UzeraanTurmoil\Objectives.cs" />
     <Compile Include="Expansion\UOTD\Quests\UzeraanTurmoil\UzeraanTurmoilQuest.cs" />
     <Compile Include="Expansion\AOS\Quests\WitchApprentice\Conversations.cs" />
@@ -5394,13 +5394,13 @@
     <Compile Include="Expansion\ML\Items\Artifcts\ArtifactVase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\DemonSkull.cs">
+    <Compile Include="Expansion\UOTD\Items\DemonSkull.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UO\Items\Decorations\DirtPatch.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\EvilIdolSkull.cs">
+    <Compile Include="Expansion\UOTD\Items\EvilIdolSkull.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SE\Items\Decorative\Futon.cs">
@@ -6221,7 +6221,7 @@
     <Compile Include="Expansion\AOS\Items\Publish 27\Minor Artifacts\GwennosHarp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\HeartOfTheLion.cs">
+    <Compile Include="Expansion\UOTD\Items\HeartOfTheLion.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Items\Publish 27\Minor Artifacts\IolosLute.cs">
@@ -6317,7 +6317,7 @@
     <Compile Include="Expansion\AOS\Items\Publish 27\Minor Artifacts\PolarBearMask.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\SeahorseStatuette.cs">
+    <Compile Include="Expansion\UOTD\Items\SeahorseStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Items\Publish 27\Minor Artifacts\ShieldOfInvulnerability.cs">
@@ -6461,7 +6461,7 @@
     <Compile Include="Expansion\UO\Items\Provision\Food and Drink\Fish\BaseMagicFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\Granite.cs">
+    <Compile Include="Expansion\UOTD\Items\Granite.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Items\Resource\MiscMLResources.cs">
@@ -6749,7 +6749,7 @@
     <Compile Include="Expansion\T2A\Items\Consumables\SpecialFishingNet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\GargoylesPickaxe.cs">
+    <Compile Include="Expansion\UOTD\Items\GargoylesPickaxe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\TOL\Items\Artifacts\JacobsPickaxe.cs">
@@ -7208,22 +7208,22 @@
     <Compile Include="Expansion\SE\Items\Equipment\Weapons\SmokeBomb.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\GemMiningBook.cs">
+    <Compile Include="Expansion\UOTD\Items\GemMiningBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\GlassblowingBook.cs">
+    <Compile Include="Expansion\UOTD\Items\GlassblowingBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\MasonryBook.cs">
+    <Compile Include="Expansion\UOTD\Items\MasonryBook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Items\Resource\Sand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\SandMiningBook.cs">
+    <Compile Include="Expansion\UOTD\Items\SandMiningBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\StoneMiningBook.cs">
+    <Compile Include="Expansion\UOTD\Items\StoneMiningBook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Holidays\Holiday Items\BlackDyeTub.cs">
@@ -7241,7 +7241,7 @@
     <Compile Include="Expansion\UO\Items\Provision\FurnitureDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\LeatherDyeTub.cs">
+    <Compile Include="Expansion\UOTD\Items\LeatherDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UO\Items\Provision\RewardBlackDyeTub.cs">
@@ -7310,7 +7310,7 @@
     <Compile Include="Expansion\UO\Items\Decorations\Tavern\Utensils.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\Blowpipe.cs">
+    <Compile Include="Expansion\UOTD\Items\Blowpipe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UO\Items\Craft and Component\Tools\DovetailSaw.cs">
@@ -7337,7 +7337,7 @@
     <Compile Include="Expansion\UO\Items\Craft and Component\Tools\JointingPlane.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\MalletAndChisel.cs">
+    <Compile Include="Expansion\UOTD\Items\MalletAndChisel.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UO\Items\Craft and Component\Tools\MapmakersPen.cs">
@@ -7478,7 +7478,7 @@
     <Compile Include="Expansion\ML\Items\Equipment\Weapons\HammerOfHephaestus.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\PowderOfTemperament.cs">
+    <Compile Include="Expansion\UOTD\Items\PowderOfTemperament.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\9th Anniversary Gifts\Evil Home Decor Set\AwesomeDisturbingPortrait.cs">
@@ -7748,7 +7748,7 @@
     <Compile Include="Expansion\UOR\XxUnsortedxX\MonsterStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\PlagueBeastBackpack.cs">
+    <Compile Include="Expansion\UOTD\Items\PlagueBeastBackpack.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Quest\PlagueBeastBlood.cs">
@@ -8078,13 +8078,13 @@
     <Compile Include="Holidays\Holiday Items\RewardCake.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\BagOfSending.cs">
+    <Compile Include="Expansion\UOTD\Items\BagOfSending.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\BallOfSummoning.cs">
+    <Compile Include="Expansion\UOTD\Items\BallOfSummoning.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\BraceletOfBinding.cs">
+    <Compile Include="Expansion\UOTD\Items\BraceletOfBinding.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\XxUnsortedxX\PowderOfTranslocation.cs">
@@ -9671,45 +9671,45 @@
     <Compile Include="Expansion\UOR\Mechanics\BulkOrders\BulkMaterialType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\ChampionAltar.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\ChampionAltar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\ChampionPlatform.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\ChampionPlatform.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\ChampionSkull.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\ChampionSkull.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\ChampionSkullBrazier.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\ChampionSkullBrazier.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\ChampionSkullPlatform.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\ChampionSkullPlatform.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\ChampionSkullType.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\ChampionSkullType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\ChampionSpawn.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\ChampionSpawn.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\ChampionSpawnController\ChampionSpawnController.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\ChampionSpawnController\ChampionSpawnController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\ChampionSpawnType.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\ChampionSpawnType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\ChampionSystem.cs" />
-    <Compile Include="Expansion\UOTD\ChampionSystem\GoldShower.cs" />
-    <Compile Include="Expansion\UOTD\ChampionSystem\HarrowerGate.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\ChampionSystem.cs" />
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\GoldShower.cs" />
+    <Compile Include="Expansion\UOTD\Items\HarrowerGate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\RestartTimer.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\RestartTimer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\SliceTimer.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\SliceTimer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\StarRoomGate.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\ChampionSystem\StarRoomGate.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Mechanics\Chat\Channel.cs" />
@@ -9899,13 +9899,13 @@
     <Compile Include="Expansion\UO\Mechanics\Skills\Craft\DefCooking.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\DefGlassblowing.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\Crafting\DefGlassblowing.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UO\Mechanics\Skills\Craft\DefInscription.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\ChampionSystem\DefMasonry.cs">
+    <Compile Include="Expansion\UOTD\Mechanics\Crafting\DefMasonry.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UO\Mechanics\Skills\Craft\DefTailoring.cs">
@@ -11149,7 +11149,7 @@
     <Compile Include="Expansion\LBR\Items\GreenThorns.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\OrangePetals.cs">
+    <Compile Include="Expansion\UOTD\Items\OrangePetals.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\HS\Items\Consumables\RedLeaves.cs">

@@ -21,9 +21,7 @@ namespace Server.Mobiles
 
             SetHits(352, 471);
 
-            SetDamage(13, 19);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 13, 19);
 
             SetResist(ResistType.Phys, 80, 90);
             SetResist(ResistType.Fire, 40, 50);
@@ -134,18 +132,11 @@ namespace Server.Mobiles
                         break;
                 }
             }
-            /*defender.Damage(Utility.Random(10, 10), this);
-            defender.Stam -= Utility.Random(10, 10);
-            defender.Mana -= Utility.Random(10, 10);*/
         }
 
         public override void OnGotMeleeAttack(Mobile attacker)
         {
             base.OnGotMeleeAttack(attacker);
-
-            /*attacker.Damage(Utility.Random(10, 10), this);
-            attacker.Stam -= Utility.Random(10, 10);
-            attacker.Mana -= Utility.Random(10, 10);*/
         }
 
         public override void Serialize(GenericWriter writer)
@@ -157,7 +148,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

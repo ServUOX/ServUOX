@@ -1,10 +1,3 @@
-using System;
-using Server.Engines.VeteranRewards;
-using Server.Items;
-using Server.Multis;
-using Server.Network;
-using Server.Spells;
-
 namespace Server.Mobiles
 {
     public class EtherealKirin : EtherealMount
@@ -22,26 +15,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(2); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
-            if (version == 0)
-            {
-                NonTransparentMountedID = 0x3EAD;
-                Transparent = true;
-            }
-
-            if (version == 1)
-            {
-                TransparentMountedHue = DefaultEtherealHue;
-            }
+            _ = reader.ReadInt();
         }
     }
 }

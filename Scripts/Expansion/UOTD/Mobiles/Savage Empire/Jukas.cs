@@ -22,9 +22,7 @@ namespace Server.Mobiles
 
             SetHits(241, 300);
 
-            SetDamage(10, 12);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 10, 12);
 
             SetResist(ResistType.Phys, 40, 50);
             SetResist(ResistType.Fire, 45, 50);
@@ -130,9 +128,7 @@ namespace Server.Mobiles
 
             SetHits(121, 180);
 
-            SetDamage(4, 10);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 4, 10);
 
             SetResist(ResistType.Phys, 20, 30);
             SetResist(ResistType.Fire, 35, 45);
@@ -214,9 +210,9 @@ namespace Server.Mobiles
 
                 foreach (Mobile m in eable)
                 {
-                    if (m is JukaLord && IsFriend(m) && m.Combatant != null && CanBeBeneficial(m) && m.CanBeginAction(typeof(JukaMage)) && InLOS(m))
+                    if (m is JukaLord lord && IsFriend(m) && m.Combatant != null && CanBeBeneficial(m) && m.CanBeginAction(typeof(JukaMage)) && InLOS(m))
                     {
-                        toBuff = (JukaLord)m;
+                        toBuff = lord;
                         break;
                     }
                 }
@@ -324,9 +320,7 @@ namespace Server.Mobiles
 
             SetHits(151, 210);
 
-            SetDamage(7, 9);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 7, 9);
 
             SetResist(ResistType.Phys, 40, 50);
             SetResist(ResistType.Fire, 30, 40);
@@ -405,6 +399,9 @@ namespace Server.Mobiles
                         defender.SendAsciiMessage("You have been hit by a critical strike!");
                         break;
                     }
+
+                default:
+                    break;
             }
         }
 

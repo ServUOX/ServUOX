@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -27,9 +26,7 @@ namespace Server.Mobiles
 
             SetHits(76, 90);
 
-            SetDamage(6, 12);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 6, 12);
 
             SetResist(ResistType.Phys, 30, 40);
             SetResist(ResistType.Fire, 25, 35);
@@ -68,9 +65,8 @@ namespace Server.Mobiles
 
         public void AddArcane(Item item)
         {
-            if (item is IArcaneEquip)
+            if (item is IArcaneEquip eq)
             {
-                IArcaneEquip eq = (IArcaneEquip)item;
                 eq.CurArcaneCharges = eq.MaxArcaneCharges = 20;
             }
 
@@ -89,7 +85,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

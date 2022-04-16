@@ -20,9 +20,7 @@ namespace Server.Mobiles
 
             SetHits(241, 300);
 
-            SetDamage(16, 22);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 16, 22);
 
             SetResist(ResistType.Phys, 60, 70);
             SetResist(ResistType.Fire, 60, 70);
@@ -95,9 +93,7 @@ namespace Server.Mobiles
 
         public override void OnActionCombat()
         {
-            Mobile combatant = Combatant as Mobile;
-
-            if (DateTime.UtcNow < m_NextAbilityTime || combatant == null || combatant.Deleted || combatant.Map != Map || !InRange(combatant, 3) || !CanBeHarmful(combatant) || !InLOS(combatant))
+            if (DateTime.UtcNow < m_NextAbilityTime || !(Combatant is Mobile combatant) || combatant.Deleted || combatant.Map != Map || !InRange(combatant, 3) || !CanBeHarmful(combatant) || !InLOS(combatant))
                 return;
 
             m_NextAbilityTime = DateTime.UtcNow + TimeSpan.FromSeconds(Utility.RandomMinMax(5, 30));

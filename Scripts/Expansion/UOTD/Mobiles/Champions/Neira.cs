@@ -47,21 +47,22 @@ namespace Server.Mobiles
             VirtualArmor = 30;
             Female = true;
 
-            Item shroud = new HoodedShroudOfShadows();
-
-            shroud.Movable = false;
+            Item shroud = new HoodedShroudOfShadows
+            {
+                Movable = false
+            };
 
             AddItem(shroud);
 
-            Scimitar weapon = new Scimitar();
-
-            weapon.Skill = SkillName.Wrestling;
-            weapon.Hue = 38;
-            weapon.Movable = false;
+            Scimitar weapon = new Scimitar
+            {
+                Skill = SkillName.Wrestling,
+                Hue = 38,
+                Movable = false
+            };
 
             AddItem(weapon);
 
-            //new SkeletalSteed().Rider = this;
             AddItem(new VirtualMountItem(this));
         }
 
@@ -103,8 +104,8 @@ namespace Server.Mobiles
             if (mount != null)
                 mount.Rider = null;
 
-            if (mount is Mobile)
-                ((Mobile)mount).Delete();
+            if (mount is Mobile mobile)
+                mobile.Delete();
 
             return base.OnBeforeDeath();
         }
@@ -171,7 +172,7 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write(1); // version
+            writer.Write(1);
             writer.Write(m_SpeedBoost);
         }
 
@@ -188,6 +189,9 @@ namespace Server.Mobiles
                         m_SpeedBoost = reader.ReadBool();
                         break;
                     }
+
+                default:
+                    break;
             }
         }
 
@@ -259,17 +263,14 @@ namespace Server.Mobiles
             public override void Serialize(GenericWriter writer)
             {
                 base.Serialize(writer);
-
-                writer.Write(0); // version
-
+                writer.Write(0);
                 writer.Write(m_Rider);
             }
 
             public override void Deserialize(GenericReader reader)
             {
                 base.Deserialize(reader);
-
-                int version = reader.ReadInt();
+                _ = reader.ReadInt();
 
                 m_Rider = reader.ReadMobile();
 

@@ -12,10 +12,9 @@ namespace Server.Mobiles
 
         public double Scalar(Mobile m)
         {
-            double scalar;
-
             double skill = m.Skills[SkillName.Tinkering].Value;
 
+            double scalar;
             if (skill >= 100.0)
                 scalar = 1.0;
             else if (skill >= 90.0)
@@ -79,9 +78,7 @@ namespace Server.Mobiles
                 SpawnPackItems();
             }
 
-            SetDamage(13, 24);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 13, 24);
 
             SetResist(ResistType.Phys, 40, 60);
             SetResist(ResistType.Cold, 20, 30);
@@ -96,17 +93,15 @@ namespace Server.Mobiles
         {
             PackItem(new IronIngot(Utility.RandomMinMax(13, 21)));
 
-            if (0.1 > Utility.RandomDouble())
-                PackItem(new PowerCrystal());
-
-            if (0.15 > Utility.RandomDouble())
-                PackItem(new ClockworkAssembly());
-
-            if (0.2 > Utility.RandomDouble())
-                PackItem(new ArcaneGem());
-
-            if (0.25 > Utility.RandomDouble())
-                PackItem(new Gears());
+            switch (Utility.RandomDouble())
+            {
+                case 0.1: PackItem(new PowerCrystal()); break;
+                case 0.15: PackItem(new ClockworkAssembly()); break;
+                case 0.2: PackItem(new ArcaneGem()); break;
+                case 0.25: PackItem(new Gears()); break;
+                default:
+                    break;
+            }
         }
 
         public Golem(Serial serial)
@@ -213,7 +208,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

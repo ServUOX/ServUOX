@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 using Server.Mobiles;
 
@@ -38,8 +37,10 @@ namespace Server.Engines.Quests.Haven
             Utility.AssignRandomHair(this);
             Utility.AssignRandomFacialHair(this, HairHue);
 
-            Bardiche weapon = new Bardiche();
-            weapon.Movable = false;
+            Bardiche weapon = new Bardiche
+            {
+                Movable = false
+            };
             AddItem(weapon);
         }
 
@@ -50,7 +51,7 @@ namespace Server.Engines.Quests.Haven
 
         public override bool CanTalkTo(PlayerMobile to)
         {
-            return (to.Quest == null && QuestSystem.CanOfferQuest(to, typeof(UzeraanTurmoilQuest)));
+            return to.Quest == null && QuestSystem.CanOfferQuest(to, typeof(UzeraanTurmoilQuest));
         }
 
         public override void OnTalk(PlayerMobile player, bool contextMenu)
@@ -66,15 +67,13 @@ namespace Server.Engines.Quests.Haven
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

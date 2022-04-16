@@ -8,7 +8,7 @@ namespace Server.Mobiles
             : base(AIType.AI_Animal, FightMode.Aggressor, 10, 1, 0.2, 0.4)
         {
             Body = 831;
-            Name = ("a parrot");
+            Name = "a parrot";
             VirtualArmor = Utility.Random(0, 6);
 
             InitStats((10), Utility.Random(25, 16), (10));

@@ -25,10 +25,8 @@ namespace Server.Mobiles
 
             SetHits(95, 123);
 
-            SetDamage(1, 8);
-
-            SetDamageType(ResistType.Phys, 75);
-            SetDamageType(ResistType.Fire, 25);
+            SetDamage(ResistType.Phys, 75, 0, 1, 8);
+            SetDamage(ResistType.Fire, 25);
 
             SetResist(ResistType.Phys, 25, 35);
             SetResist(ResistType.Fire, 30, 40);
@@ -106,9 +104,7 @@ namespace Server.Mobiles
 
         public override void OnActionCombat()
         {
-            Mobile combatant = Combatant as Mobile;
-
-            if (combatant == null || combatant.Deleted || combatant.Map != Map || !InRange(combatant, 12) || !CanBeHarmful(combatant) || !InLOS(combatant))
+            if (!(Combatant is Mobile combatant) || combatant.Deleted || combatant.Map != Map || !InRange(combatant, 12) || !CanBeHarmful(combatant) || !InLOS(combatant))
                 return;
 
             if (DateTime.UtcNow >= m_NextBomb)
@@ -183,9 +179,7 @@ namespace Server.Mobiles
 
             SetHits(476, 552);
 
-            SetDamage(20, 25);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 20, 25);
 
             SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Fire, 40, 50);
@@ -295,9 +289,10 @@ namespace Server.Mobiles
 
             if (orcs < 10)
             {
-                BaseCreature orc = new SpawnedOrcishLord();
-
-                orc.Team = Team;
+                BaseCreature orc = new SpawnedOrcishLord
+                {
+                    Team = Team
+                };
 
                 Point3D loc = target.Location;
                 bool validLocation = false;
@@ -351,9 +346,7 @@ namespace Server.Mobiles
 
             SetHits(97, 139);
 
-            SetDamage(4, 13);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 4, 13);
 
             SetResist(ResistType.Phys, 25, 35);
             SetResist(ResistType.Fire, 30, 40);
@@ -392,7 +385,6 @@ namespace Server.Mobiles
 
         public override void OnDeath(Container CorpseLoot)
         {
-            // TODO: Skull?
             switch (Utility.Random(7))
             {
                 case 0:
@@ -415,6 +407,8 @@ namespace Server.Mobiles
                     break;
                 case 6:
                     CorpseLoot.DropItem(new Jug(BeverageType.Cider));
+                    break;
+                default:
                     break;
             }
 
@@ -490,9 +484,7 @@ namespace Server.Mobiles
             SetHits(58, 72);
             SetMana(30, 60);
 
-            SetDamage(5, 7);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 5, 7);
 
             SetResist(ResistType.Phys, 25, 35);
             SetResist(ResistType.Fire, 30, 40);

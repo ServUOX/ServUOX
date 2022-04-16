@@ -21,11 +21,9 @@ namespace Server.Mobiles
             SetHits(15000);
             SetStam(203, 650);
 
-            SetDamage(28, 55);
-
-            SetDamageType(ResistType.Phys, 25);
-            SetDamageType(ResistType.Fire, 50);
-            SetDamageType(ResistType.Engy, 25);
+            SetDamage(ResistType.Phys, 25, 0, 28, 55);
+            SetDamage(ResistType.Fire, 50);
+            SetDamage(ResistType.Engy, 25);
 
             SetResist(ResistType.Phys, 80, 90);
             SetResist(ResistType.Fire, 80, 90);
@@ -103,7 +101,7 @@ namespace Server.Mobiles
                 if (m == this || !CanBeHarmful(m))
                     continue;
 
-                if (m is BaseCreature && (((BaseCreature)m).Controlled || ((BaseCreature)m).Summoned || ((BaseCreature)m).Team != Team))
+                if (m is BaseCreature creature && (creature.Controlled || creature.Summoned || creature.Team != Team))
                     targets.Add(m);
                 else if (m.Player)
                     targets.Add(m);
@@ -161,15 +159,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

@@ -18,10 +18,8 @@ namespace Server.Mobiles
 
             SetHits(600);
 
-            SetDamage(27, 38);
-
-            SetDamageType(ResistType.Phys, 75);
-            SetDamageType(ResistType.Cold, 25);
+            SetDamage(ResistType.Phys, 75, 0, 27, 38);
+            SetDamage(ResistType.Cold, 25);
 
             SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Fire, 30, 40);
@@ -70,10 +68,11 @@ namespace Server.Mobiles
 
             for (int i = 0; i < newPixies; ++i)
             {
-                Pixie pixie = new Pixie();
-
-                pixie.Team = Team;
-                pixie.FightMode = FightMode.Closest;
+                Pixie pixie = new Pixie
+                {
+                    Team = Team,
+                    FightMode = FightMode.Closest
+                };
 
                 bool validLocation = false;
                 Point3D loc = Location;
@@ -121,15 +120,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

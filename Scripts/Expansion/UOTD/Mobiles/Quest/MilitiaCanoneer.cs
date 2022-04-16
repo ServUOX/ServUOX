@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 using Server.Mobiles;
 
@@ -52,8 +51,10 @@ namespace Server.Engines.Quests.Haven
             AddItem(new PlateGloves());
             AddItem(new PlateLegs());
 
-            Torch torch = new Torch();
-            torch.Movable = false;
+            Torch torch = new Torch
+            {
+                Movable = false
+            };
             AddItem(torch);
             torch.Ignite();
         }
@@ -72,10 +73,8 @@ namespace Server.Engines.Quests.Haven
             if (m.Player || m is BaseVendor)
                 return false;
 
-            if (m is BaseCreature)
+            if (m is BaseCreature bc)
             {
-                BaseCreature bc = (BaseCreature)m;
-
                 Mobile master = bc.GetMaster();
                 if (master != null)
                     return IsEnemy(master);
@@ -84,7 +83,7 @@ namespace Server.Engines.Quests.Haven
             return m.Karma < 0;
         }
 
-        public bool WillFire(Cannon cannon, Mobile target)
+        public bool WillFire(Mobile target)
         {
             if (m_Active && IsEnemy(target))
             {
@@ -100,7 +99,7 @@ namespace Server.Engines.Quests.Haven
         {
             base.Serialize(writer);
 
-            writer.Write(0); // version
+            writer.Write(0);
 
             writer.Write(m_Active);
         }
@@ -108,8 +107,7 @@ namespace Server.Engines.Quests.Haven
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_Active = reader.ReadBool();
         }
