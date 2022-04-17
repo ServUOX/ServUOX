@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -19,7 +18,7 @@ namespace Server.Mobiles
             SetStam(259, 360);
             SetMana(374, 600);
 
-            SetDamage(14, 20);
+            SetDamage(ResistType.Phys, 100, 0, 14, 20);
 
             SetResist(ResistType.Phys, 80, 90);
             SetResist(ResistType.Fire, 40, 50);
@@ -66,10 +65,7 @@ namespace Server.Mobiles
         public override string DefaultName => "Irk";
         public override int DefaultHue => 0x489;
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.UltraRich, 2);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.UltraRich, 2);
 
         public override void Serialize(GenericWriter writer)
         {

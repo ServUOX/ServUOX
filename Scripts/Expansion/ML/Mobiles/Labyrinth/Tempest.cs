@@ -1,11 +1,11 @@
 namespace Server.Mobiles
 {
     [CorpseName("the remains of Tempest")]
-    public class Tempest : BaseCreature
+    public class Tempest : AirElemental
     {
         [Constructible]
         public Tempest()
-            : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
+            : base()
         {
             Name = "Tempest";
             Body = 13;
@@ -18,9 +18,8 @@ namespace Server.Mobiles
 
             SetHits(602);
 
-            SetDamage(18, 20);
-            SetDamageType(ResistType.Engy, 80);
-            SetDamageType(ResistType.Cold, 20);
+            SetDamage(ResistType.Engy, 80, 0, 18, 20);
+            SetDamage(ResistType.Cold, 20);
 
             SetResist(ResistType.Phys, 46);
             SetResist(ResistType.Fire, 39);

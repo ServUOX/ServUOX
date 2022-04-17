@@ -12,7 +12,7 @@ namespace Server.Mobiles
 {
     public static class GuideHelper
     {
-        private static readonly Dictionary<string, List<GuideVertex>> m_GraphDefinitions = new Dictionary<string, List<GuideVertex>>();
+        private static readonly Dictionary<string, List<Vertex>> m_GraphDefinitions = new Dictionary<string, List<Vertex>>();
         private static readonly List<int> m_ShopDefinitions = new List<int>();
         private static readonly char[] m_Separators = new char[] { '\t', ' ' };
         private static readonly string m_Delimiter = "--------------------------------------------------------------------------";
@@ -33,9 +33,9 @@ namespace Server.Mobiles
             }
         }
 
-        public static GuideVertex FindVertex(List<GuideVertex> list, int id)
+        public static Vertex FindVertex(List<Vertex> list, int id)
         {
-            foreach (GuideVertex v in list)
+            foreach (Vertex v in list)
             {
                 if (v.ID == id)
                     return v;
@@ -80,9 +80,9 @@ namespace Server.Mobiles
                     using (FileStream stream = File.OpenRead(file))
                     using (StreamReader reader = new StreamReader(stream))
                     {
-                        List<GuideVertex> list = new List<GuideVertex>();
-                        GuideVertex current = null;
-                        GuideVertex neighbour = null;
+                        List<Vertex> list = new List<Vertex>();
+                        Vertex current = null;
+                        Vertex neighbour = null;
 
                         while (!reader.EndOfStream)
                         {
@@ -104,7 +104,7 @@ namespace Server.Mobiles
 
                                             if (neighbour == null)
                                             {
-                                                neighbour = new GuideVertex(num);
+                                                neighbour = new Vertex(num);
                                                 list.Add(neighbour);
                                             }
 
@@ -138,14 +138,16 @@ namespace Server.Mobiles
                                             current = neighbour;
                                         else
                                         {
-                                            current = new GuideVertex(num);
+                                            current = new Vertex(num);
                                             list.Add(current);
                                         }
 
-                                        Point3D location = new Point3D();
-                                        location.X = int.Parse(split[2]);
-                                        location.Y = int.Parse(split[3]);
-                                        location.Z = int.Parse(split[4]);
+                                        Point3D location = new Point3D
+                                        {
+                                            X = int.Parse(split[2]),
+                                            Y = int.Parse(split[3]),
+                                            Z = int.Parse(split[4])
+                                        };
                                         current.Location = location;
                                         current.Teleporter = bool.Parse(split[5]);
                                     }
@@ -173,7 +175,7 @@ namespace Server.Mobiles
 
             if (m.Region != null)
             {
-                GuideVertex closest = ClosestVetrex(m.Region.Name, m.Location);
+                Vertex closest = ClosestVetrex(m.Region.Name, m.Location);
 
                 if (closest != null)
                     m.SendGump(new GuideVertexEditGump(closest, m.Map, m.Region.Name));
@@ -184,18 +186,18 @@ namespace Server.Mobiles
                 m.SendLocalizedMessage(1076113); // There are no shops nearby.  Please try again when you get to a town or city.
         }
 
-        public static GuideVertex ClosestVetrex(string town, Point3D location)
+        public static Vertex ClosestVetrex(string town, Point3D location)
         {
             if (town == null || !m_GraphDefinitions.ContainsKey(town))
                 return null;
 
-            List<GuideVertex> vertices = m_GraphDefinitions[town];
+            List<Vertex> vertices = m_GraphDefinitions[town];
 
-            GuideVertex closest = null;
+            Vertex closest = null;
             double min = int.MaxValue;
             double distance;
 
-            foreach (GuideVertex v in vertices)
+            foreach (Vertex v in vertices)
             {
                 distance = Math.Sqrt(Math.Pow(location.X - v.Location.X, 2) + Math.Pow(location.Y - v.Location.Y, 2));
 
@@ -209,21 +211,21 @@ namespace Server.Mobiles
             return closest;
         }
 
-        public static Dictionary<int, GuideVertex> FindShops(string town, Point3D location)
+        public static Dictionary<int, Vertex> FindShops(string town, Point3D location)
         {
             if (town == null || !m_GraphDefinitions.ContainsKey(town))
                 return null;
 
-            List<GuideVertex> vertices = m_GraphDefinitions[town];
-            Dictionary<int, GuideVertex> shops = new Dictionary<int, GuideVertex>();
+            List<Vertex> vertices = m_GraphDefinitions[town];
+            Dictionary<int, Vertex> shops = new Dictionary<int, Vertex>();
 
-            foreach (GuideVertex v in vertices)
+            foreach (Vertex v in vertices)
             {
                 foreach (int shop in v.Shops)
                 {
                     if (shops.ContainsKey(shop))
                     {
-                        GuideVertex d = shops[shop];
+                        Vertex d = shops[shop];
 
                         if (v.DistanceTo(location) < d.DistanceTo(location))
                             shops[shop] = v;
@@ -239,16 +241,16 @@ namespace Server.Mobiles
             return null;
         }
 
-        public static List<GuideVertex> Dijkstra(string town, GuideVertex source, GuideVertex destination)
+        public static List<Vertex> Dijkstra(string town, Vertex source, Vertex destination)
         {
             if (town == null || !m_GraphDefinitions.ContainsKey(town))
                 return null;
 
-            Heap<GuideVertex> heap = new Heap<GuideVertex>();
-            List<GuideVertex> path = new List<GuideVertex>();
+            Heap<Vertex> heap = new Heap<Vertex>();
+            List<Vertex> path = new List<Vertex>();
             heap.Push(source);
 
-            foreach (GuideVertex v in m_GraphDefinitions[town])
+            foreach (Vertex v in m_GraphDefinitions[town])
             {
                 v.Distance = int.MaxValue;
                 v.Previous = null;
@@ -257,9 +259,7 @@ namespace Server.Mobiles
             }
 
             source.Distance = 0;
-            GuideVertex from;
-            int dist = 0;
-
+            Vertex from;
             while (heap.Count > 0)
             {
                 from = heap.Pop();
@@ -277,12 +277,11 @@ namespace Server.Mobiles
                     return path;
                 }
 
-                foreach (GuideVertex v in from.Vertices)
+                foreach (Vertex v in from.Vertices)
                 {
                     if (!v.Removed)
                     {
-                        dist = from.Distance + (from.Teleporter ? 1 : from.DistanceTo(v));
-
+                        int dist = from.Distance + (from.Teleporter ? 1 : from.DistanceTo(v));
                         if (dist < v.Distance)
                         {
                             v.Distance = dist;
@@ -302,11 +301,11 @@ namespace Server.Mobiles
 
         public class GuideVertexEditGump : Gump
         {
-            private readonly GuideVertex m_Vertex;
+            private readonly Vertex m_Vertex;
             private readonly Map m_Map;
             private readonly string m_Town;
             private readonly Item m_Item;
-            public GuideVertexEditGump(GuideVertex vertex, Map map, string town)
+            public GuideVertexEditGump(Vertex vertex, Map map, string town)
                 : base(50, 50)
             {
                 m_Vertex = vertex;
@@ -319,15 +318,13 @@ namespace Server.Mobiles
                 Resizable = false;
 
                 int size = m_ShopDefinitions.Count;
-                bool on = false;
-
                 AddPage(0);
                 AddBackground(0, 0, 540, 35 + size * 30 / 2, 9200);
                 AddAlphaRegion(15, 10, 510, 15 + size * 30 / 2);
 
                 for (int i = 0; i < size; i += 2)
                 {
-                    on = m_Vertex.Shops.Contains(i);
+                    bool on = m_Vertex.Shops.Contains(i);
                     AddButton(25, 25 + i * 30 / 2, on ? 2361 : 2360, on ? 2360 : 2361, i + 1, GumpButtonType.Reply, 0);
                     AddHtmlLocalized(50, 20 + i * 30 / 2, 200, 20, m_ShopDefinitions[i], 0x7773, false, false);
 
@@ -339,8 +336,10 @@ namespace Server.Mobiles
                     }
                 }
 
-                m_Item = new Item(0x1183);
-                m_Item.Visible = false;
+                m_Item = new Item(0x1183)
+                {
+                    Visible = false
+                };
                 m_Item.MoveToWorld(m_Vertex.Location, map);
             }
 
@@ -367,7 +366,7 @@ namespace Server.Mobiles
                 if (!m_GraphDefinitions.ContainsKey(town))
                     return;
 
-                List<GuideVertex> list = m_GraphDefinitions[town];
+                List<Vertex> list = m_GraphDefinitions[town];
                 string path = Core.BaseDirectory + string.Format("\\Data\\Guide\\{0}.graph", town);
 
                 using (FileStream stream = new FileStream(path, FileMode.Create))
@@ -378,7 +377,7 @@ namespace Server.Mobiles
                     writer.WriteLine("# {S:}ShopID{tab, }ShopID{tab, }...");
                     writer.WriteLine("# {N:}VertexID{tab, }VertexID{tab, }...");
 
-                    foreach (GuideVertex v in list)
+                    foreach (Vertex v in list)
                     {
                         writer.WriteLine(string.Format("V:\t{0}\t{1}\t{2}\t{3}\t{4}", v.ID, v.Location.X, v.Location.Y, v.Location.Z, v.Teleporter.ToString()));
 
@@ -396,7 +395,7 @@ namespace Server.Mobiles
                         {
                             writer.Write("N:");
 
-                            foreach (GuideVertex n in v.Vertices)
+                            foreach (Vertex n in v.Vertices)
                                 writer.Write(string.Format("\t{0}", n.ID));
 
                             writer.WriteLine();
@@ -406,16 +405,16 @@ namespace Server.Mobiles
             }
         }
 
-        public class GuideVertex : IComparable<GuideVertex>
+        public class GuideVertex : IComparable<Vertex>
         {
             public bool m_Visited;
             public bool m_Removed;
             private readonly int m_ID;
-            private readonly List<GuideVertex> m_Vertices = new List<GuideVertex>();
+            private readonly List<Vertex> m_Vertices = new List<Vertex>();
             private readonly List<int> m_Shops = new List<int>();
             private Point3D m_Location;
             private bool m_Teleporter;
-            private GuideVertex m_Previous;
+            private Vertex m_Previous;
             private int m_Distance;
             public GuideVertex(int id)
                 : this(id, Point3D.Zero)
@@ -444,7 +443,7 @@ namespace Server.Mobiles
                     m_Location = value;
                 }
             }
-            public List<GuideVertex> Vertices => m_Vertices;
+            public List<Vertex> Vertices => m_Vertices;
             public List<int> Shops => m_Shops;
             public bool Teleporter
             {
@@ -501,7 +500,7 @@ namespace Server.Mobiles
                     m_Removed = value;
                 }
             }
-            public int DistanceTo(GuideVertex to)
+            public int DistanceTo(Vertex to)
             {
                 return Math.Abs(m_Location.X - to.Location.X) + Math.Abs(m_Location.Y - to.Location.Y);
             }
@@ -511,7 +510,7 @@ namespace Server.Mobiles
                 return Math.Abs(m_Location.X - to.X) + Math.Abs(m_Location.Y - to.Y);
             }
 
-            public int CompareTo(GuideVertex o)
+            public int CompareTo(Vertex o)
             {
                 if (o != null)
                     return m_Distance - o.Distance;
@@ -574,7 +573,7 @@ namespace Server.Mobiles
             public T Pop()
             {
                 if (m_List.Count == 0)
-                    return default(T);
+                    return default;
 
                 T top = m_List[0];
                 T temp;
@@ -662,7 +661,7 @@ namespace Server.Mobiles
         {
             if (from.Alive && IsOwner(from))
             {
-                Dictionary<int, Vertex> m_Shops = GuideHelper.FindShops(Region != null ? Region.Name : null, Location);
+                Dictionary<int, Vertex> m_Shops = GuideHelper.FindShops(Region?.Name, Location);
 
                 if (m_Shops != null)
                 {
@@ -719,7 +718,7 @@ namespace Server.Mobiles
                         }
                         else
                         {
-                            Timer.DelayCall<Mobile>(TimeSpan.FromSeconds(3), new TimerStateCallback<Mobile>(CommandFollow), m);
+                            Timer.DelayCall(TimeSpan.FromSeconds(3), new TimerStateCallback<Mobile>(CommandFollow), m);
                             Say(1076051); // We have reached our destination
                             CommandStop(m);
                         }
@@ -746,14 +745,13 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
 
         public void StopGuiding()
@@ -907,14 +905,13 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 
@@ -953,23 +950,23 @@ namespace Server.Mobiles
             AddItem(new FeatheredHat(Utility.RandomBlueHue()));
             AddItem(new Kilt(Utility.RandomBlueHue()));
 
-            Item item = new Spellbook();
-            item.Hue = Utility.RandomBlueHue();
+            Item item = new Spellbook
+            {
+                Hue = Utility.RandomBlueHue()
+            };
             AddItem(item);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }

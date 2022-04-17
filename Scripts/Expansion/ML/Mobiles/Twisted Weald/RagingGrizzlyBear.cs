@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Mobiles
 {
     [CorpseName("a grizzly bear corpse")]
@@ -20,9 +18,7 @@ namespace Server.Mobiles
             SetHits(751, 930);
             SetMana(0);
 
-            SetDamage(18, 23);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 18, 23);
 
             SetResist(ResistType.Phys, 50, 70);
             SetResist(ResistType.Cold, 30, 50);
@@ -34,8 +30,8 @@ namespace Server.Mobiles
             SetSkill(SkillName.MagicResist, 32.8, 54.6);
             SetSkill(SkillName.Anatomy, 0, 0);
 
-            Fame = 10000;  //Guessing here
-            Karma = 10000;  //Guessing here
+            Fame = 10000;
+            Karma = 10000;
 
             VirtualArmor = 24;
 

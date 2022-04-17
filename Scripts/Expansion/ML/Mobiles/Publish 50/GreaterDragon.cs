@@ -19,9 +19,7 @@ namespace Server.Mobiles
 
             SetHits(1000, 2000);
 
-            SetDamage(24, 33);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 24, 33);
 
             SetResist(ResistType.Phys, 60, 85);
             SetResist(ResistType.Fire, 65, 90);
@@ -64,7 +62,7 @@ namespace Server.Mobiles
         public override int Hides => 30;
         public override HideType HideType => HideType.Barbed;
         public override int Scales => 7;
-        public override ScaleType ScaleType => (Body == 12 ? ScaleType.Yellow : ScaleType.Red);
+        public override ScaleType ScaleType => Body == 12 ? ScaleType.Yellow : ScaleType.Red;
         public override FoodType FavoriteFood => FoodType.Meat;
         public override bool CanAngerOnTame => true;
         public override bool CanFly => true;

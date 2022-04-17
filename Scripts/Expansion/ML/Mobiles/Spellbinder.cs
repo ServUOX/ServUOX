@@ -3,15 +3,14 @@ using System;
 namespace Server.Mobiles
 {
     [CorpseName("a ghostly corpse")]
-    public class Spellbinder : BaseCreature
+    public class Spellbinder : Spectre
     {
         [Constructible]
         public Spellbinder()
-            : base(AIType.AI_Spellbinder, FightMode.Aggressor, 10, 1, 0.2, 0.4)
+            : base()
         {
             Name = "a spectral spellbinder";
-            Body = Utility.RandomList(26, 50, 56);
-            BaseSoundID = 0x482;
+            AI = AIType.AI_Spellbinder;
 
             SetStr(46, 70);
             SetDex(47, 65);
@@ -19,9 +18,7 @@ namespace Server.Mobiles
 
             SetHits(36, 50);
 
-            SetDamage(3, 6);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 3, 6);
 
             SetResist(ResistType.Phys, 20, 30);
             SetResist(ResistType.Cold, 15, 25);
@@ -60,7 +57,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

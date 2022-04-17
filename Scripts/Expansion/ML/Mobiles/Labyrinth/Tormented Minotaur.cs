@@ -18,9 +18,7 @@ namespace Server.Mobiles
 
             SetHits(4000, 4200);
 
-            SetDamage(16, 30);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 16, 30);
 
             SetResist(ResistType.Phys, 62);
             SetResist(ResistType.Fire, 74);
@@ -46,35 +44,17 @@ namespace Server.Mobiles
         public override Poison PoisonImmunity => Poison.Deadly;
         public override int TreasureMapLevel => 3;
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.FilthyRich, 10);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.FilthyRich, 10);
 
-        public override int GetDeathSound()
-        {
-            return 0x596;
-        }
+        public override int GetAngerSound() => 0x599;
 
-        public override int GetAttackSound()
-        {
-            return 0x597;
-        }
+        public override int GetIdleSound() => 0x598;
 
-        public override int GetIdleSound()
-        {
-            return 0x598;
-        }
+        public override int GetAttackSound() => 0x597;
 
-        public override int GetAngerSound()
-        {
-            return 0x599;
-        }
+        public override int GetHurtSound() => 0x59a;
 
-        public override int GetHurtSound()
-        {
-            return 0x59A;
-        }
+        public override int GetDeathSound() => 0x596;
 
         public override void Serialize(GenericWriter writer)
         {

@@ -103,21 +103,6 @@ namespace Server.Mobiles
             return can;
         }
 
-        /*public override void IncreaseTier()
-        {			
-        base.IncreaseTier();
-			
-        List<object> list = new List<object>();
-        Item c;
-			
-        switch ( Tier )
-        {								
-        }
-			
-        if ( list.Count > 0 )
-        Tiers.Add( list );
-        }*/
-
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -127,7 +112,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

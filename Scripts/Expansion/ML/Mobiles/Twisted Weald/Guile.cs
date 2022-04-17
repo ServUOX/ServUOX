@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -19,9 +18,7 @@ namespace Server.Mobiles
             SetStam(243, 367);
             SetMana(369, 586);
 
-            SetDamage(14, 20);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 14, 20);
 
             SetResist(ResistType.Phys, 80, 90);
             SetResist(ResistType.Fire, 43, 46);

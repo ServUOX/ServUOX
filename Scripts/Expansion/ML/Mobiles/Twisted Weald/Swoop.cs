@@ -19,9 +19,7 @@ namespace Server.Mobiles
 
             SetHits(1350, 1550);
 
-            SetDamage(20, 30);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 20, 30);
 
             SetResist(ResistType.Phys, 75, 90);
             SetResist(ResistType.Fire, 60, 70);
@@ -78,6 +76,9 @@ namespace Server.Mobiles
                     case 17: CorpseLoot.DropItem(new GreymistGloves()); break;
                     case 18: CorpseLoot.DropItem(new GreymistLegs()); break;
                     case 19: CorpseLoot.DropItem(new MyrmidonChest()); break;
+                    default:
+                        CorpseLoot.DropItem(new MyrmidonChest()); break;
+                        break;
                 }
             }
 

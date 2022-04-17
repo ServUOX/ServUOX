@@ -69,6 +69,12 @@ namespace Server.Mobiles
             base.OnDeath(CorpseLoot);
         }
 
+        public override int GetAngerSound() => 0x46E;
+        public override int GetIdleSound() => 0x470;
+        public override int GetAttackSound() => 0x46D;
+        public override int GetHurtSound() => 0x471;
+        public override int GetDeathSound() => 0x46F;
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

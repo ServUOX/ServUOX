@@ -1,19 +1,17 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
 {
     [CorpseName("an abscess's corpse")]
-    public class Abscess : BaseCreature
+    public class Abscess : Hydra
     {
         [Constructible]
         public Abscess()
-            : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
+            : base()
         {
             Name = "Abscess";
             Body = 0x109;
             Hue = 0x8FD;
-            BaseSoundID = 0x16A;
 
             SetStr(845, 871);
             SetDex(121, 134);
@@ -21,13 +19,11 @@ namespace Server.Mobiles
 
             SetHits(7470, 7540);
 
-            SetDamage(26, 31);
-
-            SetDamageType(ResistType.Phys, 60);
-            SetDamageType(ResistType.Fire, 10);
-            SetDamageType(ResistType.Cold, 10);
-            SetDamageType(ResistType.Pois, 10);
-            SetDamageType(ResistType.Engy, 10);
+            SetDamage(ResistType.Phys, 60, 0, 26, 31);
+            SetDamage(ResistType.Fire, 10);
+            SetDamage(ResistType.Cold, 10);
+            SetDamage(ResistType.Pois, 10);
+            SetDamage(ResistType.Engy, 10);
 
             SetResist(ResistType.Phys, 65, 75);
             SetResist(ResistType.Fire, 70, 80);

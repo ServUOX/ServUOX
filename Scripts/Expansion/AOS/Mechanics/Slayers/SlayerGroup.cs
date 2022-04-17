@@ -158,7 +158,7 @@ namespace Server.Items
                     typeof(LordOaks), typeof(Pixie),
                     typeof(PixieRenowned), typeof(Silvani),
                     typeof(Treefellow), typeof(Unicorn),
-                    typeof(Wisp), typeof(MLDryad),
+                    typeof(Wisp), typeof(Dryad),
                     typeof(Satyr), typeof(Changeling),
                     typeof(InsaneDryad), typeof(CorporealBrume),
                     typeof(CrystalLatticeSeeker), typeof(LadyMelisande),

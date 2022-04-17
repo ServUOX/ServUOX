@@ -100,6 +100,7 @@
     <Compile Include="Expansion\AOS\Mechanics\Sphynx\SphynxFortune.cs" />
     <Compile Include="Expansion\AOS\Mobiles\FeralTreefellow.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Treefellow.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Dryad.cs" />
     <Compile Include="Expansion\SA\Mobiles\TreefellowGuardian.cs" />
     <Compile Include="Expansion\EJ\Items\Addons\DecorativeBlackwidowAddon.cs" />
     <Compile Include="Expansion\EJ\Items\Addons\FallenLogAddon.cs" />
@@ -612,9 +613,9 @@
     <Compile Include="Expansion\SA\Mobiles\EtherealAncientHellHound.cs" />
     <Compile Include="Expansion\SA\Mobiles\EtherealBoura.cs" />
     <Compile Include="Expansion\SA\Mobiles\ChargerOfTheFallen.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Ethereals\EtherealReptalon.cs" />
+    <Compile Include="Expansion\ML\Items\Ethereals\EtherealReptalon.cs" />
     <Compile Include="Expansion\SE\Mobiles\Mounts\EtherealHiryu.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Ethereals\EtherealCuSidhe.cs" />
+    <Compile Include="Expansion\ML\Items\Ethereals\EtherealCuSidhe.cs" />
     <Compile Include="Expansion\TOL\Mobiles\RideablePolarBear.cs" />
     <Compile Include="Expansion\UOR\Mobiles\Ethereals\EtherealSwampDragon.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Ethereals\EtherealKirin.cs" />
@@ -2936,32 +2937,32 @@
     <Compile Include="Expansion\ML\Mobiles\BlightedGrove\Abscess.cs" />
     <Compile Include="Expansion\SA\Mobiles\AcidElementalRenowned.cs" />
     <Compile Include="Expansion\UOR\Mechanics\Khaldun\Mobiles\AncientLichRenowned.cs" />
-    <Compile Include="Expansion\SA\Mobiles\Chiikkaha.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Coil.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Sanctuary\Chiikkaha.cs" />
+    <Compile Include="Expansion\ML\Mobiles\BlightedGrove\Coil.cs" />
     <Compile Include="Expansion\SA\Mobiles\DevourerRenowned.cs" />
     <Compile Include="Expansion\ML\Mobiles\Publish 44\Drelgor.cs" />
     <Compile Include="Expansion\SA\Mobiles\FireDaemonRenowned.cs" />
     <Compile Include="Expansion\SA\Mobiles\FireElementalRenowned.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Flurry.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Gnaw.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Gnaw.cs" />
     <Compile Include="Expansion\SA\Mobiles\GrayGoblinMageRenowned.cs" />
     <Compile Include="Expansion\SA\Mobiles\GreenGoblinAlchemistRenowned.cs" />
     <Compile Include="Expansion\SA\Mobiles\NightTerror.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Grim.cs" />
     <Compile Include="Expansion\ML\Mobiles\PaintedCaves\Grobu.cs" />
     <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Guile.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Ilhenir.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Bedlam\Ilhenir.cs" />
     <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Irk.cs" />
-    <Compile Include="Expansion\ML\Mobiles\LadyJennifyr.cs" />
-    <Compile Include="Expansion\ML\Mobiles\LadyLissith.cs" />
-    <Compile Include="Expansion\ML\Mobiles\LadyMarai.cs" />
-    <Compile Include="Expansion\ML\Mobiles\LadySabrix.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Bedlam\LadyJennifyr.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\LadyLissith.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Bedlam\LadyMarai.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\LadySabrix.cs" />
     <Compile Include="Expansion\ML\Mobiles\PaintedCaves\Lurg.cs" />
     <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Malefic.cs" />
-    <Compile Include="Expansion\ML\Mobiles\MasterJonath.cs" />
-    <Compile Include="Expansion\ML\Mobiles\MasterMikael.cs" />
-    <Compile Include="Expansion\ML\Mobiles\MasterTheophilus.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Labyrinth\Meraktus.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Bedlam\MasterJonath.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Bedlam\MasterMikael.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Bedlam\MasterTheophilus.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Champions\Meraktus.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Miasma.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Mistral.cs" />
     <Compile Include="Expansion\ML\Mobiles\Sanctuary\MougGuur.cs" />
@@ -2972,13 +2973,13 @@
     <Compile Include="Expansion\ML\Mobiles\Bedlam\RedDeath.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Rend.cs" />
     <Compile Include="Expansion\ML\Mobiles\BlightedGrove\Saliva.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Silk.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Silk.cs" />
     <Compile Include="Expansion\TOL\Mobiles\SirPatrick.cs" />
     <Compile Include="Expansion\SA\Mobiles\SkeletalDragonRenowned.cs" />
     <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Spite.cs" />
     <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Swoop.cs" />
     <Compile Include="Expansion\ML\Mobiles\Sanctuary\Szavetra.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Tangle.cs" />
+    <Compile Include="Expansion\ML\Mobiles\BlightedGrove\Tangle.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Tempest.cs" />
     <Compile Include="Expansion\ML\Mobiles\BlightedGrove\Thrasher.cs" />
     <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\TikitaviRenowned.cs" />
@@ -3008,7 +3009,7 @@
     <Compile Include="Expansion\UO\Mobiles\Animals\Birds.cs" />
     <Compile Include="Expansion\SA\Mobiles\Grubber.cs" />
     <Compile Include="Expansion\SA\TerMur\Lifestealer.cs" />
-    <Compile Include="Expansion\ML\Mobiles\DragonWolf.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Publish 97\DragonWolf.cs" />
     <Compile Include="Expansion\ML\Mobiles\Publish 52 Vanguard Event\DreadWarhorse.cs" />
     <Compile Include="Expansion\TOL\Mobiles\Publish 97\FrostDrake.cs" />
     <Compile Include="Expansion\EJ\Mobiles\Mounts\Lasher.cs" />
@@ -3032,7 +3033,7 @@
     <Compile Include="Expansion\LBR\Mobiles\CapturedHordeMinion.cs" />
     <Compile Include="Expansion\UO\Mobiles\Animals\Cats.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Centaur.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Changeling.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Sanctuary\Changeling.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Daemons\ChaosDaemon.cs" />
     <Compile Include="Expansion\SA\Mobiles\ChickenLizard.cs" />
     <Compile Include="Expansion\SA\Mobiles\ClanCA.cs" />
@@ -3049,19 +3050,19 @@
     <Compile Include="Expansion\SA\Mobiles\CoralSnake.cs" />
     <Compile Include="Expansion\ML\Mobiles\CorporealBrume.cs" />
     <Compile Include="Expansion\UO\Mobiles\Monsters\Corpser.cs" />
-    <Compile Include="Expansion\ML\Mobiles\CorrosiveSlime.cs" />
+    <Compile Include="Expansion\ML\Mobiles\PalaceOfParaxysmus\CorrosiveSlime.cs" />
     <Compile Include="Expansion\ML\Mobiles\CorruptedSoul.cs" />
     <Compile Include="Expansion\SE\Mobiles\Crane.cs" />
-    <Compile Include="Expansion\ML\Mobiles\CrystalDaemon.cs" />
+    <Compile Include="Expansion\ML\Mobiles\PrismOfLight\CrystalDaemon.cs" />
     <Compile Include="Expansion\AOS\Mobiles\CrystalElemental.cs" />
-    <Compile Include="Expansion\ML\Mobiles\CrystalHydra.cs" />
-    <Compile Include="Expansion\ML\Mobiles\CrystalLatticeSeeker.cs" />
-    <Compile Include="Expansion\ML\Mobiles\CrystalSeaSerpent.cs" />
-    <Compile Include="Expansion\ML\Mobiles\CrystalVortex.cs" />
-    <Compile Include="Expansion\ML\Mobiles\CrystalWisp.cs" />
+    <Compile Include="Expansion\ML\Mobiles\PrismOfLight\CrystalHydra.cs" />
+    <Compile Include="Expansion\ML\Mobiles\PrismOfLight\CrystalLatticeSeeker.cs" />
+    <Compile Include="Expansion\ML\Mobiles\PrismOfLight\CrystalSeaSerpent.cs" />
+    <Compile Include="Expansion\ML\Mobiles\PrismOfLight\CrystalVortex.cs" />
+    <Compile Include="Expansion\ML\Mobiles\PrismOfLight\CrystalWisp.cs" />
     <Compile Include="Expansion\UOR\Mechanics\Khaldun\Mobiles\Cursed.cs" />
     <Compile Include="Holidays\Holiday Mobiles\CursedSoul.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\CuSidhe.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Mounts\CuSidhe.cs" />
     <Compile Include="Expansion\UO\Mobiles\Monsters\Daemon.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Undead\DarkGuardian.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Doom Bosses\DarknightCreeper.cs" />
@@ -3077,7 +3078,7 @@
     <Compile Include="Expansion\UO\Mobiles\Animals\Dolphin.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Daemons\Doppleganger.cs" />
     <Compile Include="Expansion\UO\Mobiles\Monsters\Dragons.cs" />
-    <Compile Include="Expansion\ML\Mobiles\DragonsFlameGrandMage.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Citadel\DragonsFlameGrandMage.cs" />
     <Compile Include="Expansion\UO\Mobiles\Monsters\Spiders.cs" />
     <Compile Include="Expansion\SA\Mobiles\DreamWraith.cs" />
     <Compile Include="Expansion\UOR\Mobiles\DullCopperElemental.cs" />
@@ -3112,7 +3113,7 @@
     <Compile Include="Expansion\SE\Mobiles\Mounts\FireBeetle.cs" />
     <Compile Include="Expansion\SA\Mobiles\FireDaemon.cs" />
     <Compile Include="Expansion\UOR\Mobiles\FireGargoyle.cs" />
-    <Compile Include="Expansion\ML\Mobiles\FireRabbit.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Publish 57\FireRabbit.cs" />
     <Compile Include="Expansion\LBR\Mobiles\FireSteed.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Undead\FleshGolem.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Undead\FleshRenderer.cs" />
@@ -3126,7 +3127,7 @@
     <Compile Include="Expansion\SA\Mobiles\GargoyleShade.cs" />
     <Compile Include="Expansion\UO\Mobiles\Monsters\Gazers.cs" />
     <Compile Include="Expansion\AOS\Mobiles\GazerLarva.cs" />
-    <Compile Include="Expansion\ML\Mobiles\GiantBlackWidow.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\GiantBlackWidow.cs" />
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\GiantIceWorm.cs" />
     <Compile Include="Expansion\UO\Mobiles\Monsters\Serpents.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Gibberling.cs" />
@@ -3157,12 +3158,12 @@
     <Compile Include="Expansion\UO\Mobiles\Animals\Deer.cs" />
     <Compile Include="Expansion\SE\Mobiles\Mounts\Hiryu.cs" />
     <Compile Include="Expansion\UO\Mobiles\Animals\Horses.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Hydra.cs" />
+    <Compile Include="Expansion\ML\Mobiles\BlightedGrove\Hydra.cs" />
     <Compile Include="Customs\Items\Icehound.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Doom Bosses\Impaler.cs" />
     <Compile Include="Expansion\SE\Mobiles\InjuredWolf.cs" />
     <Compile Include="Expansion\ML\Mobiles\BlightedGrove\InsaneDryad.cs" />
-    <Compile Include="Expansion\ML\Mobiles\InterredGrizzle .cs" />
+    <Compile Include="Expansion\ML\Mobiles\Bedlam\InterredGrizzle .cs" />
     <Compile Include="Expansion\SA\Underworld\Mobiles\IronBeetle.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Juggernaut.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\Jukas.cs" />
@@ -3246,7 +3247,7 @@
     <Compile Include="Expansion\AOS\Mobiles\Ravager.cs" />
     <Compile Include="Expansion\UO\Mobiles\Monsters\Reaper.cs" />
     <Compile Include="Expansion\HS\Mobiles\RenegadeChangeling.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Labyrinth\Reptalon.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Mounts\Reptalon.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Undead\RestlessSoul.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Undead\Revenant.cs" />
     <Compile Include="Expansion\SE\Mobiles\RevenantLion.cs" />
@@ -3257,7 +3258,7 @@
     <Compile Include="Expansion\SE\Mobiles\RuneBeetle.cs" />
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\SandVortex.cs" />
     <Compile Include="Expansion\SA\Mobiles\SAPixie.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Satyr.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Satyr.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\Savages.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\SavageRidgeback.cs" />
     <Compile Include="Expansion\UO\Mobiles\Monsters\Scorpion.cs" />
@@ -3284,14 +3285,14 @@
     <Compile Include="Expansion\ML\Mobiles\SpeckledScorpion.cs" />
     <Compile Include="Expansion\UOR\Mechanics\Khaldun\Mobiles\SpectralArmour.cs" />
     <Compile Include="Expansion\ML\Mobiles\Spellbinder.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Squirrel.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Labyrinth\Squirrel.cs" />
     <Compile Include="Expansion\SA\TerMur\StoneSlith.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\StrongMongbat.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Succubus.cs" />
     <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\SwampDragons.cs" />
     <Compile Include="Expansion\SA\Underworld\Mobiles\TanglingRoots.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\ThirdDawnParrot.cs" />
-    <Compile Include="Expansion\ML\Mobiles\TigersClawMaster.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Citadel\TigersClawMaster.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Tormented Minotaur.cs" />
     <Compile Include="Customs\Items\ToxicElemental.cs" />
     <Compile Include="Expansion\SA\TerMur\ToxicSlith.cs" />
@@ -3306,7 +3307,7 @@
     <Compile Include="Expansion\UOR\Mobiles\ValoriteElemental.cs" />
     <Compile Include="Expansion\AOS\Mobiles\VampireBat.cs" />
     <Compile Include="Expansion\UOR\Mobiles\VeriteElemental.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Virulent.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Virulent.cs" />
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\VorpalBunny.cs" />
     <Compile Include="Expansion\AOS\Mobiles\WailingBanshee.cs" />
     <Compile Include="Expansion\UO\Mobiles\Animals\Walrus.cs" />
@@ -3346,7 +3347,7 @@
     <Compile Include="Expansion\UO\Mobiles\NPCs\AnimalTrainer.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\Heartwood\Anolly.cs" />
     <Compile Include="Expansion\SA\Quests\Ansikart.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Community Collections\Arabella.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Arabella.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\ArcherGuard.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Architect.cs" />
     <Compile Include="Expansion\ML\Quests\Ilshenar\Arielle.cs" />
@@ -3377,7 +3378,7 @@
     <Compile Include="Expansion\UO\Mobiles\NPCs\Blacksmith.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\BlacksmithGuildmaster.cs" />
     <Compile Include="Expansion\ML\Mobiles\HeartWood\Bolaevin.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Community Collections\Bonnie.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Bonnie.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Bowyer.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\Heartwood\Braen.cs" />
     <Compile Include="Expansion\ML\Quests\World\Hedge Maze\Bravehorn.cs" />
@@ -3399,7 +3400,7 @@
     <Compile Include="Expansion\UO\Mobiles\NPCs\Cobbler.cs" />
     <Compile Include="Expansion\ML\Quests\Dungeons\Bedlam\Cohenn.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Cook.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Community Collections\Corey.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Corey.cs" />
     <Compile Include="Expansion\ML\Quests\Items\CrateForSledge.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\CustomHairstylists.cs" />
     <Compile Include="Expansion\ML\Mobiles\HeartWood\Daelas.cs" />
@@ -3420,7 +3421,7 @@
     <Compile Include="Expansion\UO\Mobiles\NPCs\EvilWanderingHealer.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Farmer.cs" />
     <Compile Include="Expansion\SA\Quests\FarmerNash.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Community Collections\Filbert.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Filbert.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\FisherGuildmaster.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Fisherman.cs" />
     <Compile Include="Expansion\ML\Quests\Dungeons\Prism of Light\Frazer.cs" />
@@ -3479,7 +3480,7 @@
     <Compile Include="Expansion\ML\Quests\Defintions\ScribingArcaneKnowledgeQuest.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\New Haven\New Player Quests\Warriors Training Area\Jockles.cs" />
     <Compile Include="Expansion\ML\Mobiles\HeartWood\Jothan.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Community Collections\Joy.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Joy.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\New Haven\New Player Quests\Ninja Dojo\Jun.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\Heartwood\Jusae.cs" />
     <Compile Include="Expansion\ML\Quests\Defintions\TheMagesApprenticeQuest.cs" />
@@ -3496,7 +3497,7 @@
     <Compile Include="Expansion\ML\Mobiles\HeartWood\Mallew.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Mapmaker.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Quest\Mardoth.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Community Collections\Margo.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Margo.cs" />
     <Compile Include="Expansion\ML\Quests\World\Maul.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Merchant.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\MerchantGuildmaster.cs" />
@@ -3519,7 +3520,7 @@
     <Compile Include="Expansion\SE\Mobiles\Ninja.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Noble.cs" />
     <Compile Include="Expansion\ML\Mobiles\HeartWood\Nythalia.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Community Collections\Odell.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Odell.cs" />
     <Compile Include="Expansion\ML\Mobiles\HeartWood\Olaeni.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\Heartwood\Olla.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\OrderGuard.cs" />
@@ -3542,7 +3543,7 @@
     <Compile Include="Expansion\ML\Quests\Cities\Heartwood\Ryal.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\New Haven\New Player Quests\Ninja Dojo\Ryuichi.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\Heartwood\Salaenih.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Community Collections\Sam.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Sam.cs" />
     <Compile Include="Expansion\SE\Mobiles\Samurai.cs" />
     <Compile Include="Expansion\ML\Quests\Defintions\Monster Slay Quests\Group1.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\New Haven\New Player Quests\New Haven Bank\SarsmeaSmythe.cs" />
@@ -3560,7 +3561,7 @@
     <Compile Include="Expansion\ML\Mobiles\HeartWood\Taellia.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Tailor.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\TailorGuildmaster.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Community Collections\Talbart.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Talbart.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\Heartwood\Tamm.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Tanner.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\TavernKeeper.cs" />
@@ -3589,16 +3590,16 @@
     <Compile Include="Expansion\UO\Mobiles\NPCs\WarriorGuildmaster.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Weaponsmith.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Weaver.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Community Collections\Xanthe.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Xanthe.cs" />
     <Compile Include="Expansion\ML\Mobiles\HeartWood\Yellienir.cs" />
     <Compile Include="Expansion\ML\Quests\Ilshenar\Yorus.cs" />
     <Compile Include="Expansion\SE\Mobiles\Quest\Zoel.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Community Collections\Zorda.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Zorda.cs" />
     <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\Mobiles\AnimatedWeapon.cs" />
     <Compile Include="Mechanics\AI\BaseFamiliar.cs" />
     <Compile Include="Expansion\UO\Mobiles\Summoned\BladeSpirits.cs" />
     <Compile Include="Expansion\AOS\Mobiles\DarkWolf.cs" />
-    <Compile Include="Expansion\ML\Mobiles\DeathAdder.cs" />
+    <Compile Include="Expansion\AOS\Mobiles\DeathAdder.cs" />
     <Compile Include="Expansion\UO\Mobiles\Summoned\EnergyVortex.cs" />
     <Compile Include="Expansion\SA\Mobiles\GargoylePet.cs" />
     <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\Mobiles\RisingColossus.cs" />
@@ -3883,7 +3884,7 @@
     <Compile Include="Expansion\ML\Items\Quest\SchmendrickScrollOfPower.cs" />
     <Compile Include="Expansion\ML\Items\Quest\UzeraanTurmoilHorn.cs" />
     <Compile Include="Expansion\UOTD\Quests\UzeraanTurmoil\UzeraanTurmoilTeleporter.cs" />
-    <Compile Include="Expansion\AOS\Mobiles\Quest\Dryad.cs" />
+    <Compile Include="Expansion\AOS\Mobiles\Quest\Druid.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Quest\MansionGuard.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Quest\MilitiaCanoneer.cs" />
     <Compile Include="Expansion\ML\Mobiles\MilitiaFighter.cs" />
@@ -11262,7 +11263,7 @@
     <Compile Include="Expansion\ML\Items\Quest\DisintegratingThesisNotes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Mobiles\LadyMelisande.cs">
+    <Compile Include="Expansion\ML\Mobiles\BlightedGrove\LadyMelisande.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Quest\LibrariansKey.cs">
@@ -11271,7 +11272,7 @@
     <Compile Include="Expansion\ML\Items\Quest\BedlamKey.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Mobiles\MonstrousInterredGrizzle.cs">
+    <Compile Include="Expansion\ML\Mobiles\Bedlam\MonstrousInterredGrizzle.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Altars\BlightedGroveAltar.cs">
@@ -11340,7 +11341,7 @@
     <Compile Include="Expansion\ML\Items\Altars\ParoxysmusAltar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Mobiles\ChiefParoxysmus.cs">
+    <Compile Include="Expansion\ML\Mobiles\PalaceOfParaxysmus\ChiefParoxysmus.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Quest\CoagulatedLegs.cs">
@@ -11394,7 +11395,7 @@
     <Compile Include="Expansion\ML\Items\Quest\ShatteredCrystals.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Mobiles\ShimmeringEffusion.cs">
+    <Compile Include="Expansion\ML\Mobiles\PrismOfLight\ShimmeringEffusion.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Mobiles\Champions\SlasherOfVeils.cs">
@@ -11412,7 +11413,7 @@
     <Compile Include="Expansion\ML\Items\Quest\DragonFlameKey.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Mobiles\DragonsFlameMage.cs">
+    <Compile Include="Expansion\ML\Mobiles\Citadel\DragonsFlameMage.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\ImprisonedDog.cs">
@@ -11430,13 +11431,13 @@
     <Compile Include="Expansion\ML\Items\Quest\TigerClawKey.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Mobiles\TigersClawThief.cs">
+    <Compile Include="Expansion\ML\Mobiles\Citadel\TigersClawThief.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\TragicRemainsOfTravesty.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Mobiles\Travesty.cs">
+    <Compile Include="Expansion\ML\Mobiles\Citadel\Travesty.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Altars\TwistedWealdAltar.cs">
@@ -11448,7 +11449,7 @@
     <Compile Include="Expansion\ML\Items\Equipment\Weapons\DreadFlute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Mobiles\DreadHorn.cs">
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\DreadHorn.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Quest\GnawsFang.cs">

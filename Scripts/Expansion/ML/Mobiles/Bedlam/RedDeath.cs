@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -22,11 +21,9 @@ namespace Server.Mobiles
 
             SetHits(1540, 1605);
 
-            SetDamage(25, 29);
-
-            SetDamageType(ResistType.Phys, 25);
-            SetDamageType(ResistType.Fire, 75);
-            SetDamageType(ResistType.Cold, 0);
+            SetDamage(ResistType.Phys, 25, 0, 25, 29);
+            SetDamage(ResistType.Fire, 75);
+            SetDamage(ResistType.Cold, 0);
 
             SetResist(ResistType.Phys, 60, 70);
             SetResist(ResistType.Fire, 90);

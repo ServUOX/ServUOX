@@ -1,5 +1,3 @@
-using System;
-using Server;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -19,12 +17,10 @@ namespace Server.Mobiles
 
             SetHits(1006, 1041);
 
-            SetDamage(16, 22);
-
-            SetDamageType(ResistType.Phys, 40);
-            SetDamageType(ResistType.Cold, 20);
-            SetDamageType(ResistType.Pois, 20);
-            SetDamageType(ResistType.Engy, 20);
+            SetDamage(ResistType.Phys, 40, 0, 16, 22);
+            SetDamage(ResistType.Cold, 20);
+            SetDamage(ResistType.Pois, 20);
+            SetDamage(ResistType.Engy, 20);
 
             SetResist(ResistType.Phys, 77, 80);
             SetResist(ResistType.Fire, 59, 64);
@@ -52,6 +48,16 @@ namespace Server.Mobiles
 
         public override int TreasureMapLevel => 4;
 
+        public override int GetAngerSound() => 0x599;
+
+        public override int GetIdleSound() => 0x598;
+
+        public override int GetAttackSound() => 0x597;
+
+        public override int GetHurtSound() => 0x59a;
+
+        public override int GetDeathSound() => 0x596;
+
         public MinotaurGeneral(Serial serial)
             : base(serial)
         {
@@ -60,15 +66,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

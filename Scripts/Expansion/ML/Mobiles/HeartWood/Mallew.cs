@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Server.Items;
 
@@ -46,31 +45,35 @@ namespace Server.Mobiles
 
             Item item;
 
-            item = new LeafChest();
-            item.Hue = 0x53E;
+            item = new LeafChest
+            {
+                Hue = 0x53E
+            };
             AddItem(item);
 
-            item = new LeafArms();
-            item.Hue = 0x53E;
+            item = new LeafArms
+            {
+                Hue = 0x53E
+            };
             AddItem(item);
 
-            item = new LeafTonlet();
-            item.Hue = 0x53E;
+            item = new LeafTonlet
+            {
+                Hue = 0x53E
+            };
             AddItem(item);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

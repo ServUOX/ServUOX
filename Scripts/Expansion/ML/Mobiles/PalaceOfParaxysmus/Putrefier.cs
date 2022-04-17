@@ -18,12 +18,10 @@ namespace Server.Mobiles
 
             SetHits(3010, 4092);
 
-            SetDamage(27, 34);
-
-            SetDamageType(ResistType.Phys, 50);
-            SetDamageType(ResistType.Fire, 0);
-            SetDamageType(ResistType.Pois, 50);
-            SetDamageType(ResistType.Engy, 0);
+            SetDamage(ResistType.Phys, 50, 0, 27, 34);
+            SetDamage(ResistType.Fire, 0);
+            SetDamage(ResistType.Pois, 50);
+            SetDamage(ResistType.Engy, 0);
 
             SetResist(ResistType.Phys, 65, 80);
             SetResist(ResistType.Fire, 65, 80);
@@ -86,7 +84,7 @@ namespace Server.Mobiles
 
         private void DoCounter(Mobile attacker)
         {
-            if (Map == null || (attacker is BaseCreature && ((BaseCreature)attacker).BardProvoked))
+            if (Map == null || (attacker is BaseCreature creature && creature.BardProvoked))
                 return;
 
             if (0.2 > Utility.RandomDouble())
@@ -99,9 +97,9 @@ namespace Server.Mobiles
                 */
                 Mobile target = null;
 
-                if (attacker is BaseCreature)
+                if (attacker is BaseCreature creature1)
                 {
-                    Mobile m = ((BaseCreature)attacker).GetMaster();
+                    Mobile m = creature1.GetMaster();
 
                     if (m != null)
                         target = m;
@@ -120,7 +118,7 @@ namespace Server.Mobiles
                     if (m == this || !CanBeHarmful(m))
                         continue;
 
-                    if (m is BaseCreature && (((BaseCreature)m).Controlled || ((BaseCreature)m).Summoned || ((BaseCreature)m).Team != Team))
+                    if (m is BaseCreature creature2 && (creature2.Controlled || creature2.Summoned || creature2.Team != Team))
                         targets.Add(m);
                     else if (m.Player)
                         targets.Add(m);

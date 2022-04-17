@@ -24,9 +24,7 @@ namespace Server.Mobiles
 
             SetHits(350, 450);
 
-            SetDamage(6, 12);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 6, 12);
 
             SetResist(ResistType.Phys, 30, 40);
             SetResist(ResistType.Fire, 20, 30);
@@ -70,7 +68,7 @@ namespace Server.Mobiles
         public override void GenerateLoot(bool spawning)
         {
             if (spawning)
-                return; // No loot/backpack on spawn
+                return;
 
             base.GenerateLoot(true);
             base.GenerateLoot(false);

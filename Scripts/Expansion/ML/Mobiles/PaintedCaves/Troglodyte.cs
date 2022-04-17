@@ -66,10 +66,17 @@ namespace Server.Mobiles
             base.OnDeath(CorpseLoot);
         }
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.Rich);  // Need to verify
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.Rich);
+
+        public override int GetAngerSound() => 0x5A0;
+
+        public override int GetIdleSound() => 0x59F;
+
+        public override int GetAttackSound() => 0x59E;
+
+        public override int GetHurtSound() => 0x5A1;
+
+        public override int GetDeathSound() => 0x59D;
 
         public override void Serialize(GenericWriter writer)
         {

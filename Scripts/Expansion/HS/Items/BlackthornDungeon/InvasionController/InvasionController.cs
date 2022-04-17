@@ -129,7 +129,7 @@ namespace Server.Engines.Blackthorn
             new Type[] { typeof(SwampTentacle), typeof(PlagueBeast), typeof(Bogling), typeof(FeralTreefellow) },
             new Type[] { typeof(IceElemental), typeof(SnowElemental), typeof(IceFiend), typeof(FrostTroll), typeof(IceSerpent) },
             new Type[] { typeof(DreadSpider), typeof(GiantBlackWidow), typeof(Scorpion), typeof(TerathanWarrior), typeof(WolfSpider) },
-            new Type[] { typeof(Satyr), typeof(Centaur), typeof(CuSidhe), typeof(Wisp), typeof(MLDryad) },
+            new Type[] { typeof(Satyr), typeof(Centaur), typeof(CuSidhe), typeof(Wisp), typeof(Dryad) },
             new Type[] { typeof(DireWolf), typeof(GiantRat), typeof(Troglodyte), typeof(RagingGrizzlyBear), typeof(GreaterMongbat) },
         };
 

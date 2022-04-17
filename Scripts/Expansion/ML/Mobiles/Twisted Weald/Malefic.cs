@@ -19,10 +19,8 @@ namespace Server.Mobiles
             SetStam(153, 197);
             SetMana(349, 390);
 
-            SetDamage(15, 22);
-
-            SetDamageType(ResistType.Phys, 20);
-            SetDamageType(ResistType.Pois, 80);
+            SetDamage(ResistType.Phys, 20, 0, 15, 22);
+            SetDamage(ResistType.Pois, 80);
 
             SetResist(ResistType.Phys, 60, 70);
             SetResist(ResistType.Fire, 40, 50);
@@ -48,11 +46,10 @@ namespace Server.Mobiles
             }
 
             SetWeaponAbility(WeaponAbility.Dismount);
-            /*
-            // TODO: uncomment once added
+
             if ( Utility.RandomDouble() < 0.1 )
             PackItem( new ParrotItem() );
-            */
+            
         }
 
         public Malefic(Serial serial)
@@ -63,10 +60,7 @@ namespace Server.Mobiles
         public override bool CanBeParagon => false;
         public override bool GivesMLMinorArtifact => true;
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.UltraRich, 3);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.UltraRich, 3);
 
         public override void Serialize(GenericWriter writer)
         {

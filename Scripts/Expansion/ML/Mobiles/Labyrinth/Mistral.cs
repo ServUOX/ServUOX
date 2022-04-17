@@ -3,11 +3,11 @@ using Server.Items;
 namespace Server.Mobiles
 {
     [CorpseName("a mistral corpse")]
-    public class Mistral : BaseCreature
+    public class Mistral : AirElemental
     {
         [Constructible]
         public Mistral()
-            : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
+            : base()
         {
             Name = "Mistral";
             Body = 13;
@@ -20,10 +20,9 @@ namespace Server.Mobiles
 
             SetHits(386, 609);
 
-            SetDamage(17, 20);
-            SetDamageType(ResistType.Engy, 20);
-            SetDamageType(ResistType.Cold, 40);
-            SetDamageType(ResistType.Phys, 40);
+            SetDamage(ResistType.Engy, 20, 0, 17, 20);
+            SetDamage(ResistType.Cold, 40);
+            SetDamage(ResistType.Phys, 40);
 
             SetResist(ResistType.Phys, 55, 64);
             SetResist(ResistType.Fire, 36, 40);

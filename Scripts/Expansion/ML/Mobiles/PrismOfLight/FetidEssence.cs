@@ -18,10 +18,8 @@ namespace Server.Mobiles
 
             SetHits(551, 650);
 
-            SetDamage(21, 25);
-
-            SetDamageType(ResistType.Phys, 30);
-            SetDamageType(ResistType.Pois, 70);
+            SetDamage(ResistType.Phys, 30, 0, 21, 25);
+            SetDamage(ResistType.Pois, 70);
 
             SetResist(ResistType.Phys, 40, 50);
             SetResist(ResistType.Fire, 40, 50);
@@ -67,11 +65,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.FilthyRich);
         }
 
-        public override int GetAngerSound() { return 0x56D; }
-        public override int GetIdleSound() { return 0x56B; }
-        public override int GetAttackSound() { return 0x56C; }
-        public override int GetHurtSound() { return 0x56C; }
-        public override int GetDeathSound() { return 0x56E; }
+        public override int GetHurtSound() => 0x56C;
 
         public override void Serialize(GenericWriter writer)
         {

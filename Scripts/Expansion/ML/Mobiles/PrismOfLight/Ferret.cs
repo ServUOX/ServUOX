@@ -28,9 +28,7 @@ namespace Server.Mobiles
 
             SetHits(45, 50);
 
-            SetDamage(7, 9);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 7, 9);
 
             SetResist(ResistType.Phys, 45, 50);
             SetResist(ResistType.Fire, 10, 14);
@@ -59,8 +57,8 @@ namespace Server.Mobiles
 
         public override void OnMovement(Mobile m, Point3D oldLocation)
         {
-            if (m is Ferret && m.InRange(this, 3) && m.Alive)
-                Talk((Ferret)m);
+            if (m is Ferret ferret && m.InRange(this, 3) && m.Alive)
+                Talk(ferret);
         }
 
         public void Talk()

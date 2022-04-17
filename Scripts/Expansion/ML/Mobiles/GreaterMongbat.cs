@@ -1,15 +1,13 @@
 namespace Server.Mobiles
 {
     [CorpseName("a mongbat corpse")]
-    public class GreaterMongbat : BaseCreature
+    public class GreaterMongbat : Mongbat
     {
         [Constructible]
         public GreaterMongbat()
-            : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
+            : base()
         {
             Name = "a greater mongbat";
-            Body = 39;
-            BaseSoundID = 422;
 
             SetStr(56, 80);
             SetDex(61, 80);
@@ -48,10 +46,7 @@ namespace Server.Mobiles
         public override int Hides => 6;
         public override FoodType FavoriteFood => FoodType.Meat;
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.Poor);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.Poor);
 
         public override void Serialize(GenericWriter writer)
         {

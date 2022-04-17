@@ -140,7 +140,7 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
 
             writer.Write(m_Announcement != null);
 
@@ -157,7 +157,7 @@ namespace Server.Mobiles
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
 
             if (reader.ReadBool())
             {
@@ -367,7 +367,7 @@ namespace Server.Mobiles
 
             public void Deserialize(GenericReader reader)
             {
-                int version = reader.ReadEncodedInt();
+                _ = reader.ReadEncodedInt();
 
                 byte type = reader.ReadByte();
 
@@ -377,6 +377,9 @@ namespace Server.Mobiles
                         m_Message = reader.ReadInt();
                         break;
                     case 0x2:
+                        m_Message = reader.ReadString();
+                        break;
+                    default:
                         m_Message = reader.ReadString();
                         break;
                 }
@@ -589,14 +592,14 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 
@@ -643,14 +646,14 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }
