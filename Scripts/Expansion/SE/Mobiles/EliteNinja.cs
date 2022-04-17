@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using Server.Items;
-using Server.ContextMenus;
-using Server.Misc;
-using Server.Network;
 
 namespace Server.Mobiles
 {
@@ -29,12 +26,10 @@ namespace Server.Mobiles
             SetDex(81, 95);
             SetInt(151, 165);
 
-            SetDamage(12, 20);
-
-            SetDamageType(ResistType.Phys, 65);
-            SetDamageType(ResistType.Fire, 15);
-            SetDamageType(ResistType.Pois, 15);
-            SetDamageType(ResistType.Engy, 5);
+            SetDamage(ResistType.Phys, 65, 0, 12, 20);
+            SetDamage(ResistType.Fire, 15);
+            SetDamage(ResistType.Pois, 15);
+            SetDamage(ResistType.Engy, 5);
 
             SetResist(ResistType.Phys, 35, 65);
             SetResist(ResistType.Fire, 40, 60);
@@ -57,22 +52,26 @@ namespace Server.Mobiles
             Fame = 8500;
             Karma = -8500;
 
-            LeatherNinjaBelt belt = new LeatherNinjaBelt();
-            belt.UsesRemaining = 20;
-            belt.Poison = Poison.Greater;
-            belt.PoisonCharges = 20;
-            belt.Movable = false;
+            LeatherNinjaBelt belt = new LeatherNinjaBelt
+            {
+                UsesRemaining = 20,
+                Poison = Poison.Greater,
+                PoisonCharges = 20,
+                Movable = false
+            };
             AddItem(belt);
 
             int amount = Skills[SkillName.Ninjitsu].Value >= 100 ? 2 : 1;
 
             for (int i = 0; i < amount; i++)
             {
-                Fukiya f = new Fukiya();
-                f.UsesRemaining = 10;
-                f.Poison = amount == 1 ? Poison.Regular : Poison.Greater;
-                f.PoisonCharges = 10;
-                f.Movable = false;
+                Fukiya f = new Fukiya
+                {
+                    UsesRemaining = 10,
+                    Poison = amount == 1 ? Poison.Regular : Poison.Greater,
+                    PoisonCharges = 10,
+                    Movable = false
+                };
                 PackItem(f);
             }
 
@@ -136,12 +135,12 @@ namespace Server.Mobiles
             if (item == null)
                 item = FindItemOnLayer(Layer.TwoHanded);
 
-            System.Collections.Generic.List<BaseWeapon> weapons = new System.Collections.Generic.List<BaseWeapon>();
+            List<BaseWeapon> weapons = new List<BaseWeapon>();
 
             foreach (Item i in Backpack.Items)
             {
-                if (i is BaseWeapon && i != item)
-                    weapons.Add((BaseWeapon)i);
+                if (i is BaseWeapon weapon && i != item)
+                    weapons.Add(weapon);
             }
 
             if (weapons.Count > 0)
@@ -172,15 +171,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_NextWeaponChange = DateTime.UtcNow;
         }

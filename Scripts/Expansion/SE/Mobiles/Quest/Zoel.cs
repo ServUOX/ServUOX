@@ -42,8 +42,10 @@ namespace Server.Engines.Quests.Ninja
 
             AddItem(new LeatherNinjaBelt());
 
-            Tekagi tekagi = new Tekagi();
-            tekagi.Movable = false;
+            Tekagi tekagi = new Tekagi
+            {
+                Movable = false
+            };
             AddItem(tekagi);
         }
 
@@ -72,9 +74,7 @@ namespace Server.Engines.Quests.Ninja
 
         public override bool OnDragDrop(Mobile from, Item dropped)
         {
-            PlayerMobile player = from as PlayerMobile;
-
-            if (player != null)
+            if (from is PlayerMobile player)
             {
                 QuestSystem qs = player.Quest;
 
@@ -123,15 +123,13 @@ namespace Server.Engines.Quests.Ninja
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

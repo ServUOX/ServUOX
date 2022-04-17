@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using Server.Engines.Plants;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -22,9 +22,7 @@ namespace Server.Mobiles
 
             SetHits(151, 180);
 
-            SetDamage(6, 12);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 6, 12);
 
             SetResist(ResistType.Phys, 35, 50);
             SetResist(ResistType.Fire, 35, 50);
@@ -53,11 +51,14 @@ namespace Server.Mobiles
                     case 2:
                         PackItem(new Axle());
                         break;
+                    default:
+                        PackItem(new Hinge());
+                        break;
                 }
             }
 
             if (Core.ML && Utility.RandomDouble() < .33)
-                PackItem(Engines.Plants.Seed.RandomPeculiarSeed(2));
+                PackItem(Seed.RandomPeculiarSeed(2));
 
             SetSpecialAbility(SpecialAbility.LifeLeech);
         }
@@ -75,30 +76,15 @@ namespace Server.Mobiles
             AddLoot(LootPack.Average);
         }
 
-        public override int GetAngerSound()
-        {
-            return 0x50B;
-        }
+        public override int GetAngerSound() => 0x50B;
 
-        public override int GetIdleSound()
-        {
-            return 0x50A;
-        }
+        public override int GetIdleSound() => 0x50A;
 
-        public override int GetAttackSound()
-        {
-            return 0x509;
-        }
+        public override int GetAttackSound() => 0x509;
 
-        public override int GetHurtSound()
-        {
-            return 0x50C;
-        }
+        public override int GetHurtSound() => 0x50C;
 
-        public override int GetDeathSound()
-        {
-            return 0x508;
-        }
+        public override int GetDeathSound() => 0x508;
 
         public override void OnDamage(int amount, Mobile from, bool willKill)
         {
@@ -122,16 +108,12 @@ namespace Server.Mobiles
                     from.SendLocalizedMessage(1070820);
                     if (Mana > 14)
                         Mana -= 15;
-                    amt ^= amt;
                 }
             }
             base.OnDamage(amount, from, willKill);
         }
 
-        public override Item NewHarmfulItem()
-        {
-            return new AcidSlime(TimeSpan.FromSeconds(10), 5, 10);
-        }
+        public override Item NewHarmfulItem() => new AcidSlime(TimeSpan.FromSeconds(10), 5, 10);
 
         public override void Serialize(GenericWriter writer)
         {
@@ -142,7 +124,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

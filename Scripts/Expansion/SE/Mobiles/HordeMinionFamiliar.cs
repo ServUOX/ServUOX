@@ -1,4 +1,3 @@
-#region References
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +7,6 @@ using Server.ContextMenus;
 using Server.Gumps;
 using Server.Items;
 using Server.Network;
-#endregion
 
 namespace Server.Mobiles
 {
@@ -39,9 +37,7 @@ namespace Server.Mobiles
             SetStam(110);
             SetMana(0);
 
-            SetDamage(5, 10);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 5, 10);
 
             SetResist(ResistType.Phys, 50, 60);
             SetResist(ResistType.Fire, 50, 55);
@@ -60,9 +56,11 @@ namespace Server.Mobiles
                 pack.Delete();
             }
 
-            pack = new Backpack();
-            pack.Movable = false;
-            pack.Weight = 13.0;
+            pack = new Backpack
+            {
+                Movable = false,
+                Weight = 13.0
+            };
 
             AddItem(pack);
         }
@@ -97,9 +95,8 @@ namespace Server.Mobiles
                 {
                     AIObject.MoveTo(ControlMaster, false, 1);
 
-                    PlayerMobile pm = ControlMaster as PlayerMobile;
 
-                    if (pm != null)
+                    if (ControlMaster is PlayerMobile pm)
                     {
                         QuestSystem qs = pm.Quest;
 
@@ -159,12 +156,10 @@ namespace Server.Mobiles
                     return;
                 }
 
-                bool rejected;
-                LRReason reject;
 
                 NextActionTime = Core.TickCount;
 
-                Lift(item, item.Amount, out rejected, out reject);
+                Lift(item, item.Amount, out bool rejected, out LRReason reject);
 
                 if (rejected)
                 {
@@ -215,10 +210,7 @@ namespace Server.Mobiles
             return true;
         }
 
-        public override DeathMoveResult GetInventoryMoveResultFor(Item item)
-        {
-            return DeathMoveResult.MoveToCorpse;
-        }
+        public override DeathMoveResult GetInventoryMoveResultFor(Item item) => DeathMoveResult.MoveToCorpse;
 
         public override bool IsSnoop(Mobile from)
         {
@@ -246,20 +238,11 @@ namespace Server.Mobiles
             return base.OnDragDrop(from, item);
         }
 
-        public override bool CheckNonlocalDrop(Mobile from, Item item, Item target)
-        {
-            return PackAnimal.CheckAccess(this, from);
-        }
+        public override bool CheckNonlocalDrop(Mobile from, Item item, Item target) => PackAnimal.CheckAccess(this, from);
 
-        public override bool CheckNonlocalLift(Mobile from, Item item)
-        {
-            return PackAnimal.CheckAccess(this, from);
-        }
+        public override bool CheckNonlocalLift(Mobile from, Item item) => PackAnimal.CheckAccess(this, from);
 
-        public override void OnDoubleClick(Mobile from)
-        {
-            PackAnimal.TryPackOpen(this, from);
-        }
+        public override void OnDoubleClick(Mobile from) => PackAnimal.TryPackOpen(this, from);
 
         public override void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
         {
@@ -271,20 +254,19 @@ namespace Server.Mobiles
 
         public HordeMinionFamiliar(Serial serial)
             : base(serial)
-        { }
+        {
+        }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

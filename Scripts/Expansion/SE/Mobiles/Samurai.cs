@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -44,6 +43,9 @@ namespace Server.Mobiles
                 case 2:
                     AddItem(new NoDachi());
                     break;
+                default:
+                    AddItem(new Wakizashi());
+                    break;
             }
 
             switch (Utility.Random(3))
@@ -55,6 +57,9 @@ namespace Server.Mobiles
                     AddItem(new PlateSuneate());
                     break;
                 case 2:
+                    AddItem(new StuddedHaidate());
+                    break;
+                default:
                     AddItem(new StuddedHaidate());
                     break;
             }
@@ -72,6 +77,9 @@ namespace Server.Mobiles
                     break;
                 case 3:
                     AddItem(new DecorativePlateKabuto());
+                    break;
+                default:
+                    AddItem(new HeavyPlateJingasa());
                     break;
             }
 
@@ -99,15 +107,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }

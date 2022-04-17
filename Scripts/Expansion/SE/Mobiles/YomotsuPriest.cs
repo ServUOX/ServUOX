@@ -20,9 +20,7 @@ namespace Server.Mobiles
 
             SetHits(486, 530);
 
-            SetDamage(8, 10);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 8, 10);
 
             SetResist(ResistType.Phys, 65, 85);
             SetResist(ResistType.Fire, 30, 50);
@@ -53,10 +51,10 @@ namespace Server.Mobiles
         public override bool CanRummageCorpses => true;
         public override int TreasureMapLevel => 4;
 
-        public override int GetIdleSound() { return 0x42A; }
-        public override int GetAttackSound() { return 0x435; }
-        public override int GetHurtSound() { return 0x436; }
-        public override int GetDeathSound() { return 0x43A; }
+        public override int GetIdleSound() => 0x42A;
+        public override int GetAttackSound() => 0x435;
+        public override int GetHurtSound() => 0x436;
+        public override int GetDeathSound() => 0x43A;
 
         public override void GenerateLoot()
         {
@@ -78,6 +76,9 @@ namespace Server.Mobiles
                 case 1:
                     CorpseLoot.DropItem(new ShortPants());
                     break;
+                default:
+                    CorpseLoot.DropItem(new ShortPants());
+                    break;
             }
 
             switch (Utility.Random(6))
@@ -93,6 +94,9 @@ namespace Server.Mobiles
                     break;
                 case 3:
                     CorpseLoot.DropItem(new ThighBoots());
+                    break;
+                default:
+                    CorpseLoot.DropItem(new Shoes());
                     break;
             }
 
@@ -130,7 +134,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

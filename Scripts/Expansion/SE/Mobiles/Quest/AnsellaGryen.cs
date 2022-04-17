@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 using Server.Mobiles;
 
@@ -74,9 +73,7 @@ namespace Server.Engines.Quests.Zento
 
                         if (Utility.RandomBool())
                         {
-                            BaseWeapon weapon = Loot.Construct(Loot.SEWeaponTypes) as BaseWeapon;
-
-                            if (weapon != null)
+                            if (Loot.Construct(Loot.SEWeaponTypes) is BaseWeapon weapon)
                             {
                                 BaseRunicTool.ApplyAttributesTo(weapon, 3, 10, 30);
                                 cont.DropItem(weapon);
@@ -84,9 +81,7 @@ namespace Server.Engines.Quests.Zento
                         }
                         else
                         {
-                            BaseArmor armor = Loot.Construct(Loot.SEArmorTypes) as BaseArmor;
-
-                            if (armor != null)
+                            if (Loot.Construct(Loot.SEArmorTypes) is BaseArmor armor)
                             {
                                 BaseRunicTool.ApplyAttributesTo(armor, 1, 10, 20);
                                 cont.DropItem(armor);
@@ -108,8 +103,7 @@ namespace Server.Engines.Quests.Zento
             else
             {
                 TerribleHatchlingsQuest newQuest = new TerribleHatchlingsQuest(player);
-                bool inRestartPeriod = false;
-
+                bool inRestartPeriod;
                 if (qs != null)
                 {
                     if (contextMenu)
@@ -129,15 +123,13 @@ namespace Server.Engines.Quests.Zento
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
 
         public override void TurnToTokuno()

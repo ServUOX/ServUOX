@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -17,10 +16,8 @@ namespace Server.Mobiles
 
             SetHits(200);
 
-            SetDamage(7, 20);
-
-            SetDamageType(ResistType.Phys, 0);
-            SetDamageType(ResistType.Fire, 100);
+            SetDamage(ResistType.Phys, 0, 0, 7, 20);
+            SetDamage(ResistType.Fire, 100);
 
             SetResist(ResistType.Phys, 40);
             SetResist(ResistType.Fire, 70, 75);
@@ -68,35 +65,17 @@ namespace Server.Mobiles
                 CurrentSpeed = PassiveSpeed;
         }
 
-        public override bool OverrideBondingReqs()
-        {
-            return true;
-        }
+        public override bool OverrideBondingReqs() => true;
 
-        public override int GetAngerSound()
-        {
-            return 0x21D;
-        }
+        public override int GetAngerSound() => 0x21D;
 
-        public override int GetIdleSound()
-        {
-            return 0x21D;
-        }
+        public override int GetIdleSound() => 0x21D;
 
-        public override int GetAttackSound()
-        {
-            return 0x162;
-        }
+        public override int GetAttackSound() => 0x162;
 
-        public override int GetHurtSound()
-        {
-            return 0x163;
-        }
+        public override int GetHurtSound() => 0x163;
 
-        public override int GetDeathSound()
-        {
-            return 0x21D;
-        }
+        public override int GetDeathSound() => 0x21D;
 
         public override double GetControlChance(Mobile m, bool useBaseSkill)
         {
@@ -126,43 +105,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(3); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
-            if (version < 2 && Controlled && RawStr >= 300 && ControlSlots == ControlSlotsMin)
-            {
-                Server.SkillHandlers.AnimalTaming.ScaleStats(this, 0.5);
-            }
-
-            if (PetTrainingHelper.Enabled && version == 2)
-            {
-                if (version < 1 && PetTrainingHelper.Enabled && ControlSlots <= 3)
-                {
-                    var profile = PetTrainingHelper.GetAbilityProfile(this);
-
-                    if (profile == null || !profile.HasCustomized())
-                    {
-                        MinTameSkill = 98.7;
-                        ControlSlotsMin = 1;
-                        ControlSlots = 1;
-                    }
-
-                    if ((ControlMaster != null || IsStabled) && Int < 500)
-                    {
-                        SetInt(500);
-                    }
-                }
-            }
-
-            if (version == 0)
-                Hue = 0x489;
+            _ = reader.ReadInt();
         }
     }
 }

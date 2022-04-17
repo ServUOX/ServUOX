@@ -21,13 +21,11 @@ namespace Server.Mobiles
 
             SetHits(201, 280);
 
-            SetDamage(12, 15);
-
-            SetDamageType(ResistType.Phys, 10);
-            SetDamageType(ResistType.Fire, 10);
-            SetDamageType(ResistType.Cold, 10);
-            SetDamageType(ResistType.Pois, 10);
-            SetDamageType(ResistType.Engy, 60);
+            SetDamage(ResistType.Phys, 10, 0, 12, 15);
+            SetDamage(ResistType.Fire, 10);
+            SetDamage(ResistType.Cold, 10);
+            SetDamage(ResistType.Pois, 10);
+            SetDamage(ResistType.Engy, 60);
 
             SetResist(ResistType.Phys, 45, 65);
             SetResist(ResistType.Fire, 70, 85);
@@ -91,15 +89,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         private class ExpireTimer : Timer

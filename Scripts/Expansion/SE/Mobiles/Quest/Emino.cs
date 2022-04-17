@@ -1,4 +1,3 @@
-using System;
 using Server.Gumps;
 using Server.Items;
 using Server.Mobiles;
@@ -43,8 +42,10 @@ namespace Server.Engines.Quests.Ninja
             AddItem(new PlateDo());
             AddItem(new PlateHiroSode());
 
-            Nunchaku nunchaku = new Nunchaku();
-            nunchaku.Movable = false;
+            Nunchaku nunchaku = new Nunchaku
+            {
+                Movable = false
+            };
             AddItem(nunchaku);
         }
 
@@ -151,8 +152,7 @@ namespace Server.Engines.Quests.Ninja
                                         {
                                             bool stolenTreasure = false;
 
-                                            HallwayWalkObjective walk = qs.FindObjective(typeof(HallwayWalkObjective)) as HallwayWalkObjective;
-                                            if (walk != null)
+                                            if (qs.FindObjective(typeof(HallwayWalkObjective)) is HallwayWalkObjective walk)
                                                 stolenTreasure = walk.StolenTreasure;
 
                                             Kama kama = new Kama();
@@ -213,15 +213,13 @@ namespace Server.Engines.Quests.Ninja
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

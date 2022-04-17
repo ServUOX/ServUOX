@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Mobiles
 {
     [CorpseName("a crane corpse")]
@@ -20,9 +18,7 @@ namespace Server.Mobiles
             SetHits(26, 35);
             SetMana(0);
 
-            SetDamage(1, 1);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 1, 1);
 
             SetResist(ResistType.Phys, 5, 5);
 
@@ -43,43 +39,26 @@ namespace Server.Mobiles
 
         public override int Meat => 1;
         public override int Feathers => 25;
-        public override int GetAngerSound()
-        {
-            return 0x4D9;
-        }
+        public override int GetAngerSound() => 0x4D9;
 
-        public override int GetIdleSound()
-        {
-            return 0x4D8;
-        }
+        public override int GetIdleSound() => 0x4D8;
 
-        public override int GetAttackSound()
-        {
-            return 0x4D7;
-        }
+        public override int GetAttackSound() => 0x4D7;
 
-        public override int GetHurtSound()
-        {
-            return 0x4DA;
-        }
+        public override int GetHurtSound() => 0x4DA;
 
-        public override int GetDeathSound()
-        {
-            return 0x4D6;
-        }
+        public override int GetDeathSound() => 0x4D6;
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

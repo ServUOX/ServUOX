@@ -1,18 +1,16 @@
-using System;
 using Server.Items;
 using Server.Mobiles;
 
 namespace Server.Engines.Quests.Ninja
 {
-    public class JedahEntille : BaseQuester
+    public class EnshroudedFigure : BaseQuester
     {
         [Constructible]
-        public JedahEntille()
-            : base("the Silent")
+        public EnshroudedFigure()
         {
         }
 
-        public JedahEntille(Serial serial)
+        public EnshroudedFigure(Serial serial)
             : base(serial)
         {
         }
@@ -22,20 +20,16 @@ namespace Server.Engines.Quests.Ninja
         {
             InitStats(100, 100, 25);
 
-            Hue = 0x83FE;
-            Female = true;
-            Body = 0x191;
-            Name = "Jedah Entille";
+            Hue = 0x8401;
+            Female = false;
+            Body = 0x190;
+            Name = "enshrouded figure";
         }
 
         public override void InitOutfit()
         {
-            HairItemID = 0x203C;
-            HairHue = 0x6BE;
-
-            AddItem(new PlainDress(0x528));
+            AddItem(new DeathShroud());
             AddItem(new ThighBoots());
-            AddItem(new FloppyHat());
         }
 
         public override void OnTalk(PlayerMobile player, bool contextMenu)
@@ -45,15 +39,13 @@ namespace Server.Engines.Quests.Ninja
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }

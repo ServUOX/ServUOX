@@ -1,12 +1,10 @@
 using Server.Items;
-using System.Collections;
 
 namespace Server.Mobiles
 {
     [CorpseName("a tsuki wolf corpse")]
     public class TsukiWolf : BaseCreature
     {
-        private static readonly Hashtable m_Table = new Hashtable();
         [Constructible]
         public TsukiWolf()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
@@ -28,11 +26,9 @@ namespace Server.Mobiles
             SetHits(376, 450);
             SetMana(40);
 
-            SetDamage(14, 18);
-
-            SetDamageType(ResistType.Phys, 90);
-            SetDamageType(ResistType.Cold, 5);
-            SetDamageType(ResistType.Engy, 5);
+            SetDamage(ResistType.Phys, 90, 0, 14, 18);
+            SetDamage(ResistType.Cold, 5);
+            SetDamage(ResistType.Engy, 5);
 
             SetResist(ResistType.Phys, 40, 60);
             SetResist(ResistType.Fire, 50, 70);
@@ -71,11 +67,11 @@ namespace Server.Mobiles
         public override int Hides => 25;
         public override FoodType FavoriteFood => FoodType.Meat;
 
-        public override int GetAngerSound() { return 0x52D; }
-        public override int GetIdleSound() { return 0x52C; }
-        public override int GetAttackSound() { return 0x52B; }
-        public override int GetHurtSound() { return 0x52E; }
-        public override int GetDeathSound() { return 0x52A; }
+        public override int GetAngerSound() => 0x52D;
+        public override int GetIdleSound() => 0x52C;
+        public override int GetAttackSound() => 0x52B;
+        public override int GetHurtSound() => 0x52E;
+        public override int GetDeathSound() => 0x52A;
 
         public override void OnDeath(Container CorpseLoot)
         {
@@ -87,10 +83,7 @@ namespace Server.Mobiles
             base.OnDeath(CorpseLoot);
         }
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.FilthyRich);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.FilthyRich);
 
         public override void Serialize(GenericWriter writer)
         {

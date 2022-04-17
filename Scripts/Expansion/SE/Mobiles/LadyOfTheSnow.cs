@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+using Server.Engines.Plants;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -21,10 +20,8 @@ namespace Server.Mobiles
 
             SetHits(596, 625);
 
-            SetDamage(13, 20);
-
-            SetDamageType(ResistType.Phys, 20);
-            SetDamageType(ResistType.Cold, 80);
+            SetDamage(ResistType.Phys, 20, 0, 13, 20);
+            SetDamage(ResistType.Cold, 80);
 
             SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Fire, 40, 55);
@@ -46,7 +43,7 @@ namespace Server.Mobiles
             PackItem(new Necklace());
 
             if (0.25 > Utility.RandomDouble())
-                PackItem(Engines.Plants.Seed.RandomBonsaiSeed());
+                PackItem(Seed.RandomBonsaiSeed());
 
             SetWeaponAbility(WeaponAbility.ColdWind);
         }
@@ -73,15 +70,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

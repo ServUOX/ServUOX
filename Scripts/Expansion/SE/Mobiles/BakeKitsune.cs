@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -20,10 +19,8 @@ namespace Server.Mobiles
 
             SetHits(301, 350);
 
-            SetDamage(15, 22);
-
-            SetDamageType(ResistType.Phys, 70);
-            SetDamageType(ResistType.Engy, 30);
+            SetDamage(ResistType.Phys, 70, 0, 15, 22);
+            SetDamage(ResistType.Engy, 30);
 
             SetResist(ResistType.Phys, 40, 60);
             SetResist(ResistType.Fire, 70, 90);
@@ -78,7 +75,6 @@ namespace Server.Mobiles
             return base.OnBeforeDeath();
         }
 
-        #region Disguise
         private Timer m_DisguiseTimer;
 
         public void Disguise()
@@ -123,6 +119,9 @@ namespace Server.Mobiles
                 case 3:
                     AddItem(new ThighBoots(Utility.RandomNeutralHue()));
                     break;
+                default:
+                    AddItem(new Shoes(Utility.RandomNeutralHue()));
+                    break;
             }
 
             AddItem(new Robe(Utility.RandomNondyedHue()));
@@ -159,32 +158,15 @@ namespace Server.Mobiles
                 item.Delete();
         }
 
-        #endregion
+        public override int GetAngerSound() => 0x4DE;
 
-        public override int GetAngerSound()
-        {
-            return 0x4DE;
-        }
+        public override int GetIdleSound() => 0x4DD;
 
-        public override int GetIdleSound()
-        {
-            return 0x4DD;
-        }
+        public override int GetAttackSound() => 0x4DC;
 
-        public override int GetAttackSound()
-        {
-            return 0x4DC;
-        }
+        public override int GetHurtSound() => 0x4DF;
 
-        public override int GetHurtSound()
-        {
-            return 0x4DF;
-        }
-
-        public override int GetDeathSound()
-        {
-            return 0x4DB;
-        }
+        public override int GetDeathSound() => 0x4DB;
 
         public BakeKitsune(Serial serial)
             : base(serial)
@@ -194,22 +176,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(1);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-
-            if (version == 0 && PhysicalResistance > 60)
-            {
-                SetResist(ResistType.Phys, 40, 60);
-                SetResist(ResistType.Fire, 70, 90);
-                SetResist(ResistType.Cold, 40, 60);
-                SetResist(ResistType.Pois, 40, 60);
-                SetResist(ResistType.Engy, 40, 60);
-            }
 
             Timer.DelayCall(TimeSpan.Zero, new TimerCallback(RemoveDisguise));
         }

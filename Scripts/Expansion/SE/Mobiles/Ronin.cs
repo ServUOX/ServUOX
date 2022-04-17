@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -28,10 +27,8 @@ namespace Server.Mobiles
             SetHits(301, 400);
             SetMana(101, 110);
 
-            SetDamage(17, 25);
-
-            SetDamageType(ResistType.Phys, 90);
-            SetDamageType(ResistType.Pois, 10);
+            SetDamage(ResistType.Phys, 90, 0, 17, 25);
+            SetDamage(ResistType.Pois, 10);
 
             SetResist(ResistType.Phys, 55, 75);
             SetResist(ResistType.Fire, 40, 60);
@@ -63,6 +60,7 @@ namespace Server.Mobiles
                 case 1: AddItem(new ChainHatsuburi()); break;
                 case 2: AddItem(new DecorativePlateKabuto()); break;
                 case 3: AddItem(new LeatherJingasa()); break;
+                default: AddItem(new LeatherJingasa()); break;
             }
 
             switch (Utility.Random(3))
@@ -70,6 +68,7 @@ namespace Server.Mobiles
                 case 0: AddItem(new StuddedHaidate()); break;
                 case 1: AddItem(new LeatherSuneate()); break;
                 case 2: AddItem(new PlateSuneate()); break;
+                default: AddItem(new PlateSuneate()); break;
             }
 
             if (Utility.RandomDouble() > .2)
@@ -106,7 +105,7 @@ namespace Server.Mobiles
         {
             get
             {
-                if (Combatant is Mobile && ((Mobile)Combatant).Mounted)
+                if (Combatant is Mobile mobile && mobile.Mounted)
                     return 0.8;
 
                 return base.WeaponAbilityChance;
@@ -127,8 +126,8 @@ namespace Server.Mobiles
 
             foreach (Item i in Backpack.Items)
             {
-                if (i is BaseWeapon && i != item)
-                    weapons.Add((BaseWeapon)i);
+                if (i is BaseWeapon weapon && i != item)
+                    weapons.Add(weapon);
             }
 
             if (weapons.Count > 0)
@@ -158,14 +157,13 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_NextWeaponChange = DateTime.UtcNow;
         }

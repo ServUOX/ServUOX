@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Server.Engines.Plants;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -20,9 +21,7 @@ namespace Server.Mobiles
             SetHits(901, 1100);
             SetMana(60);
 
-            SetDamage(20, 30);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 20, 30);
 
             SetResist(ResistType.Phys, 55, 70);
             SetResist(ResistType.Fire, 70, 90);
@@ -43,10 +42,10 @@ namespace Server.Mobiles
             MinTameSkill = 98.7;
 
             if (Utility.RandomDouble() < .33)
-                PackItem(Engines.Plants.Seed.RandomBonsaiSeed());
+                PackItem(Seed.RandomBonsaiSeed());
 
             if (Core.ML && Utility.RandomDouble() < .33)
-                PackItem(Engines.Plants.Seed.RandomPeculiarSeed(4));
+                PackItem(Seed.RandomPeculiarSeed(4));
 
             SetWeaponAbility(WeaponAbility.Dismount);
             SetSpecialAbility(SpecialAbility.GraspingClaw);
@@ -63,35 +62,17 @@ namespace Server.Mobiles
         public override int Hides => 60;
         public override FoodType FavoriteFood => FoodType.Meat;
         public override bool CanAngerOnTame => true;
-        public override WeaponAbility GetWeaponAbility()
-        {
-            return WeaponAbility.Dismount;
-        }
+        public override WeaponAbility GetWeaponAbility() => WeaponAbility.Dismount;
 
-        public override int GetAngerSound()
-        {
-            return 0x4FE;
-        }
+        public override int GetAngerSound() => 0x4FE;
 
-        public override int GetIdleSound()
-        {
-            return 0x4FD;
-        }
+        public override int GetIdleSound() => 0x4FD;
 
-        public override int GetAttackSound()
-        {
-            return 0x4FC;
-        }
+        public override int GetAttackSound() => 0x4FC;
 
-        public override int GetHurtSound()
-        {
-            return 0x4FF;
-        }
+        public override int GetHurtSound() => 0x4FF;
 
-        public override int GetDeathSound()
-        {
-            return 0x4FB;
-        }
+        public override int GetDeathSound() => 0x4FB;
 
         public override void GenerateLoot()
         {
@@ -121,50 +102,17 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(3);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
-
-            if (version == 0)
-                Timer.DelayCall(TimeSpan.Zero, delegate { Hue = GetHue(); });
-
-            if (version <= 1)
-                Timer.DelayCall(TimeSpan.Zero, delegate
-                {
-                    if (InternalItem != null)
-                    {
-                        InternalItem.Hue = Hue;
-                    }
-                });
-
-            if (version < 2)
-            {
-                for (int i = 0; i < Skills.Length; ++i)
-                {
-                    Skills[i].Cap = Math.Max(100.0, Skills[i].Cap * 0.9);
-
-                    if (Skills[i].Base > Skills[i].Cap)
-                    {
-                        Skills[i].Base = Skills[i].Cap;
-                    }
-                }
-            }
-
-            if (version < 3)
-            {
-                SetWeaponAbility(WeaponAbility.Dismount);
-                SetSpecialAbility(SpecialAbility.GraspingClaw);
-            }
+            _ = reader.ReadInt();
         }
 
         private static int GetHue()
         {
-            int rand = Utility.Random(1075);
-
             /*
             1000	1075	No Hue Color	93.02%	0x0
             * 
@@ -187,7 +135,39 @@ namespace Server.Mobiles
             1	1075	Strong Purple	0.09%	0x8490
             1	1075	Strong Green	0.09%	0x855C
             * */
-
+            int rand = Utility.Random(1075);
+            switch (rand)
+            {
+                case int n when n <= 0:
+                    return 0x855C;
+                case int n when n <= 1:
+                    return 0x8490;
+                case int n when n <= 3:
+                    return 0x8030;
+                case int n when n <= 5:
+                    return 0x8037;
+                case int n when n <= 8:
+                    return 0x8295;
+                case int n when n <= 11:
+                    return 0x8123;
+                case int n when n <= 16:
+                    return 0x8482;
+                case int n when n <= 24:
+                    return 0x8487;
+                case int n when n <= 34:
+                    return 0x8032;
+                case int n when n <= 44:
+                    return 0x8899;
+                case int n when n <= 54:
+                    return 0x8495;
+                case int n when n <= 64:
+                    return 0x848D;
+                case int n when n <= 74:
+                    return 0x847F;
+                default:
+                    return 0;
+            }
+            /* old way
             if (rand <= 0)
                 return 0x855C;
             else if (rand <= 1)
@@ -215,7 +195,7 @@ namespace Server.Mobiles
             else if (rand <= 74)
                 return 0x847F;
 
-            return 0;
+            return 0;*/
         }
     }
 }
