@@ -210,8 +210,8 @@ namespace Server.Mobiles
                     m_Attendant.ControlOrder = OrderType.Follow;
                     m_Attendant.ControlTarget = m_Attendant.ControlMaster;
 
-                    if (obj is Point3D && m_Attendant.ControlMaster != null)
-                        m_Attendant.MoveToWorld((Point3D)obj, m_Attendant.ControlMaster.Map);
+                    if (obj is Point3D d && m_Attendant.ControlMaster != null)
+                        m_Attendant.MoveToWorld(d, m_Attendant.ControlMaster.Map);
                 }
             }
         }

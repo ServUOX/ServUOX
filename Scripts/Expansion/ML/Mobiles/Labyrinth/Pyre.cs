@@ -19,10 +19,8 @@ namespace Server.Mobiles
 
             SetHits(1783, 1939);
 
-            SetDamage(30);
-
-            SetDamageType(ResistType.Phys, 50);
-            SetDamageType(ResistType.Fire, 50);
+            SetDamage(ResistType.Phys, 50, 0, 30);
+            SetDamage(ResistType.Fire, 50);
 
             SetResist(ResistType.Phys, 65);
             SetResist(ResistType.Fire, 72, 75);
@@ -68,10 +66,7 @@ namespace Server.Mobiles
 
         }
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.UltraRich, 3);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.UltraRich, 3);
 
         public override void Serialize(GenericWriter writer)
         {

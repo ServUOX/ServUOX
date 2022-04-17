@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -10,7 +9,7 @@ namespace Server.Mobiles
 
         [Constructible]
         public PestilentBandage()
-            : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)// NEED TO CHECK
+            : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = "a pestilent bandage";
             Body = 154;
@@ -23,11 +22,9 @@ namespace Server.Mobiles
 
             SetHits(415, 445);
 
-            SetDamage(13, 23);
-
-            SetDamageType(ResistType.Phys, 40);
-            SetDamageType(ResistType.Cold, 20);
-            SetDamageType(ResistType.Pois, 40);
+            SetDamage(ResistType.Phys, 40, 0, 13, 23);
+            SetDamage(ResistType.Cold, 20);
+            SetDamage(ResistType.Pois, 40);
 
             SetResist(ResistType.Phys, 45, 55);
             SetResist(ResistType.Fire, 10, 20);
@@ -60,7 +57,7 @@ namespace Server.Mobiles
 
         public override void GenerateLoot()
         {
-            AddLoot(LootPack.Rich);  // Need to verify
+            AddLoot(LootPack.Rich);
         }
 
         public override void Serialize(GenericWriter writer)

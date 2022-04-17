@@ -55,11 +55,7 @@ namespace Server.Mobiles
         {
             if (m.Alive && m is PlayerMobile)
             {
-                PlayerMobile pm = (PlayerMobile)m;
-
-                int range = 5;
-
-                if (range >= 0 && InRange(m, range) && !InRange(oldLocation, range) && DateTime.UtcNow >= m_Spoken + TimeSpan.FromMinutes(1))
+                if (5 >= 0 && InRange(m, 5) && !InRange(oldLocation, 5) && DateTime.UtcNow >= m_Spoken + TimeSpan.FromMinutes(1))
                 {
                     /* Human.  Do you crave the chance to denounce your humanity and prove your elven ancestry.  
                     Do you yearn to accept the responsibilities of a caretaker of our beloved Sosaria and so 
@@ -74,15 +70,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_Spoken = DateTime.UtcNow;
         }

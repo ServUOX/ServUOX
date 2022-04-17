@@ -49,6 +49,9 @@ namespace Server.Mobiles
                 case 3:
                     AddItem(new Helmet());
                     break;
+                default:
+                    AddItem(new Helmet());
+                    break;
             }
 
             switch (Utility.Random(3))
@@ -60,6 +63,9 @@ namespace Server.Mobiles
                     AddItem(new Doublet(0x482));
                     break;
                 case 2:
+                    AddItem(new Tunic(0x482));
+                    break;
+                default:
                     AddItem(new Tunic(0x482));
                     break;
             }
@@ -78,6 +84,9 @@ namespace Server.Mobiles
                     AddItem(new Boots());
                     break;
                 case 1:
+                    AddItem(new ThighBoots());
+                    break;
+                default:
                     AddItem(new ThighBoots());
                     break;
             }

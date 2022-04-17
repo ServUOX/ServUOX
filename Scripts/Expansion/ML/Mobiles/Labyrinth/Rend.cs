@@ -17,11 +17,9 @@ namespace Server.Mobiles
 
             SetHits(5176, 6100);
 
-            SetDamage(26, 33);
-
-            SetDamageType(ResistType.Phys, 100);
-            SetDamageType(ResistType.Pois, 0);
-            SetDamageType(ResistType.Engy, 0);
+            SetDamage(ResistType.Phys, 100, 0, 26, 33);
+            SetDamage(ResistType.Pois, 0);
+            SetDamage(ResistType.Engy, 0);
 
             SetResist(ResistType.Phys, 75, 85);
             SetResist(ResistType.Fire, 81, 94);
@@ -61,10 +59,7 @@ namespace Server.Mobiles
                 c.DropItem(new ParagonChest(Name, 5));
         }
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.UltraRich, 3);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.UltraRich, 3);
 
         public override void Serialize(GenericWriter writer)
         {

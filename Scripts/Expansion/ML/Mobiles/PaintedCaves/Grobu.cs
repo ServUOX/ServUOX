@@ -22,9 +22,7 @@ namespace Server.Mobiles
             SetStam(132, 150);
             SetMana(9);
 
-            SetDamage(15, 18);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 15, 18);
 
             SetResist(ResistType.Phys, 40, 45);
             SetResist(ResistType.Fire, 20, 40);
@@ -60,10 +58,7 @@ namespace Server.Mobiles
             base.OnDeath(CorpseLoot);
         }
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.FilthyRich, 2);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.FilthyRich, 2);
 
         public override void Serialize(GenericWriter writer)
         {

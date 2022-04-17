@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Server.Items;
 
@@ -44,39 +43,47 @@ namespace Server.Mobiles
 
             Item item;
 
-            item = new WoodlandLegs();
-            item.Hue = 0x236;
+            item = new WoodlandLegs
+            {
+                Hue = 0x236
+            };
             AddItem(item);
 
-            item = new WoodlandChest();
-            item.Hue = 0x236;
+            item = new WoodlandChest
+            {
+                Hue = 0x236
+            };
             AddItem(item);
 
-            item = new WoodlandArms();
-            item.Hue = 0x236;
+            item = new WoodlandArms
+            {
+                Hue = 0x236
+            };
             AddItem(item);
 
-            item = new WoodlandBelt();
-            item.Hue = 0x237;
+            item = new WoodlandBelt
+            {
+                Hue = 0x237
+            };
             AddItem(item);
 
-            item = new VultureHelm();
-            item.Hue = 0x236;
+            item = new VultureHelm
+            {
+                Hue = 0x236
+            };
             AddItem(item);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

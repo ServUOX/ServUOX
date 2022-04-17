@@ -20,10 +20,8 @@ namespace Server.Mobiles
 
             SetHits(474, 477);
 
-            SetDamage(10, 15);  // Erica's
-
-            SetDamageType(ResistType.Engy, 20);
-            SetDamageType(ResistType.Cold, 80);
+            SetDamage(ResistType.Engy, 20, 0, 10, 15);
+            SetDamage(ResistType.Cold, 80);
 
             SetResist(ResistType.Phys, 56, 57);
             SetResist(ResistType.Fire, 38, 44);

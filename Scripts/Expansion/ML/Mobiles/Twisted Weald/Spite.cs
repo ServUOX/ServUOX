@@ -18,9 +18,7 @@ namespace Server.Mobiles
             SetStam(243, 367);
             SetMana(369, 586);
 
-            SetDamage(14, 20);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 14, 20);
 
             SetResist(ResistType.Phys, 85, 90);
             SetResist(ResistType.Fire, 41, 46);
@@ -56,10 +54,7 @@ namespace Server.Mobiles
         public override int DefaultHue => 0x21;
         public override bool GivesMLMinorArtifact => true;
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.UltraRich, 2);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.UltraRich, 2);
 
         public override void Serialize(GenericWriter writer)
         {

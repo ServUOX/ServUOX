@@ -23,9 +23,7 @@ namespace Server.Mobiles
 
             SetHits(7500);
 
-            SetDamage(19, 24);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 19, 24);
 
             SetResist(ResistType.Phys, 65, 75);
             SetResist(ResistType.Fire, 45, 55);
@@ -33,9 +31,9 @@ namespace Server.Mobiles
             SetResist(ResistType.Pois, 50, 60);
             SetResist(ResistType.Engy, 50, 60);
 
-            SetSkill(SkillName.EvalInt, 0); // Per Stratics?!?
-            SetSkill(SkillName.Magery, 0); // Per Stratics?!?
-            SetSkill(SkillName.Meditation, 0); // Per Stratics?!?
+            SetSkill(SkillName.EvalInt, 0);
+            SetSkill(SkillName.Magery, 0);
+            SetSkill(SkillName.Meditation, 0);
             SetSkill(SkillName.Anatomy, 95.1, 115.0);
             SetSkill(SkillName.Archery, 95.1, 100.0);
             SetSkill(SkillName.MagicResist, 50.3, 80.0);

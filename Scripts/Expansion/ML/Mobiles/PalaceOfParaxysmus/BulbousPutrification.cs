@@ -18,10 +18,8 @@ namespace Server.Mobiles
 
             SetHits(1211, 1231);
 
-            SetDamage(22, 29);
-
-            SetDamageType(ResistType.Phys, 60);
-            SetDamageType(ResistType.Pois, 40);
+            SetDamage(ResistType.Phys, 60, 0, 22, 29);
+            SetDamage(ResistType.Pois, 40);
 
             SetResist(ResistType.Phys, 55, 65);
             SetResist(ResistType.Fire, 40, 50);
@@ -49,10 +47,7 @@ namespace Server.Mobiles
         public override Poison PoisonImmunity => Poison.Lethal;
         public override Poison HitPoison => Poison.Lethal;
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.AosFilthyRich, 5);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.AosFilthyRich, 5);
 
         public override void Serialize(GenericWriter writer)
         {

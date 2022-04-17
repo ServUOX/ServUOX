@@ -29,9 +29,7 @@ namespace Server.Mobiles
             SetDex(81, 95);
             SetInt(61, 75);
 
-            SetDamage(10, 23);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 10, 23);
 
             SetResist(ResistType.Phys, 10, 15);
             SetResist(ResistType.Fire, 10, 15);
@@ -62,6 +60,9 @@ namespace Server.Mobiles
                     AddItem(new Boots());
                     break;
                 case 3:
+                    AddItem(new ThighBoots());
+                    break;
+                default:
                     AddItem(new ThighBoots());
                     break;
             }

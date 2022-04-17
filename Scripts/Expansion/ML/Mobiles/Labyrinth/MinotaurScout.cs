@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -19,9 +18,7 @@ namespace Server.Mobiles
 
             SetHits(354, 383);
 
-            SetDamage(11, 20);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 11, 20);
 
             SetResist(ResistType.Phys, 55, 65);
             SetResist(ResistType.Fire, 25, 35);
@@ -37,7 +34,7 @@ namespace Server.Mobiles
             Fame = 5000;
             Karma = -5000;
 
-            VirtualArmor = 28; // Don't know what it should be
+            VirtualArmor = 28;
 
             for (int i = 0; i < Utility.RandomMinMax(0, 1); i++)
             {
@@ -54,36 +51,17 @@ namespace Server.Mobiles
 
         public override int TreasureMapLevel => 3;
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.Rich);  // Need to verify
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.Rich);
 
-        // Using Tormented Minotaur sounds - Need to veryfy
-        public override int GetAngerSound()
-        {
-            return 0x597;
-        }
+        public override int GetAngerSound() => 0x599;
 
-        public override int GetIdleSound()
-        {
-            return 0x596;
-        }
+        public override int GetIdleSound() => 0x598;
 
-        public override int GetAttackSound()
-        {
-            return 0x599;
-        }
+        public override int GetAttackSound() => 0x597;
 
-        public override int GetHurtSound()
-        {
-            return 0x59a;
-        }
+        public override int GetHurtSound() => 0x59a;
 
-        public override int GetDeathSound()
-        {
-            return 0x59c;
-        }
+        public override int GetDeathSound() => 0x596;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -94,7 +72,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

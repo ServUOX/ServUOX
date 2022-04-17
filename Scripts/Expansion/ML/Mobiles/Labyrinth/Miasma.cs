@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -20,10 +19,8 @@ namespace Server.Mobiles
             SetHits(272, 2000);
             SetMana(5, 60);
 
-            SetDamage(20, 30);
-
-            SetDamageType(ResistType.Phys, 60);
-            SetDamageType(ResistType.Pois, 40);
+            SetDamage(ResistType.Phys, 60, 0, 20, 30);
+            SetDamage(ResistType.Pois, 40);
 
             SetResist(ResistType.Phys, 50, 54);
             SetResist(ResistType.Fire, 40, 45);
@@ -88,6 +85,9 @@ namespace Server.Mobiles
                     case 15: c.DropItem(new HunterLegs()); break;
                     case 16: c.DropItem(new GreymistLegs()); break;
                     case 17: c.DropItem(new MyrmidonChest()); break;
+                    default:
+                        c.DropItem(new MyrmidonGloves()); break;
+                        break;
                 }
             }
         }

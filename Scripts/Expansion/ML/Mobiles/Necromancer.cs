@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using Server.Items;
+using System.Collections.Generic;
 
 namespace Server.Mobiles
 {
@@ -36,33 +35,35 @@ namespace Server.Mobiles
         public override void InitOutfit()
         {
             base.InitOutfit();
-            AddItem(new Server.Items.Shoes(0x151));
-            AddItem(new Server.Items.Robe(0x455));
-            AddItem(new Server.Items.FancyShirt(0x455));
+            AddItem(new Shoes(0x151));
+            AddItem(new Robe(0x455));
+            AddItem(new FancyShirt(0x455));
 
-            Item hair = new Item(Utility.RandomList(0x203B, 0x2049, 0x2048, 0x204A));
-            hair.Hue = 0x3c6;
-            hair.Layer = Layer.Hair;
-            hair.Movable = false;
+            Item hair = new Item(Utility.RandomList(0x203B, 0x2049, 0x2048, 0x204A))
+            {
+                Hue = 0x3c6,
+                Layer = Layer.Hair,
+                Movable = false
+            };
             AddItem(hair);
 
-            Item beard = new Item(0x0);
-            beard.Layer = Layer.FacialHair;
+            Item beard = new Item(0x0)
+            {
+                Layer = Layer.FacialHair
+            };
             AddItem(beard);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

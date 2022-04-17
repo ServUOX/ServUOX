@@ -17,10 +17,8 @@ namespace Server.Mobiles
 
             SetHits(150, 250);
 
-            SetDamage(21, 25);
-
-            SetDamageType(ResistType.Phys, 30);
-            SetDamageType(ResistType.Engy, 70);
+            SetDamage(ResistType.Phys, 30, 0, 21, 25);
+            SetDamage(ResistType.Engy, 70);
 
             SetResist(ResistType.Phys, 60, 65);
             SetResist(ResistType.Fire, 40, 50);
@@ -53,6 +51,8 @@ namespace Server.Mobiles
             AddLoot(LootPack.FilthyRich);
             AddLoot(LootPack.Rich);
         }
+
+        public override int GetHurtSound() => 0x56E;
 
         public override void Serialize(GenericWriter writer)
         {
