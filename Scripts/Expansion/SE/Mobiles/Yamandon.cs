@@ -21,11 +21,9 @@ namespace Server.Mobiles
 
             SetHits(1601, 1800);
 
-            SetDamage(19, 35);
-
-            SetDamageType(ResistType.Phys, 70);
-            SetDamageType(ResistType.Pois, 20);
-            SetDamageType(ResistType.Engy, 10);
+            SetDamage(ResistType.Phys, 70, 0, 19, 35);
+            SetDamage(ResistType.Pois, 20);
+            SetDamage(ResistType.Engy, 10);
 
             SetResist(ResistType.Phys, 65, 85);
             SetResist(ResistType.Fire, 70, 90);
@@ -71,54 +69,35 @@ namespace Server.Mobiles
         public override void OnDamagedBySpell(Mobile attacker)
         {
             base.OnDamagedBySpell(attacker);
-
             DoCounter(attacker);
         }
 
         public override void OnGotMeleeAttack(Mobile attacker)
         {
             base.OnGotMeleeAttack(attacker);
-
             DoCounter(attacker);
         }
 
-        public override int GetAttackSound()
-        {
-            return 1260;
-        }
+        public override int GetAttackSound() => 1260;
 
-        public override int GetAngerSound()
-        {
-            return 1262;
-        }
+        public override int GetAngerSound() => 1262;
 
-        public override int GetDeathSound()
-        {
-            return 1259; //Other Death sound is 1258... One for Yamadon, one for Serado?
-        }
+        public override int GetDeathSound() => 1259; //Other Death sound is 1258... One for Yamadon, one for Serado?
 
-        public override int GetHurtSound()
-        {
-            return 1263;
-        }
+        public override int GetHurtSound() => 1263;
 
-        public override int GetIdleSound()
-        {
-            return 1261;
-        }
+        public override int GetIdleSound() => 1261;
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         private void DoCounter(Mobile attacker)
@@ -126,7 +105,7 @@ namespace Server.Mobiles
             if (Map == null)
                 return;
 
-            if (attacker is BaseCreature && ((BaseCreature)attacker).BardProvoked)
+            if (attacker is BaseCreature creature && creature.BardProvoked)
                 return;
 
             if (0.2 > Utility.RandomDouble())
@@ -139,9 +118,9 @@ namespace Server.Mobiles
                 */
                 Mobile target = null;
 
-                if (attacker is BaseCreature)
+                if (attacker is BaseCreature creature1)
                 {
-                    Mobile m = ((BaseCreature)attacker).GetMaster();
+                    Mobile m = creature1.GetMaster();
 
                     if (m != null)
                         target = m;
@@ -160,7 +139,7 @@ namespace Server.Mobiles
                     if (m == this || !CanBeHarmful(m))
                         continue;
 
-                    if (m is BaseCreature && (((BaseCreature)m).Controlled || ((BaseCreature)m).Summoned || ((BaseCreature)m).Team != Team))
+                    if (m is BaseCreature creature2 && (creature2.Controlled || creature2.Summoned || creature2.Team != Team))
                         targets.Add(m);
                     else if (m.Player && m.Alive)
                         targets.Add(m);

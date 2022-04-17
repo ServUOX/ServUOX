@@ -24,11 +24,9 @@ namespace Server.Mobiles
             SetHits(9000);
             SetMana(300);
 
-            SetDamage(29, 35);
-
-            SetDamageType(ResistType.Phys, 70);
-            SetDamageType(ResistType.Pois, 20);
-            SetDamageType(ResistType.Engy, 10);
+            SetDamage(ResistType.Phys, 70, 0, 29, 35);
+            SetDamage(ResistType.Pois, 20);
+            SetDamage(ResistType.Engy, 10);
 
             SetResist(ResistType.Phys, 30);
             SetResist(ResistType.Fire, 60);
@@ -101,15 +99,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         private void ScaleResistances()
@@ -125,7 +121,7 @@ namespace Server.Mobiles
 
         private void DoCounter(Mobile attacker)
         {
-            if (Map == null || (attacker is BaseCreature && ((BaseCreature)attacker).BardProvoked))
+            if (Map == null || (attacker is BaseCreature creature && creature.BardProvoked))
                 return;
 
             if (0.2 > Utility.RandomDouble())
@@ -138,9 +134,9 @@ namespace Server.Mobiles
                 */
                 Mobile target = null;
 
-                if (attacker is BaseCreature)
+                if (attacker is BaseCreature creature1)
                 {
-                    Mobile m = ((BaseCreature)attacker).GetMaster();
+                    Mobile m = creature1.GetMaster();
 
                     if (m != null)
                         target = m;
@@ -159,7 +155,7 @@ namespace Server.Mobiles
                     if (m == this || !CanBeHarmful(m))
                         continue;
 
-                    if (m is BaseCreature && (((BaseCreature)m).Controlled || ((BaseCreature)m).Summoned || ((BaseCreature)m).Team != Team))
+                    if (m is BaseCreature creature2 && (creature2.Controlled || creature2.Summoned || creature2.Team != Team))
                         targets.Add(m);
                     else if (m.Player)
                         targets.Add(m);

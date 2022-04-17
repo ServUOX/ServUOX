@@ -18,12 +18,10 @@ namespace Server.Mobiles
 
             SetHits(251, 280);
 
-            SetDamage(18, 24);
-
-            SetDamageType(ResistType.Phys, 30);
-            SetDamageType(ResistType.Cold, 30);
-            SetDamageType(ResistType.Pois, 10);
-            SetDamageType(ResistType.Engy, 30);
+            SetDamage(ResistType.Phys, 30, 0, 18, 24);
+            SetDamage(ResistType.Cold, 30);
+            SetDamage(ResistType.Pois, 10);
+            SetDamage(ResistType.Engy, 30);
 
             SetResist(ResistType.Phys, 40, 60);
             SetResist(ResistType.Fire, 20, 30);
@@ -56,11 +54,11 @@ namespace Server.Mobiles
         public override Poison PoisonImmunity => Poison.Greater;
         public override Poison HitPoison => Poison.Greater;
 
-        public override int GetAngerSound() { return 0x518; }
-        public override int GetIdleSound() { return 0x517; }
-        public override int GetAttackSound() { return 0x516; }
-        public override int GetHurtSound() { return 0x519; }
-        public override int GetDeathSound() { return 0x515; }
+        public override int GetAngerSound() => 0x518;
+        public override int GetIdleSound() => 0x517;
+        public override int GetAttackSound() => 0x516;
+        public override int GetHurtSound() => 0x519;
+        public override int GetDeathSound() => 0x515;
 
         public override void OnDeath(Container CorpseLoot)
         {

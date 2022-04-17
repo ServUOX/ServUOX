@@ -1,13 +1,8 @@
-using System;
-using System.Collections;
-
 namespace Server.Mobiles
 {
     [CorpseName("a kaze kemono corpse")]
     public class KazeKemono : BaseCreature
     {
-        private static readonly Hashtable m_FlurryOfTwigsTable = new Hashtable();
-        private static readonly Hashtable m_ChlorophylBlastTable = new Hashtable();
 
         [Constructible]
         public KazeKemono()
@@ -23,12 +18,10 @@ namespace Server.Mobiles
 
             SetHits(251, 330);
 
-            SetDamage(15, 20);
-
-            SetDamageType(ResistType.Phys, 70);
-            SetDamageType(ResistType.Fire, 10);
-            SetDamageType(ResistType.Cold, 10);
-            SetDamageType(ResistType.Pois, 10);
+            SetDamage(ResistType.Phys, 70, 0, 15, 20);
+            SetDamage(ResistType.Fire, 10);
+            SetDamage(ResistType.Cold, 10);
+            SetDamage(ResistType.Pois, 10);
 
             SetResist(ResistType.Phys, 50, 70);
             SetResist(ResistType.Fire, 30, 60);
@@ -69,7 +62,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

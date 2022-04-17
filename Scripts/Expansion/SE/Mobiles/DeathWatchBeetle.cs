@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -59,6 +58,9 @@ namespace Server.Mobiles
                 case 5:
                     PackItem(new LeatherChest());
                     break;
+                default:
+                    PackItem(new LeatherChest());
+                    break;
             }
 
             if (Utility.RandomDouble() < .5)
@@ -79,30 +81,15 @@ namespace Server.Mobiles
 
         public override int Hides => 8;
 
-        public override int GetAngerSound()
-        {
-            return 0x4F3;
-        }
+        public override int GetAngerSound() => 0x4F3;
 
-        public override int GetIdleSound()
-        {
-            return 0x4F2;
-        }
+        public override int GetIdleSound() => 0x4F2;
 
-        public override int GetAttackSound()
-        {
-            return 0x4F1;
-        }
+        public override int GetAttackSound() => 0x4F1;
 
-        public override int GetHurtSound()
-        {
-            return 0x4F4;
-        }
+        public override int GetHurtSound() => 0x4F4;
 
-        public override int GetDeathSound()
-        {
-            return 0x4F0;
-        }
+        public override int GetDeathSound() => 0x4F0;
 
         public override void GenerateLoot()
         {
@@ -113,18 +100,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(1);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
-
-            if (version == 0)
-            {
-                SetWeaponAbility(WeaponAbility.CrushingBlow);
-            }
+            _ = reader.ReadInt();
         }
     }
 }

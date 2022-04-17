@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -20,9 +19,7 @@ namespace Server.Mobiles
             SetHits(131, 160);
             SetMana(0);
 
-            SetDamage(6, 11);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 6, 11);
 
             SetResist(ResistType.Phys, 50, 70);
             SetResist(ResistType.Fire, 30, 50);
@@ -50,30 +47,15 @@ namespace Server.Mobiles
         public override int Meat => 10;
         public override int Hides => 15;
         public override FoodType FavoriteFood => FoodType.GrainsAndHay;
-        public override int GetAngerSound()
-        {
-            return 0x4F8;
-        }
+        public override int GetAngerSound() => 0x4F8;
 
-        public override int GetIdleSound()
-        {
-            return 0x4F7;
-        }
+        public override int GetIdleSound() => 0x4F7;
 
-        public override int GetAttackSound()
-        {
-            return 0x4F6;
-        }
+        public override int GetAttackSound() => 0x4F6;
 
-        public override int GetHurtSound()
-        {
-            return 0x4F9;
-        }
+        public override int GetHurtSound() => 0x4F9;
 
-        public override int GetDeathSound()
-        {
-            return 0x4F5;
-        }
+        public override int GetDeathSound() => 0x4F5;
 
         public override void OnDeath(Container c)
         {
@@ -92,7 +74,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

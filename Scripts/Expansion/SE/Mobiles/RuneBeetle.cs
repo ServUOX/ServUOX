@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -8,7 +5,6 @@ namespace Server.Mobiles
     [CorpseName("a rune beetle corpse")]
     public class RuneBeetle : BaseCreature
     {
-        private static readonly Hashtable m_Table = new Hashtable();
         [Constructible]
         public RuneBeetle()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
@@ -22,11 +18,9 @@ namespace Server.Mobiles
 
             SetHits(301, 360);
 
-            SetDamage(15, 22);
-
-            SetDamageType(ResistType.Phys, 20);
-            SetDamageType(ResistType.Pois, 10);
-            SetDamageType(ResistType.Engy, 70);
+            SetDamage(ResistType.Phys, 20, 0, 15, 22);
+            SetDamage(ResistType.Pois, 10);
+            SetDamage(ResistType.Engy, 70);
 
             SetResist(ResistType.Phys, 40, 65);
             SetResist(ResistType.Fire, 35, 50);
@@ -62,11 +56,11 @@ namespace Server.Mobiles
         public override FoodType FavoriteFood => FoodType.FruitsAndVegies | FoodType.GrainsAndHay;
         public override bool CanAngerOnTame => true;
 
-        public override int GetAngerSound() { return 0x4E8; }
-        public override int GetIdleSound() { return 0x4E7; }
-        public override int GetAttackSound() { return 0x4E6; }
-        public override int GetHurtSound() { return 0x4E9; }
-        public override int GetDeathSound() { return 0x4E5; }
+        public override int GetAngerSound() => 0x4E8;
+        public override int GetIdleSound() => 0x4E7;
+        public override int GetAttackSound() => 0x4E6;
+        public override int GetHurtSound() => 0x4E9;
+        public override int GetDeathSound() => 0x4E5;
 
         public override void OnDeath(Container CorpseLoot)
         {
@@ -87,40 +81,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(3);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
-
-            if (version < 1)
-            {
-                for (int i = 0; i < Skills.Length; ++i)
-                {
-                    Skills[i].Cap = Math.Max(100.0, Skills[i].Cap * 0.9);
-
-                    if (Skills[i].Base > Skills[i].Cap)
-                    {
-                        Skills[i].Base = Skills[i].Cap;
-                    }
-                }
-            }
-
-            if (version < 3)
-            {
-                if (AbilityProfile == null || AbilityProfile.MagicalAbility == MagicalAbility.None)
-                {
-                    SetMagicalAbility(MagicalAbility.Poisoning);
-                }
-
-                if (version == 1)
-                {
-                    SetSpecialAbility(SpecialAbility.RuneCorruption);
-                    SetWeaponAbility(WeaponAbility.BleedAttack);
-                }
-            }
+            _ = reader.ReadInt();
         }
     }
 }

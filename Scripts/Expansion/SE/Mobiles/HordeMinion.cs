@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -20,9 +19,7 @@ namespace Server.Mobiles
 
             SetHits(10, 24);
 
-            SetDamage(5, 10);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 5, 10);
 
             SetResist(ResistType.Phys, 15, 20);
             SetResist(ResistType.Fire, 5, 10);
@@ -47,30 +44,15 @@ namespace Server.Mobiles
         {
         }
 
-        public override int GetIdleSound()
-        {
-            return 338;
-        }
+        public override int GetIdleSound() => 338;
 
-        public override int GetAngerSound()
-        {
-            return 338;
-        }
+        public override int GetAngerSound() => 338;
 
-        public override int GetDeathSound()
-        {
-            return 338;
-        }
+        public override int GetDeathSound() => 338;
 
-        public override int GetAttackSound()
-        {
-            return 406;
-        }
+        public override int GetAttackSound() => 406;
 
-        public override int GetHurtSound()
-        {
-            return 194;
-        }
+        public override int GetHurtSound() => 194;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -81,7 +63,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

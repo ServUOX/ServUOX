@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Server.Engines.Plants;
 using Server.Items;
 using Server.Network;
 
@@ -23,12 +24,11 @@ namespace Server.Mobiles
 
             SetHits(351, 430);
 
-            SetDamage(12, 17);
 
-            SetDamageType(ResistType.Phys, 70);
-            SetDamageType(ResistType.Fire, 10);
-            SetDamageType(ResistType.Cold, 10);
-            SetDamageType(ResistType.Pois, 10);
+            SetDamage(ResistType.Phys, 70, 0, 12, 17);
+            SetDamage(ResistType.Fire, 10);
+            SetDamage(ResistType.Cold, 10);
+            SetDamage(ResistType.Pois, 10);
 
             SetResist(ResistType.Phys, 40, 60);
             SetResist(ResistType.Fire, 50, 70);
@@ -45,7 +45,7 @@ namespace Server.Mobiles
             Karma = -9000;
 
             if (Utility.RandomDouble() < .33)
-                PackItem(Engines.Plants.Seed.RandomBonsaiSeed());
+                PackItem(Seed.RandomBonsaiSeed());
 
             AddItem(new Tessen());
 
@@ -151,15 +151,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         private class ExpireTimer : Timer

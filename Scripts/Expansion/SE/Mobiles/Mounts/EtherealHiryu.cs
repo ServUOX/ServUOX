@@ -1,10 +1,3 @@
-using System;
-using Server.Engines.VeteranRewards;
-using Server.Items;
-using Server.Multis;
-using Server.Network;
-using Server.Spells;
-
 namespace Server.Mobiles
 {
     public class EtherealHiryu : EtherealMount
@@ -25,19 +18,13 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(1); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
-
-            if (version == 0)
-            {
-                Transparent = false;
-            }
+            _ = reader.ReadEncodedInt();
         }
     }
 }

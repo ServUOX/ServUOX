@@ -1,4 +1,3 @@
-using System;
 using Server.Mobiles;
 
 namespace Server.Engines.Quests.Samurai
@@ -22,9 +21,7 @@ namespace Server.Engines.Quests.Samurai
 
             SetHits(1);
 
-            SetDamage(1, 3);
-
-            SetDamageType(ResistType.Phys, 100);
+            SetDamage(ResistType.Phys, 100, 0, 1, 3);
 
             SetResist(ResistType.Phys, 15);
             SetResist(ResistType.Fire, 5, 10);
@@ -39,23 +36,18 @@ namespace Server.Engines.Quests.Samurai
         {
         }
 
-        public override int GetIdleSound()
-        {
-            return 0xE9;
-        }
+        public override int GetIdleSound() => 0xE9;
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }

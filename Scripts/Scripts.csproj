@@ -613,7 +613,7 @@
     <Compile Include="Expansion\SA\Mobiles\EtherealBoura.cs" />
     <Compile Include="Expansion\SA\Mobiles\ChargerOfTheFallen.cs" />
     <Compile Include="Expansion\ML\Mobiles\Ethereals\EtherealReptalon.cs" />
-    <Compile Include="Expansion\SE\Mobiles\EtherealHiryu.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Mounts\EtherealHiryu.cs" />
     <Compile Include="Expansion\ML\Mobiles\Ethereals\EtherealCuSidhe.cs" />
     <Compile Include="Expansion\TOL\Mobiles\RideablePolarBear.cs" />
     <Compile Include="Expansion\UOR\Mobiles\Ethereals\EtherealSwampDragon.cs" />
@@ -3109,7 +3109,7 @@
     <Compile Include="Expansion\ML\Mobiles\PrismOfLight\FetidEssence.cs" />
     <Compile Include="Expansion\SA\Mobiles\FierceDragon.cs" />
     <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\FireAnt.cs" />
-    <Compile Include="Expansion\SE\Mobiles\FireBeetle.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Mounts\FireBeetle.cs" />
     <Compile Include="Expansion\SA\Mobiles\FireDaemon.cs" />
     <Compile Include="Expansion\UOR\Mobiles\FireGargoyle.cs" />
     <Compile Include="Expansion\ML\Mobiles\FireRabbit.cs" />
@@ -3155,7 +3155,7 @@
     <Compile Include="Expansion\AOS\Mobiles\Undead\HellSteed.cs" />
     <Compile Include="Expansion\SA\TerMur\HighPlainsBoura.cs" />
     <Compile Include="Expansion\UO\Mobiles\Animals\Deer.cs" />
-    <Compile Include="Expansion\SE\Mobiles\Hiryu.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Mounts\Hiryu.cs" />
     <Compile Include="Expansion\UO\Mobiles\Animals\Horses.cs" />
     <Compile Include="Expansion\ML\Mobiles\Hydra.cs" />
     <Compile Include="Customs\Items\Icehound.cs" />
@@ -3179,7 +3179,7 @@
     <Compile Include="Expansion\SE\Mobiles\LadyOfTheSnow.cs" />
     <Compile Include="Expansion\SA\Mobiles\LavaElemental.cs" />
     <Compile Include="Expansion\SA\TerMur\LeatherWolf.cs" />
-    <Compile Include="Expansion\SE\Mobiles\LesserHiryu.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Mounts\LesserHiryu.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Publish 27\Leviathan.cs" />
     <Compile Include="Expansion\UO\Mobiles\Monsters\Lizardman.cs" />
     <Compile Include="Expansion\UO\Mobiles\Animals\Llamas.cs" />
@@ -3410,10 +3410,10 @@
     <Compile Include="Expansion\SA\Quests\Egwexem.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Quest\ElwoodMcCarrin.cs" />
     <Compile Include="Expansion\ML\Quests\Dungeons\Bedlam\Emerillo.cs" />
-    <Compile Include="Expansion\SE\Quests\Emino.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Quest\Emino.cs" />
     <Compile Include="Expansion\ML\Quests\World\Enigma.cs" />
     <Compile Include="Expansion\ML\Mobiles\Community Collections\Britain Library Collections\Enrico.cs" />
-    <Compile Include="Expansion\SE\Quests\EnshroudedFigure.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Quest\EnshroudedFigure.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\EscortableMage.cs" />
     <Compile Include="Expansion\ML\Quests\Defintions\NewHavenEscortableQuest.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\EvilHealer.cs" />
@@ -3445,14 +3445,14 @@
     <Compile Include="Expansion\UO\Mobiles\NPCs\GypsyMaiden.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\HairStylist.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\New Haven\New Player Quests\Hamato Dojo\Hamato.cs" />
-    <Compile Include="Expansion\SE\Quests\Haochi.cs" />
-    <Compile Include="Expansion\SE\Quests\HaochisGuardsman.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Quest\Haochi.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Quest\HaochisGuardsman.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\HarborMaster.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Healer.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\HealerGuildmaster.cs" />
-    <Compile Include="Expansion\SE\Quests\EminosUndertaking\Henchman.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Quest\Henchman.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Herbalist.cs" />
-    <Compile Include="Expansion\SE\Quests\HiddenFigure.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Quest\HiddenFigure.cs" />
     <Compile Include="Expansion\UO\Mobiles\Hirables\HireBard.cs" />
     <Compile Include="Expansion\UO\Mobiles\Hirables\HireBardArcher.cs" />
     <Compile Include="Expansion\UO\Mobiles\Hirables\HireBeggar.cs" />
@@ -3473,7 +3473,7 @@
     <Compile Include="Expansion\UO\Mobiles\NPCs\IronWorker.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\New Haven\New Player Quests\Mountains\Jacob.cs" />
     <Compile Include="Expansion\ML\Quests\Dungeons\Blighted Grove\Jamal.cs" />
-    <Compile Include="Expansion\SE\Quests\JedahEntille.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Quest\JedahEntille.cs" />
     <Compile Include="Expansion\ML\Quests\Ilshenar\Jelrice.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\Jeweler.cs" />
     <Compile Include="Expansion\ML\Quests\Defintions\ScribingArcaneKnowledgeQuest.cs" />
@@ -3536,7 +3536,7 @@
     <Compile Include="Expansion\UO\Mobiles\NPCs\RealEstateBroker.cs" />
     <Compile Include="Expansion\ML\Mobiles\HeartWood\Rebinil.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\New Haven\New Player Quests\Warriors Training Area\Recaro.cs" />
-    <Compile Include="Expansion\SE\Quests\Relnia.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Quest\Relnia.cs" />
     <Compile Include="Expansion\UO\Mobiles\NPCs\RentedVendor.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\New Haven\New Player Quests\Warriors Training Area\Robyn.cs" />
     <Compile Include="Expansion\ML\Quests\Cities\Heartwood\Ryal.cs" />
@@ -3592,7 +3592,7 @@
     <Compile Include="Expansion\ML\Mobiles\Community Collections\Xanthe.cs" />
     <Compile Include="Expansion\ML\Mobiles\HeartWood\Yellienir.cs" />
     <Compile Include="Expansion\ML\Quests\Ilshenar\Yorus.cs" />
-    <Compile Include="Expansion\SE\Quests\Zoel.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Quest\Zoel.cs" />
     <Compile Include="Expansion\ML\Mobiles\Community Collections\Zorda.cs" />
     <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\Mobiles\AnimatedWeapon.cs" />
     <Compile Include="Mechanics\AI\BaseFamiliar.cs" />
@@ -3810,7 +3810,7 @@
     <Compile Include="Expansion\ML\Items\Quest\SecretWallTeleporters.cs" />
     <Compile Include="Expansion\SA\Mobiles\Vollem.cs" />
     <Compile Include="Expansion\LBR\Quests\TerribleHatchlings\Conversations.cs" />
-    <Compile Include="Expansion\SE\Quests\AnsellaGryen.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Quest\AnsellaGryen.cs" />
     <Compile Include="Expansion\LBR\Quests\TerribleHatchlings\Objectives.cs" />
     <Compile Include="Expansion\LBR\Quests\TerribleHatchlings\TerribleHatchlingsQuest.cs" />
     <Compile Include="Expansion\AOS\Quests\TheSummoning\Conversations.cs" />

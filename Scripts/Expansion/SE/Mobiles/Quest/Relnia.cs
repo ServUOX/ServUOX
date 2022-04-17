@@ -46,9 +46,7 @@ namespace Server.Engines.Quests.Samurai
 
         public override bool OnDragDrop(Mobile from, Item dropped)
         {
-            PlayerMobile player = from as PlayerMobile;
-
-            if (player != null)
+            if (from is PlayerMobile player)
             {
                 QuestSystem qs = player.Quest;
 
@@ -58,9 +56,7 @@ namespace Server.Engines.Quests.Samurai
 
                     if (obj != null && !obj.Completed)
                     {
-                        Gold gold = dropped as Gold;
-
-                        if (gold != null)
+                        if (dropped is Gold gold)
                         {
                             obj.Complete();
                             qs.AddObjective(new FourthTrialReturnObjective(false));
@@ -80,15 +76,13 @@ namespace Server.Engines.Quests.Samurai
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }

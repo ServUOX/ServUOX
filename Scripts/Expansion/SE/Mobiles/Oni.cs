@@ -1,12 +1,10 @@
-using System;
+using Server.Engines.Plants;
 
 namespace Server.Mobiles
 {
     [CorpseName("an oni corpse")]
     public class Oni : BaseCreature
     {
-        //private DateTime m_NextAbilityTime;
-
         [Constructible]
         public Oni()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
@@ -20,11 +18,9 @@ namespace Server.Mobiles
 
             SetHits(401, 530);
 
-            SetDamage(14, 20);
-
-            SetDamageType(ResistType.Phys, 70);
-            SetDamageType(ResistType.Fire, 10);
-            SetDamageType(ResistType.Engy, 20);
+            SetDamage(ResistType.Phys, 70, 0, 14, 20);
+            SetDamage(ResistType.Fire, 10);
+            SetDamage(ResistType.Engy, 20);
 
             SetResist(ResistType.Phys, 65, 80);
             SetResist(ResistType.Fire, 50, 70);
@@ -43,7 +39,7 @@ namespace Server.Mobiles
             Karma = -15000;
 
             if (Utility.RandomDouble() < .33)
-                PackItem(Engines.Plants.Seed.RandomBonsaiSeed());
+                PackItem(Seed.RandomBonsaiSeed());
 
             SetSpecialAbility(SpecialAbility.AngryFire);
         }
@@ -55,48 +51,28 @@ namespace Server.Mobiles
 
         public override bool CanRummageCorpses => true;
         public override int TreasureMapLevel => 4;
-        public override int GetAngerSound()
-        {
-            return 0x4E3;
-        }
+        public override int GetAngerSound() => 0x4E3;
 
-        public override int GetIdleSound()
-        {
-            return 0x4E2;
-        }
+        public override int GetIdleSound() => 0x4E2;
 
-        public override int GetAttackSound()
-        {
-            return 0x4E1;
-        }
+        public override int GetAttackSound() => 0x4E1;
 
-        public override int GetHurtSound()
-        {
-            return 0x4E4;
-        }
+        public override int GetHurtSound() => 0x4E4;
 
-        public override int GetDeathSound()
-        {
-            return 0x4E0;
-        }
+        public override int GetDeathSound() => 0x4E0;
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.FilthyRich, 3);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.FilthyRich, 3);
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

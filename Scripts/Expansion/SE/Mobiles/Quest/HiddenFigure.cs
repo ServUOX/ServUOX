@@ -9,7 +9,7 @@ namespace Server.Engines.Quests.Ninja
     {
         public static int[] Messages = new int[]
         {
-            1063191, // They won’t find me here.
+            1063191, // They wonâ€™t find me here.
             1063192  // Ah, a quiet hideout.
         };
         private int m_Message;
@@ -84,18 +84,14 @@ namespace Server.Engines.Quests.Ninja
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
-
+            writer.WriteEncodedInt(0);
             writer.Write(m_Message);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
-
+            _ = reader.ReadEncodedInt();
             m_Message = reader.ReadInt();
         }
     }
