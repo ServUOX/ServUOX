@@ -3324,7 +3324,7 @@
     <Compile Include="Expansion\SA\Underworld\Mobiles\TanglingRoots.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\ThirdDawnParrot.cs" />
     <Compile Include="Expansion\ML\Mobiles\Citadel\TigersClawMaster.cs" />
-    <Compile Include="Expansion\ML\Mobiles\Labyrinth\Tormented Minotaur.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Labyrinth\TormentedMinotaur.cs" />
     <Compile Include="Customs\Items\ToxicElemental.cs" />
     <Compile Include="Expansion\SA\TerMur\ToxicSlith.cs" />
     <Compile Include="Expansion\SA\TerMur\TrapdoorSpider.cs" />

@@ -129,11 +129,11 @@ namespace Server.Mobiles
             base.OnDoubleClick(from);
         }
 
-        public override int GetIdleSound() => 0x577;
-        public override int GetAttackSound() => 0x576;
-        public override int GetAngerSound() => 0x578;
-        public override int GetHurtSound() => 0x579;
-        public override int GetDeathSound() => 0x575;
+        public override int GetIdleSound() => 0x578;
+        public override int GetAttackSound() => 0x577;
+        public override int GetAngerSound() => 0x579;
+        public override int GetHurtSound() => 0x57A;
+        public override int GetDeathSound() => 0x576;
 
         public override void Serialize(GenericWriter writer)
         {

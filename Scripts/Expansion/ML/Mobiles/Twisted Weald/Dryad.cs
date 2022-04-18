@@ -139,11 +139,11 @@ namespace Server.Mobiles
                 m.PlaceInBackpack(item);
         }
 
-        public override int GetDeathSound() => 0x57A;
-        public override int GetAttackSound() => 0x57B;
-        public override int GetIdleSound() => 0x57C;
-        public override int GetAngerSound() => 0x57D;
-        public override int GetHurtSound() => 0x57E;
+        public override int GetDeathSound() => 0x57B;
+        public override int GetAttackSound() => 0x57C;
+        public override int GetIdleSound() => 0x57D;
+        public override int GetAngerSound() => 0x57E;
+        public override int GetHurtSound() => 0x57F;
 
         public Dryad(Serial serial)
             : base(serial)
