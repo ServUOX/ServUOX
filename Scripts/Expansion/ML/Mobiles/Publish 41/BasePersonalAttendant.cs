@@ -2,16 +2,14 @@ using System;
 using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Items;
-using Server.Mobiles;
 
 namespace Server.Mobiles
 {
-    public class PersonalAttendant : BaseCreature
+    public class BasePersonalAttendant : BaseCreature
     {
         private static readonly Dictionary<Mobile, Mobile> m_Table = new Dictionary<Mobile, Mobile>();
-        private bool m_BindedToPlayer;
         private InternalTimer m_Timer;
-        public PersonalAttendant(string title)
+        public BasePersonalAttendant(string title)
             : base(AIType.AI_Vendor, FightMode.None, 22, 1, 0.15, 0.2)
         {
             Title = title;
@@ -25,7 +23,7 @@ namespace Server.Mobiles
             m_Timer.Start();
         }
 
-        public PersonalAttendant(Serial serial)
+        public BasePersonalAttendant(Serial serial)
             : base(serial)
         {
         }
@@ -34,18 +32,10 @@ namespace Server.Mobiles
         public override bool Commandable => false;
         public override bool NoHouseRestrictions => true;
         public override bool CanOpenDoors => true;
+
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool BindedToPlayer
-        {
-            get
-            {
-                return m_BindedToPlayer;
-            }
-            set
-            {
-                m_BindedToPlayer = value;
-            }
-        }
+        public bool BindedToPlayer { get; set; }
+
         public static bool CheckAttendant(Mobile owner)
         {
             if (owner != null)
@@ -54,7 +44,7 @@ namespace Server.Mobiles
             return false;
         }
 
-        public static void AddAttendant(Mobile owner, PersonalAttendant attendant)
+        public static void AddAttendant(Mobile owner, BasePersonalAttendant attendant)
         {
             if (owner != null)
                 m_Table[owner] = attendant;
@@ -102,7 +92,7 @@ namespace Server.Mobiles
         {
             RemoveAttendant(owner);
 
-            if (m_BindedToPlayer)
+            if (BindedToPlayer)
                 owner.AddToBackpack(new PersonalAttendantDeed(owner));
             else
                 owner.AddToBackpack(new PersonalAttendantDeed());
@@ -149,7 +139,7 @@ namespace Server.Mobiles
 
             writer.WriteEncodedInt(1); // version
 
-            writer.Write(m_BindedToPlayer);
+            writer.Write(BindedToPlayer);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -161,7 +151,7 @@ namespace Server.Mobiles
             switch (version)
             {
                 case 1:
-                    m_BindedToPlayer = reader.ReadBool();
+                    BindedToPlayer = reader.ReadBool();
                     break;
             }
 
@@ -178,8 +168,8 @@ namespace Server.Mobiles
 
         private class InternalTimer : Timer
         {
-            private readonly PersonalAttendant m_Attendant;
-            public InternalTimer(PersonalAttendant attendant, TimeSpan delay)
+            private readonly BasePersonalAttendant m_Attendant;
+            public InternalTimer(BasePersonalAttendant attendant, TimeSpan delay)
                 : base(delay, delay)
             {
                 m_Attendant = attendant;
@@ -214,81 +204,6 @@ namespace Server.Mobiles
                         m_Attendant.MoveToWorld(d, m_Attendant.ControlMaster.Map);
                 }
             }
-        }
-    }
-}
-
-namespace Server.ContextMenus
-{
-    public class AttendantFollowEntry : ContextMenuEntry
-    {
-        private readonly PersonalAttendant m_Attendant;
-        public AttendantFollowEntry(PersonalAttendant attendant)
-            : base(6108)
-        {
-            m_Attendant = attendant;
-        }
-
-        public override void OnClick()
-        {
-            if (m_Attendant == null || m_Attendant.Deleted)
-                return;
-
-            m_Attendant.CommandFollow(Owner.From);
-        }
-    }
-
-    public class AttendantStopEntry : ContextMenuEntry
-    {
-        private readonly PersonalAttendant m_Attendant;
-        public AttendantStopEntry(PersonalAttendant attendant)
-            : base(6112)
-        {
-            m_Attendant = attendant;
-        }
-
-        public override void OnClick()
-        {
-            if (m_Attendant == null || m_Attendant.Deleted)
-                return;
-
-            m_Attendant.CommandStop(Owner.From);
-        }
-    }
-
-    public class AttendantDismissEntry : ContextMenuEntry
-    {
-        private readonly PersonalAttendant m_Attendant;
-        public AttendantDismissEntry(PersonalAttendant attendant)
-            : base(6228)
-        {
-            m_Attendant = attendant;
-        }
-
-        public override void OnClick()
-        {
-            if (m_Attendant == null || m_Attendant.Deleted)
-                return;
-
-            m_Attendant.Dismiss(Owner.From);
-        }
-    }
-
-    public class AttendantUseEntry : ContextMenuEntry
-    {
-        private readonly PersonalAttendant m_Attendant;
-        public AttendantUseEntry(PersonalAttendant attendant, int title)
-            : base(title)
-        {
-            m_Attendant = attendant;
-        }
-
-        public override void OnClick()
-        {
-            if (m_Attendant == null || m_Attendant.Deleted)
-                return;
-
-            m_Attendant.OnDoubleClick(Owner.From);
         }
     }
 }

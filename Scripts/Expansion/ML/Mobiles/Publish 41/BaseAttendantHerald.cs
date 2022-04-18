@@ -2,14 +2,12 @@ using System;
 using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Gumps;
-using Server.Items;
-using Server.Mobiles;
 using Server.Multis;
 using Server.Network;
 
 namespace Server.Mobiles
 {
-    public class AttendantHerald : PersonalAttendant
+    public class BaseAttendantHerald : BasePersonalAttendant
     {
         private static readonly HeraldEntry[] m_Announcements = new HeraldEntry[]
         {
@@ -37,7 +35,7 @@ namespace Server.Mobiles
         private DateTime m_NextYell;
         private BaseHouse m_House;
         private Point3D m_Location;
-        public AttendantHerald()
+        public BaseAttendantHerald()
             : base("the Herald")
         {
             m_Announcement = m_Announcements[0];
@@ -48,7 +46,7 @@ namespace Server.Mobiles
             m_Location = Point3D.Zero;
         }
 
-        public AttendantHerald(Serial serial)
+        public BaseAttendantHerald(Serial serial)
             : base(serial)
         {
         }
@@ -245,7 +243,7 @@ namespace Server.Mobiles
                 return base.ToString();
             }
 
-            public void Say(AttendantHerald herald, Mobile visitor)
+            public void Say(BaseAttendantHerald herald, Mobile visitor)
             {
                 if (m_Message.Number > 0)
                 {
@@ -257,7 +255,7 @@ namespace Server.Mobiles
                 }
             }
 
-            public GumpEntry Construct(AttendantHerald herald, int x, int y, int width, int height, int color)
+            public GumpEntry Construct(BaseAttendantHerald herald, int x, int y, int width, int height, int color)
             {
                 if (m_Message.Number > 0)
                 {
@@ -275,7 +273,7 @@ namespace Server.Mobiles
                 return null;
             }
 
-            public string ConstructNumber(AttendantHerald herald, Mobile visitor)
+            public string ConstructNumber(BaseAttendantHerald herald, Mobile visitor)
             {
                 string args = string.Empty;
 
@@ -290,7 +288,7 @@ namespace Server.Mobiles
                 return args;
             }
 
-            public string ConstructString(AttendantHerald herald, Mobile visitor)
+            public string ConstructString(BaseAttendantHerald herald, Mobile visitor)
             {
                 string message = m_Message.String;
 
@@ -307,7 +305,7 @@ namespace Server.Mobiles
                 return message;
             }
 
-            public string Construct(AttendantHerald herald, Mobile visitor, string argument)
+            public string Construct(BaseAttendantHerald herald, Mobile visitor, string argument)
             {
                 if (herald == null || herald.Deleted || herald.ControlMaster == null)
                     return string.Empty;
@@ -393,8 +391,8 @@ namespace Server.Mobiles
 
         private class OptionsGump : Gump
         {
-            private readonly AttendantHerald m_Herald;
-            public OptionsGump(AttendantHerald herald)
+            private readonly BaseAttendantHerald m_Herald;
+            public OptionsGump(BaseAttendantHerald herald)
                 : base(200, 200)
             {
                 m_Herald = herald;
@@ -479,10 +477,10 @@ namespace Server.Mobiles
 
         private class SetTextGump : Gump
         {
-            private readonly AttendantHerald m_Herald;
+            private readonly BaseAttendantHerald m_Herald;
             private readonly HeraldEntry[] m_Entries;
             private readonly bool m_Announcement;
-            public SetTextGump(AttendantHerald herald, HeraldEntry[] entries, bool announcement)
+            public SetTextGump(BaseAttendantHerald herald, HeraldEntry[] entries, bool announcement)
                 : base(60, 36)
             {
                 m_Herald = herald;
@@ -549,150 +547,6 @@ namespace Server.Mobiles
                     }
                 }
             }
-        }
-    }
-
-    public class AttendantMaleHerald : AttendantHerald
-    {
-        [Constructible]
-        public AttendantMaleHerald()
-            : base()
-        {
-        }
-
-        public AttendantMaleHerald(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void InitBody()
-        {
-            SetStr(50, 60);
-            SetDex(20, 30);
-            SetInt(100, 110);
-
-            Name = NameList.RandomName("male");
-            Female = false;
-            Race = Race.Human;
-            Hue = Race.RandomSkinHue();
-
-            HairItemID = Race.RandomHair(Female);
-            HairHue = Race.RandomHairHue();
-        }
-
-        public override void InitOutfit()
-        {
-            AddItem(new FurBoots());
-            AddItem(new LongPants(0x901));
-            AddItem(new TricorneHat());
-            AddItem(new FormalShirt(Utility.RandomBlueHue()));
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.WriteEncodedInt(0);
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            _ = reader.ReadEncodedInt();
-        }
-    }
-
-    public class AttendantFemaleHerald : AttendantHerald
-    {
-        [Constructible]
-        public AttendantFemaleHerald()
-            : base()
-        {
-        }
-
-        public AttendantFemaleHerald(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void InitBody()
-        {
-            SetStr(50, 60);
-            SetDex(20, 30);
-            SetInt(100, 110);
-
-            Name = NameList.RandomName("female");
-            Female = true;
-            Race = Race.Human;
-            Hue = Race.RandomSkinHue();
-
-            HairItemID = Race.RandomHair(Female);
-            HairHue = Race.RandomHairHue();
-        }
-
-        public override void InitOutfit()
-        {
-            Lantern lantern = new Lantern();
-            lantern.Ignite();
-
-            AddItem(lantern);
-            AddItem(new Shoes(Utility.RandomNeutralHue()));
-            AddItem(new Bonnet(Utility.RandomPinkHue()));
-            AddItem(new PlainDress(Utility.RandomPinkHue()));
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.WriteEncodedInt(0);
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            _ = reader.ReadEncodedInt();
-        }
-    }
-}
-
-namespace Server.ContextMenus
-{
-    public class HeraldSetAnnouncementTextEntry : ContextMenuEntry
-    {
-        private readonly AttendantHerald m_Attendant;
-        public HeraldSetAnnouncementTextEntry(AttendantHerald attendant)
-            : base(6247)
-        {
-            m_Attendant = attendant;
-        }
-
-        public override void OnClick()
-        {
-            if (m_Attendant == null || m_Attendant.Deleted)
-                return;
-
-            m_Attendant.SetAnnouncementText(Owner.From);
-        }
-    }
-
-    public class HeraldSetGreetingTextEntry : ContextMenuEntry
-    {
-        private readonly AttendantHerald m_Attendant;
-        public HeraldSetGreetingTextEntry(AttendantHerald attendant)
-            : base(6246)
-        {
-            m_Attendant = attendant;
-        }
-
-        public override void OnClick()
-        {
-            if (m_Attendant == null || m_Attendant.Deleted)
-                return;
-
-            m_Attendant.SetGreetingText(Owner.From);
         }
     }
 }

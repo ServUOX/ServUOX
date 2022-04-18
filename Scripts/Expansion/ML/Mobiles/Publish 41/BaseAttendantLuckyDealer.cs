@@ -2,21 +2,20 @@ using System;
 using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Gumps;
-using Server.Items;
 using Server.Network;
 
 namespace Server.Mobiles
 {
-    public class AttendantLuckyDealer : PersonalAttendant
+    public class BaseAttendantLuckyDealer : BasePersonalAttendant
     {
         private DateTime m_NextUse;
         private int m_Count;
-        public AttendantLuckyDealer()
+        public BaseAttendantLuckyDealer()
             : base("the Lucky Dealer")
         {
         }
 
-        public AttendantLuckyDealer(Serial serial)
+        public BaseAttendantLuckyDealer(Serial serial)
             : base(serial)
         {
         }
@@ -56,13 +55,13 @@ namespace Server.Mobiles
 
         private class InternalGump : Gump
         {
-            private readonly AttendantLuckyDealer m_Dealer;
-            public InternalGump(AttendantLuckyDealer dealer)
+            private readonly BaseAttendantLuckyDealer m_Dealer;
+            public InternalGump(BaseAttendantLuckyDealer dealer)
                 : this(dealer, 1, 4)
             {
             }
 
-            public InternalGump(AttendantLuckyDealer dealer, int dice, int faces)
+            public InternalGump(BaseAttendantLuckyDealer dealer, int dice, int faces)
                 : base(60, 36)
             {
                 m_Dealer = dealer;
@@ -158,108 +157,6 @@ namespace Server.Mobiles
                     sender.Mobile.SendGump(new InternalGump(m_Dealer, dice, faces));
                 }
             }
-        }
-    }
-
-    public class AttendantMaleLuckyDealer : AttendantLuckyDealer
-    {
-        [Constructible]
-        public AttendantMaleLuckyDealer()
-            : base()
-        {
-        }
-
-        public AttendantMaleLuckyDealer(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void InitBody()
-        {
-            SetStr(50, 60);
-            SetDex(20, 30);
-            SetInt(100, 110);
-
-            Name = NameList.RandomName("male");
-            Female = false;
-            Race = Race.Human;
-            Hue = Race.RandomSkinHue();
-
-            HairItemID = Race.RandomHair(Female);
-            HairHue = Race.RandomHairHue();
-        }
-
-        public override void InitOutfit()
-        {
-            AddItem(new Boots());
-            AddItem(new ShortPants());
-            AddItem(new JesterHat());
-            AddItem(new JesterSuit());
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.WriteEncodedInt(0);
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            _ = reader.ReadEncodedInt();
-        }
-    }
-
-    public class AttendantFemaleLuckyDealer : AttendantLuckyDealer
-    {
-        [Constructible]
-        public AttendantFemaleLuckyDealer()
-            : base()
-        {
-        }
-
-        public AttendantFemaleLuckyDealer(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void InitBody()
-        {
-            SetStr(50, 60);
-            SetDex(20, 30);
-            SetInt(100, 110);
-
-            Name = NameList.RandomName("female");
-            Female = true;
-            Race = Race.Elf;
-            Hue = Race.RandomSkinHue();
-
-            HairItemID = Race.RandomHair(Female);
-            HairHue = Race.RandomHairHue();
-        }
-
-        public override void InitOutfit()
-        {
-            AddItem(new ElvenBoots());
-            AddItem(new ElvenPants());
-            AddItem(new ElvenShirt());
-            AddItem(new JesterHat());
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.WriteEncodedInt(0);
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            _ = reader.ReadEncodedInt();
         }
     }
 }

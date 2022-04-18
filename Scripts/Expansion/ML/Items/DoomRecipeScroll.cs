@@ -1,24 +1,18 @@
-using Server.Mobiles;
-
 namespace Server.Items
 {
-    public class ImprisonedDog : BaseImprisonedMobile
+    public class DoomRecipeScroll : RecipeScroll
     {
         [Constructible]
-        public ImprisonedDog()
-            : base(0x1F1C)
+        public DoomRecipeScroll()
+            : base(Utility.RandomList(355, 356, 456, 585))
         {
-            Weight = 1.0;
-            Hue = 0x485;
         }
 
-        public ImprisonedDog(Serial serial)
+        public DoomRecipeScroll(Serial serial)
             : base(serial)
         {
         }
 
-        public override int LabelNumber => 1075091;// An Imprisoned Dog
-        public override BaseCreature Summon => new TravestyDog();
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

@@ -3535,7 +3535,7 @@ namespace Server.Mobiles
             {
                 m_ControlMaster.Followers += ControlSlots;
 
-                if (m_ControlMaster is PlayerMobile && !(this is PersonalAttendant))
+                if (m_ControlMaster is PlayerMobile && !(this is BasePersonalAttendant))
                 {
                     ((PlayerMobile)m_ControlMaster).AllFollowers.Add(this);
 
