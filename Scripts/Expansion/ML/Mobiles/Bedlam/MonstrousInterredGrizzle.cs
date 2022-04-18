@@ -128,11 +128,11 @@ namespace Server.Mobiles
             base.OnDeath(c);
         }
 
-        public override int GetDeathSound() => 0x57F;
-        public override int GetAttackSound() => 0x580;
-        public override int GetIdleSound() => 0x581;
-        public override int GetAngerSound() => 0x582;
-        public override int GetHurtSound() => 0x583;
+        public override int GetDeathSound() => 0x580;
+        public override int GetAttackSound() => 0x581;
+        public override int GetIdleSound() => 0x582;
+        public override int GetAngerSound() => 0x583;
+        public override int GetHurtSound() => 0x584;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -150,7 +150,7 @@ namespace Server.Mobiles
         {
             if (Utility.RandomDouble() < 0.06)
             {
-                PlaySound(0x584);
+                PlaySound(0x585);
                 SpillAcid(null, Utility.RandomMinMax(1, 3));
             }
 

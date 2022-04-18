@@ -54,6 +54,12 @@ namespace Server.Mobiles
         public override bool CanProvoke => true;
         public override int Meat => 1;
 
+        public override int GetDeathSound() => 0x586;
+        public override int GetAttackSound() => 0x587;
+        public override int GetIdleSound() => 0x588;
+        public override int GetAngerSound() => 0x589;
+        public override int GetHurtSound() => 0x58A;
+
         public override void OnDeath(Container CorpseLoot)
         {
             for (int i = 0; i < Utility.RandomMinMax(0, 1); i++)

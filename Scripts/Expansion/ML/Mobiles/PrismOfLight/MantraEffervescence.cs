@@ -52,7 +52,7 @@ namespace Server.Mobiles
             AddLoot(LootPack.Rich);
         }
 
-        public override int GetHurtSound() => 0x56E;
+        public override int GetHurtSound() => 0x56F;
 
         public override void Serialize(GenericWriter writer)
         {

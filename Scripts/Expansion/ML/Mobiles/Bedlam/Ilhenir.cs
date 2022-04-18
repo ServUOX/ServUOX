@@ -114,11 +114,11 @@ namespace Server.Mobiles
             base.OnDamage(amount, from, willKill);
         }
 
-        public override int GetDeathSound() => 0x57F;
-        public override int GetAttackSound() => 0x580;
-        public override int GetIdleSound() => 0x581;
-        public override int GetAngerSound() => 0x582;
-        public override int GetHurtSound() => 0x583;
+        public override int GetDeathSound() => 0x580;
+        public override int GetAttackSound() => 0x581;
+        public override int GetIdleSound() => 0x582;
+        public override int GetAngerSound() => 0x583;
+        public override int GetHurtSound() => 0x584;
 
         public virtual void DropOoze()
         {

@@ -52,11 +52,11 @@ namespace Server.Mobiles
         public override bool GivesMLMinorArtifact => true;
         public override Poison PoisonImmunity => Poison.Lethal;
 
-        public override int GetDeathSound() { return 0x56F; }
-        public override int GetAttackSound() { return 0x570; }
-        public override int GetIdleSound() { return 0x571; }
-        public override int GetAngerSound() { return 0x572; }
-        public override int GetHurtSound() { return 0x573; }
+        public override int GetDeathSound() => 0x570;
+        public override int GetAttackSound() => 0x571;
+        public override int GetIdleSound() => 0x572;
+        public override int GetAngerSound() => 0x573;
+        public override int GetHurtSound() => 0x574;
 
         public override void GenerateLoot()
         {
@@ -110,7 +110,7 @@ namespace Server.Mobiles
                     Heal(creature.Hits);
                     creature.Kill();
 
-                    Effects.PlaySound(Location, Map, 0x574);
+                    Effects.PlaySound(Location, Map, 0x575);
                 }
             }
 

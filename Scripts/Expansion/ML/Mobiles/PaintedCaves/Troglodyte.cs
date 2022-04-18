@@ -68,15 +68,11 @@ namespace Server.Mobiles
 
         public override void GenerateLoot() => AddLoot(LootPack.Rich);
 
-        public override int GetAngerSound() => 0x5A0;
-
-        public override int GetIdleSound() => 0x59F;
-
-        public override int GetAttackSound() => 0x59E;
-
-        public override int GetHurtSound() => 0x5A1;
-
-        public override int GetDeathSound() => 0x59D;
+        public override int GetAngerSound() => 0x5A1;
+        public override int GetIdleSound() => 0x5A0;
+        public override int GetAttackSound() => 0x59F;
+        public override int GetHurtSound() => 0x5A2;
+        public override int GetDeathSound() => 0x59E;
 
         public override void Serialize(GenericWriter writer)
         {

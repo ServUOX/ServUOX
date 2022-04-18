@@ -99,21 +99,21 @@ namespace Server.Mobiles
         public override bool HasFireRing => true;
         public override double FireRingChance => 0.1;
 
-        public override int GetIdleSound() => 0x593;
+        public override int GetIdleSound() => 0x594;
         public override int GetAttackSound()
         {
             switch(Utility.Random(5))
             {
-                case 1: return 0x58E;
-                case 2: return 0x58F;
-                case 3: return 0x590;
-                case 4: return 0x591;
-                case 5: return 0x592;
+                case 1: return 0x58F;
+                case 2: return 0x590;
+                case 3: return 0x591;
+                case 4: return 0x592;
+                case 5: return 0x593;
                     default: return 0x58F;
             }
         }
-        public override int GetHurtSound() => 0x595;
-        public override int GetDeathSound() => 0x58D;
+        public override int GetHurtSound() => 0x596;
+        public override int GetDeathSound() => 0x58E;
 
         public override bool CanSpawnHelpers => true;
         public override int MaxHelpersWaves => 4;
