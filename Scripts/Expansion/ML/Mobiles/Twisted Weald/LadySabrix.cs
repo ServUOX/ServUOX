@@ -63,7 +63,6 @@ namespace Server.Mobiles
                     case 1: AddToBackpack(new HunterLegs()); break;
                     default:
                         AddToBackpack(new HunterLegs()); break;
-                        break;
                 }
             }
 

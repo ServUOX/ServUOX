@@ -87,17 +87,13 @@ namespace Server.Mobiles
                     case 17: c.DropItem(new MyrmidonChest()); break;
                     default:
                         c.DropItem(new MyrmidonGloves()); break;
-                        break;
                 }
             }
         }
 
         public override bool GivesMLMinorArtifact => true;
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.UltraRich, 2);
-        }
+        public override void GenerateLoot() => AddLoot(LootPack.UltraRich, 2);
 
         public override void Serialize(GenericWriter writer)
         {

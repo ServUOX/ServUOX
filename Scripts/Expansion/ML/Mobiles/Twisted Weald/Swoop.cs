@@ -78,7 +78,6 @@ namespace Server.Mobiles
                     case 19: CorpseLoot.DropItem(new MyrmidonChest()); break;
                     default:
                         CorpseLoot.DropItem(new MyrmidonChest()); break;
-                        break;
                 }
             }
 
