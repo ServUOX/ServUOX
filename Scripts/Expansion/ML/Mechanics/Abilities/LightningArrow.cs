@@ -24,9 +24,8 @@ namespace Server.Items
             if (map == null)
                 return;
 
-            BaseWeapon weapon = attacker.Weapon as BaseWeapon;
 
-            if (weapon == null)
+            if (!(attacker.Weapon is BaseWeapon weapon))
                 return;
 
             if (!CheckMana(attacker, true))

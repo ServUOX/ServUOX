@@ -1,4 +1,3 @@
-﻿using System;
 using Server.Targeting;
 
 namespace Server.Items
@@ -6,7 +5,6 @@ namespace Server.Items
     [Flipable(0x1053, 0x1054)]
     public class DawnsMusicGear : Item
     {
-        private MusicName m_Music;
         [Constructible]
         public DawnsMusicGear()
             : this(DawnsMusicBox.RandomTrack(DawnsMusicRarity.Common))
@@ -17,7 +15,7 @@ namespace Server.Items
         public DawnsMusicGear(MusicName music)
             : base(0x1053)
         {
-            m_Music = music;
+            Music = music;
 
             Weight = 1.0;
         }
@@ -30,21 +28,13 @@ namespace Server.Items
         public static DawnsMusicGear RandomCommon => new DawnsMusicGear(DawnsMusicBox.RandomTrack(DawnsMusicRarity.Common));
         public static DawnsMusicGear RandomUncommon => new DawnsMusicGear(DawnsMusicBox.RandomTrack(DawnsMusicRarity.Uncommon));
         public static DawnsMusicGear RandomRare => new DawnsMusicGear(DawnsMusicBox.RandomTrack(DawnsMusicRarity.Rare));
+
         [CommandProperty(AccessLevel.GameMaster)]
-        public MusicName Music
-        {
-            get
-            {
-                return m_Music;
-            }
-            set
-            {
-                m_Music = value;
-            }
-        }
+        public MusicName Music { get; set; }
+
         public override void AddNameProperty(ObjectPropertyList list)
         {
-            DawnsMusicInfo info = DawnsMusicBox.GetInfo(m_Music);
+            DawnsMusicInfo info = DawnsMusicBox.GetInfo(Music);
 
             if (info != null)
             {
@@ -70,9 +60,9 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(1); // version
+            writer.WriteEncodedInt(1);
 
-            writer.Write((int)m_Music);
+            writer.Write((int)Music);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -85,9 +75,12 @@ namespace Server.Items
             {
                 case 1:
                     {
-                        m_Music = (MusicName)reader.ReadInt();
+                        Music = (MusicName)reader.ReadInt();
                         break;
                     }
+
+                default:
+                    break;
             }
 
             if (version == 0) // Music wasn't serialized in version 0, pick a new track of random rarity
@@ -102,7 +95,7 @@ namespace Server.Items
                 else
                     rarity = DawnsMusicRarity.Common;
 
-                m_Music = DawnsMusicBox.RandomTrack(rarity);
+                Music = DawnsMusicBox.RandomTrack(rarity);
             }
         }
 
@@ -120,9 +113,7 @@ namespace Server.Items
                 if (m_Gear == null || m_Gear.Deleted)
                     return;
 
-                DawnsMusicBox box = targeted as DawnsMusicBox;
-
-                if (box != null)
+                if (targeted is DawnsMusicBox box)
                 {
                     if (!box.Tracks.Contains(m_Gear.Music))
                     {

@@ -1,6 +1,4 @@
 using System;
-using Server;
-using System.Collections;
 using System.Collections.Generic;
 using Server.Spells;
 
@@ -45,13 +43,12 @@ namespace Server.Items
                 }
             }
 
-            Spell spell = defender.Spell as Spell;
 
-            if (spell != null && spell.IsCasting)
+            if (defender.Spell is Spell spell && spell.IsCasting)
                 spell.Disturb(DisturbType.Hurt, false, true);
         }
 
-        private static Dictionary<Mobile, List<ForceArrowInfo>> m_Table = new Dictionary<Mobile, List<ForceArrowInfo>>();
+        private static readonly Dictionary<Mobile, List<ForceArrowInfo>> m_Table = new Dictionary<Mobile, List<ForceArrowInfo>>();
 
         public static void BeginForceArrow(Mobile attacker, Mobile defender)
         {
@@ -129,7 +126,7 @@ namespace Server.Items
 
         public class ForceArrowTimer : Timer
         {
-            private ForceArrowInfo m_Info;
+            private readonly ForceArrowInfo m_Info;
             private DateTime m_Expires;
 
             public ForceArrowTimer(ForceArrowInfo info)
@@ -154,7 +151,7 @@ namespace Server.Items
 
             public void IncreaseExpiration()
             {
-                m_Expires = m_Expires + TimeSpan.FromSeconds(2);
+                m_Expires += TimeSpan.FromSeconds(2);
 
                 m_Info.DefenseChanceMalus += 5;
             }

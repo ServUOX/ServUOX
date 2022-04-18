@@ -20,8 +20,8 @@ namespace Server.Items
 
             attacker.SendLocalizedMessage(1074374); // You attack your enemy with the force of nature!
             defender.SendLocalizedMessage(1074375); // You are assaulted with great force!
-
-            defender.PlaySound(0x22F);
+            attacker.PlaySound(0x5BE);
+            //defender.PlaySound(0x22F);
             defender.FixedParticles(0x36CB, 1, 9, 9911, 67, 5, EffectLayer.Head);
             defender.FixedParticles(0x374A, 1, 17, 9502, 1108, 4, (EffectLayer)255);
 

@@ -52,6 +52,8 @@ namespace Server.Items.MusicBox
                 case TrackRarity.Rare:
                     list.Add(1075206);
                     break; // Gear for Dawn's Music Box (Rare)
+                default:
+                    break;
             }
         }
 
@@ -81,9 +83,8 @@ namespace Server.Items.MusicBox
             if (Deleted)
                 return;
 
-            DawnsMusicBox mb = obj as DawnsMusicBox;
 
-            if (mb == null)
+            if (!(obj is DawnsMusicBox mb))
             {
                 from.SendMessage("That is not a Dawn's music box.");
             }
@@ -103,7 +104,7 @@ namespace Server.Items.MusicBox
         {
             base.Serialize(writer);
 
-            writer.Write(0); // version
+            writer.Write(0);
 
             writer.Write((int)m_Music);
         }
@@ -111,10 +112,8 @@ namespace Server.Items.MusicBox
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
-            MusicName m_Music = (MusicName)reader.ReadInt();
+            _ = reader.ReadInt();
+            _ = (MusicName)reader.ReadInt();
         }
     }
 }

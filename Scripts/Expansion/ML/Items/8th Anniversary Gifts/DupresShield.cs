@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class DupresShield : BaseShield
@@ -21,7 +19,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber => 1075196;// Dupre’s Shield
+        public override int LabelNumber => 1075196;// Dupreâ€™s Shield
         public override int BasePhysicalResistance => 1;
         public override int BaseFireResistance => 0;
         public override int BaseColdResistance => 0;
@@ -31,18 +29,18 @@ namespace Server.Items
         public override int InitMaxHits => 255;
         public override int AosStrReq => 50;
         public override int ArmorBase => 15;
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); //version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }

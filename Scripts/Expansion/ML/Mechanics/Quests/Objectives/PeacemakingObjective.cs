@@ -1,9 +1,6 @@
 using System;
-using Server;
-using Server.Items;
 using Server.Mobiles;
 using System.Collections.Generic;
-using Server.Targeting;
 
 namespace Server.Engines.Quests
 {
@@ -11,7 +8,7 @@ namespace Server.Engines.Quests
     {
         private static readonly Type m_Type = typeof(Mongbat);
 
-        private List<string> m_Descr = new List<string>();
+        private readonly List<string> m_Descr = new List<string>();
         public override List<string> Descriptions => m_Descr;
 
         public PeacemakingObjective()
@@ -22,7 +19,7 @@ namespace Server.Engines.Quests
 
         public override bool Update(object obj)
         {
-            if (obj is Mobile && ((Mobile)obj).GetType() == m_Type)
+            if (obj is Mobile mobile && mobile.GetType() == m_Type)
             {
                 CurProgress++;
 
@@ -43,15 +40,13 @@ namespace Server.Engines.Quests
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

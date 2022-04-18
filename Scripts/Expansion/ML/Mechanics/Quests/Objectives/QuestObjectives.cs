@@ -79,10 +79,7 @@ namespace Server.Engines.Quests
             CurProgress = MaxProgress;
         }
 
-        public virtual void Fail()
-        {
-            CurProgress = -1;
-        }
+        public virtual void Fail() => CurProgress = -1;
 
         public virtual void OnAccept()
         {
@@ -96,10 +93,7 @@ namespace Server.Engines.Quests
         {
         }
 
-        public virtual Type Type()
-        {
-            return null;
-        }
+        public virtual Type Type() => null;
 
         public virtual bool Update(object obj)
         {
@@ -612,7 +606,7 @@ namespace Server.Engines.Quests
     {
         private int _CurrentIndex;
 
-        private List<int> m_Done = new List<int>();
+        private readonly List<int> m_Done = new List<int>();
         private QuestionAndAnswerEntry[] m_EntryTable;
 
         public virtual QuestionAndAnswerEntry[] EntryTable => m_EntryTable;

@@ -24,10 +24,10 @@ namespace Server.Gumps
 
             object message = m_Quester.ConfirmMessage;
 
-            if (message is int)
-                AddHtmlLocalized(15, 15, 210, 75, (int)message, 0x0, false, false);
-            else if (message is string)
-                AddHtml(15, 15, 210, 75, (string)message, false, false);
+            if (message is int @int)
+                AddHtmlLocalized(15, 15, 210, 75, @int, 0x0, false, false);
+            else if (message is string @string)
+                AddHtml(15, 15, 210, 75, @string, false, false);
 
             AddButton(160, 95, 0xF7, 0xF8, (int)Buttons.Okay, GumpButtonType.Reply, 0);
             AddButton(90, 95, 0xF2, 0xF1, (int)Buttons.Close, GumpButtonType.Reply, 0);

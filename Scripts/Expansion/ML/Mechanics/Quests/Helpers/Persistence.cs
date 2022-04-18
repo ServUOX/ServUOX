@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
-
-using Server;
 using Server.Mobiles;
 
 namespace Server.Engines.Quests
@@ -132,11 +129,9 @@ namespace Server.Engines.Quests
                     count = reader.ReadInt();
                     for (int i = 0; i < count; i++)
                     {
-                        PlayerMobile pm = reader.ReadMobile() as PlayerMobile;
-
                         Dictionary<QuestChain, BaseChain> dic = QuestReader.Chains(reader);
 
-                        if (pm != null)
+                        if (reader.ReadMobile() is PlayerMobile pm)
                             ChainData[pm] = dic;
                     }
 

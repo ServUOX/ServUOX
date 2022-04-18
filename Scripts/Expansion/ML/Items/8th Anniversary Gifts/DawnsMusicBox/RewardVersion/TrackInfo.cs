@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace Server.Items.MusicBox
@@ -77,62 +76,20 @@ namespace Server.Items.MusicBox
             new TrackInfo(285, 1075139, MusicName.SerpentIsleCombat_U7, TrackRarity.Rare),
             new TrackInfo(118,  1075140,    MusicName.ValoriaShips, TrackRarity.Rare)
         };
-        private int m_Duration;
-        private int m_Label;
-        private MusicName m_Name;
-        private TrackRarity m_Rarity;
+
         public TrackInfo(int duration, int label, MusicName name, TrackRarity rarity)
         {
-            m_Duration = duration;
-            m_Label = label;
-            m_Name = name;
-            m_Rarity = rarity;
+            Duration = duration;
+            Label = label;
+            Name = name;
+            Rarity = rarity;
         }
 
-        public int Duration
-        {
-            get
-            {
-                return m_Duration;
-            }
-            set
-            {
-                m_Duration = value;
-            }
-        }
-        public int Label
-        {
-            get
-            {
-                return m_Label;
-            }
-            set
-            {
-                m_Label = value;
-            }
-        }
-        public MusicName Name
-        {
-            get
-            {
-                return m_Name;
-            }
-            set
-            {
-                m_Name = value;
-            }
-        }
-        public TrackRarity Rarity
-        {
-            get
-            {
-                return m_Rarity;
-            }
-            set
-            {
-                m_Rarity = value;
-            }
-        }
+        public int Duration { get; set; }
+        public int Label { get; set; }
+        public MusicName Name { get; set; }
+        public TrackRarity Rarity { get; set; }
+
         /// <summary>
         /// Static. Method to obtain a TrackInfo from a MusicName.
         /// </summary>

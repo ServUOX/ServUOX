@@ -58,7 +58,7 @@ namespace Server.Items
 
         public class PsychicAttackTimer : Timer
         {
-            private Mobile m_Defender;
+            private readonly Mobile m_Defender;
             private int m_SpellDamageMalus;
             private int m_ManaCostMalus;
 

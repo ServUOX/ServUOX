@@ -41,9 +41,9 @@ namespace Server.Engines.Quests
                 {
                     foreach (BaseObjective obj in q.Objectives)
                     {
-                        if (obj is CollectionsObtainObjective && ((CollectionsObtainObjective)obj).Obtain == item.GetType())
+                        if (obj is CollectionsObtainObjective objective && objective.Obtain == item.GetType())
                         {
-                            ((CollectionsObtainObjective)obj).HasObtained = true;
+                            objective.HasObtained = true;
                             pm.SendSound(q.UpdateSound);
                             return;
                         }
@@ -56,15 +56,14 @@ namespace Server.Engines.Quests
         {
             base.Serialize(writer);
 
-            writer.Write(0); // version
+            writer.Write(0);
             writer.Write(m_HasObtained);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
             m_HasObtained = reader.ReadBool();
         }
     }

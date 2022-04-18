@@ -57,9 +57,9 @@ namespace Server.Items
 
         public override void OnDoubleClick(Mobile m)
         {
-            if (m is PlayerMobile && IsChildOf(m.Backpack))
+            if (m is PlayerMobile mobile && IsChildOf(m.Backpack))
             {
-                OnUse((PlayerMobile)m);
+                OnUse(mobile);
             }
         }
 
@@ -119,7 +119,7 @@ namespace Server.Items
             }
         }
 
-        private static Dictionary<PlayerMobile, ThieveConsumableInfo> EffectTable = new Dictionary<PlayerMobile, ThieveConsumableInfo>();
+        private static readonly Dictionary<PlayerMobile, ThieveConsumableInfo> EffectTable = new Dictionary<PlayerMobile, ThieveConsumableInfo>();
 
         public static bool CanUse(PlayerMobile pm, BaseThieveConsumable consum)
         {

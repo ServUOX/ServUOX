@@ -2,58 +2,6 @@ using System;
 
 namespace Server.Items
 {
-    public class EnhancedBandage : Bandage, ICommodity
-    {
-        [Constructible]
-        public EnhancedBandage()
-            : this(1)
-        {
-        }
-
-        [Constructible]
-        public EnhancedBandage(int amount)
-            : base(amount)
-        {
-            Hue = 0x8A5;
-        }
-
-        public EnhancedBandage(Serial serial)
-            : base(serial)
-        {
-        }
-
-        TextDefinition ICommodity.Description => LabelNumber;
-        bool ICommodity.IsDeedable => true;
-
-        public static int HealingBonus => 10;
-        public override int LabelNumber => 1152441;// enhanced bandage
-        public override bool Dye(Mobile from, DyeTub sender)
-        {
-            return false;
-        }
-
-        public override void AddNameProperties(ObjectPropertyList list)
-        {
-            base.AddNameProperties(list);
-
-            list.Add(1075216); // these bandages have been enhanced
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); //version
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
-        }
-    }
-
     [Flipable(0x2AC0, 0x2AC3)]
     public class FountainOfLife : BaseAddonContainer
     {
@@ -158,7 +106,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); //version
+            writer.WriteEncodedInt(0);
 
             writer.Write(m_Charges);
             writer.Write(m_Timer.Next);
@@ -168,7 +116,7 @@ namespace Server.Items
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
 
             m_Charges = reader.ReadInt();
 
@@ -205,9 +153,8 @@ namespace Server.Items
                 if (Items[i] is EnhancedBandage)
                     continue;
 
-                Bandage bandage = Items[i] as Bandage;
 
-                if (bandage != null)
+                if (Items[i] is Bandage bandage)
                 {
                     Item enhanced;
 
@@ -234,64 +181,7 @@ namespace Server.Items
                     }
                 }
             }
-
             InvalidateProperties();
-        }
-    }
-
-    public class FountainOfLifeDeed : BaseAddonContainerDeed
-    {
-        private int m_Charges;
-        [Constructible]
-        public FountainOfLifeDeed()
-            : this(10)
-        {
-        }
-
-        [Constructible]
-        public FountainOfLifeDeed(int charges)
-            : base()
-        {
-            LootType = LootType.Blessed;
-            m_Charges = charges;
-        }
-
-        public FountainOfLifeDeed(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override int LabelNumber => 1075197;// Fountain of Life
-        public override BaseAddonContainer Addon => new FountainOfLife(m_Charges);
-        [CommandProperty(AccessLevel.GameMaster)]
-        public int Charges
-        {
-            get
-            {
-                return m_Charges;
-            }
-            set
-            {
-                m_Charges = Math.Min(value, 10);
-                InvalidateProperties();
-            }
-        }
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); //version
-
-            writer.Write(m_Charges);
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
-
-            m_Charges = reader.ReadInt();
         }
     }
 }

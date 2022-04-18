@@ -162,7 +162,7 @@ namespace Server.Items
                         if (key != null)
                         {
                             key.Altar = this;
-                            key._Map = Map;
+                            key.Map = Map;
 
                             if (!from.AddToBackpack(key))
                                 key.MoveToWorld(from.Location, from.Map);

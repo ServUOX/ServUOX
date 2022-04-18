@@ -72,7 +72,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber => 1075198;// Dawn’s Music Box
+        public override int LabelNumber => 1075198;// Dawnâ€™s Music Box
         public List<MusicName> Tracks => m_Tracks;
         [CommandProperty(AccessLevel.GameMaster)]
         public SecureLevel Level
@@ -157,8 +157,7 @@ namespace Server.Items
 
         public static MusicName RandomTrack(DawnsMusicRarity rarity)
         {
-            MusicName[] list = null;
-
+            MusicName[] list;
             switch (rarity)
             {
                 default:
@@ -178,9 +177,7 @@ namespace Server.Items
 
         public override void OnAfterDuped(Item newItem)
         {
-            DawnsMusicBox box = newItem as DawnsMusicBox;
-
-            if (box == null)
+            if (!(newItem is DawnsMusicBox box))
                 return;
 
             box.m_Tracks = new List<MusicName>();
@@ -211,6 +208,8 @@ namespace Server.Items
                         break;
                     case DawnsMusicRarity.Rare:
                         rareSongs++;
+                        break;
+                    default:
                         break;
                 }
             }
@@ -250,7 +249,7 @@ namespace Server.Items
 
             BaseHouse house = BaseHouse.FindHouseAt(this);
 
-            return (house != null && house.HasAccess(m));
+            return house != null && house.HasAccess(m);
         }
 
         public void PlayMusic(Mobile m, MusicName music)
@@ -281,7 +280,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
 
             writer.Write(m_Tracks.Count);
 
@@ -296,7 +295,7 @@ namespace Server.Items
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
 
             int count = reader.ReadInt();
             m_Tracks = new List<MusicName>();

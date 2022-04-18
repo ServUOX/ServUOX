@@ -1,5 +1,3 @@
-﻿using System;
-
 namespace Server.Items
 {
     public class QuiverOfInfinity : BaseQuiver
@@ -14,6 +12,8 @@ namespace Server.Items
             WeightReduction = 30;
             LowerAmmoCost = 20;
             Attributes.DefendChance = 5;
+            DamageIncrease = 10;
+            Attributes.WeaponDamage = 0;
         }
 
         public QuiverOfInfinity(Serial serial)
@@ -27,21 +27,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(2); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
-
-            if (version < 1 && DamageIncrease == 0)
-                DamageIncrease = 10;
-
-            if (version < 2 && Attributes.WeaponDamage == 10)
-                Attributes.WeaponDamage = 0;
+            _ = reader.ReadEncodedInt();
         }
     }
 }

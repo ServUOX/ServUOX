@@ -100,6 +100,14 @@
     <Compile Include="Expansion\AOS\Mechanics\Sphynx\SphynxFortune.cs" />
     <Compile Include="Expansion\AOS\Mobiles\FeralTreefellow.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Treefellow.cs" />
+    <Compile Include="Expansion\ML\Items\8th Anniversary Gifts\EnhancedBandage.cs" />
+    <Compile Include="Expansion\ML\Items\8th Anniversary Gifts\FountainOfLifeDeed.cs" />
+    <Compile Include="Expansion\ML\Items\8th Anniversary Gifts\Talismans\BaseFormTalisman.cs" />
+    <Compile Include="Expansion\ML\Items\8th Anniversary Gifts\Talismans\CuSidheFormTalisman.cs" />
+    <Compile Include="Expansion\ML\Items\8th Anniversary Gifts\Talismans\ReptalonFormTalisman.cs" />
+    <Compile Include="Expansion\ML\Items\8th Anniversary Gifts\Talismans\SquirrelFormTalisman.cs" />
+    <Compile Include="Expansion\ML\Items\Altars\ParoxysmusIronGate.cs" />
+    <Compile Include="Expansion\ML\Items\Altars\PrismOfLightPillar.cs" />
     <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Dryad.cs" />
     <Compile Include="Expansion\SA\Mobiles\TreefellowGuardian.cs" />
     <Compile Include="Expansion\EJ\Items\Addons\DecorativeBlackwidowAddon.cs" />
@@ -7434,7 +7442,7 @@
     <Compile Include="Expansion\ML\Items\8th Anniversary Gifts\QuiverOfInfinity.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\8th Anniversary Gifts\TalismanoftheFey.cs">
+    <Compile Include="Expansion\ML\Items\8th Anniversary Gifts\Talismans\FerretFormTalisman.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Items\Promotions\Pre Order Offer\HoodedShroudOfShadows.cs">

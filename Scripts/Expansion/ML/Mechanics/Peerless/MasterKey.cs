@@ -1,6 +1,4 @@
-using System;
 using System.Linq;
-using Server;
 using Server.Engines.PartySystem;
 using Server.Gumps;
 
@@ -76,7 +74,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(0); // version
+            writer.Write(0);
 
             writer.Write(Altar);
         }
@@ -84,7 +82,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             Altar = reader.ReadItem() as PeerlessAltar;
         }

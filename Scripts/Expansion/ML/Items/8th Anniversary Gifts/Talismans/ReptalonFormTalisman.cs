@@ -1,31 +1,30 @@
-using Server.Mobiles;
-
-namespace Server.Multis
+namespace Server.Items
 {
-    public class ElfBrigandCamp : BrigandCamp
+    public class ReptalonFormTalisman : BaseFormTalisman
     {
+        public override TalismanForm Form => TalismanForm.Reptalon;
+
         [Constructible]
-        public ElfBrigandCamp()
+        public ReptalonFormTalisman()
             : base()
         {
         }
 
-        public ElfBrigandCamp(Serial serial)
+        public ReptalonFormTalisman(Serial serial)
             : base(serial)
         {
         }
 
-        public override Mobile Brigands => new ElfBrigand();
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(0);
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            _ = reader.ReadInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }

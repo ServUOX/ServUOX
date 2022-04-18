@@ -13,10 +13,10 @@ namespace Server.Items
         public override MasterKey MasterKey => new ParoxysmusKey();
 
         public override Type[] Keys => new Type[]
-                {
-                    typeof( CoagulatedLegs ), typeof( PartiallyDigestedTorso ),
-                    typeof( GelatanousSkull ), typeof( SpleenOfThePutrefier )
-                };
+        {
+            typeof( CoagulatedLegs ), typeof( PartiallyDigestedTorso ),
+            typeof( GelatanousSkull ), typeof( SpleenOfThePutrefier )
+        };
 
         public override BasePeerless Boss => new ChiefParoxysmus();
 
@@ -32,7 +32,7 @@ namespace Server.Items
 
         public override Rectangle2D[] BossBounds => m_Bounds;
 
-        private Rectangle2D[] m_Bounds = new Rectangle2D[]
+        private readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
             new Rectangle2D(6501, 351, 35, 48),
         };
@@ -52,9 +52,8 @@ namespace Server.Items
 
         public static void Damage(Mobile m)
         {
-            Timer t;
 
-            if (ProtectionTable.TryGetValue(m, out t))
+            if (ProtectionTable.TryGetValue(m, out Timer t))
             {
                 if (t != null)
                 {
@@ -107,6 +106,9 @@ namespace Server.Items
                     {
                         break;
                     }
+
+                default:
+                    break;
             }
 
             if (version < 1)
@@ -124,68 +126,6 @@ namespace Server.Items
                 Item gate = new ParoxysmusIronGate(this);
                 gate.MoveToWorld(new Point3D(6518, 492, -50), Map);
             }
-        }
-    }
-
-    public class ParoxysmusIronGate : Item
-    {
-        [CommandProperty(AccessLevel.GameMaster)]
-        public PeerlessAltar Altar { get; set; }
-
-        [Constructible]
-        public ParoxysmusIronGate()
-            : this(null)
-        {
-        }
-
-        [Constructible]
-        public ParoxysmusIronGate(PeerlessAltar altar)
-            : base(0x857)
-        {
-            Altar = altar;
-            Movable = false;
-        }
-
-        public ParoxysmusIronGate(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void OnDoubleClickDead(Mobile from)
-        {
-            base.OnDoubleClickDead(from);
-        }
-
-        public override void OnDoubleClick(Mobile from)
-        {
-            if (!from.Alive)
-                return;
-
-            if (!from.InRange(GetWorldLocation(), 2))
-            {
-                from.LocalOverheadMessage(Network.MessageType.Regular, 0x3B2, 1019045); // I can't reach that.
-            }
-            else if (Altar != null && Altar.Fighters.Contains(from))
-            {
-                from.SendLocalizedMessage(1075070); // The rusty gate cracks open as you step through...
-                from.MoveToWorld(Altar.TeleportDest, Altar.Map);
-            }
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write(0); // version
-
-            writer.Write(Altar);
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-            int version = reader.ReadInt();
-
-            Altar = reader.ReadItem() as PeerlessAltar;
         }
     }
 }

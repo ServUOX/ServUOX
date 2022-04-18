@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     [Flipable(0x2B0C, 0x2B0D)]
@@ -41,18 +39,17 @@ namespace Server.Items
         public override int InitMaxHits => 255;
         public override int AosStrReq => 50;
         public override ArmorMaterialType MaterialType => ArmorMaterialType.Plate;
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

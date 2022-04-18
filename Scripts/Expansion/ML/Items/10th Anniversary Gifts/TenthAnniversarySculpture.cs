@@ -1,5 +1,4 @@
 using System;
-using Server.Mobiles;
 using System.Collections.Generic;
 using Server.Accounting;
 using Server.Engines.VeteranRewards;
@@ -12,10 +11,10 @@ namespace Server.Items
         public override bool IsArtifact => true;
         public override int LabelNumber => 1079532;  // 10th Anniversary Sculpture
 
-        private static Dictionary<Mobile, DateTime> m_LuckTable = new Dictionary<Mobile, DateTime>();
+        private static readonly Dictionary<Mobile, DateTime> m_LuckTable = new Dictionary<Mobile, DateTime>();
         private Dictionary<Mobile, DateTime> m_RewardCooldown;
         public Dictionary<Mobile, DateTime> RewardCooldown => m_RewardCooldown;
-        private static List<TenthAnniversarySculpture> m_sculptures = new List<TenthAnniversarySculpture>();
+        private static readonly List<TenthAnniversarySculpture> m_sculptures = new List<TenthAnniversarySculpture>();
 
         private static Timer m_Timer;
 
@@ -119,9 +118,7 @@ namespace Server.Items
         {
             if (m_LuckTable.ContainsKey(from))
             {
-                Account account = from.Account as Account;
-
-                if (account != null)
+                if (from.Account is Account account)
                 {
                     return Math.Min(MaxLuckBonus, 200 + (RewardSystem.GetRewardLevel(account)) * 50);
                 }
@@ -183,7 +180,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
             m_RewardCooldown = new Dictionary<Mobile, DateTime>();
 
             AddSculpture(this);

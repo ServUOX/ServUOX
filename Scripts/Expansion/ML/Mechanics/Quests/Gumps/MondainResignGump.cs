@@ -1,5 +1,5 @@
-using System;
 using Server.Engines.Quests;
+using Server.Network;
 
 namespace Server.Gumps
 {
@@ -69,7 +69,7 @@ namespace Server.Gumps
             Quest,
             None,
         }
-        public override void OnResponse(Server.Network.NetState state, RelayInfo info)
+        public override void OnResponse(NetState state, RelayInfo info)
         {
             if (info.ButtonID != (int)Buttons.Okay || m_Quest == null)
                 return;

@@ -1,9 +1,6 @@
-using System;
-using Server.Commands;
 using Server.Network;
 using Server.Engines.Quests;
 using System.Collections.Generic;
-using Server.Items;
 
 namespace Server.Gumps
 {
@@ -11,10 +8,10 @@ namespace Server.Gumps
     {
         private const int FontColor = 0x000008;
 
-        private Mobile m_From;
-        private QuestionAndAnswerObjective m_Objective;
-        private BaseQuest m_Quest;
-        private int m_Index;
+        private readonly Mobile m_From;
+        private readonly QuestionAndAnswerObjective m_Objective;
+        private readonly BaseQuest m_Quest;
+        private readonly int m_Index;
 
         public QAndAGump(Mobile owner, BaseQuest quest) : base(0, 0)
         {
@@ -25,9 +22,9 @@ namespace Server.Gumps
 
             foreach (BaseObjective objective in quest.Objectives)
             {
-                if (objective is QuestionAndAnswerObjective)
+                if (objective is QuestionAndAnswerObjective objective1)
                 {
-                    m_Objective = (QuestionAndAnswerObjective)objective;
+                    m_Objective = objective1;
                     break;
                 }
             }
@@ -60,8 +57,8 @@ namespace Server.Gumps
 
                 AddButton(49, 104 + (i * 40), 2224, 2224, selection == answer ? 1 : 0, GumpButtonType.Reply, 0);
 
-                if (selection is int)
-                    AddHtmlLocalized(80, 102 + (i * 40), 200, 18, (int)selection, 0x0, false, false);
+                if (selection is int @int)
+                    AddHtmlLocalized(80, 102 + (i * 40), 200, 18, @int, 0x0, false, false);
                 else
                     AddHtml(80, 102 + (i * 40), 200, 18, string.Format("<BASEFONT COLOR=#{0:X6}>{1}</BASEFONT>", FontColor, selection), false, false);
             }

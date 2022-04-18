@@ -10,7 +10,7 @@ namespace Server.Items
         private Map m_Map;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Map _Map
+        public new Map Map
         {
             get { return m_Map; }
             set
@@ -56,17 +56,17 @@ namespace Server.Items
         {
             base.GetProperties(list);
 
-            if (_Map != null)
+            if (Map != null)
             {
-                if (_Map == Map.Felucca)
+                if (Map == Map.Felucca)
                     list.Add(1012001); // Felucca
-                else if (_Map == Map.Trammel)
+                else if (Map == Map.Trammel)
                     list.Add(1012000); // Trammel
-                else if (_Map == Map.Ilshenar)
+                else if (Map == Map.Ilshenar)
                     list.Add(1012002); // Ilshenar
-                else if (_Map == Map.Malas)
+                else if (Map == Map.Malas)
                     list.Add(1060643); // Malas
-                else if (_Map == Map.Tokuno)
+                else if (Map == Map.Tokuno)
                     list.Add(1063258); // Tokuno Islands
             }
 
@@ -126,10 +126,8 @@ namespace Server.Items
 
         public virtual void Decay()
         {
-            if (RootParent is Mobile)
+            if (RootParent is Mobile parent)
             {
-                Mobile parent = (Mobile)RootParent;
-
                 if (Name == null)
                     parent.SendLocalizedMessage(1072515, "#" + LabelNumber); // The ~1_name~ expired...
                 else
@@ -140,8 +138,8 @@ namespace Server.Items
             }
             else
             {
-                Effects.SendLocationParticles(EffectItem.Create(Location, Map, EffectItem.DefaultDuration), 0x3728, 8, 20, 5042);
-                Effects.PlaySound(Location, Map, 0x201);
+                Effects.SendLocationParticles(EffectItem.Create(base.Location, base.Map, EffectItem.DefaultDuration), 0x3728, 8, 20, 5042);
+                Effects.PlaySound(base.Location, base.Map, 0x201);
             }
 
             StopTimer();
