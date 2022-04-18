@@ -1,8 +1,6 @@
-#region References
 using System;
 using System.Collections.Generic;
 using System.IO;
-#endregion
 
 namespace Server.Engines.Quests
 {
@@ -124,25 +122,25 @@ namespace Server.Engines.Quests
 
             Version(writer, 0);
 
-            if (obj is int)
+            if (obj is int @int)
             {
                 writer.Write((byte)0x1);
-                writer.Write((int)obj);
+                writer.Write(@int);
             }
-            else if (obj is string)
+            else if (obj is string @string)
             {
                 writer.Write((byte)0x2);
-                writer.Write((string)obj);
+                writer.Write(@string);
             }
-            else if (obj is Item)
+            else if (obj is Item item)
             {
                 writer.Write((byte)0x3);
-                writer.Write((Item)obj);
+                writer.Write(item);
             }
-            else if (obj is Mobile)
+            else if (obj is Mobile mobile)
             {
                 writer.Write((byte)0x4);
-                writer.Write((Mobile)obj);
+                writer.Write(mobile);
             }
             else
             {
@@ -154,7 +152,7 @@ namespace Server.Engines.Quests
         {
             if (writer != null)
             {
-                writer.Write(type == null ? null : type.FullName);
+                writer.Write(type?.FullName);
             }
         }
     }

@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 using Server.Spells;
 using System.Collections.Generic;
@@ -7,20 +6,8 @@ namespace Server.Mobiles
 {
     public class BasePeerless : BaseCreature
     {
-        private PeerlessAltar m_Altar;
-
         [CommandProperty(AccessLevel.GameMaster)]
-        public PeerlessAltar Altar
-        {
-            get
-            {
-                return m_Altar;
-            }
-            set
-            {
-                m_Altar = value;
-            }
-        }
+        public PeerlessAltar Altar { get; set; }
 
         public override bool CanBeParagon => false;
         public virtual bool DropPrimer => Core.TOL;
@@ -118,12 +105,14 @@ namespace Server.Mobiles
                         case 29: c.DropItem(new MalekisHonor()); break;
                         case 30: c.DropItem(new Feathernock()); break;
                         case 31: c.DropItem(new Swiftflight()); break;
+                        default:
+                            break;
                     }
                 }
             }
 
-            if (m_Altar != null)
-                m_Altar.OnPeerlessDeath();
+            if (Altar != null)
+                Altar.OnPeerlessDeath();
         }
 
         public BasePeerless(AIType aiType, FightMode fightMode, int rangePerception, int rangeFight, double activeSpeed, double passiveSpeed)
@@ -137,18 +126,17 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write(0); // version
+            writer.Write(0);
 
-            writer.Write(m_Altar);
+            writer.Write(Altar);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
+            _ = reader.ReadInt();
 
-            int version = reader.ReadInt();
-
-            m_Altar = reader.ReadItem() as PeerlessAltar;
+            Altar = reader.ReadItem() as PeerlessAltar;
         }
 
         #region Helpers		
@@ -162,8 +150,8 @@ namespace Server.Mobiles
         {
             get
             {
-                if (m_Altar != null)
-                    return m_Altar.AllHelpersDead();
+                if (Altar != null)
+                    return Altar.AllHelpersDead();
 
                 return true;
             }
@@ -173,8 +161,8 @@ namespace Server.Mobiles
         {
             if (MaxHelpersWaves > 0 && CurrentWave > 0)
             {
-                double hits = (Hits / (double)HitsMax);
-                double waves = (CurrentWave / (double)(MaxHelpersWaves + 1));
+                double hits = Hits / (double)HitsMax;
+                double waves = CurrentWave / (double)(MaxHelpersWaves + 1);
 
                 if (hits < waves && Utility.RandomDouble() < SpawnHelpersChance)
                 {
@@ -208,8 +196,8 @@ namespace Server.Mobiles
             helper.Home = location;
             helper.RangeHome = 4;
 
-            if (m_Altar != null)
-                m_Altar.AddHelper(helper);
+            if (Altar != null)
+                Altar.AddHelper(helper);
 
             helper.MoveToWorld(location, Map);
         }
@@ -238,6 +226,8 @@ namespace Server.Mobiles
                         break;
                     case 5:
                         PackItem(new Muculent());
+                        break;
+                    default:
                         break;
                 }
         }

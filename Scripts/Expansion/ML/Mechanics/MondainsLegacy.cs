@@ -8,6 +8,7 @@ using Server.Items;
 using Server.Mobiles;
 using Server.Gumps;
 using Server.Network;
+using Server.Targeting;
 
 namespace Server
 {
@@ -309,8 +310,8 @@ namespace Server
         {
             Item item = Activator.CreateInstance(Artifacts[Utility.Random(Artifacts.Length)]) as Item;
 
-            if (item is ICanBeElfOrHuman)
-                ((ICanBeElfOrHuman)item).ElfOnly = false;
+            if (item is ICanBeElfOrHuman human)
+                human.ElfOnly = false;
 
             peerlessCorpse.DropItem(item);
         }
@@ -576,11 +577,11 @@ namespace Server
             Mobile m = e.Mobile;
             m.SendMessage("Target a player to view their quests.");
 
-            m.BeginTarget(-1, false, Server.Targeting.TargetFlags.None, new TargetCallback(
+            m.BeginTarget(-1, false, TargetFlags.None, new TargetCallback(
                 delegate (Mobile from, object targeted)
                 {
-                    if (targeted is PlayerMobile)
-                        m.SendGump(new MondainQuestGump((PlayerMobile)targeted));
+                    if (targeted is PlayerMobile mobile)
+                        m.SendGump(new MondainQuestGump(mobile));
                     else
                         m.SendMessage("That is not a player!");
                 }));
@@ -687,6 +688,8 @@ namespace Server
                     break;
                 case 13:
                     MondainsLegacy.PublicDonations = !MondainsLegacy.PublicDonations;
+                    break;
+                default:
                     break;
             }
 

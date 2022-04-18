@@ -1,4 +1,3 @@
-using System;
 using Server.Gumps;
 using Server.Mobiles;
 
@@ -136,6 +135,8 @@ namespace Server.Engines.Quests
                 case Section.Failed:
                     SecFailed();
                     break;
+                default:
+                    break;
             }
         }
 
@@ -250,10 +251,8 @@ namespace Server.Engines.Quests
                 {
                     BaseObjective objective = m_Quest.Objectives[i];
 
-                    if (objective is SlayObjective)
+                    if (objective is SlayObjective slay)
                     {
-                        SlayObjective slay = (SlayObjective)objective;
-
                         if (slay != null)
                         {
                             AddHtmlLocalized(98, offset, 30, 16, 1072204, 0x15F90, false, false); // Slay	
@@ -303,10 +302,8 @@ namespace Server.Engines.Quests
                             }
                         }
                     }
-                    else if (objective is ObtainObjective)
+                    else if (objective is ObtainObjective obtain)
                     {
-                        ObtainObjective obtain = (ObtainObjective)objective;
-
                         if (obtain != null)
                         {
                             AddHtmlLocalized(98, offset, 40, 16, 1072205, 0x15F90, false, false); // Obtain						
@@ -353,10 +350,8 @@ namespace Server.Engines.Quests
                             }
                         }
                     }
-                    else if (objective is DeliverObjective)
+                    else if (objective is DeliverObjective deliver)
                     {
-                        DeliverObjective deliver = (DeliverObjective)objective;
-
                         if (deliver != null)
                         {
                             AddHtmlLocalized(98, offset, 40, 16, 1072207, 0x15F90, false, false); // Deliver						
@@ -378,10 +373,8 @@ namespace Server.Engines.Quests
                             }
                         }
                     }
-                    else if (objective is EscortObjective)
+                    else if (objective is EscortObjective escort)
                     {
-                        EscortObjective escort = (EscortObjective)objective;
-
                         if (escort != null)
                         {
                             AddHtmlLocalized(98, offset, 312, 16, 1072206, 0x15F90, false, false); // Escort to
@@ -406,10 +399,8 @@ namespace Server.Engines.Quests
                             }
                         }
                     }
-                    else if (objective is ApprenticeObjective)
+                    else if (objective is ApprenticeObjective apprentice)
                     {
-                        ApprenticeObjective apprentice = (ApprenticeObjective)objective;
-
                         if (apprentice != null)
                         {
                             AddHtmlLocalized(98, offset, 200, 16, 1077485, "#" + (1044060 + (int)apprentice.Skill) + "\t" + apprentice.MaxProgress, 0x15F90, false, false); // Increase ~1_SKILL~ to ~2_VALUE~
@@ -417,9 +408,9 @@ namespace Server.Engines.Quests
                             offset += 16;
                         }
                     }
-                    else if (objective is SimpleObjective && ((SimpleObjective)objective).Descriptions != null)
+                    else if (objective is SimpleObjective objective1 && objective1.Descriptions != null)
                     {
-                        SimpleObjective obj = (SimpleObjective)objective;
+                        SimpleObjective obj = objective1;
 
                         for (int j = 0; j < obj.Descriptions.Count; j++)
                         {
@@ -436,13 +427,13 @@ namespace Server.Engines.Quests
                     }
                     else if (objective.ObjectiveDescription != null)
                     {
-                        if (objective.ObjectiveDescription is int)
+                        if (objective.ObjectiveDescription is int @int)
                         {
-                            AddHtmlLocalized(98, offset, 310, 300, (int)objective.ObjectiveDescription, 0x15F90, false, false);
+                            AddHtmlLocalized(98, offset, 310, 300, @int, 0x15F90, false, false);
                         }
-                        else if (objective.ObjectiveDescription is string)
+                        else if (objective.ObjectiveDescription is string @string)
                         {
-                            AddHtmlObject(98, offset, 310, 300, (string)objective.ObjectiveDescription, LightGreen, false, false);
+                            AddHtmlObject(98, offset, 310, 300, @string, LightGreen, false, false);
                         }
                     }
                 }

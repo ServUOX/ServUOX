@@ -1,10 +1,7 @@
-#region References
 using System;
 using System.Collections.Generic;
 using System.IO;
-
 using Server.Mobiles;
-#endregion
 
 namespace Server.Engines.Quests
 {
@@ -85,9 +82,7 @@ namespace Server.Engines.Quests
 
             for (var i = 0; i < count; i++)
             {
-                var quest = Construct(reader) as BaseQuest;
-
-                if (quest == null)
+                if (!(Construct(reader) is BaseQuest quest))
                 {
                     if (version >= 0)
                     {
@@ -165,6 +160,8 @@ namespace Server.Engines.Quests
                     return reader.ReadItem();
                 case 0x4:
                     return reader.ReadMobile();
+                default:
+                    break;
             }
 
             return null;

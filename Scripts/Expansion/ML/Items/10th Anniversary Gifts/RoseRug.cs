@@ -1,5 +1,4 @@
 using System;
-using Server;
 using Server.Engines.VeteranRewards;
 using Server.Gumps;
 using Server.Multis;
@@ -53,7 +52,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime NextResourceCount { get; set; }
 
-        private static int[,] _EastLarge =
+        private static readonly int[,] _EastLarge =
         {
               {14551, 2, -3, 0}, {14550, 0, -3, 0}, {14549, 1, -3, 0}   // 1	2	3	
 			, {14552, -1, -3, 0}, {14542, 0, -1, 0}, {14543, 2, -1, 0}  // 4	5	6	
@@ -67,7 +66,7 @@ namespace Server.Items
 			, {14538, 0, 0, 0}// 28	
 		};
 
-        private static int[,] _SouthLarge =
+        private static readonly int[,] _SouthLarge =
         {
               {14512, 0, -1, 0}, {14511, 0, 2, 0}, {14497, -3, 2, 0}// 1	2	3	
 			, {14507, -1, 2, 0}, {14498, -3, 1, 0}, {14501, -2, 1, 0}// 4	5	6	
@@ -81,7 +80,7 @@ namespace Server.Items
 			, {14524, 3, -1, 0}// 28	
 		};
 
-        private static int[,] _EastSmall =
+        private static readonly int[,] _EastSmall =
         {
               {18249, 0, -1, 0},  {18248, -1, -1, 0}, {18250, 1, -1, 0} // 1	2	3	
 			, {18251, -1, 0, 0},  {18252, 1, 2, 0},   {18253, 1, 0, 0}  // 4	5	6	
@@ -90,7 +89,7 @@ namespace Server.Items
 			, {18259, -1, -2, 0}, {18245, 0, 0, 0},   {18247, 1, -2, 0} // 13	14	15	
 		};
 
-        private static int[,] _SouthSmall =
+        private static readonly int[,] _SouthSmall =
         {
               {18269, 1, 1, 0},  {18270, 1, 0, 0},   {18271, 1, -1, 0}  // 1	2	3	
 			, {18272, -2, 0, 0}, {18273, -2, 1, 0},  {18274, -2, -1, 0} // 4	5	6	
@@ -103,8 +102,10 @@ namespace Server.Items
         {
             get
             {
-                RoseRugAddonDeed deed = new RoseRugAddonDeed(RugType, m_ResourceCount, NextResourceCount);
-                deed.IsRewardItem = m_IsRewardItem;
+                RoseRugAddonDeed deed = new RoseRugAddonDeed(RugType, m_ResourceCount, NextResourceCount)
+                {
+                    IsRewardItem = m_IsRewardItem
+                };
 
                 return deed;
             }
@@ -188,9 +189,9 @@ namespace Server.Items
             {
                 base.GetProperties(list);
 
-                if (Addon is RoseRugAddon)
+                if (Addon is RoseRugAddon addon)
                 {
-                    list.Add(1150102, ((RoseRugAddon)Addon).ResourceCount.ToString()); // Seeds: ~1_val~
+                    list.Add(1150102, addon.ResourceCount.ToString()); // Seeds: ~1_val~
                 }
             }
 
@@ -202,15 +203,13 @@ namespace Server.Items
             public override void Serialize(GenericWriter writer)
             {
                 base.Serialize(writer);
-
-                writer.WriteEncodedInt(0); // version
+                writer.WriteEncodedInt(0);
             }
 
             public override void Deserialize(GenericReader reader)
             {
                 base.Deserialize(reader);
-
-                int version = reader.ReadEncodedInt();
+                _ = reader.ReadEncodedInt();
             }
         }
 
@@ -234,7 +233,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(3); // Version
+            writer.Write(3);
 
             TryGiveResourceCount();
 
@@ -267,6 +266,8 @@ namespace Server.Items
                 case 0:
                     NextResourceCount = reader.ReadDateTime();
                     break;
+                default:
+                    break;
             }
         }
     }
@@ -278,8 +279,10 @@ namespace Server.Items
         {
             get
             {
-                RoseRugAddon addon = new RoseRugAddon(RugType, m_ResourceCount, NextResourceCount);
-                addon.IsRewardItem = m_IsRewardItem;
+                RoseRugAddon addon = new RoseRugAddon(RugType, m_ResourceCount, NextResourceCount)
+                {
+                    IsRewardItem = m_IsRewardItem
+                };
 
                 return addon;
             }
@@ -428,6 +431,8 @@ namespace Server.Items
                     break;
                 case 0:
                     NextResourceCount = reader.ReadDateTime();
+                    break;
+                default:
                     break;
             }
         }

@@ -1,9 +1,6 @@
-#region References
 using System;
-
 using Server.Engines.Craft;
 using Server.Items;
-#endregion
 
 namespace Server.Engines.Quests
 {
@@ -74,14 +71,14 @@ namespace Server.Engines.Quests
                 else
                 {
                     int attributeCount = Utility.RandomMinMax(1, 5);
-                    if (item is BaseJewel)
-                        BaseRunicTool.ApplyAttributesTo((BaseJewel)item, false, 0, attributeCount, 10, 100);
-                    else if (item is BaseWeapon)
-                        BaseRunicTool.ApplyAttributesTo((BaseWeapon)item, false, 0, attributeCount, 10, 100);
-                    else if (item is BaseRanged)
-                        BaseRunicTool.ApplyAttributesTo((BaseRanged)item, false, 0, attributeCount, 10, 100);
-                    else if (item is BaseArmor)
-                        BaseRunicTool.ApplyAttributesTo((BaseArmor)item, false, 0, attributeCount, 10, 100);
+                    if (item is BaseJewel jewel)
+                        BaseRunicTool.ApplyAttributesTo(jewel, false, 0, attributeCount, 10, 100);
+                    else if (item is BaseWeapon weapon)
+                        BaseRunicTool.ApplyAttributesTo(weapon, false, 0, attributeCount, 10, 100);
+                    else if (item is BaseRanged ranged)
+                        BaseRunicTool.ApplyAttributesTo(ranged, false, 0, attributeCount, 10, 100);
+                    else if (item is BaseArmor armor)
+                        BaseRunicTool.ApplyAttributesTo(armor, false, 0, attributeCount, 10, 100);
                 }
             }
         }
@@ -134,6 +131,8 @@ namespace Server.Engines.Quests
                         return new RunicFletcherTool(CraftResource.YewWood, 25);
                     case 3:
                         return new RunicFletcherTool(CraftResource.Heartwood, 15);
+                    default:
+                        break;
                 }
             }
 
@@ -224,6 +223,20 @@ namespace Server.Engines.Quests
 
             if (Core.HS)
             {
+                switch (ran)
+                {
+                    case double n when n <= 0.0001:
+                        return new RunicDovetailSaw(CraftResource.Heartwood, 15);
+                    case double n when n <= 0.0005:
+                        return new RunicDovetailSaw(CraftResource.YewWood, 15);
+                    case double n when n <= 0.0025:
+                        return new RunicDovetailSaw(CraftResource.AshWood, 15);
+                    case double n when n <= 0.005:
+                        return new RunicDovetailSaw(CraftResource.OakWood, 15);
+                    default:
+                        return new RunicDovetailSaw(CraftResource.Heartwood, 15);
+                }
+                /*
                 if (ran <= 0.0001)
                 {
                     return new RunicDovetailSaw(CraftResource.Heartwood, 15);
@@ -239,7 +252,7 @@ namespace Server.Engines.Quests
                 else if (ran <= 0.005)
                 {
                     return new RunicDovetailSaw(CraftResource.OakWood, 45);
-                }
+                }*/
             }
             else if (ran <= 0.01)
             {
@@ -253,6 +266,8 @@ namespace Server.Engines.Quests
                         return new RunicDovetailSaw(CraftResource.YewWood, 25);
                     case 3:
                         return new RunicDovetailSaw(CraftResource.Heartwood, 15);
+                    default:
+                        break;
                 }
             }
 

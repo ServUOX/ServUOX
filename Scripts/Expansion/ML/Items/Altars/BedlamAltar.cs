@@ -1,5 +1,4 @@
 using System;
-using Server;
 using Server.Mobiles;
 
 namespace Server.Items
@@ -10,9 +9,9 @@ namespace Server.Items
         public override MasterKey MasterKey => new BedlamKey();
 
         public override Type[] Keys => new Type[]
-{
+        {
             typeof( LibrariansKey )
-};
+        };
 
         public override BasePeerless Boss => new MonstrousInterredGrizzle();
 
@@ -26,7 +25,7 @@ namespace Server.Items
 
         public override Rectangle2D[] BossBounds => m_Bounds;
 
-        private Rectangle2D[] m_Bounds = new Rectangle2D[]
+        private readonly Rectangle2D[] m_Bounds = new Rectangle2D[]
         {
             new Rectangle2D(99, 1609, 14, 18),
         };
@@ -38,15 +37,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using Server;
-using Server.Items;
-using Server.Mobiles;
 using System.Collections.Generic;
-using Server.Targeting;
 
 /*
  * Called in MondainsQuestGump.cs to show simple string for simple quest objectives.
@@ -23,13 +18,13 @@ namespace Server.Engines.Quests
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

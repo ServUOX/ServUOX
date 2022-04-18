@@ -11,7 +11,7 @@ namespace Server.Engines.CreatureStealing
 {
     class StealingHandler
     {
-        private static Type[] SpecialItemList =
+        private static readonly Type[] SpecialItemList =
         {
             typeof(SeedOfLife),
             typeof(BalmOfStrength),
@@ -97,9 +97,7 @@ namespace Server.Engines.CreatureStealing
 
                     if (chance >= Utility.Random(100))
                     {
-                        Item item = Activator.CreateInstance(SpecialItemList[Utility.Random(SpecialItemList.Length)]) as Item;
-
-                        if (item != null)
+                        if (Activator.CreateInstance(SpecialItemList[Utility.Random(SpecialItemList.Length)]) is Item item)
                         {
                             thief.AddToBackpack(item);
 

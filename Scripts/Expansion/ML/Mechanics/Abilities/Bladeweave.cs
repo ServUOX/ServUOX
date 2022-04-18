@@ -17,12 +17,11 @@ namespace Server.Items
             }
         }
 
-        private static Dictionary<Mobile, BladeWeaveRedirect> m_NewAttack = new Dictionary<Mobile, BladeWeaveRedirect>();
+        private static readonly Dictionary<Mobile, BladeWeaveRedirect> m_NewAttack = new Dictionary<Mobile, BladeWeaveRedirect>();
 
         public static bool BladeWeaving(Mobile attacker, out WeaponAbility a)
         {
-            BladeWeaveRedirect bwr;
-            bool success = m_NewAttack.TryGetValue(attacker, out bwr);
+            bool success = m_NewAttack.TryGetValue(attacker, out BladeWeaveRedirect bwr);
             if (success)
                 a = bwr.NewAbility;
             else
@@ -42,9 +41,8 @@ namespace Server.Items
             if (!Validate(attacker) || !CheckMana(attacker, false))
                 return false;
 
-            int ran = -1;
-
-            if (attacker is BaseCreature && PetTrainingHelper.CheckSecondarySkill((BaseCreature)attacker, SkillName.Bushido))
+            int ran;
+            if (attacker is BaseCreature creature && PetTrainingHelper.CheckSecondarySkill(creature, SkillName.Bushido))
             {
                 ran = Utility.Random(9);
             }
@@ -106,8 +104,7 @@ namespace Server.Items
 
         public override bool OnBeforeDamage(Mobile attacker, Mobile defender)
         {
-            BladeWeaveRedirect bwr;
-            if (m_NewAttack.TryGetValue(attacker, out bwr))
+            if (m_NewAttack.TryGetValue(attacker, out BladeWeaveRedirect bwr))
                 return bwr.NewAbility.OnBeforeDamage(attacker, defender);
             else
                 return base.OnBeforeDamage(attacker, defender);
@@ -117,8 +114,7 @@ namespace Server.Items
         {
             if (CheckMana(attacker, false))
             {
-                BladeWeaveRedirect bwr;
-                if (m_NewAttack.TryGetValue(attacker, out bwr))
+                if (m_NewAttack.TryGetValue(attacker, out BladeWeaveRedirect bwr))
                 {
                     attacker.SendLocalizedMessage(1072841, "#" + bwr.ClilocEntry.ToString());
                     bwr.NewAbility.OnHit(attacker, defender, damage);
@@ -126,6 +122,7 @@ namespace Server.Items
                 else
                     base.OnHit(attacker, defender, damage);
 
+                attacker.PlaySound(0x5BC);
                 m_NewAttack.Remove(attacker);
                 ClearCurrentAbility(attacker);
             }
@@ -133,8 +130,7 @@ namespace Server.Items
 
         public override void OnMiss(Mobile attacker, Mobile defender)
         {
-            BladeWeaveRedirect bwr;
-            if (m_NewAttack.TryGetValue(attacker, out bwr))
+            if (m_NewAttack.TryGetValue(attacker, out BladeWeaveRedirect bwr))
                 bwr.NewAbility.OnMiss(attacker, defender);
             else
                 base.OnMiss(attacker, defender);

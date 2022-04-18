@@ -35,7 +35,7 @@ namespace Server.Items.MusicBox
         {
         }
 
-        public override int LabelNumber => 1075198;// Dawn’s Music Box
+        public override int LabelNumber => 1075198;// Dawnâ€™s Music Box
         [CommandProperty(AccessLevel.GameMaster, AccessLevel.Developer)]
         public bool IsPlaying => m_PlayingTimer != null;
         public List<MusicName> Tracks => m_Tracks;
@@ -97,6 +97,8 @@ namespace Server.Items.MusicBox
                         break;
                     case TrackRarity.Rare:
                         rareSongs++;
+                        break;
+                    default:
                         break;
                 }
             }
@@ -177,6 +179,8 @@ namespace Server.Items.MusicBox
                 case 0x2B00:
                     ItemID = 0x2AFD;
                     break;
+                default:
+                    break;
             }
         }
 
@@ -254,9 +258,9 @@ namespace Server.Items.MusicBox
 
                 foreach (Item i in itemsEable)
                 {
-                    if (i is DawnsMusicBox && i != this)
+                    if (i is DawnsMusicBox box && i != this)
                     {
-                        DawnsMusicBox mb = (DawnsMusicBox)i;
+                        DawnsMusicBox mb = box;
                         if (mb.IsPlaying)
                         {
                             mb.ToggleTimer(false);
