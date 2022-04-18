@@ -454,7 +454,7 @@ namespace Server.Mechanics
                     m_Teleporter = value;
                 }
             }
-            public GuideVertex Previous
+            public Vertex Previous
             {
                 get
                 {
@@ -571,7 +571,7 @@ namespace Server.Mechanics
             public T Pop()
             {
                 if (m_List.Count == 0)
-                    return default;
+                    return default(T);
 
                 T top = m_List[0];
                 T temp;
@@ -592,13 +592,13 @@ namespace Server.Mechanics
                     ltl = ltr = cltc = false;
 
                     if (m_List.Count > lchild)
-                        ltl = (m_List[parent].CompareTo(m_List[lchild]) > 0);
+                        ltl = m_List[parent].CompareTo(m_List[lchild]) > 0;
 
                     if (m_List.Count > rchild)
-                        ltr = (m_List[parent].CompareTo(m_List[rchild]) > 0);
+                        ltr = m_List[parent].CompareTo(m_List[rchild]) > 0;
 
                     if (ltl && ltr)
-                        cltc = (m_List[lchild].CompareTo(m_List[rchild]) > 0);
+                        cltc = m_List[lchild].CompareTo(m_List[rchild]) > 0;
 
                     if (ltl && !ltr)
                     {
