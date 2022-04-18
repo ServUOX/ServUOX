@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Craft;
 using Server.Mobiles;
 using Server.Network;
@@ -120,34 +119,6 @@ namespace Server.Items
                         break;
                     }
             }
-        }
-    }
-
-    public class DoomRecipeScroll : RecipeScroll
-    {
-        [Constructible]
-        public DoomRecipeScroll()
-            : base(Utility.RandomList(355, 356, 456, 585))
-        {
-        }
-
-        public DoomRecipeScroll(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.Write(0); // version
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadInt();
         }
     }
 }
