@@ -1,5 +1,4 @@
-﻿using System;
-using Server;
+using System;
 
 namespace Server.Items
 {
@@ -58,7 +57,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write(0); // version
+            writer.Write(0);
             writer.Write(_UsesRemaining);
             writer.Write(NextRecharge);
 
@@ -72,8 +71,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
             _UsesRemaining = reader.ReadInt();
             NextRecharge = reader.ReadDateTime();
         }

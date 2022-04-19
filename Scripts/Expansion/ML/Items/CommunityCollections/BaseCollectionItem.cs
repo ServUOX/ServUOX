@@ -1,9 +1,9 @@
-using System;
-using System.Collections.Generic;
 using Server.Engines.Quests;
 using Server.Gumps;
 using Server.Mobiles;
 using Server.Network;
+using System;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
@@ -159,10 +159,10 @@ namespace Server.Items
                     return;
                 }
 
-                if (from.InRange(Location, 2) && from is PlayerMobile && CanDonate((PlayerMobile)from))
+                if (from.InRange(Location, 2) && from is PlayerMobile mobile && CanDonate(mobile))
                 {
                     from.CloseGump(typeof(CommunityCollectionGump));
-                    from.SendGump(new CommunityCollectionGump((PlayerMobile)from, this, Location));
+                    from.SendGump(new CommunityCollectionGump(mobile, this, Location));
                 }
                 else
                     from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 1019045); // I can't reach that.
@@ -204,8 +204,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_Points = reader.ReadLong();
             m_StartTier = reader.ReadLong();
@@ -300,10 +299,10 @@ namespace Server.Items
             {
                 for (int i = 0; i < m_Tiers[m_Tiers.Count - 1].Count; i++)
                 {
-                    if (m_Tiers[m_Tiers.Count - 1][i] is Item)
-                        ((Item)m_Tiers[m_Tiers.Count - 1][i]).Delete();
-                    else if (m_Tiers[m_Tiers.Count - 1][i] is Mobile)
-                        ((Mobile)m_Tiers[m_Tiers.Count - 1][i]).Delete();
+                    if (m_Tiers[m_Tiers.Count - 1][i] is Item item)
+                        item.Delete();
+                    else if (m_Tiers[m_Tiers.Count - 1][i] is Mobile mobile)
+                        mobile.Delete();
                 }
 
                 m_Tiers.RemoveAt(m_Tiers.Count - 1);

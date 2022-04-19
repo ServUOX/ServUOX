@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class LongClawCrab : BaseFish
@@ -28,7 +26,7 @@ namespace Server.Items
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

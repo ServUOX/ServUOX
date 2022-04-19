@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     [Furniture]
@@ -22,18 +20,17 @@ namespace Server.Items
         public override int DefaultDropSound => 0x42;
         public override int LabelNumber => 1073403;// decorative box
         public override Rectangle2D Bounds => new Rectangle2D(16, 51, 168, 73);
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using Server;
 using Server.Mobiles;
+using System;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
     [TypeAlias("drNO.ThieveItems.ManaDraught")]
     public class ManaDraught : Item
     {
-        private static Dictionary<PlayerMobile, DateTime> DaughtUsageList = new Dictionary<PlayerMobile, DateTime>();
+        private static readonly Dictionary<PlayerMobile, DateTime> DaughtUsageList = new Dictionary<PlayerMobile, DateTime>();
         private static TimeSpan Cooldown = TimeSpan.FromMinutes(10);
 
         public override int LabelNumber => 1094938;  // Mana Draught
@@ -64,7 +63,7 @@ namespace Server.Items
             }
             else
             {
-                by.SendLocalizedMessage(1079263, ((int)((DaughtUsageList[by] + Cooldown) - DateTime.Now).TotalSeconds).ToString());
+                by.SendLocalizedMessage(1079263, ((int)(DaughtUsageList[by] + Cooldown - DateTime.Now).TotalSeconds).ToString());
             }
         }
 
@@ -103,15 +102,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

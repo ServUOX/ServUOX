@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class Web : Item
@@ -35,7 +33,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

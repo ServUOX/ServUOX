@@ -1,7 +1,8 @@
-using System.Collections.Generic;
+using System.Linq;
+using Server.Items;
 using Server.Spells;
 
-namespace Server.Items
+namespace Server.Abilities
 {
     public class LightningArrow : WeaponAbility
     {
@@ -19,7 +20,7 @@ namespace Server.Items
 
             ClearCurrentAbility(attacker);
 
-            Map map = attacker.Map;
+            var map = attacker.Map;
 
             if (map == null)
                 return;
@@ -31,22 +32,9 @@ namespace Server.Items
             if (!CheckMana(attacker, true))
                 return;
 
-            List<Mobile> targets = new List<Mobile>();
             IPooledEnumerable eable = defender.GetMobilesInRange(5);
 
-            foreach (Mobile m in eable)
-            {
-                if (m != defender && m != attacker && SpellHelper.ValidIndirectTarget(attacker, m))
-                {
-                    if (m == null || m.Deleted || m.Map != attacker.Map || !m.Alive || !attacker.CanSee(m) || !attacker.CanBeHarmful(m))
-                        continue;
-
-                    if (!attacker.InRange(m, weapon.MaxRange) || !attacker.InLOS(m))
-                        continue;
-
-                    targets.Add(m);
-                }
-            }
+            var targets = (from Mobile m in eable where m != defender && m != attacker && SpellHelper.ValidIndirectTarget(attacker, m) where m != null && !m.Deleted && m.Map == attacker.Map && m.Alive && attacker.CanSee(m) && attacker.CanBeHarmful(m) where attacker.InRange(m, weapon.MaxRange) && attacker.InLOS(m) select m).ToList();
 
             eable.Free();
             defender.BoltEffect(0);
@@ -58,10 +46,8 @@ namespace Server.Items
                     targets.Remove(targets[Utility.Random(targets.Count)]);
                 }
 
-                for (int i = 0; i < targets.Count; ++i)
+                foreach (var m in targets)
                 {
-                    Mobile m = targets[i];
-
                     m.BoltEffect(0);
 
                     AOS.Damage(m, attacker, Utility.RandomMinMax(29, 40), 0, 0, 0, 0, 100);

@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     [Furniture]
@@ -22,23 +20,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(1); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
-            if (version == 0)
-            {
-                if (ItemID == 0x2D4B)
-                    ItemID = 0x2DDD;
-                else
-                    ItemID = 0x2DDE;
-            }
+            _ = reader.ReadInt();
         }
     }
 }

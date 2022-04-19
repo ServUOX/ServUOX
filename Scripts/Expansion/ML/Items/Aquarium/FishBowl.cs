@@ -1,7 +1,6 @@
-using System;
-using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Network;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
@@ -21,8 +20,10 @@ namespace Server.Items
         }
 
         public override int LabelNumber => 1074499;// A fish bowl
+
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool Empty => (Items.Count == 0);
+        public bool Empty => Items.Count == 0;
+
         [CommandProperty(AccessLevel.GameMaster)]
         public BaseFish Fish
         {
@@ -31,13 +32,14 @@ namespace Server.Items
                 if (Empty)
                     return null;
 
-                if (Items[0] is BaseFish)
-                    return (BaseFish)Items[0];
+                if (Items[0] is BaseFish fish)
+                    return fish;
 
                 return null;
             }
         }
         public override double DefaultWeight => 2.0;
+
         public override void OnDoubleClick(Mobile from)
         {
         }

@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class VacationWafer : Item
@@ -28,17 +26,13 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write(1); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
-            if (version < 1 && ItemID == 0x971)
-                ItemID = 0x973;
+            _ = reader.ReadInt();
         }
     }
 }

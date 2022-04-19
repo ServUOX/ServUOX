@@ -220,7 +220,7 @@ namespace Server.Mobiles
                 if (m_Guide == null || m_Guide.Deleted || m_Guide.Region == null || info.ButtonID == 0)
                     return;
 
-                Vertex source = GuideHelper.ClosestVetrex(m_Guide.Region.Name, m_Guide.Location);
+                Vertex source = GuideHelper.ClosestVertex(m_Guide.Region.Name, m_Guide.Location);
 
                 if (m_Shops.ContainsKey(shop))
                 {

@@ -1,4 +1,3 @@
-
 namespace Server.Items
 {
     public class AlbinoCourtesanFish : BaseFish
@@ -25,7 +24,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

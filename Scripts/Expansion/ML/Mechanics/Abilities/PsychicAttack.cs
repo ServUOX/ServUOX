@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Server.Items;
 
-namespace Server.Items
+namespace Server.Abilities
 {
     public class PsychicAttack : WeaponAbility
     {
@@ -37,7 +38,7 @@ namespace Server.Items
 
             BuffInfo.RemoveBuff(defender, BuffIcon.PsychicAttack);
 
-            string args = string.Format("{0}\t{1}", Registry[defender].SpellDamageMalus, Registry[defender].ManaCostMalus);
+            var args = $"{Registry[defender].SpellDamageMalus}\t{Registry[defender].ManaCostMalus}";
             BuffInfo.AddBuff(defender, new BuffInfo(BuffIcon.PsychicAttack, 1151296, 1151297, args));
         }
 

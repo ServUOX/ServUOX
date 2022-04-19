@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class AquariumFishNet : SpecialFishingNet
@@ -18,18 +16,17 @@ namespace Server.Items
 
         public override int LabelNumber => 1074463;// An aquarium fishing net
         public override bool RequireDeepWater => false;
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         protected override void AddNetProperties(ObjectPropertyList list)
@@ -144,69 +141,6 @@ namespace Server.Items
             }
 
             return new MinocBlueFish();
-        }
-    }
-
-    // Legacy code
-    public class AquariumFishingNet : Item
-    {
-        public AquariumFishingNet()
-        {
-        }
-
-        public AquariumFishingNet(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override int LabelNumber => 1074463;// An aquarium fishing net
-        public override void OnDoubleClick(Mobile from)
-        {
-            if (!IsChildOf(from.Backpack))
-            {
-                from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
-                return;
-            }
-
-            Item replacement = CreateReplacement();
-
-            if (!from.PlaceInBackpack(replacement))
-            {
-                replacement.Delete();
-                from.SendLocalizedMessage(500720); // You don't have enough room in your backpack!
-            }
-            else
-            {
-                Delete();
-                from.Use(replacement);
-            }
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.Write(0); // version
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-        }
-
-        private Item CreateReplacement()
-        {
-            Item result = new AquariumFishNet();
-            result.Hue = Hue;
-            result.LootType = LootType;
-            result.Movable = Movable;
-            result.Name = Name;
-            result.QuestItem = QuestItem;
-            result.Visible = Visible;
-
-            return result;
         }
     }
 }

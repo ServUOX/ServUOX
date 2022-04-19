@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Engines.Craft;
-using Server.Network;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Server.Items
@@ -171,7 +170,7 @@ namespace Server.Items
         #endregion
 
         #region Salvaging
-        private void SalvageIngots(Mobile from)
+        public void SalvageIngots(Mobile from)
         {
             bool ToolFound = from.Backpack.Items.Any(i => i is ITool && ((ITool)i).CraftSystem == DefBlacksmithy.CraftSystem);
 
@@ -233,7 +232,7 @@ namespace Server.Items
                 from.SendLocalizedMessage(1079973, string.Format("{0}\t{1}", salvaged, salvaged + notSalvaged)); // Salvaged: ~1_COUNT~/~2_NUM~ blacksmithed items
         }
 
-        private void SalvageCloth(Mobile from)
+        public void SalvageCloth(Mobile from)
         {
             Scissors scissors = from.Backpack.FindItemByType(typeof(Scissors)) as Scissors;
             if (scissors == null)
@@ -278,7 +277,7 @@ namespace Server.Items
             }
         }
 
-        private void SalvageAll(Mobile from)
+        public void SalvageAll(Mobile from)
         {
             SalvageIngots(from);
 
@@ -287,84 +286,6 @@ namespace Server.Items
 
         #endregion
 
-        #region ContextMenuEntries
-        private class SalvageAllEntry : ContextMenuEntry
-        {
-            private readonly SalvageBag m_Bag;
-
-            public SalvageAllEntry(SalvageBag bag, bool enabled)
-                : base(6276)
-            {
-                m_Bag = bag;
-
-                if (!enabled)
-                    Flags |= CMEFlags.Disabled;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Bag.Deleted)
-                    return;
-
-                Mobile from = Owner.From;
-
-                if (from.CheckAlive())
-                    m_Bag.SalvageAll(from);
-            }
-        }
-
-        private class SalvageIngotsEntry : ContextMenuEntry
-        {
-            private readonly SalvageBag m_Bag;
-
-            public SalvageIngotsEntry(SalvageBag bag, bool enabled)
-                : base(6277)
-            {
-                m_Bag = bag;
-
-                if (!enabled)
-                    Flags |= CMEFlags.Disabled;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Bag.Deleted)
-                    return;
-
-                Mobile from = Owner.From;
-
-                if (from.CheckAlive())
-                    m_Bag.SalvageIngots(from);
-            }
-        }
-
-        private class SalvageClothEntry : ContextMenuEntry
-        {
-            private readonly SalvageBag m_Bag;
-
-            public SalvageClothEntry(SalvageBag bag, bool enabled)
-                : base(6278)
-            {
-                m_Bag = bag;
-
-                if (!enabled)
-                    Flags |= CMEFlags.Disabled;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Bag.Deleted)
-                    return;
-
-                Mobile from = Owner.From;
-
-                if (from.CheckAlive())
-                    m_Bag.SalvageCloth(from);
-            }
-        }
-        #endregion
-
-        #region Serialization
         public SalvageBag(Serial serial)
             : base(serial)
         {
@@ -373,16 +294,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
-        #endregion
     }
 }

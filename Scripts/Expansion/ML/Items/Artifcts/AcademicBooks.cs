@@ -1,6 +1,3 @@
-using System;
-using Server;
-
 namespace Server.Items
 {
     public class AcademicBooksArtifact : BaseDecorationArtifact
@@ -24,13 +21,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }

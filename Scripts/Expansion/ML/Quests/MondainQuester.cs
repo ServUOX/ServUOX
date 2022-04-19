@@ -116,14 +116,12 @@ namespace Server.Mobiles
 
         public override void OnMovement(Mobile m, Point3D oldLocation)
         {
-            if (m.Alive && !m.Hidden && m is PlayerMobile)
+            if (m.Alive && !m.Hidden && m is PlayerMobile mobile)
             {
-                PlayerMobile pm = (PlayerMobile)m;
-
                 int range = AutoTalkRange;
 
                 if (range >= 0 && InRange(m, range) && !InRange(oldLocation, range))
-                    OnTalk(pm);
+                    OnTalk(mobile);
 
                 range = AutoSpeakRange;
 
@@ -139,8 +137,8 @@ namespace Server.Mobiles
 
         public override void OnDoubleClick(Mobile m)
         {
-            if (m.Alive && m is PlayerMobile)
-                OnTalk((PlayerMobile)m);
+            if (m.Alive && m is PlayerMobile mobile)
+                OnTalk(mobile);
         }
 
         public override void GetProperties(ObjectPropertyList list)
@@ -159,7 +157,7 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write(0); // version
+            writer.Write(0);
 
             if (CantWalk)
                 Frozen = true;
@@ -168,8 +166,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_Spoken = DateTime.UtcNow;
 

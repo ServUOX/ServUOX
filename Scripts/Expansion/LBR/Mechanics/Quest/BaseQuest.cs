@@ -180,6 +180,7 @@ namespace Server.Engines.Quests
                 {
                     escort.Quest = this;
                     escort.LastSeenEscorter = DateTime.UtcNow;
+                    escort.CantWalk = false;
                     escort.StartFollow();
                     escort.AddHash(Owner);
 
