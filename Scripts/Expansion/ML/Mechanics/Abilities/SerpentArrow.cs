@@ -1,4 +1,6 @@
-namespace Server.Items
+using Server.Items;
+
+namespace Server.Abilities
 {
     public class SerpentArrow : WeaponAbility
     {
@@ -28,7 +30,7 @@ namespace Server.Items
             {
                 if (attacker.InRange(defender, 2))
                 {
-                    int total = attacker.Skills.Poisoning.Fixed / 2;
+                    var total = attacker.Skills.Poisoning.Fixed / 2;
 
                     if (total >= 1000)
                         level = 3;

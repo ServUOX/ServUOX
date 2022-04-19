@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Server.Commands;
 using Server.Gumps;
 using Server.Network;
@@ -13,13 +14,13 @@ namespace Server.Mechanics
         private static readonly Dictionary<string, List<Vertex>> m_GraphDefinitions = new Dictionary<string, List<Vertex>>();
         private static readonly List<int> m_ShopDefinitions = new List<int>();
         private static readonly char[] m_Separators = new char[] { '\t', ' ' };
-        private static readonly string m_Delimiter = "--------------------------------------------------------------------------";
+        private const string m_Delimiter = "--------------------------------------------------------------------------";
         public static void LogMessage(string line)
         {
             try
             {
-                using (FileStream stream = new FileStream("Guide.log", FileMode.Append))
-                using (StreamWriter writer = new StreamWriter(stream))
+                using (var stream = new FileStream("Guide.log", FileMode.Append))
+                using (var writer = new StreamWriter(stream))
                 {
                     writer.WriteLine(line);
                 }
@@ -33,13 +34,7 @@ namespace Server.Mechanics
 
         public static Vertex FindVertex(List<Vertex> list, int id)
         {
-            foreach (Vertex v in list)
-            {
-                if (v.ID == id)
-                    return v;
-            }
-
-            return null;
+            return list.FirstOrDefault(v => v.ID == id);
         }
 
         public static int FindShopName(int id)
@@ -52,61 +47,65 @@ namespace Server.Mechanics
 
         public static void Initialize()
         {
-            CommandSystem.Register("GuideEdit", AccessLevel.GameMaster, new CommandEventHandler(VertexEdit_OnCommand));
+            CommandSystem.Register("GuideEdit", AccessLevel.GameMaster, VertexEdit_OnCommand);
 
             try
             {
-                using (FileStream stream = File.OpenRead(Path.Combine("Data", "Guide", "Definitions.cfg")))
-                using (StreamReader reader = new StreamReader(stream))
+                using (var stream = File.OpenRead(Path.Combine("Data", "Guide", "Definitions.cfg")))
+                using (var reader = new StreamReader(stream))
                 {
                     while (!reader.EndOfStream)
                     {
-                        string line = reader.ReadLine();
+                        var line = reader.ReadLine();
 
-                        if (!string.IsNullOrEmpty(line) && !line.StartsWith("#"))
+                        switch (string.IsNullOrEmpty(line))
                         {
-                            string[] split = line.Split(m_Separators, StringSplitOptions.RemoveEmptyEntries);
+                            case false when !line.StartsWith("#"):
+                            {
+                                var split = line.Split(m_Separators, StringSplitOptions.RemoveEmptyEntries);
 
-                            if (split != null && split.Length > 1)
-                                m_ShopDefinitions.Add(int.Parse(split[1]));
+                                if (split != null && split.Length > 1)
+                                    m_ShopDefinitions.Add(int.Parse(split[1]));
+                                break;
+                            }
                         }
                     }
                 }
 
-                foreach (string file in Directory.GetFiles(Path.Combine("Data", "Guide"), "*.graph"))
+                foreach (var file in Directory.GetFiles(Path.Combine("Data", "Guide"), "*.graph"))
                 {
-                    using (FileStream stream = File.OpenRead(file))
-                    using (StreamReader reader = new StreamReader(stream))
+                    using (var stream = File.OpenRead(file))
+                    using (var reader = new StreamReader(stream))
                     {
-                        List<Vertex> list = new List<Vertex>();
+                        var list = new List<Vertex>();
                         Vertex current = null;
-                        Vertex neighbour = null;
+                        Vertex neighbor = null;
 
                         while (!reader.EndOfStream)
                         {
-                            string line = reader.ReadLine();
+                            var line = reader.ReadLine();
 
                             if (!string.IsNullOrEmpty(line))
                             {
-                                string[] split = line.Split(m_Separators, StringSplitOptions.RemoveEmptyEntries);
+                                var split = line.Split(m_Separators, StringSplitOptions.RemoveEmptyEntries);
                                 int num;
 
                                 if (line.StartsWith("N:"))
                                 {
                                     if (current != null)
                                     {
-                                        for (int i = 1; i < split.Length; i++)
+                                        for (var i = 1; i < split.Length; i++)
                                         {
                                             num = int.Parse(split[i]);
-                                            neighbour = FindVertex(list, num);
+                                            neighbor = FindVertex(list, num);
 
-                                            if (neighbour == null)
+                                            if (neighbor == null)
                                             {
-                                                neighbour = new Vertex(num);
-                                                list.Add(neighbour);
+                                                neighbor = new Vertex(num);
+                                                list.Add(neighbor);
                                             }
 
-                                            current.Vertices.Add(neighbour);
+                                            current.Vertices.Add(neighbor);
                                         }
                                     }
                                 }
@@ -114,14 +113,14 @@ namespace Server.Mechanics
                                 {
                                     if (current != null)
                                     {
-                                        for (int i = 1; i < split.Length; i++)
+                                        for (var i = 1; i < split.Length; i++)
                                         {
                                             num = int.Parse(split[i]);
 
                                             if (num >= 0 && num < m_ShopDefinitions.Count)
                                                 current.Shops.Add(num);
                                             else
-                                                throw new Exception(string.Format("Invalid shop ID: {0}", num));
+                                                throw new Exception($"Invalid shop ID: {num}");
                                         }
                                     }
                                 }
@@ -130,17 +129,17 @@ namespace Server.Mechanics
                                     if (split.Length > 5)
                                     {
                                         num = int.Parse(split[1]);
-                                        neighbour = FindVertex(list, num);
+                                        neighbor = FindVertex(list, num);
 
-                                        if (neighbour != null)
-                                            current = neighbour;
+                                        if (neighbor != null)
+                                            current = neighbor;
                                         else
                                         {
                                             current = new Vertex(num);
                                             list.Add(current);
                                         }
 
-                                        Point3D location = new Point3D
+                                        var location = new Point3D
                                         {
                                             X = int.Parse(split[2]),
                                             Y = int.Parse(split[3]),
@@ -169,11 +168,11 @@ namespace Server.Mechanics
 
         public static void VertexEdit_OnCommand(CommandEventArgs e)
         {
-            Mobile m = e.Mobile;
+            var m = e.Mobile;
 
             if (m.Region != null)
             {
-                Vertex closest = ClosestVetrex(m.Region.Name, m.Location);
+                Vertex closest = ClosestVertex(m.Region.Name, m.Location);
 
                 if (closest != null)
                     m.SendGump(new GuideVertexEditGump(closest, m.Map, m.Region.Name));
@@ -184,25 +183,26 @@ namespace Server.Mechanics
                 m.SendLocalizedMessage(1076113); // There are no shops nearby.  Please try again when you get to a town or city.
         }
 
-        public static Vertex ClosestVetrex(string town, Point3D location)
+        public static Vertex ClosestVertex(string town, Point3D location)
         {
             if (town == null || !m_GraphDefinitions.ContainsKey(town))
                 return null;
 
-            List<Vertex> vertices = m_GraphDefinitions[town];
+            var vertices = m_GraphDefinitions[town];
 
             Vertex closest = null;
             double min = int.MaxValue;
-            double distance;
 
-            foreach (Vertex v in vertices)
+            foreach (var v in vertices)
             {
-                distance = Math.Sqrt(Math.Pow(location.X - v.Location.X, 2) + Math.Pow(location.Y - v.Location.Y, 2));
+                var distance = Math.Sqrt(Math.Pow(location.X - v.Location.X, 2) + Math.Pow(location.Y - v.Location.Y, 2));
 
-                if (distance < min)
+                switch (distance < min)
                 {
-                    closest = v;
-                    min = distance;
+                    case true:
+                        closest = v;
+                        min = distance;
+                        break;
                 }
             }
 
@@ -214,16 +214,16 @@ namespace Server.Mechanics
             if (town == null || !m_GraphDefinitions.ContainsKey(town))
                 return null;
 
-            List<Vertex> vertices = m_GraphDefinitions[town];
-            Dictionary<int, Vertex> shops = new Dictionary<int, Vertex>();
+            var vertices = m_GraphDefinitions[town];
+            var shops = new Dictionary<int, Vertex>();
 
-            foreach (Vertex v in vertices)
+            foreach (var v in vertices)
             {
-                foreach (int shop in v.Shops)
+                foreach (var shop in v.Shops)
                 {
                     if (shops.ContainsKey(shop))
                     {
-                        Vertex d = shops[shop];
+                        var d = shops[shop];
 
                         if (v.DistanceTo(location) < d.DistanceTo(location))
                             shops[shop] = v;
@@ -233,10 +233,7 @@ namespace Server.Mechanics
                 }
             }
 
-            if (shops.Count > 0)
-                return shops;
-
-            return null;
+            return shops.Count > 0 ? shops : null;
         }
 
         public static List<Vertex> Dijkstra(string town, Vertex source, Vertex destination)
@@ -244,11 +241,11 @@ namespace Server.Mechanics
             if (town == null || !m_GraphDefinitions.ContainsKey(town))
                 return null;
 
-            Heap<Vertex> heap = new Heap<Vertex>();
-            List<Vertex> path = new List<Vertex>();
+            var heap = new Heap<Vertex>();
+            var path = new List<Vertex>();
             heap.Push(source);
 
-            foreach (Vertex v in m_GraphDefinitions[town])
+            foreach (var v in m_GraphDefinitions[town])
             {
                 v.Distance = int.MaxValue;
                 v.Previous = null;
@@ -257,10 +254,9 @@ namespace Server.Mechanics
             }
 
             source.Distance = 0;
-            Vertex from;
             while (heap.Count > 0)
             {
-                from = heap.Pop();
+                var from = heap.Pop();
                 from.Removed = true;
 
                 if (from == destination)
@@ -275,7 +271,7 @@ namespace Server.Mechanics
                     return path;
                 }
 
-                foreach (Vertex v in from.Vertices)
+                foreach (var v in from.Vertices)
                 {
                     if (!v.Removed)
                     {
@@ -315,22 +311,24 @@ namespace Server.Mechanics
                 Dragable = true;
                 Resizable = false;
 
-                int size = m_ShopDefinitions.Count;
+                var size = m_ShopDefinitions.Count;
                 AddPage(0);
                 AddBackground(0, 0, 540, 35 + size * 30 / 2, 9200);
                 AddAlphaRegion(15, 10, 510, 15 + size * 30 / 2);
 
-                for (int i = 0; i < size; i += 2)
+                for (var i = 0; i < size; i += 2)
                 {
-                    bool on = m_Vertex.Shops.Contains(i);
+                    var on = m_Vertex.Shops.Contains(i);
                     AddButton(25, 25 + i * 30 / 2, on ? 2361 : 2360, on ? 2360 : 2361, i + 1, GumpButtonType.Reply, 0);
                     AddHtmlLocalized(50, 20 + i * 30 / 2, 200, 20, m_ShopDefinitions[i], 0x7773, false, false);
 
-                    if (i + 1 < size)
+                    switch (i + 1 < size)
                     {
-                        on = m_Vertex.Shops.Contains(i + 1);
-                        AddButton(280, 25 + i * 30 / 2, on ? 2361 : 2360, on ? 2360 : 2361, i + 2, GumpButtonType.Reply, 0);
-                        AddHtmlLocalized(305, 20 + i * 30 / 2, 200, 20, m_ShopDefinitions[i + 1], 0x7773, false, false);
+                        case true:
+                            @on = m_Vertex.Shops.Contains(i + 1);
+                            AddButton(280, 25 + i * 30 / 2, @on ? 2361 : 2360, @on ? 2360 : 2361, i + 2, GumpButtonType.Reply, 0);
+                            AddHtmlLocalized(305, 20 + i * 30 / 2, 200, 20, m_ShopDefinitions[i + 1], 0x7773, false, false);
+                            break;
                     }
                 }
 
@@ -364,39 +362,44 @@ namespace Server.Mechanics
                 if (!m_GraphDefinitions.ContainsKey(town))
                     return;
 
-                List<Vertex> list = m_GraphDefinitions[town];
-                string path = Core.BaseDirectory + string.Format("\\Data\\Guide\\{0}.graph", town);
+                var list = m_GraphDefinitions[town];
+                var path = Core.BaseDirectory + $"\\Data\\Guide\\{town}.graph";
 
-                using (FileStream stream = new FileStream(path, FileMode.Create))
-                using (StreamWriter writer = new StreamWriter(stream))
+                using (var stream = new FileStream(path, FileMode.Create))
+                using (var writer = new StreamWriter(stream))
                 {
                     writer.WriteLine("# Graph vertices");
                     writer.WriteLine("# {V:}VertexID{tab, }X{tab, }Y{tab, }Z{tab, }IsTeleporter");
                     writer.WriteLine("# {S:}ShopID{tab, }ShopID{tab, }...");
                     writer.WriteLine("# {N:}VertexID{tab, }VertexID{tab, }...");
 
-                    foreach (Vertex v in list)
+                    foreach (var v in list)
                     {
-                        writer.WriteLine(string.Format("V:\t{0}\t{1}\t{2}\t{3}\t{4}", v.ID, v.Location.X, v.Location.Y, v.Location.Z, v.Teleporter.ToString()));
+                        writer.WriteLine(
+                            $"V:\t{v.ID}\t{v.Location.X}\t{v.Location.Y}\t{v.Location.Z}\t{v.Teleporter.ToString()}");
 
                         if (v.Shops.Count > 0)
                         {
                             writer.Write("S:");
 
                             foreach (int i in v.Shops)
-                                writer.Write(string.Format("\t{0}", i));
+                                writer.Write($"\t{i}");
 
                             writer.WriteLine();
                         }
 
-                        if (v.Vertices.Count > 0)
+                        switch (v.Vertices.Count > 0)
                         {
-                            writer.Write("N:");
+                            case true:
+                            {
+                                writer.Write("N:");
 
-                            foreach (Vertex n in v.Vertices)
-                                writer.Write(string.Format("\t{0}", n.ID));
+                                foreach (Vertex n in v.Vertices)
+                                    writer.Write($"\t{n.ID}");
 
-                            writer.WriteLine();
+                                writer.WriteLine();
+                                break;
+                            }
                         }
                     }
                 }
@@ -405,15 +408,8 @@ namespace Server.Mechanics
 
         public class GuideVertex : IComparable<Vertex>
         {
-            public bool m_Visited;
-            public bool m_Removed;
-            private readonly int m_ID;
-            private readonly List<Vertex> m_Vertices = new List<Vertex>();
-            private readonly List<int> m_Shops = new List<int>();
             private Point3D m_Location;
-            private bool m_Teleporter;
-            private Vertex m_Previous;
-            private int m_Distance;
+
             public GuideVertex(int id)
                 : this(id, Point3D.Zero)
             {
@@ -421,83 +417,35 @@ namespace Server.Mechanics
 
             public GuideVertex(int id, Point3D location)
             {
-                m_ID = id;
+                ID = id;
                 m_Location = location;
-                m_Previous = null;
-                m_Distance = int.MaxValue;
-                m_Visited = false;
-                m_Removed = false;
+                Previous = null;
+                Distance = int.MaxValue;
+                Visited = false;
+                Removed = false;
             }
 
-            public int ID => m_ID;
+            public int ID { get; }
+
             public Point3D Location
             {
-                get
-                {
-                    return m_Location;
-                }
-                set
-                {
-                    m_Location = value;
-                }
+                get => m_Location;
+                set => m_Location = value;
             }
-            public List<Vertex> Vertices => m_Vertices;
-            public List<int> Shops => m_Shops;
-            public bool Teleporter
-            {
-                get
-                {
-                    return m_Teleporter;
-                }
-                set
-                {
-                    m_Teleporter = value;
-                }
-            }
-            public Vertex Previous
-            {
-                get
-                {
-                    return m_Previous;
-                }
-                set
-                {
-                    m_Previous = value;
-                }
-            }
-            public int Distance
-            {
-                get
-                {
-                    return m_Distance;
-                }
-                set
-                {
-                    m_Distance = value;
-                }
-            }
-            public bool Visited
-            {
-                get
-                {
-                    return m_Visited;
-                }
-                set
-                {
-                    m_Visited = value;
-                }
-            }
-            public bool Removed
-            {
-                get
-                {
-                    return m_Removed;
-                }
-                set
-                {
-                    m_Removed = value;
-                }
-            }
+            public List<Vertex> Vertices { get; } = new List<Vertex>();
+
+            public List<int> Shops { get; } = new List<int>();
+
+            public bool Teleporter { get; set; }
+
+            public Vertex Previous { get; set; }
+
+            public int Distance { get; set; }
+
+            public bool Visited { get; set; }
+
+            public bool Removed { get; set; }
+
             public int DistanceTo(Vertex to)
             {
                 return Math.Abs(m_Location.X - to.Location.X) + Math.Abs(m_Location.Y - to.Location.Y);
@@ -511,7 +459,7 @@ namespace Server.Mechanics
             public int CompareTo(Vertex o)
             {
                 if (o != null)
-                    return m_Distance - o.Distance;
+                    return Distance - o.Distance;
 
                 return 0;
             }
@@ -536,8 +484,8 @@ namespace Server.Mechanics
             {
                 m_List.Add(item);
 
-                int child = m_List.Count - 1;
-                int parent = (child - 1) / 2;
+                var child = m_List.Count - 1;
+                var parent = (child - 1) / 2;
                 T temp;
 
                 while (item.CompareTo(m_List[parent]) < 0 && child > 0)
@@ -553,8 +501,8 @@ namespace Server.Mechanics
 
             public void Fix(T item)
             {
-                int child = m_List.IndexOf(item);
-                int parent = (child - 1) / 2;
+                var child = m_List.IndexOf(item);
+                var parent = (child - 1) / 2;
                 T temp;
 
                 while (item.CompareTo(m_List[parent]) < 0 && child > 0)
@@ -573,13 +521,13 @@ namespace Server.Mechanics
                 if (m_List.Count == 0)
                     return default(T);
 
-                T top = m_List[0];
+                var top = m_List[0];
                 T temp;
 
                 m_List[0] = m_List[m_List.Count - 1];
                 m_List.RemoveAt(m_List.Count - 1);
 
-                int parent = 0;
+                var parent = 0;
                 int lchild;
                 int rchild;
 

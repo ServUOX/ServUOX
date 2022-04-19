@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class Jellyfish : BaseFish
@@ -27,7 +25,7 @@ namespace Server.Items
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

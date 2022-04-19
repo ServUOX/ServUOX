@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Server.Items;
 using Server.Spells;
 
-namespace Server.Items
+namespace Server.Abilities
 {
     public class ForceArrow : WeaponAbility
     {
@@ -52,7 +54,7 @@ namespace Server.Items
 
         public static void BeginForceArrow(Mobile attacker, Mobile defender)
         {
-            ForceArrowInfo info = new ForceArrowInfo(attacker, defender);
+            var info = new ForceArrowInfo(attacker, defender);
             info.Timer = new ForceArrowTimer(info);
 
             if (!m_Table.ContainsKey(attacker))
@@ -86,13 +88,7 @@ namespace Server.Items
             if (!m_Table.ContainsKey(attacker))
                 return false;
 
-            foreach (ForceArrowInfo info in m_Table[attacker])
-            {
-                if (info.Defender == defender)
-                    return true;
-            }
-
-            return false;
+            return m_Table[attacker].Any(info => info.Defender == defender);
         }
 
         public static ForceArrowInfo GetInfo(Mobile attacker, Mobile defender)
@@ -142,10 +138,12 @@ namespace Server.Items
 
             protected override void OnTick()
             {
-                if (m_Expires < DateTime.UtcNow)
+                switch (m_Expires < DateTime.UtcNow)
                 {
-                    Stop();
-                    EndForceArrow(m_Info);
+                    case true:
+                        Stop();
+                        EndForceArrow(m_Info);
+                        break;
                 }
             }
 

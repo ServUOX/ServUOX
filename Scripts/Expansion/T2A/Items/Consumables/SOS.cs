@@ -161,25 +161,21 @@ namespace Server.Items
 
         public override void OnDoubleClick(Mobile from)
         {
-            if (IsChildOf(from.Backpack))
+            if (from.InRange(GetWorldLocation(), 2) && Movable)
             {
                 MessageEntry entry;
 
                 if (MessageIndex >= 0 && MessageIndex < MessageEntry.Entries.Length)
-                {
                     entry = MessageEntry.Entries[MessageIndex];
-                }
                 else
-                {
                     entry = MessageEntry.Entries[MessageIndex = Utility.Random(MessageEntry.Entries.Length)];
-                }
 
                 from.CloseGump(typeof(MessageGump));
                 from.SendGump(new MessageGump(entry, TargetMap, m_TargetLocation));
             }
             else
             {
-                from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
+                from.SendLocalizedMessage(1019045); // I can't reach that.
             }
         }
 

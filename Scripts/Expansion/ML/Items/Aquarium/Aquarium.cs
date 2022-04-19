@@ -1,8 +1,9 @@
-using System;
-using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Multis;
 using Server.Network;
+using System;
+using Server.Gumps;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
@@ -25,10 +26,8 @@ namespace Server.Items
 
                 for (int i = 0; i < Items.Count; i++)
                 {
-                    if (Items[i] is BaseFish)
+                    if (Items[i] is BaseFish fish)
                     {
-                        BaseFish fish = (BaseFish)Items[i];
-
                         if (fish.Dead)
                             dead += 1;
                     }
@@ -221,10 +220,8 @@ namespace Server.Items
 
             bool takeItem = true;
 
-            if (dropped is FishBowl)
+            if (dropped is FishBowl bowl)
             {
-                FishBowl bowl = (FishBowl)dropped;
-
                 if (bowl.Empty || !AddFish(from, bowl.Fish))
                     return false;
 
@@ -232,10 +229,8 @@ namespace Server.Items
 
                 takeItem = false;
             }
-            else if (dropped is BaseFish)
+            else if (dropped is BaseFish fish)
             {
-                BaseFish fish = (BaseFish)dropped;
-
                 if (!AddFish(from, fish))
                     return false;
             }
@@ -253,10 +248,8 @@ namespace Server.Items
 
                 from.SendLocalizedMessage(1074259, "1"); // ~1_NUM~ unit(s) of food have been added to the aquarium.
             }
-            else if (dropped is BaseBeverage)
+            else if (dropped is BaseBeverage beverage)
             {
-                BaseBeverage beverage = (BaseBeverage)dropped;
-
                 if (beverage.IsEmpty || !beverage.Pourable || beverage.Content != BeverageType.Water)
                 {
                     from.SendLocalizedMessage(500840); // Can't pour that in there.
@@ -296,10 +289,8 @@ namespace Server.Items
 
                 item.MoveToWorld(loc, Map);
 
-                if (item is BaseFish)
+                if (item is BaseFish fish)
                 {
-                    BaseFish fish = (BaseFish)item;
-
                     if (!fish.Dead)
                         fish.StartTimer();
                 }
@@ -568,10 +559,8 @@ namespace Server.Items
 
             for (int i = 0; i < Items.Count; i++)
             {
-                if (Items[i] is BaseFish)
+                if (Items[i] is BaseFish fish)
                 {
-                    BaseFish fish = (BaseFish)Items[i];
-
                     if (!fish.Dead)
                         toKill.Add(fish);
                 }
@@ -681,6 +670,8 @@ namespace Server.Items
                                     fish = new StrippedSosarianSwill();
                                     break;
                                 }
+                            default:
+                                break;
                         }
 
                         if (Utility.RandomDouble() < 0.05)
@@ -799,10 +790,8 @@ namespace Server.Items
                 return false;
             }
 
-            if (item is BaseFish)
+            if (item is BaseFish fish)
             {
-                BaseFish fish = (BaseFish)item;
-
                 FishBowl bowl;
 
                 if ((bowl = GetEmptyBowl(from)) != null)
@@ -935,10 +924,8 @@ namespace Server.Items
 
             for (int i = 0; i < items.Length; i++)
             {
-                if (items[i] is FishBowl)
+                if (items[i] is FishBowl bowl)
                 {
-                    FishBowl bowl = (FishBowl)items[i];
-
                     if (bowl.Empty)
                         return bowl;
                 }
@@ -983,253 +970,5 @@ namespace Server.Items
 
         public static int[] FishHues => m_FishHues;
         #endregion
-
-        #region Context entries
-        private class ExamineEntry : ContextMenuEntry
-        {
-            private readonly Aquarium m_Aquarium;
-
-            public ExamineEntry(Aquarium aquarium)
-                : base(6235, 2)// Examine Aquarium
-            {
-                m_Aquarium = aquarium;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Aquarium.Deleted)
-                    return;
-
-                m_Aquarium.ExamineAquarium(Owner.From);
-            }
-        }
-
-        private class CollectRewardEntry : ContextMenuEntry
-        {
-            private readonly Aquarium m_Aquarium;
-
-            public CollectRewardEntry(Aquarium aquarium)
-                : base(6237, 2)// Collect Reward
-            {
-                m_Aquarium = aquarium;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Aquarium.Deleted || !m_Aquarium.HasAccess(Owner.From))
-                    return;
-
-                m_Aquarium.GiveReward(Owner.From);
-            }
-        }
-
-        private class ViewEventEntry : ContextMenuEntry
-        {
-            private readonly Aquarium m_Aquarium;
-
-            public ViewEventEntry(Aquarium aquarium)
-                : base(6239, 2)// View events
-            {
-                m_Aquarium = aquarium;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Aquarium.Deleted || !m_Aquarium.HasAccess(Owner.From) || m_Aquarium.Events.Count == 0)
-                    return;
-
-                Owner.From.SendLocalizedMessage(m_Aquarium.Events[0]);
-
-                if (m_Aquarium.Events[0] == 1074366)
-                    Owner.From.PlaySound(0x5A2);
-
-                m_Aquarium.Events.RemoveAt(0);
-                m_Aquarium.InvalidateProperties();
-            }
-        }
-
-        private class CancelVacationMode : ContextMenuEntry
-        {
-            private readonly Aquarium m_Aquarium;
-
-            public CancelVacationMode(Aquarium aquarium)
-                : base(6240, 2)// Cancel vacation mode
-            {
-                m_Aquarium = aquarium;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Aquarium.Deleted || !m_Aquarium.HasAccess(Owner.From))
-                    return;
-
-                Owner.From.SendLocalizedMessage(1074429); // Vacation mode has been cancelled.
-                m_Aquarium.VacationLeft = 0;
-                m_Aquarium.InvalidateProperties();
-            }
-        }
-
-        // GM context entries
-        private class GMAddFood : ContextMenuEntry
-        {
-            private readonly Aquarium m_Aquarium;
-
-            public GMAddFood(Aquarium aquarium)
-                : base(6231, -1)// GM Add Food
-            {
-                m_Aquarium = aquarium;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Aquarium.Deleted)
-                    return;
-
-                m_Aquarium.Food.Added += 1;
-                m_Aquarium.InvalidateProperties();
-            }
-        }
-
-        private class GMAddWater : ContextMenuEntry
-        {
-            private readonly Aquarium m_Aquarium;
-
-            public GMAddWater(Aquarium aquarium)
-                : base(6232, -1)// GM Add Water
-            {
-                m_Aquarium = aquarium;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Aquarium.Deleted)
-                    return;
-
-                m_Aquarium.Water.Added += 1;
-                m_Aquarium.InvalidateProperties();
-            }
-        }
-
-        private class GMForceEvaluate : ContextMenuEntry
-        {
-            private readonly Aquarium m_Aquarium;
-
-            public GMForceEvaluate(Aquarium aquarium)
-                : base(6233, -1)// GM Force Evaluate
-            {
-                m_Aquarium = aquarium;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Aquarium.Deleted)
-                    return;
-
-                m_Aquarium.Evaluate();
-            }
-        }
-
-        private class GMOpen : ContextMenuEntry
-        {
-            private readonly Aquarium m_Aquarium;
-
-            public GMOpen(Aquarium aquarium)
-                : base(6234, -1)// GM Open Container
-            {
-                m_Aquarium = aquarium;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Aquarium.Deleted)
-                    return;
-
-                Owner.From.SendGump(new AquariumGump(m_Aquarium, true));
-            }
-        }
-
-        private class GMFill : ContextMenuEntry
-        {
-            private readonly Aquarium m_Aquarium;
-
-            public GMFill(Aquarium aquarium)
-                : base(6236, -1)// GM Fill Food and Water
-            {
-                m_Aquarium = aquarium;
-            }
-
-            public override void OnClick()
-            {
-                if (m_Aquarium.Deleted)
-                    return;
-
-                m_Aquarium.Food.Added = m_Aquarium.Food.Maintain;
-                m_Aquarium.Water.Added = m_Aquarium.Water.Maintain;
-                m_Aquarium.InvalidateProperties();
-            }
-        }
-        #endregion
-    }
-
-    public class AquariumEastDeed : BaseAddonContainerDeed
-    {
-        public override BaseAddonContainer Addon => new Aquarium(0x3062);
-        public override int LabelNumber => 1074501;// Large Aquarium (east)
-
-        [Constructible]
-        public AquariumEastDeed()
-            : base()
-        {
-        }
-
-        public AquariumEastDeed(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.Write(0); // Version
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-        }
-    }
-
-    public class AquariumNorthDeed : BaseAddonContainerDeed
-    {
-        public override BaseAddonContainer Addon => new Aquarium(0x3060);
-        public override int LabelNumber => 1074497;// Large Aquarium (north)
-
-        [Constructible]
-        public AquariumNorthDeed()
-            : base()
-        {
-        }
-
-        public AquariumNorthDeed(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.Write(0); // Version
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-        }
     }
 }

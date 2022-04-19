@@ -111,9 +111,36 @@
     <Compile Include="Expansion\ML\Items\8th Anniversary Gifts\Talismans\SquirrelFormTalisman.cs" />
     <Compile Include="Expansion\ML\Items\Altars\ParoxysmusIronGate.cs" />
     <Compile Include="Expansion\ML\Items\Altars\PrismOfLightPillar.cs" />
+    <Compile Include="Expansion\ML\Items\Aquarium\AquariumNorthDeed.cs" />
+    <Compile Include="Expansion\ML\Items\Aquarium\AquariumEastDeed.cs" />
+    <Compile Include="Expansion\ML\Items\Artifcts\BaseDecorationContainerArtifact.cs" />
+    <Compile Include="Expansion\ML\Items\CommunityCollections\BritainLibraryCollections\LibraryFriendReadingChair.cs" />
     <Compile Include="Expansion\ML\Items\DoomRecipeScroll.cs" />
+    <Compile Include="Expansion\ML\Items\Food and Drink\DarkChocolate.cs" />
+    <Compile Include="Expansion\ML\Items\Food and Drink\MilkChocolate.cs" />
+    <Compile Include="Expansion\ML\Items\Food and Drink\CocoaPulp.cs" />
+    <Compile Include="Expansion\ML\Items\Food and Drink\Vanilla.cs" />
+    <Compile Include="Expansion\ML\Items\Food and Drink\SweetCocoaButter.cs" />
+    <Compile Include="Expansion\ML\Items\Food and Drink\CocoaButter.cs" />
+    <Compile Include="Expansion\ML\Items\Food and Drink\SackOfSugar.cs" />
+    <Compile Include="Expansion\ML\Items\Food and Drink\CocoaLiquor.cs" />
+    <Compile Include="Expansion\ML\Items\Furinture\BigElvenChair.cs" />
+    <Compile Include="Expansion\ML\Items\Furinture\ElvenReadingChair.cs" />
     <Compile Include="Expansion\ML\Items\StainedOoze.cs" />
     <Compile Include="Expansion\ML\Items\TravestyDogClonedItem.cs" />
+    <Compile Include="Expansion\ML\Mechanics\Gumps\GemResurrectGump.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\SalvageClothEntry.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\SalvageIngotsEntry.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\SalvageAllEntry.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\GMFill.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\GMOpen.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\GMForceEvaluate.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\GMAddWater.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\GMAddFood.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\CancelVacationMode.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\ViewEventEntry.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\CollectRewardEntry.cs" />
+    <Compile Include="Expansion\ML\Mechanics\ContextMenus\ExamineEntry.cs" />
     <Compile Include="Expansion\ML\Mechanics\ContextMenus\HeraldSetGreetingTextEntry.cs" />
     <Compile Include="Expansion\ML\Mechanics\ContextMenus\HeraldSetAnnouncementTextEntry.cs" />
     <Compile Include="Expansion\ML\Mechanics\Gumps\FortuneGump.cs" />
@@ -287,7 +314,7 @@
     <Compile Include="Expansion\SE\Items\Addons\SquareGozaMatAddon .cs" />
     <Compile Include="Expansion\SE\Items\Equipment\ClohingOuter.cs" />
     <Compile Include="Expansion\ML\Items\Equipment\MonkRobe.cs" />
-    <Compile Include="Expansion\ML\Items\Furinture\MLChairs.cs" />
+    <Compile Include="Expansion\ML\Items\Furinture\OrnateElvenChair.cs" />
     <Compile Include="Expansion\HS\Items\Food and Drinks\HotCocoaMug.cs" />
     <Compile Include="Expansion\HS\Items\PulledPorkSandwich.cs" />
     <Compile Include="Expansion\HS\Items\PulledPorkPlatter.cs" />
@@ -4069,7 +4096,7 @@
     <Compile Include="Expansion\UOR\CleanUpBritannia\Items\NestWithEggs.cs" />
     <Compile Include="Expansion\UOR\CleanUpBritannia\Items\YuccaTree.cs" />
     <Compile Include="Expansion\UOR\CleanUpBritannia\PointExchange.cs" />
-    <Compile Include="Expansion\ML\Items\CommunityCollections\CommunityCollectionGump.cs" />
+    <Compile Include="Expansion\ML\Mechanics\Gumps\CommunityCollectionGump.cs" />
     <Compile Include="Expansion\AOS\Mechanics\Doom\GaryRoom.cs" />
     <Compile Include="Expansion\AOS\Mechanics\Doom\GuardianRoom.cs" />
     <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Core\Persistence.cs" />
@@ -4487,7 +4514,7 @@
     <Compile Include="Expansion\ML\Items\Aquarium\AquariumFood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\Aquarium\AquariumGump.cs">
+    <Compile Include="Expansion\ML\Mechanics\Gumps\AquariumGump.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Aquarium\AquariumState.cs">
@@ -5870,7 +5897,7 @@
     <Compile Include="Expansion\UO\Items\Provision\Food and Drink\Beverages\GlassBottle.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\Food and Drink\Chocolatiering.cs">
+    <Compile Include="Expansion\ML\Items\Food and Drink\WhiteChocolate.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UO\Items\Provision\Food and Drink\CookableFood.cs">
@@ -5891,7 +5918,7 @@
     <Compile Include="Expansion\UO\Items\Provision\Food and Drink\Vegetables\Carrot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\Food and Drink\WrathGrapes.cs">
+    <Compile Include="Expansion\ML\Items\Food and Drink\GrapesOfWrath.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UO\Items\Craft and Component\CraftableFurniture.cs">
@@ -9755,47 +9782,47 @@
     <Compile Include="Expansion\ML\Items\CommunityCollections\BaseCollectionItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\BaseCollectionMobile.cs">
+    <Compile Include="Expansion\ML\Mobiles\Community Collections\BaseCollectionMobile.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Equipment\Glasses\CollectionsBritLibraryGlasses.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\CollectionsBritLibraryMisc.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\BritainLibraryCollections\LibraryFriendLantern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\CollectionsBritLibraryQuotes.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\BritainLibraryCollections\CollectionsBritLibraryQuotes.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Items\Talismans\CollectionsBritLibraryTalismans.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\CollectionDecayTimer.cs">
+    <Compile Include="Expansion\ML\Mechanics\CollectionDecayTimer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\CollectionItem.cs">
+    <Compile Include="Expansion\ML\Mechanics\CollectionItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\CollectionsSystem.cs" />
-    <Compile Include="Expansion\ML\Items\CommunityCollections\ConfirmRewardGump.cs">
+    <Compile Include="Expansion\ML\Mechanics\CollectionsSystem.cs" />
+    <Compile Include="Expansion\ML\Mechanics\Gumps\ConfirmRewardGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\ConfirmTransferPetGump.cs">
+    <Compile Include="Expansion\ML\Mechanics\Gumps\ConfirmTransferPetGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\ICollection.cs">
+    <Compile Include="Expansion\ML\Mechanics\ICollection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\RoyalZooDonationBox.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\ZooCollection\RoyalZooDonationBox.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SE\Items\Decorative\BakeKitsuneStatue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\ChangelingStatue.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\ZooCollection\ChangelingStatue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\CollectionStatuettes.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\ZooCollection\CollectionStatuettes.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Equipment\Armor\RoyalZooLeatherArmor.cs">
@@ -9804,28 +9831,28 @@
     <Compile Include="Expansion\ML\Items\Equipment\Armor\RoyalZooPlateArmor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\PolarBearStatue.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\ZooCollection\PolarBearStatue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\QuagmireStatue.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\ZooCollection\QuagmireStatue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\Decorative\ReptalonStatue.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\ZooCollection\ReptalonStatue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\SnakeStatue.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\ZooCollection\SnakeStatue.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Equipment\Armor\RoyalZooStuddedArmor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\WolfStatue.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\ZooCollection\WolfStatue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\SelectTitleGump.cs">
+    <Compile Include="Expansion\ML\Mechanics\Gumps\SelectTitleGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\MuseumDonationBox.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\MuseumCollection\MuseumDonationBox.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Equipment\Armor\MuseumArmor.cs">
@@ -9840,7 +9867,7 @@
     <Compile Include="Expansion\UO\Items\Decorations\LordBritishThroneAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\Items\CommunityCollections\MuseumStatues.cs">
+    <Compile Include="Expansion\ML\Items\CommunityCollections\MuseumCollection\MuseumStatues.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Items\Weapons\MuseumWeapons.cs">
@@ -10897,8 +10924,8 @@
     <Compile Include="Mechanics\Teleporters\Teleporters.cs" />
     <Compile Include="Expansion\HS\Items\VetRewards\CorruptedCrystalPortal.cs" />
     <Compile Include="Expansion\HS\Items\VetRewards\CorruptedCrystalPortalGump.cs" />
-    <Compile Include="Expansion\ML\Items\CrystalPortals\CrystalPortal.cs" />
-    <Compile Include="Expansion\ML\Items\CrystalPortals\CrystalPortalGump.cs" />
+    <Compile Include="Expansion\ML\Items\CrystalPortal.cs" />
+    <Compile Include="Expansion\ML\Mechanics\Gumps\CrystalPortalGump.cs" />
     <Compile Include="Expansion\HS\Items\VetRewards\DaviesLocker.cs" />
     <Compile Include="Expansion\UOR\VeteranRewards\StatRewardGump.cs" />
     <Compile Include="Expansion\HS\Mechanics\ViceVsVirtue\CityInfo.cs" />

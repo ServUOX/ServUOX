@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class CraftysFishingHat : BaseHat
@@ -23,6 +21,7 @@ namespace Server.Items
         public override int BaseEnergyResistance => 5;
         public override int InitMinHits => 20;
         public override int InitMaxHits => 30;
+
         public override void AddNameProperties(ObjectPropertyList list)
         {
             base.AddNameProperties(list);
@@ -33,15 +32,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using Server;
 using System;
-using Server.Mobiles;
 
 namespace Server.Items
 {
@@ -41,7 +39,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
             m_NextHarvest = reader.ReadDateTime();
         }
     }

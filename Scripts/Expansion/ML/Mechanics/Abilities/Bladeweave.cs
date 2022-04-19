@@ -1,14 +1,15 @@
 using System.Collections.Generic;
+using Server.Items;
 using Server.Mobiles;
 
-namespace Server.Items
+namespace Server.Abilities
 {
     public class Bladeweave : WeaponAbility
     {
         private class BladeWeaveRedirect
         {
-            public WeaponAbility NewAbility;
-            public int ClilocEntry;
+            public readonly WeaponAbility NewAbility;
+            public readonly int ClilocEntry;
 
             public BladeWeaveRedirect(WeaponAbility ability, int cliloc)
             {
@@ -21,11 +22,8 @@ namespace Server.Items
 
         public static bool BladeWeaving(Mobile attacker, out WeaponAbility a)
         {
-            bool success = m_NewAttack.TryGetValue(attacker, out BladeWeaveRedirect bwr);
-            if (success)
-                a = bwr.NewAbility;
-            else
-                a = null;
+            var success = m_NewAttack.TryGetValue(attacker, out var bwr);
+            a = success ? bwr.NewAbility : null;
 
             return success;
         }
@@ -48,8 +46,8 @@ namespace Server.Items
             }
             else
             {
-                bool canfeint = attacker.Skills[Feint.GetSecondarySkill(attacker)].Value >= Feint.GetRequiredSecondarySkill(attacker);
-                bool canblock = attacker.Skills[Block.GetSecondarySkill(attacker)].Value >= Block.GetRequiredSecondarySkill(attacker);
+                var canfeint = attacker.Skills[Feint.GetSecondarySkill(attacker)].Value >= Feint.GetRequiredSecondarySkill(attacker);
+                var canblock = attacker.Skills[Block.GetSecondarySkill(attacker)].Value >= Block.GetRequiredSecondarySkill(attacker);
 
                 if (canfeint && canblock)
                 {
@@ -104,7 +102,7 @@ namespace Server.Items
 
         public override bool OnBeforeDamage(Mobile attacker, Mobile defender)
         {
-            if (m_NewAttack.TryGetValue(attacker, out BladeWeaveRedirect bwr))
+            if (m_NewAttack.TryGetValue(attacker, out var bwr))
                 return bwr.NewAbility.OnBeforeDamage(attacker, defender);
             else
                 return base.OnBeforeDamage(attacker, defender);
@@ -114,7 +112,7 @@ namespace Server.Items
         {
             if (CheckMana(attacker, false))
             {
-                if (m_NewAttack.TryGetValue(attacker, out BladeWeaveRedirect bwr))
+                if (m_NewAttack.TryGetValue(attacker, out var bwr))
                 {
                     attacker.SendLocalizedMessage(1072841, "#" + bwr.ClilocEntry.ToString());
                     bwr.NewAbility.OnHit(attacker, defender, damage);
@@ -130,7 +128,7 @@ namespace Server.Items
 
         public override void OnMiss(Mobile attacker, Mobile defender)
         {
-            if (m_NewAttack.TryGetValue(attacker, out BladeWeaveRedirect bwr))
+            if (m_NewAttack.TryGetValue(attacker, out var bwr))
                 bwr.NewAbility.OnMiss(attacker, defender);
             else
                 base.OnMiss(attacker, defender);

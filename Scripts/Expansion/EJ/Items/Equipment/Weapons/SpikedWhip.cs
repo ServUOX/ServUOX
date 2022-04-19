@@ -22,6 +22,7 @@ namespace Server.Items
         public override bool CanBeWornByGargoyles => true;
         public override WeaponAbility PrimaryAbility => WeaponAbility.ArmorPierce;
         public override WeaponAbility SecondaryAbility => WeaponAbility.WhirlwindAttack;
+        public override WeaponAnimation DefAnimation => WeaponAnimation.Bash1H;
         public override int AosStrengthReq => 20;
         public override int AosMinDamage => 13;
         public override int AosMaxDamage => 17;
@@ -32,7 +33,6 @@ namespace Server.Items
         public override int InitMaxHits => 60;
         public override SkillName DefSkill => SkillName.Fencing;
         public override WeaponType DefType => WeaponType.Piercing;
-        public override WeaponAnimation DefAnimation => WeaponAnimation.Pierce1H;
 
         public override void Serialize(GenericWriter writer)
         {

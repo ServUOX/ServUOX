@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Server.Items;
 
-namespace Server.Items
+namespace Server.Abilities
 {
     public class ForceOfNature : WeaponAbility
     {
@@ -28,7 +29,7 @@ namespace Server.Items
             if (m_Table.ContainsKey(attacker))
                 Remove(attacker);
 
-            ForceOfNatureTimer t = new ForceOfNatureTimer(attacker, defender);
+            var t = new ForceOfNatureTimer(attacker, defender);
             t.Start();
 
             m_Table[attacker] = t;
@@ -38,9 +39,7 @@ namespace Server.Items
 
         public static bool Remove(Mobile m)
         {
-            ForceOfNatureTimer t;
-
-            m_Table.TryGetValue(m, out t);
+            m_Table.TryGetValue(m, out var t);
 
             if (t == null)
                 return false;
@@ -54,19 +53,23 @@ namespace Server.Items
         {
             if (m_Table.ContainsKey(from))
             {
-                ForceOfNatureTimer t = m_Table[from];
+                var t = m_Table[from];
 
                 t.Hits++;
                 t.LastHit = DateTime.Now;
 
-                if (t.Hits % 12 == 0)
+                switch (t.Hits % 12)
                 {
-                    int duration = target.Skills[SkillName.MagicResist].Value >= 90.0 ? 1 : 2;
-                    target.Paralyze(TimeSpan.FromSeconds(duration));
-                    t.Hits = 0;
+                    case 0:
+                    {
+                        var duration = target.Skills[SkillName.MagicResist].Value >= 90.0 ? 1 : 2;
+                        target.Paralyze(TimeSpan.FromSeconds(duration));
+                        t.Hits = 0;
 
-                    from.SendLocalizedMessage(1004013); // You successfully stun your opponent!
-                    target.SendLocalizedMessage(1004014); // You have been stunned!
+                        @from.SendLocalizedMessage(1004013); // You successfully stun your opponent!
+                        target.SendLocalizedMessage(1004014); // You have been stunned!
+                        break;
+                    }
                 }
             }
         }
@@ -75,11 +78,11 @@ namespace Server.Items
         {
             if (m_Table.ContainsKey(from))
             {
-                ForceOfNatureTimer t = m_Table[from];
+                var t = m_Table[from];
 
                 if (t.Target == target)
                 {
-                    int bonus = Math.Max(50, from.Str - 50);
+                    var bonus = Math.Max(50, from.Str - 50);
                     if (bonus > 100) bonus = 100;
                     return bonus;
                 }

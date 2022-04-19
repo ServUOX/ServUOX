@@ -22,6 +22,7 @@ namespace Server.Items
         public override bool CanBeWornByGargoyles => true;
         public override WeaponAbility PrimaryAbility => WeaponAbility.BleedAttack;
         public override WeaponAbility SecondaryAbility => WeaponAbility.WhirlwindAttack;
+        public override WeaponAnimation DefAnimation => WeaponAnimation.Bash1H;
         public override int AosStrengthReq => 20;
         public override int AosMinDamage => 13;
         public override int AosMaxDamage => 17;
