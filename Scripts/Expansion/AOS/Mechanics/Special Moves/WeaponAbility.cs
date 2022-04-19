@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Server.Abilities;
 using Server.Network;
 using Server.Spells;
 using Server.Spells.SkillMasteries;

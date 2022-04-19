@@ -18,6 +18,7 @@ using Server.SkillHandlers;
 using Server.Engines.CityLoyalty;
 using Server.Services.Virtues;
 using Server.Spells.SkillMasteries;
+using Server.Abilities;
 
 namespace Server
 {

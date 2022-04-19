@@ -1,3 +1,4 @@
+using Server.Abilities;
 using Server.ContextMenus;
 using Server.Engines.Craft;
 using Server.Engines.XmlSpawner2;
