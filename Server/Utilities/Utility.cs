@@ -8,7 +8,6 @@ using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
-using System.Linq;
 
 namespace Server
 {
@@ -58,7 +57,8 @@ namespace Server
             {
                 return null;
             }
-            else if (str.Length == 0)
+
+            if (str.Length == 0)
             {
                 return string.Empty;
             }
@@ -80,9 +80,8 @@ namespace Server
                 _ipAddressTable = new Dictionary<IPAddress, IPAddress>();
             }
 
-            IPAddress interned;
 
-            if (!_ipAddressTable.TryGetValue(ipAddress, out interned))
+            if (!_ipAddressTable.TryGetValue(ipAddress, out IPAddress interned))
             {
                 interned = ipAddress;
                 _ipAddressTable[ipAddress] = interned;
@@ -119,9 +118,9 @@ namespace Server
                 return "";
             }
 
-            bool hasOpen = (str.IndexOf('<') >= 0);
-            bool hasClose = (str.IndexOf('>') >= 0);
-            bool hasPound = (str.IndexOf('#') >= 0);
+            bool hasOpen = str.IndexOf('<') >= 0;
+            bool hasClose = str.IndexOf('>') >= 0;
+            bool hasPound = str.IndexOf('#') >= 0;
 
             if (!hasOpen && !hasClose && !hasPound)
             {
@@ -188,8 +187,8 @@ namespace Server
 
             */
 
-            var bytes = new byte[4];
-            var split = cidr.Split('.');
+            byte[] bytes = new byte[4];
+            string[] split = cidr.Split('.');
             bool cidrBits = false;
             int cidrLength = 0;
 
@@ -313,23 +312,23 @@ namespace Server
 
             uint mask = uint.MaxValue << 32 - cidrLength;
 
-            return ((cidrPrefixValue & mask) == (ipValue & mask));
+            return (cidrPrefixValue & mask) == (ipValue & mask);
         }
 
-        private static uint OrderedAddressValue(byte[] bytes)
+        private static uint OrderedAddressValue(IReadOnlyList<byte> bytes)
         {
-            if (bytes.Length != 4)
+            if (bytes.Count != 4)
             {
                 return 0;
             }
 
-            return (uint)((((bytes[0] << 0x18) | (bytes[1] << 0x10)) | (bytes[2] << 8)) | bytes[3]) & (0xffffffff);
+            return (uint)((bytes[0] << 0x18) | (bytes[1] << 0x10) | (bytes[2] << 8) | bytes[3]) & (0xffffffff);
         }
 
         private static uint SwapUnsignedInt(uint source)
         {
-            return ((((source & 0x000000FF) << 0x18) | ((source & 0x0000FF00) << 8) | ((source & 0x00FF0000) >> 8) |
-                     ((source & 0xFF000000) >> 0x18)));
+            return ((source & 0x000000FF) << 0x18) | ((source & 0x0000FF00) << 8) | ((source & 0x00FF0000) >> 8) |
+                     ((source & 0xFF000000) >> 0x18);
         }
 
         public static bool TryConvertIPv6toIPv4(ref IPAddress address)
@@ -339,7 +338,7 @@ namespace Server
                 return true;
             }
 
-            var addr = address.GetAddressBytes();
+            byte[] addr = address.GetAddressBytes();
             if (addr.Length == 16) //sanity 0 - 15 //10 11 //12 13 14 15
             {
                 if (addr[10] != 0xFF || addr[11] != 0xFF)
@@ -355,7 +354,7 @@ namespace Server
                     }
                 }
 
-                var v4Addr = new byte[4];
+                byte[] v4Addr = new byte[4];
 
                 for (int i = 0; i < 4; i++)
                 {
@@ -373,7 +372,7 @@ namespace Server
         {
             valid = true;
 
-            var split = val.Split('.');
+            string[] split = val.Split('.');
 
             for (int i = 0; i < 4; ++i)
             {
@@ -487,7 +486,7 @@ namespace Server
 
         public static bool IPMatchClassC(IPAddress ip1, IPAddress ip2)
         {
-            return ((GetAddressValue(ip1) & 0xFFFFFF) == (GetAddressValue(ip2) & 0xFFFFFF));
+            return (GetAddressValue(ip1) & 0xFFFFFF) == (GetAddressValue(ip2) & 0xFFFFFF);
         }
 
         public static int InsensitiveCompare(string first, string second)
@@ -503,24 +502,21 @@ namespace Server
         #region To[Something]
         public static bool ToBoolean(string value)
         {
-            bool b;
-            bool.TryParse(value, out b);
+            bool.TryParse(value, out bool b);
 
             return b;
         }
 
         public static double ToDouble(string value)
         {
-            double d;
-            double.TryParse(value, out d);
+            double.TryParse(value, out double d);
 
             return d;
         }
 
         public static TimeSpan ToTimeSpan(string value)
         {
-            TimeSpan t;
-            TimeSpan.TryParse(value, out t);
+            TimeSpan.TryParse(value, out TimeSpan t);
 
             return t;
         }
@@ -563,8 +559,7 @@ namespace Server
             }
             catch
             {
-                double val;
-                if (double.TryParse(doubleString, out val))
+                if (double.TryParse(doubleString, out double val))
                 {
                     return val;
                 }
@@ -581,8 +576,7 @@ namespace Server
             }
             catch
             {
-                int val;
-                if (int.TryParse(intString, out val))
+                if (int.TryParse(intString, out int val))
                 {
                     return val;
                 }
@@ -599,9 +593,8 @@ namespace Server
             }
             catch
             {
-                DateTime d;
 
-                if (DateTime.TryParse(dateTimeString, out d))
+                if (DateTime.TryParse(dateTimeString, out DateTime d))
                 {
                     return d;
                 }
@@ -618,9 +611,8 @@ namespace Server
             }
             catch
             {
-                DateTimeOffset d;
 
-                if (DateTimeOffset.TryParse(dateTimeOffsetString, out d))
+                if (DateTimeOffset.TryParse(dateTimeOffsetString, out DateTimeOffset d))
                 {
                     return d;
                 }
@@ -699,16 +691,14 @@ namespace Server
         {
             int range = Core.GlobalUpdateRange;
 
-            return (p1.m_X >= (p2.m_X - range)) && (p1.m_X <= (p2.m_X + range)) && (p1.m_Y >= (p2.m_Y - range)) &&
-                   (p1.m_Y <= (p2.m_Y + range));
+            return p1.m_X >= p2.m_X - range && p1.m_X <= p2.m_X + range && p1.m_Y >= p2.m_Y - range && p1.m_Y <= p2.m_Y + range;
         }
 
         public static bool InUpdateRange(Point2D p1, Point2D p2)
         {
             int range = Core.GlobalUpdateRange;
 
-            return (p1.m_X >= (p2.m_X - range)) && (p1.m_X <= (p2.m_X + range)) && (p1.m_Y >= (p2.m_Y - range)) &&
-                   (p1.m_Y <= (p2.m_Y + range));
+            return p1.m_X >= p2.m_X - range && p1.m_X <= p2.m_X + range && p1.m_Y >= p2.m_Y - range && p1.m_Y <= p2.m_Y + range;
         }
 
         public static bool InUpdateRange(Mobile m, IPoint3D p)
@@ -725,17 +715,17 @@ namespace Server
                 range = m.NetState.UpdateRange;
             }
 
-            if (p1 is Item)
+            if (p1 is Item p1Item)
             {
-                p1 = ((Item)p1).GetWorldLocation();
+                p1 = p1Item.GetWorldLocation();
             }
 
-            if (p2 is Item)
+            if (p2 is Item p2Item)
             {
-                p2 = ((Item)p2).GetWorldLocation();
+                p2 = p2Item.GetWorldLocation();
             }
 
-            return (p1.X >= (p2.X - range)) && (p1.X <= (p2.X + range)) && (p1.Y >= (p2.Y - range)) && (p1.Y <= (p2.Y + range));
+            return p1.X >= p2.X - range && p1.X <= p2.X + range && p1.Y >= p2.Y - range && p1.Y <= p2.Y + range;
         }
         #endregion
 
@@ -753,44 +743,36 @@ namespace Server
                 {
                     return Direction.East;
                 }
-                else
-                {
-                    return Direction.West;
-                }
+
+                return Direction.West;
             }
-            else if (ady >= adx * 3)
+
+            if (ady >= adx * 3)
             {
                 if (dy > 0)
                 {
                     return Direction.South;
                 }
-                else
-                {
-                    return Direction.North;
-                }
+
+                return Direction.North;
             }
-            else if (dx > 0)
+
+            if (dx > 0)
             {
                 if (dy > 0)
                 {
                     return Direction.Down;
                 }
-                else
-                {
-                    return Direction.Right;
-                }
+
+                return Direction.Right;
             }
-            else
+
+            if (dy > 0)
             {
-                if (dy > 0)
-                {
-                    return Direction.Left;
-                }
-                else
-                {
-                    return Direction.Up;
-                }
+                return Direction.Left;
             }
+
+            return Direction.Up;
         }
 
         public static object GetArrayCap(Array array, int index)
@@ -813,10 +795,8 @@ namespace Server
 
                 return array.GetValue(index);
             }
-            else
-            {
-                return emptyValue;
-            }
+
+            return emptyValue;
         }
 
         #region Random
@@ -825,7 +805,7 @@ namespace Server
         /// Floating dice uses a double to obtain a lower average value range.
         /// Consistent average values for [1,000,000 x 1d6+0] rolls: [Integral: 3.50]  [Floating: 2.25]
         /// </summary>
-        public static bool FloatingDice = false;
+        private const bool FloatingDice = false;
 
         //4d6+8 would be: Utility.Dice( 4, 6, 8 )
         public static int Dice(int numDice, int numSides, int bonus)
@@ -833,7 +813,7 @@ namespace Server
             return Dice(numDice, numSides, bonus, FloatingDice);
         }
 
-        public static int Dice(int numDice, int numSides, int bonus, bool floating)
+        private static int Dice(int numDice, int numSides, int bonus, bool floating)
         {
             if (floating)
             {
@@ -867,11 +847,81 @@ namespace Server
             return RandomImpl.NextBool();
         }
 
+#if MONO
+		public static TEnum RandomEnum<TEnum>() where TEnum : struct, IConvertible            
+#else
+        public static TEnum RandomEnum<TEnum>() where TEnum : Enum
+#endif
+        {
+            if (Enum.GetValues(typeof(TEnum)) is TEnum[] values && values.Length > 0)
+                return RandomList(values);
+
+            return default;
+        }
+
+#if MONO
+		public static TEnum RandomMinMax<TEnum>(TEnum min, TEnum max) where TEnum : struct, IConvertible            
+#else
+        public static TEnum RandomMinMax<TEnum>(TEnum min, TEnum max) where TEnum : Enum
+#endif
+        {
+            if (Enum.GetValues(typeof(TEnum)) is TEnum[] values && values.Length > 0)
+            {
+                int curIdx = -1;
+                int minIdx = -1;
+                int maxIdx = -1;
+
+                for (var index = 0; index < values.Length; index++)
+                {
+                    TEnum val = values[index];
+
+                    ++curIdx;
+
+                    if (Equals(val, min))
+                    {
+                        minIdx = curIdx;
+                    }
+                    else if (Equals(val, max))
+                    {
+                        maxIdx = curIdx;
+                    }
+                }
+
+                if (minIdx == 0 && maxIdx == values.Length - 1)
+                {
+                    return RandomList(values);
+                }
+
+                curIdx = -1;
+
+                if (minIdx >= 0)
+                {
+                    if (minIdx == maxIdx)
+                    {
+                        curIdx = minIdx;
+                    }
+                    else if (maxIdx > minIdx)
+                    {
+                        curIdx = RandomMinMax(minIdx, maxIdx);
+                    }
+                }
+
+                if (curIdx >= 0 && curIdx < values.Length)
+                {
+                    return values[curIdx];
+                }
+
+                return RandomList(min, max);
+            }
+
+            return default;
+        }
+
         public static double RandomMinMax(double min, double max)
         {
             if (min > max)
             {
-                var copy = min;
+                double copy = min;
                 min = max;
                 max = copy;
             }
@@ -896,7 +946,7 @@ namespace Server
                 return min;
             }
 
-            return min + RandomImpl.Next((max - min) + 1);
+            return min + RandomImpl.Next(max - min + 1);
         }
 
         public static int Random(int from, int count)
@@ -905,14 +955,13 @@ namespace Server
             {
                 return from;
             }
-            else if (count > 0)
+
+            if (count > 0)
             {
                 return from + RandomImpl.Next(count);
             }
-            else
-            {
-                return from - RandomImpl.Next(-count);
-            }
+
+            return from - RandomImpl.Next(-count);
         }
 
         public static int Random(int count)
@@ -1096,14 +1145,13 @@ namespace Server
             {
                 return 2;
             }
-            else if (hue > 1001)
+
+            if (hue > 1001)
             {
                 return 1001;
             }
-            else
-            {
-                return hue;
-            }
+
+            return hue;
         }
 
         /// <summary>
@@ -1134,14 +1182,13 @@ namespace Server
             {
                 return 1002;
             }
-            else if (hue > 1058)
+
+            if (hue > 1058)
             {
                 return 1058;
             }
-            else
-            {
-                return hue;
-            }
+
+            return hue;
         }
 
         //[Obsolete( "Depreciated, use the methods for the Mobile's race", false )]
@@ -1157,14 +1204,13 @@ namespace Server
             {
                 return 1102;
             }
-            else if (hue > 1149)
+
+            if (hue > 1149)
             {
                 return 1149;
             }
-            else
-            {
-                return hue;
-            }
+
+            return hue;
         }
 
         //[Obsolete( "Depreciated, use the methods for the Mobile's race", false )]
@@ -1174,7 +1220,7 @@ namespace Server
         }
         #endregion
 
-        private static readonly SkillName[] m_AllSkills = new[]
+        private static readonly SkillName[] m_AllSkills =
         {
             SkillName.Alchemy, SkillName.Anatomy, SkillName.AnimalLore, SkillName.ItemID, SkillName.ArmsLore, SkillName.Parry,
             SkillName.Begging, SkillName.Blacksmith, SkillName.Fletching, SkillName.Peacemaking, SkillName.Camping,
@@ -1189,10 +1235,12 @@ namespace Server
             SkillName.Ninjitsu, SkillName.Spellweaving, SkillName.Mysticism, SkillName.Imbuing, SkillName.Throwing
         };
 
-        private static readonly SkillName[] m_CombatSkills = new[]
-        {SkillName.Archery, SkillName.Swords, SkillName.Macing, SkillName.Fencing, SkillName.Wrestling};
+        private static readonly SkillName[] m_CombatSkills =
+        {
+            SkillName.Archery, SkillName.Swords, SkillName.Macing, SkillName.Fencing, SkillName.Wrestling
+        };
 
-        private static readonly SkillName[] m_CraftSkills = new[]
+        private static readonly SkillName[] m_CraftSkills =
         {
             SkillName.Alchemy, SkillName.Blacksmith, SkillName.Fletching, SkillName.Carpentry, SkillName.Cartography,
             SkillName.Cooking, SkillName.Inscribe, SkillName.Tailoring, SkillName.Tinkering
@@ -1200,7 +1248,7 @@ namespace Server
 
         public static SkillName RandomSkill()
         {
-            return m_AllSkills[Random(m_AllSkills.Length - (Core.ML ? 0 : Core.SE ? 1 : Core.AOS ? 3 : 6))];
+            return m_AllSkills[Random(m_AllSkills.Length)];
         }
 
         public static SkillName RandomCombatSkill()
@@ -1396,8 +1444,10 @@ namespace Server
                     Console.ForegroundColor = color;
                 }
             }
-            catch
-            { }
+            catch (Exception e)
+            {
+                // Diagnostics.ExceptionLogging.LogException(e);
+            }
         }
 
         public static void PopColor()
@@ -1409,8 +1459,10 @@ namespace Server
                     Console.ForegroundColor = m_ConsoleColors.Pop();
                 }
             }
-            catch
-            { }
+            catch (Exception e)
+            {
+                // Diagnostics.ExceptionLogging.LogException(e);
+            }
         }
 
         public static bool NumberBetween(double num, int bound1, int bound2, double allowance)
@@ -1422,7 +1474,7 @@ namespace Server
                 bound2 = i;
             }
 
-            return (num < bound2 + allowance && num > bound1 - allowance);
+            return num < bound2 + allowance && num > bound1 - allowance;
         }
 
         public static double GetDistanceToSqrt(Point3D p1, Point3D p2)
@@ -1482,13 +1534,11 @@ namespace Server
 
         public static List<TOutput> SafeConvertList<TInput, TOutput>(List<TInput> list) where TOutput : class
         {
-            var output = new List<TOutput>(list.Capacity);
+            List<TOutput> output = new List<TOutput>(list.Capacity);
 
             for (int i = 0; i < list.Count; i++)
             {
-                TOutput t = list[i] as TOutput;
-
-                if (t != null)
+                if (list[i] is TOutput t)
                 {
                     output.Add(t);
                 }
@@ -1534,24 +1584,41 @@ namespace Server
             if (list == null || action == null)
                 return;
 
-            List<T> l = list.ToList();
+            List<T> l = new List<T>();
 
-            foreach (T o in l)
+            foreach (var unknown in list)
+            {
+                l.Add(unknown);
+            }
+
+            for (var index = 0; index < l.Count; index++)
+            {
+                T o = l[index];
+
                 action(o);
+            }
 
             Free(l);
         }
 
-        public static void ForEach<TKey, TValue>(
-            IDictionary<TKey, TValue> dictionary, Action<KeyValuePair<TKey, TValue>> action)
+        public static void ForEach<TKey, TValue>(IDictionary<TKey, TValue> dictionary, Action<KeyValuePair<TKey, TValue>> action)
         {
             if (dictionary == null || dictionary.Count == 0 || action == null)
                 return;
 
-            List<KeyValuePair<TKey, TValue>> l = dictionary.ToList();
+            List<KeyValuePair<TKey, TValue>> l = new List<KeyValuePair<TKey, TValue>>();
 
-            foreach (KeyValuePair<TKey, TValue> kvp in l)
+            foreach (var pair in dictionary)
+            {
+                l.Add(pair);
+            }
+
+            for (var index = 0; index < l.Count; index++)
+            {
+                KeyValuePair<TKey, TValue> kvp = l[index];
+
                 action(kvp);
+            }
 
             Free(l);
         }
@@ -1561,10 +1628,19 @@ namespace Server
             if (dictionary == null || dictionary.Count == 0 || action == null)
                 return;
 
-            List<KeyValuePair<TKey, TValue>> l = dictionary.ToList();
+            List<KeyValuePair<TKey, TValue>> l = new List<KeyValuePair<TKey, TValue>>();
 
-            foreach (KeyValuePair<TKey, TValue> kvp in l)
+            foreach (var pair in dictionary)
+            {
+                l.Add(pair);
+            }
+
+            for (var index = 0; index < l.Count; index++)
+            {
+                KeyValuePair<TKey, TValue> kvp = l[index];
+
                 action(kvp.Key, kvp.Value);
+            }
 
             Free(l);
         }
@@ -1574,10 +1650,17 @@ namespace Server
             if (list == null || action == null)
                 return;
 
-            List<T> l = list.ToList();
+            List<T> l = new List<T>();
+
+            foreach (var unknown in list)
+            {
+                l.Add(unknown);
+            }
 
             for (int i = 0; i < l.Count; i++)
+            {
                 action(i, l[i]);
+            }
 
             Free(l);
         }
@@ -1587,7 +1670,12 @@ namespace Server
             if (list == null || action == null)
                 return;
 
-            List<KeyValuePair<TKey, TValue>> l = list.ToList();
+            List<KeyValuePair<TKey, TValue>> l = new List<KeyValuePair<TKey, TValue>>();
+
+            foreach (var pair in list)
+            {
+                l.Add(pair);
+            }
 
             for (int i = 0; i < l.Count; i++)
                 action(i, l[i].Key, l[i].Value);
@@ -1638,22 +1726,29 @@ namespace Server
                 return;
             }
 
-            if (list is T[])
+            if (list is T[] list1)
             {
-                IterateReverse((T[])list, action);
+                IterateReverse(list1, action);
                 return;
             }
 
-            if (list is List<T>)
+            if (list is List<T> list2)
             {
-                IterateReverse((List<T>)list, action);
+                IterateReverse(list2, action);
                 return;
             }
 
-            var toList = list.ToList();
+            List<T> toList = new List<T>();
 
-            foreach (var o in toList)
+            foreach (var unknown in list)
             {
+                toList.Add(unknown);
+            }
+
+            for (var index = 0; index < toList.Count; index++)
+            {
+                T o = toList[index];
+
                 action(o);
             }
 
@@ -1682,15 +1777,26 @@ namespace Server
 
             while (--i >= 0)
             {
-                if (i < list.Count)
+                if (i < list.Count && list[i] is IEntity entity && !entity.Deleted && (predicate == null || predicate((T)entity)))
                 {
-                    var entity = list[i] as IEntity;
-
-                    if (entity != null && !entity.Deleted && (predicate == null || predicate((T)entity)))
-                    {
-                        entity.Delete();
-                    }
+                    entity.Delete();
                 }
+            }
+        }
+
+        public static void Shuffle<T>(List<T> list)
+        {
+            if (list == null || list.Count < 2)
+            {
+                return;
+            }
+
+            for (int i = 0; i < list.Count * 2; i++)
+            {
+                var select = list[0];
+                list.RemoveAt(0);
+
+                list.Insert(Utility.RandomMinMax(0, list.Count - 1), select);
             }
         }
     }
