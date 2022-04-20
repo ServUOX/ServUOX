@@ -98,7 +98,7 @@ namespace Server.Engines.CityLoyalty
 
                     BallotEntry ballot = Candidates.FirstOrDefault(entry => entry.Player == m);
 
-                    if (ballot != null && m is PlayerMobile)
+                    if (ballot != null)
                     {
                         pm.SendLocalizedMessage(ballot.Endorsements.Count > 0 ? 1153917 : 1153889);  // A character from this account is currently endorsed for Candidacy and cannot be nominated.                                                                      // A character from this account has already been nominated to run for office.
                         return false;                                                                // A character from this account has already been nominated to run for office. 
@@ -106,7 +106,7 @@ namespace Server.Engines.CityLoyalty
 
                     ballot = Candidates.FirstOrDefault(entry => entry.Endorsements.Contains(m));
 
-                    if (ballot != null && m is PlayerMobile)
+                    if (ballot != null)
                     {
                         pm.SendLocalizedMessage(1153892); // A character from this account has already endorsed a nominee! 
                         return false;
@@ -142,7 +142,7 @@ namespace Server.Engines.CityLoyalty
 
                     BallotEntry ballot = Candidates.FirstOrDefault(entry => entry.Endorsements.Contains(m as PlayerMobile));
 
-                    if (m is PlayerMobile && ballot != null)
+                    if (ballot != null)
                     {
                         pm.SendLocalizedMessage(1153892); // A character from this account has already endorsed a nominee! 
                         return false;
@@ -150,7 +150,7 @@ namespace Server.Engines.CityLoyalty
 
                     BallotEntry ballot2 = Candidates.FirstOrDefault(entry => entry.Player == m);
 
-                    if (m is PlayerMobile && ballot2 != null)
+                    if (ballot2 != null)
                     {
                         pm.SendLocalizedMessage(1153912); // A character from this account is currently nominated for candidacy and cannot offer an endorsement.  
                         return false;
@@ -210,7 +210,8 @@ namespace Server.Engines.CityLoyalty
                     voter.SendGump(new ConfirmCallbackGump(voter, null, 1153921, pentry, null, (m, o) =>
                     {
                         BallotEntry e = o as BallotEntry;
-                        e.Votes.Add(voter);
+                        if (e != null)
+                            e.Votes.Add(voter);
                         m.PrivateOverheadMessage(Network.MessageType.Regular, 0x3B2, 1153923, voter.NetState); // *You etch your vote into the stone* 
                     }));
                 }
@@ -389,7 +390,7 @@ namespace Server.Engines.CityLoyalty
 
                 for (int j = 0; j < times.Length; j++)
                 {
-                    if (i == j)
+                    if (i.Equals(j))
                         continue;
 
                     if ((times[j] > t && times[j] - t < TimeSpan.FromDays(30)) || times[j] < t && t - times[j] < TimeSpan.FromDays(30))
@@ -423,8 +424,7 @@ namespace Server.Engines.CityLoyalty
 
         public bool CanNominate()
         {
-            DateTime until = DateTime.MinValue;
-            return CanNominate(out until);
+            return CanNominate(out _);
         }
 
         public bool CanNominate(out DateTime until)
@@ -444,8 +444,7 @@ namespace Server.Engines.CityLoyalty
 
         public bool CanVote()
         {
-            DateTime until = DateTime.MinValue;
-            return CanVote(out until);
+            return CanVote(out _);
         }
 
         public bool CanVote(out DateTime until)
@@ -481,8 +480,7 @@ namespace Server.Engines.CityLoyalty
                 City.PendingGovernor = true;
                 AutoPickGovernor = DateTime.Now + TimeSpan.FromDays(Utility.RandomMinMax(2, 4));
 
-                if (City.Stone != null)
-                    City.Stone.InvalidateProperties();
+                City.Stone?.InvalidateProperties();
             }
 
             for (int i = 0; i < StartTimes.Length; i++)
@@ -493,7 +491,7 @@ namespace Server.Engines.CityLoyalty
                     continue;
 
                 if (dt < DateTime.Now)
-                    dt = new DateTime(dt.Year + 1, dt.Month, dt.Day);
+                    new DateTime(dt.Year + 1, dt.Month, dt.Day);
             }
         }
 
@@ -619,7 +617,7 @@ namespace Server.Engines.CityLoyalty
             Endorsements = new List<PlayerMobile>();
             Votes = new List<PlayerMobile>();
 
-            int version = reader.ReadInt();
+            reader.ReadInt();
 
             Player = reader.ReadMobile() as PlayerMobile;
             TimeOfNomination = reader.ReadDateTime();

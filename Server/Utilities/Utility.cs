@@ -896,7 +896,7 @@ namespace Server
 
                 if (minIdx >= 0)
                 {
-                    if (minIdx == maxIdx)
+                    if (minIdx.Equals(maxIdx))
                     {
                         curIdx = minIdx;
                     }
@@ -925,7 +925,7 @@ namespace Server
                 min = max;
                 max = copy;
             }
-            else if (min == max)
+            else if (min.Equals(max))
             {
                 return min;
             }
@@ -941,7 +941,7 @@ namespace Server
                 min = max;
                 max = copy;
             }
-            else if (min == max)
+            else if (min.Equals(max))
             {
                 return min;
             }
